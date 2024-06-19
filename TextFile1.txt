@@ -1,0 +1,37 @@
+﻿ἀγαθοεργέω:
+    pos: V
+    bdag-headword: ἀγαθοεργέω
+    danker-entry: ἀγαθοεργέω
+    dodson-entry: ἀγαθοεργέω
+    mounce-headword: ἀγαθοεργέω
+    strongs: 14
+    gk: 14
+    dodson-pos: V
+    gloss: I perform good deeds
+    mounce-morphcat: cv-1d(2a)
+
+ἀγαθουργέω:
+    pos: V
+    bdag-headword: ἀγαθουργέω
+    danker-entry: ἀγαθοεργέω
+    dodson-entry: ἀγαθοεργέω
+    mounce-headword: ἀγαθοεργέω
+    strongs: 14
+    gk: 14
+    dodson-pos: V
+    gloss: I perform good deeds
+    mounce-morphcat: cv-1d(2a)
+
+ἀγαθοεργέω:
+    PAN:
+        forms:
+            -
+                form: ἀγαθοεργεῖν
+
+ἀγαθουργέω:
+    PAP:
+        M:
+            NS:
+                forms:
+                    -
+                        form: ἀγαθουργῶν

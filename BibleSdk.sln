@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibleCore", "BibleCore\BibleCore.csproj", "{122B0794-BF60-4896-84BC-6E9AF572EB25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibleCore", "BibleCore\BibleCore.csproj", "{122B0794-BF60-4896-84BC-6E9AF572EB25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordQuiz", "WordQuiz\WordQuiz.csproj", "{DCDF80EA-6D82-4220-8A8D-92C16AF83F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{122B0794-BF60-4896-84BC-6E9AF572EB25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{122B0794-BF60-4896-84BC-6E9AF572EB25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{122B0794-BF60-4896-84BC-6E9AF572EB25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDF80EA-6D82-4220-8A8D-92C16AF83F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDF80EA-6D82-4220-8A8D-92C16AF83F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDF80EA-6D82-4220-8A8D-92C16AF83F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDF80EA-6D82-4220-8A8D-92C16AF83F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
