@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WordQuiz.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<WordQuizContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WordQuizContext") ?? throw new InvalidOperationException("Connection string 'WordQuizContext' not found.")));
 
 var app = builder.Build();
 
