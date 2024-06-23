@@ -12,13 +12,18 @@ namespace BibleCore.Greek
 
         public PartsOfSpeech PartOfSpeech { get; init; }
 
-        private readonly List<Form> m_forms = [];
+        public List<Form> Forms { get; } = [];
 
-        public Form GetForm(string word, Inflection inflection)
+        //public IEnumerable<Form> Forms
+        //{
+        //    get { return m_forms; }
+        //}
+
+        public Form GetOrCreateForm(string word, Inflection inflection)
         {
             ArgumentNullException.ThrowIfNull(word, nameof(word));
 
-            var form = m_forms.Where(form => form.Word == word && form.Inflection == inflection).SingleOrDefault();
+            var form = Forms.Where(form => form.Word == word && form.Inflection == inflection).SingleOrDefault();
             if (form == null)
             {
                 form = new Form()
@@ -27,7 +32,7 @@ namespace BibleCore.Greek
                     Inflection = inflection
                 };
 
-                m_forms.Add(form);
+                Forms.Add(form);
             }
             //else
             //{

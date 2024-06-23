@@ -8,13 +8,13 @@ namespace BibleCore.Greek
 {
     public class Lexicon
     {
-        private readonly List<Lexeme> m_lexemes = [];
+        public List<Lexeme> Lexemes { get; } = [];
 
-        public Lexeme GetLexeme(string lemma, PartsOfSpeech partOfSpeech)
+        public Lexeme GetOrCreateLexeme(string lemma, PartsOfSpeech partOfSpeech)
         {
             ArgumentNullException.ThrowIfNull(lemma, nameof(lemma));
 
-            var lexeme = m_lexemes.Where(l => l.Lemma == lemma && l.PartOfSpeech == partOfSpeech).FirstOrDefault();
+            var lexeme = Lexemes.Where(l => l.Lemma == lemma && l.PartOfSpeech == partOfSpeech).FirstOrDefault();
             if (lexeme == null)
             {
                 lexeme = new Lexeme
@@ -23,7 +23,7 @@ namespace BibleCore.Greek
                     PartOfSpeech = partOfSpeech
                 };
 
-                m_lexemes.Add( lexeme);
+                Lexemes.Add(lexeme);
             }
             //else
             //{
@@ -35,5 +35,6 @@ namespace BibleCore.Greek
 
             return lexeme;
         }
+
     }
 }

@@ -125,84 +125,84 @@
     <value>..\Resources\lexemes.yaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_61_Mt_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\61-Mt-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\61-Mt-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_62_Mk_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\62-Mk-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\62-Mk-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_63_Lk_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\63-Lk-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\63-Lk-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_64_Jn_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\64-Jn-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\64-Jn-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_65_Ac_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\65-Ac-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\65-Ac-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_66_Ro_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\66-Ro-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\66-Ro-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_67_1Co_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\67-1Co-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\67-1Co-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_68_2Co_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\68-2Co-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\68-2Co-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_69_Ga_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\69-Ga-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\69-Ga-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_70_Eph_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\70-Eph-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\70-Eph-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_71_Php_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\71-Php-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\71-Php-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_72_Col_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\72-Col-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\72-Col-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_73_1Th_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\73-1Th-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\73-1Th-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_74_2Th_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\74-2Th-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\74-2Th-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_75_1Ti_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\75-1Ti-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\75-1Ti-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_76_2Ti_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\76-2Ti-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\76-2Ti-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_77_Tit_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\77-Tit-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\77-Tit-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_78_Phm_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\78-Phm-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\78-Phm-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_79_Heb_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\79-Heb-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\79-Heb-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_80_Jas_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\80-Jas-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\80-Jas-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_81_1Pe_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\81-1Pe-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\81-1Pe-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_82_2Pe_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\82-2Pe-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\82-2Pe-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_83_1Jn_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\83-1Jn-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\83-1Jn-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_84_2Jn_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\84-2Jn-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\84-2Jn-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_85_3Jn_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\85-3Jn-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\85-3Jn-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_86_Jud_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\86-Jud-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\86-Jud-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_87_Re_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\87-Re-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\Resources\87-Re-morphgnt.txt;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

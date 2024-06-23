@@ -8,6 +8,5 @@ Console.WriteLine("Hello, World!");
 
 Console.OutputEncoding = Encoding.UTF8;
 
-var p = new SblGntFileParser();
-p.Parse();
+SblGntFileParser.Parse();
 //Console.WriteLine(Yaml.GetForms());

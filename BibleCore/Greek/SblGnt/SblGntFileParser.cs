@@ -13,19 +13,61 @@ namespace BibleCore.Greek.SblGnt
 {
     public class SblGntFileParser
     {
-        public Lexicon Parse()
+        public static Lexicon Parse()
         {
             var lexicon = new Lexicon();
 
-            using var stream = Resources.ResourceManager.GetStream("_61_Mt_morphgnt");
-            ArgumentNullException.ThrowIfNull(stream, nameof(stream));
+            int lineCount = 0;
+            ReadBook(lexicon, "Mt", "_61_Mt_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Mk", "_62_Mk_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Lk", "_63_Lk_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Jn", "_64_Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Ac", "_65_Ac_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Ro", "_66_Ro_morphgnt", ref lineCount);
+            ReadBook(lexicon, "1Co", "_67_1Co_morphgnt", ref lineCount);
+            ReadBook(lexicon, "2Co", "_68_2Co_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Ga", "_69_Ga_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Eph", "_70_Eph_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Php", "_71_Php_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Col", "_72_Col_morphgnt", ref lineCount);
+            ReadBook(lexicon, "1Th", "_73_1Th_morphgnt", ref lineCount);
+            ReadBook(lexicon, "2Th", "_74_2Th_morphgnt", ref lineCount);
+            ReadBook(lexicon, "1Ti", "_75_1Ti_morphgnt", ref lineCount);
+            ReadBook(lexicon, "2Ti", "_76_2Ti_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Tit", "_77_Tit_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Phm", "_78_Phm_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Heb", "_79_Heb_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Jas", "_80_Jas_morphgnt", ref lineCount);
+            ReadBook(lexicon, "1Pe", "_81_1Pe_morphgnt", ref lineCount);
+            ReadBook(lexicon, "2Pe", "_82_2Pe_morphgnt", ref lineCount);
+            ReadBook(lexicon, "1Jn", "_83_1Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "2Jn", "_84_2Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "3Jn", "_85_3Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Jud", "_86_Jud_morphgnt", ref lineCount);
+            ReadBook(lexicon, "Re", "_87_Re_morphgnt", ref lineCount);
 
+            Console.WriteLine(lineCount + "lines processed.");
+
+            //var sortedInflections = new List<string>(inflections);
+            //sortedInflections.Sort();
+
+            foreach (var inflection in LexiconReporter.GetAllInflections(lexicon))
+            {
+                Console.WriteLine(inflection);
+            }
+
+            return lexicon;
+        }
+
+        private static void ReadBook(Lexicon lexicon, string bookName, string fileName, ref int lineCount)
+        {
+            using var stream = Resources.ResourceManager.GetStream(fileName);
+            ArgumentNullException.ThrowIfNull(stream, nameof(stream));
             using var reader = new StreamReader(stream);
 
             //var inflections = new HashSet<string>();
 
             string? line;
-            int lineCount = 0;
             while ((line = reader.ReadLine()) != null)
             {
                 ++lineCount;
@@ -47,8 +89,8 @@ namespace BibleCore.Greek.SblGnt
                 var inflection = new InflectionBuilder().ParseInflection(parsingCode).Build();
                 var reference = new Reference() { Value = normalizedWord };
 
-                var lexeme = lexicon.GetLexeme(lemma, partOfSpeech);
-                var form = lexeme.GetForm(normalizedWord, inflection);
+                var lexeme = lexicon.GetOrCreateLexeme(lemma, partOfSpeech);
+                var form = lexeme.GetOrCreateForm(normalizedWord, inflection);
                 form.References.Add(reference);
 
                 //inflections.Add(partOfSpeech + '-' + inflection);
@@ -61,21 +103,9 @@ namespace BibleCore.Greek.SblGnt
                 // * normalized word
                 // * lemma
             }
-
-            Console.WriteLine(lineCount + "lines processed.");
-
-            //var sortedInflections = new List<string>(inflections);
-            //sortedInflections.Sort();
-
-            //foreach (var inflection in sortedInflections)
-            //{
-            //    Console.WriteLine(inflection);
-            //}
-
-            return lexicon;
         }
 
-        private PartsOfSpeech ParsePartOfSpeech(string value)
+        private static PartsOfSpeech ParsePartOfSpeech(string value)
         {
             return value switch
             {
