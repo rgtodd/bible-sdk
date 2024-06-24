@@ -19,8 +19,9 @@ namespace BibleCore.Greek
         //    get { return m_forms; }
         //}
 
-        public Form GetOrCreateForm(string word, Inflection inflection)
+        public Form GetOrCreateForm(Lexeme lexeme, string word, Inflection inflection)
         {
+            ArgumentNullException.ThrowIfNull(lexeme, nameof(lexeme));
             ArgumentNullException.ThrowIfNull(word, nameof(word));
 
             var form = Forms.Where(form => form.Word == word && form.Inflection == inflection).SingleOrDefault();
@@ -28,6 +29,7 @@ namespace BibleCore.Greek
             {
                 form = new Form()
                 {
+                    Lexeme = lexeme,
                     Word = word,
                     Inflection = inflection
                 };

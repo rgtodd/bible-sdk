@@ -61,245 +61,539 @@ namespace BibleCore.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 010101 N- ----NSF- Βίβλος Βίβλος βίβλος βίβλος
+        ///010101 N- ----GSF- γενέσεως γενέσεως γενέσεως γένεσις
+        ///010101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///010101 N- ----GSM- χριστοῦ χριστοῦ Χριστοῦ Χριστός
+        ///010101 N- ----GSM- υἱοῦ υἱοῦ υἱοῦ υἱός
+        ///010101 N- ----GSM- Δαυὶδ Δαυὶδ Δαυίδ Δαυίδ
+        ///010101 N- ----GSM- υἱοῦ υἱοῦ υἱοῦ υἱός
+        ///010101 N- ----GSM- Ἀβραάμ. Ἀβραάμ Ἀβραάμ Ἀβραάμ
+        ///010102 N- ----NSM- Ἀβραὰμ Ἀβραὰμ Ἀβραάμ Ἀβραάμ
+        ///010102 V- 3AAI-S-- ἐγέννησεν ἐγέννησεν ἐγέννησε(ν) γεννάω
+        ///010102 RA ----ASM- τὸν τὸν τόν ὁ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _61_Mt_morphgnt {
+        internal static string _61_Mt_morphgnt {
             get {
-                return ResourceManager.GetStream("_61_Mt_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_61_Mt_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 020101 N- ----NSF- Ἀρχὴ Ἀρχὴ ἀρχή ἀρχή
+        ///020101 RA ----GSN- τοῦ τοῦ τοῦ ὁ
+        ///020101 N- ----GSN- εὐαγγελίου εὐαγγελίου εὐαγγελίου εὐαγγέλιον
+        ///020101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///020101 N- ----GSM- ⸀χριστοῦ. χριστοῦ Χριστοῦ Χριστός
+        ///020102 C- -------- ⸀Καθὼς Καθὼς καθώς καθώς
+        ///020102 V- 3XPI-S-- γέγραπται γέγραπται γέγραπται γράφω
+        ///020102 P- -------- ἐν ἐν ἐν ἐν
+        ///020102 RA ----DSM- ⸂τῷ τῷ τῷ ὁ
+        ///020102 N- ----DSM- Ἠσαΐᾳ Ἠσαΐᾳ Ἠσαΐᾳ Ἠσαΐας
+        ///020102 RA ----DSM- τῷ τῷ τῷ ὁ
+        ///020102 N- ----DSM- προφήτῃ⸃· προφή [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _62_Mk_morphgnt {
+        internal static string _62_Mk_morphgnt {
             get {
-                return ResourceManager.GetStream("_62_Mk_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_62_Mk_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 030101 C- -------- Ἐπειδήπερ Ἐπειδήπερ ἐπειδήπερ ἐπειδήπερ
+        ///030101 A- ----NPM- πολλοὶ πολλοὶ πολλοί πολύς
+        ///030101 V- 3AAI-P-- ἐπεχείρησαν ἐπεχείρησαν ἐπεχείρησαν ἐπιχειρέω
+        ///030101 V- -AMN---- ἀνατάξασθαι ἀνατάξασθαι ἀνατάξασθαι ἀνατάσσομαι
+        ///030101 N- ----ASF- διήγησιν διήγησιν διήγησιν διήγησις
+        ///030101 P- -------- περὶ περὶ περί περί
+        ///030101 RA ----GPN- τῶν τῶν τῶν ὁ
+        ///030101 V- -XPPGPN- πεπληροφορημένων πεπληροφορημένων πεπληροφορημένων πληροφορέω
+        ///030101 P- -------- ἐν ἐν ἐν ἐν
+        ///030101 RP ----DP-- ἡμῖν ἡμῖ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _63_Lk_morphgnt {
+        internal static string _63_Lk_morphgnt {
             get {
-                return ResourceManager.GetStream("_63_Lk_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_63_Lk_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 040101 P- -------- Ἐν Ἐν ἐν ἐν
+        ///040101 N- ----DSF- ἀρχῇ ἀρχῇ ἀρχῇ ἀρχή
+        ///040101 V- 3IAI-S-- ἦν ἦν ἦν εἰμί
+        ///040101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///040101 N- ----NSM- λόγος, λόγος λόγος λόγος
+        ///040101 C- -------- καὶ καὶ καί καί
+        ///040101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///040101 N- ----NSM- λόγος λόγος λόγος λόγος
+        ///040101 V- 3IAI-S-- ἦν ἦν ἦν εἰμί
+        ///040101 P- -------- πρὸς πρὸς πρός πρός
+        ///040101 RA ----ASM- τὸν τὸν τόν ὁ
+        ///040101 N- ----ASM- θεόν, θεόν θεόν θεός
+        ///040101 C- -------- καὶ καὶ καί καί
+        ///040101 N- ----NSM- θεὸς θεὸς θεός θεός
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _64_Jn_morphgnt {
+        internal static string _64_Jn_morphgnt {
             get {
-                return ResourceManager.GetStream("_64_Jn_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_64_Jn_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 050101 RA ----ASM- Τὸν Τὸν τόν ὁ
+        ///050101 X- -------- μὲν μὲν μέν μέν
+        ///050101 A- ----ASM- πρῶτον πρῶτον πρῶτον πρῶτος
+        ///050101 N- ----ASM- λόγον λόγον λόγον λόγος
+        ///050101 V- 1AMI-S-- ἐποιησάμην ἐποιησάμην ἐποιησάμην ποιέω
+        ///050101 P- -------- περὶ περὶ περί περί
+        ///050101 A- ----GPN- πάντων, πάντων πάντων πᾶς
+        ///050101 I- -------- ὦ ὦ ὦ ὦ
+        ///050101 N- ----VSM- Θεόφιλε, Θεόφιλε Θεόφιλε Θεόφιλος
+        ///050101 RR ----GPN- ὧν ὧν ὧν ὅς
+        ///050101 V- 3AMI-S-- ἤρξατο ἤρξατο ἤρξατο ἄρχω
+        ///050101 RA ----NSM- ⸀ὁ ὁ ὁ ὁ
+        ///050101 N- ----NS [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _65_Ac_morphgnt {
+        internal static string _65_Ac_morphgnt {
             get {
-                return ResourceManager.GetStream("_65_Ac_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_65_Ac_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 060101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///060101 N- ----NSM- δοῦλος δοῦλος δοῦλος δοῦλος
+        ///060101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///060101 N- ----GSM- Ἰησοῦ⸃, Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///060101 A- ----NSM- κλητὸς κλητὸς κλητός κλητός
+        ///060101 N- ----NSM- ἀπόστολος, ἀπόστολος ἀπόστολος ἀπόστολος
+        ///060101 V- -XPPNSM- ἀφωρισμένος ἀφωρισμένος ἀφωρισμένος ἀφορίζω
+        ///060101 P- -------- εἰς εἰς εἰς εἰς
+        ///060101 N- ----ASN- εὐαγγέλιον εὐαγγέλιον εὐαγγέλιον εὐαγγέλιον
+        ///060101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///060 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _66_Ro_morphgnt {
+        internal static string _66_Ro_morphgnt {
             get {
-                return ResourceManager.GetStream("_66_Ro_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_66_Ro_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 070101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///070101 A- ----NSM- κλητὸς κλητὸς κλητός κλητός
+        ///070101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///070101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///070101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///070101 P- -------- διὰ διὰ διά διά
+        ///070101 N- ----GSN- θελήματος θελήματος θελήματος θέλημα
+        ///070101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///070101 C- -------- καὶ καὶ καί καί
+        ///070101 N- ----NSM- Σωσθένης Σωσθένης Σωσθένης Σωσθένης
+        ///070101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///0701 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _67_1Co_morphgnt {
+        internal static string _67_1Co_morphgnt {
             get {
-                return ResourceManager.GetStream("_67_1Co_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_67_1Co_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 080101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///080101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///080101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///080101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///080101 P- -------- διὰ διὰ διά διά
+        ///080101 N- ----GSN- θελήματος θελήματος θελήματος θέλημα
+        ///080101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///080101 C- -------- καὶ καὶ καί καί
+        ///080101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///080101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///080101 N- ----NSM- ἀδελφὸς ἀδελφὸς ἀδελφός ἀδελφός
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _68_2Co_morphgnt {
+        internal static string _68_2Co_morphgnt {
             get {
-                return ResourceManager.GetStream("_68_2Co_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_68_2Co_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 090101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///090101 N- ----NSM- ἀπόστολος, ἀπόστολος ἀπόστολος ἀπόστολος
+        ///090101 D- -------- οὐκ οὐκ οὐ οὐ
+        ///090101 P- -------- ἀπ’ ἀπ’ ἀπό ἀπό
+        ///090101 N- ----GPM- ἀνθρώπων ἀνθρώπων ἀνθρώπων ἄνθρωπος
+        ///090101 C- -------- οὐδὲ οὐδὲ οὐδέ οὐδέ
+        ///090101 P- -------- δι’ δι’ διά διά
+        ///090101 N- ----GSM- ἀνθρώπου ἀνθρώπου ἀνθρώπου ἄνθρωπος
+        ///090101 C- -------- ἀλλὰ ἀλλὰ ἀλλά ἀλλά
+        ///090101 P- -------- διὰ διὰ διά διά
+        ///090101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///090101 N- ----GSM- Χριστ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _69_Ga_morphgnt {
+        internal static string _69_Ga_morphgnt {
             get {
-                return ResourceManager.GetStream("_69_Ga_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_69_Ga_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 100101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///100101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///100101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///100101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///100101 P- -------- διὰ διὰ διά διά
+        ///100101 N- ----GSN- θελήματος θελήματος θελήματος θέλημα
+        ///100101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///100101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///100101 A- ----DPM- ἁγίοις ἁγίοις ἁγίοις ἅγιος
+        ///100101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///100101 V- -PAPDPM- οὖσιν οὖσιν οὖσι(ν) εἰμί
+        ///100101 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _70_Eph_morphgnt {
+        internal static string _70_Eph_morphgnt {
             get {
-                return ResourceManager.GetStream("_70_Eph_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_70_Eph_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 110101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///110101 C- -------- καὶ καὶ καί καί
+        ///110101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///110101 N- ----NPM- δοῦλοι δοῦλοι δοῦλοι δοῦλος
+        ///110101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///110101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///110101 A- ----DPM- πᾶσιν πᾶσιν πᾶσι(ν) πᾶς
+        ///110101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///110101 A- ----DPM- ἁγίοις ἁγίοις ἁγίοις ἅγιος
+        ///110101 P- -------- ἐν ἐν ἐν ἐν
+        ///110101 N- ----DSM- Χριστῷ Χριστῷ Χριστῷ Χριστός
+        ///110101 N- ----DS [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _71_Php_morphgnt {
+        internal static string _71_Php_morphgnt {
             get {
-                return ResourceManager.GetStream("_71_Php_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_71_Php_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 120101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///120101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///120101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///120101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///120101 P- -------- διὰ διὰ διά διά
+        ///120101 N- ----GSN- θελήματος θελήματος θελήματος θέλημα
+        ///120101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///120101 C- -------- καὶ καὶ καί καί
+        ///120101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///120101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///120101 N- ----NSM- ἀδελφὸς ἀδελφὸς ἀδελφός ἀδελφός
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _72_Col_morphgnt {
+        internal static string _72_Col_morphgnt {
             get {
-                return ResourceManager.GetStream("_72_Col_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_72_Col_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 130101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///130101 C- -------- καὶ καὶ καί καί
+        ///130101 N- ----NSM- Σιλουανὸς Σιλουανὸς Σιλουανός Σιλουανός
+        ///130101 C- -------- καὶ καὶ καί καί
+        ///130101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///130101 RA ----DSF- τῇ τῇ τῇ ὁ
+        ///130101 N- ----DSF- ἐκκλησίᾳ ἐκκλησίᾳ ἐκκλησίᾳ ἐκκλησία
+        ///130101 N- ----GPM- Θεσσαλονικέων Θεσσαλονικέων Θεσσαλονικέων Θεσσαλονικεύς
+        ///130101 P- -------- ἐν ἐν ἐν ἐν
+        ///130101 N- ----DSM- θεῷ θεῷ θεῷ θεός
+        ///130101 N- ----DSM- πατρὶ πατρὶ πατρί πατήρ
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _73_1Th_morphgnt {
+        internal static string _73_1Th_morphgnt {
             get {
-                return ResourceManager.GetStream("_73_1Th_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_73_1Th_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 140101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///140101 C- -------- καὶ καὶ καί καί
+        ///140101 N- ----NSM- Σιλουανὸς Σιλουανὸς Σιλουανός Σιλουανός
+        ///140101 C- -------- καὶ καὶ καί καί
+        ///140101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///140101 RA ----DSF- τῇ τῇ τῇ ὁ
+        ///140101 N- ----DSF- ἐκκλησίᾳ ἐκκλησίᾳ ἐκκλησίᾳ ἐκκλησία
+        ///140101 N- ----GPM- Θεσσαλονικέων Θεσσαλονικέων Θεσσαλονικέων Θεσσαλονικεύς
+        ///140101 P- -------- ἐν ἐν ἐν ἐν
+        ///140101 N- ----DSM- θεῷ θεῷ θεῷ θεός
+        ///140101 N- ----DSM- πατρὶ πατρὶ πατρί πατήρ
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _74_2Th_morphgnt {
+        internal static string _74_2Th_morphgnt {
             get {
-                return ResourceManager.GetStream("_74_2Th_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_74_2Th_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 150101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///150101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///150101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///150101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///150101 P- -------- κατ’ κατ’ κατά κατά
+        ///150101 N- ----ASF- ἐπιταγὴν ἐπιταγὴν ἐπιταγήν ἐπιταγή
+        ///150101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///150101 N- ----GSM- σωτῆρος σωτῆρος σωτῆρος σωτήρ
+        ///150101 RP ----GP-- ἡμῶν ἡμῶν ἡμῶν ἐγώ
+        ///150101 C- -------- καὶ καὶ καί καί
+        ///150101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _75_1Ti_morphgnt {
+        internal static string _75_1Ti_morphgnt {
             get {
-                return ResourceManager.GetStream("_75_1Ti_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_75_1Ti_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 160101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///160101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///160101 N- ----GSM- ⸂Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///160101 N- ----GSM- Ἰησοῦ⸃ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///160101 P- -------- διὰ διὰ διά διά
+        ///160101 N- ----GSN- θελήματος θελήματος θελήματος θέλημα
+        ///160101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///160101 P- -------- κατ’ κατ’ κατά κατά
+        ///160101 N- ----ASF- ἐπαγγελίαν ἐπαγγελίαν ἐπαγγελίαν ἐπαγγελία
+        ///160101 N- ----GSF- ζωῆς ζωῆς ζωῆς ζωή
+        ///160101 RA ----GSF- τῆς τῆς τῆς [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _76_2Ti_morphgnt {
+        internal static string _76_2Ti_morphgnt {
             get {
-                return ResourceManager.GetStream("_76_2Ti_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_76_2Ti_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 170101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///170101 N- ----NSM- δοῦλος δοῦλος δοῦλος δοῦλος
+        ///170101 N- ----GSM- θεοῦ, θεοῦ θεοῦ θεός
+        ///170101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///170101 C- -------- δὲ δὲ δέ δέ
+        ///170101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///170101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///170101 P- -------- κατὰ κατὰ κατά κατά
+        ///170101 N- ----ASF- πίστιν πίστιν πίστιν πίστις
+        ///170101 A- ----GPM- ἐκλεκτῶν ἐκλεκτῶν ἐκλεκτῶν ἐκλεκτός
+        ///170101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///17 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _77_Tit_morphgnt {
+        internal static string _77_Tit_morphgnt {
             get {
-                return ResourceManager.GetStream("_77_Tit_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_77_Tit_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 180101 N- ----NSM- Παῦλος Παῦλος Παῦλος Παῦλος
+        ///180101 N- ----NSM- δέσμιος δέσμιος δέσμιος δέσμιος
+        ///180101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///180101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///180101 C- -------- καὶ καὶ καί καί
+        ///180101 N- ----NSM- Τιμόθεος Τιμόθεος Τιμόθεος Τιμόθεος
+        ///180101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///180101 N- ----NSM- ἀδελφὸς ἀδελφὸς ἀδελφός ἀδελφός
+        ///180101 N- ----DSM- Φιλήμονι Φιλήμονι Φιλήμονι Φιλήμων
+        ///180101 RA ----DSM- τῷ τῷ τῷ ὁ
+        ///180101 A- ----DSM- ἀγαπητῷ ἀγαπητῷ ἀγαπητῷ ἀγαπητός
+        ///1801 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _78_Phm_morphgnt {
+        internal static string _78_Phm_morphgnt {
             get {
-                return ResourceManager.GetStream("_78_Phm_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_78_Phm_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 190101 D- -------- Πολυμερῶς Πολυμερῶς πολυμερῶς πολυμερῶς
+        ///190101 C- -------- καὶ καὶ καί καί
+        ///190101 D- -------- πολυτρόπως πολυτρόπως πολυτρόπως πολυτρόπως
+        ///190101 D- -------- πάλαι πάλαι πάλαι πάλαι
+        ///190101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///190101 N- ----NSM- θεὸς θεὸς θεός θεός
+        ///190101 V- -AAPNSM- λαλήσας λαλήσας λαλήσας λαλέω
+        ///190101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///190101 N- ----DPM- πατράσιν πατράσιν πατράσι(ν) πατήρ
+        ///190101 P- -------- ἐν ἐν ἐν ἐν
+        ///190101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///190101 N- ----DPM- προφήταις  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _79_Heb_morphgnt {
+        internal static string _79_Heb_morphgnt {
             get {
-                return ResourceManager.GetStream("_79_Heb_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_79_Heb_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 200101 N- ----NSM- Ἰάκωβος Ἰάκωβος Ἰάκωβος Ἰάκωβος
+        ///200101 N- ----GSM- θεοῦ θεοῦ θεοῦ θεός
+        ///200101 C- -------- καὶ καὶ καί καί
+        ///200101 N- ----GSM- κυρίου κυρίου κυρίου κύριος
+        ///200101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///200101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///200101 N- ----NSM- δοῦλος δοῦλος δοῦλος δοῦλος
+        ///200101 RA ----DPF- ταῖς ταῖς ταῖς ὁ
+        ///200101 A- ----DPF- δώδεκα δώδεκα δώδεκα δώδεκα
+        ///200101 N- ----DPF- φυλαῖς φυλαῖς φυλαῖς φυλή
+        ///200101 RA ----DPF- ταῖς ταῖς ταῖς ὁ
+        ///200101 P- -------- ἐν ἐ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _80_Jas_morphgnt {
+        internal static string _80_Jas_morphgnt {
             get {
-                return ResourceManager.GetStream("_80_Jas_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_80_Jas_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 210101 N- ----NSM- Πέτρος Πέτρος Πέτρος Πέτρος
+        ///210101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///210101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///210101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///210101 A- ----DPM- ἐκλεκτοῖς ἐκλεκτοῖς ἐκλεκτοῖς ἐκλεκτός
+        ///210101 A- ----DPM- παρεπιδήμοις παρεπιδήμοις παρεπιδήμοις παρεπίδημος
+        ///210101 N- ----GSF- διασπορᾶς διασπορᾶς διασπορᾶς διασπορά
+        ///210101 N- ----GSM- Πόντου, Πόντου Πόντου Πόντος
+        ///210101 N- ----GSF- Γαλατίας, Γαλατίας Γαλατίας Γαλατία
+        ///210101 N- --- [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _81_1Pe_morphgnt {
+        internal static string _81_1Pe_morphgnt {
             get {
-                return ResourceManager.GetStream("_81_1Pe_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_81_1Pe_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 220101 N- ----NSM- ⸀Συμεὼν Συμεὼν Συμεών Συμεών
+        ///220101 N- ----NSM- Πέτρος Πέτρος Πέτρος Πέτρος
+        ///220101 N- ----NSM- δοῦλος δοῦλος δοῦλος δοῦλος
+        ///220101 C- -------- καὶ καὶ καί καί
+        ///220101 N- ----NSM- ἀπόστολος ἀπόστολος ἀπόστολος ἀπόστολος
+        ///220101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///220101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///220101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///220101 A- ----ASF- ἰσότιμον ἰσότιμον ἰσότιμον ἰσότιμος
+        ///220101 RP ----DP-- ἡμῖν ἡμῖν ἡμῖν ἐγώ
+        ///220101 V- -AAPDPM- λαχοῦσιν λαχοῦσιν λαχοῦ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _82_2Pe_morphgnt {
+        internal static string _82_2Pe_morphgnt {
             get {
-                return ResourceManager.GetStream("_82_2Pe_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_82_2Pe_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 230101 RR ----NSN- Ὃ Ὃ ὅ ὅς
+        ///230101 V- 3IAI-S-- ἦν ἦν ἦν εἰμί
+        ///230101 P- -------- ἀπ’ ἀπ’ ἀπό ἀπό
+        ///230101 N- ----GSF- ἀρχῆς, ἀρχῆς ἀρχῆς ἀρχή
+        ///230101 RR ----ASN- ὃ ὃ ὅ ὅς
+        ///230101 V- 1XAI-P-- ἀκηκόαμεν, ἀκηκόαμεν ἀκηκόαμεν ἀκούω
+        ///230101 RR ----ASN- ὃ ὃ ὅ ὅς
+        ///230101 V- 1XAI-P-- ἑωράκαμεν ἑωράκαμεν ἑωράκαμεν ὁράω
+        ///230101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///230101 N- ----DPM- ὀφθαλμοῖς ὀφθαλμοῖς ὀφθαλμοῖς ὀφθαλμός
+        ///230101 RP ----GP-- ἡμῶν, ἡμῶν ἡμῶν ἐγώ
+        ///230101 RR ----ASN- ὃ ὃ ὅ ὅς
+        ///230101 V- 1AMI-P-- ἐθεασάμεθα ἐθεα [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _83_1Jn_morphgnt {
+        internal static string _83_1Jn_morphgnt {
             get {
-                return ResourceManager.GetStream("_83_1Jn_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_83_1Jn_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 240101 RA ----NSM- Ὁ Ὁ ὁ ὁ
+        ///240101 A- ----NSM- πρεσβύτερος πρεσβύτερος πρεσβύτερος πρεσβύτερος
+        ///240101 A- ----DSF- ἐκλεκτῇ ἐκλεκτῇ ἐκλεκτῇ ἐκλεκτός
+        ///240101 N- ----DSF- κυρίᾳ κυρίᾳ κυρίᾳ κυρία
+        ///240101 C- -------- καὶ καὶ καί καί
+        ///240101 RA ----DPN- τοῖς τοῖς τοῖς ὁ
+        ///240101 N- ----DPN- τέκνοις τέκνοις τέκνοις τέκνον
+        ///240101 RP ----GSF- αὐτῆς, αὐτῆς αὐτῆς αὐτός
+        ///240101 RR ----APM- οὓς οὓς οὕς ὅς
+        ///240101 RP ----NS-- ἐγὼ ἐγὼ ἐγώ ἐγώ
+        ///240101 V- 1PAI-S-- ἀγαπῶ ἀγαπῶ ἀγαπῶ ἀγαπάω
+        ///240101 P- -------- ἐν ἐν ἐν ἐν
+        ///24 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _84_2Jn_morphgnt {
+        internal static string _84_2Jn_morphgnt {
             get {
-                return ResourceManager.GetStream("_84_2Jn_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_84_2Jn_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 250101 RA ----NSM- Ὁ Ὁ ὁ ὁ
+        ///250101 A- ----NSM- πρεσβύτερος πρεσβύτερος πρεσβύτερος πρεσβύτερος
+        ///250101 N- ----DSM- Γαΐῳ Γαΐῳ Γαΐῳ Γάϊος
+        ///250101 RA ----DSM- τῷ τῷ τῷ ὁ
+        ///250101 A- ----DSM- ἀγαπητῷ, ἀγαπητῷ ἀγαπητῷ ἀγαπητός
+        ///250101 RR ----ASM- ὃν ὃν ὅν ὅς
+        ///250101 RP ----NS-- ἐγὼ ἐγὼ ἐγώ ἐγώ
+        ///250101 V- 1PAI-S-- ἀγαπῶ ἀγαπῶ ἀγαπῶ ἀγαπάω
+        ///250101 P- -------- ἐν ἐν ἐν ἐν
+        ///250101 N- ----DSF- ἀληθείᾳ. ἀληθείᾳ ἀληθείᾳ ἀλήθεια
+        ///250102 A- ----VSM- Ἀγαπητέ, Ἀγαπητέ ἀγαπητέ ἀγαπητός
+        ///250102 P- -------- περὶ περὶ περί περί [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _85_3Jn_morphgnt {
+        internal static string _85_3Jn_morphgnt {
             get {
-                return ResourceManager.GetStream("_85_3Jn_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_85_3Jn_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 260101 N- ----NSM- Ἰούδας Ἰούδας Ἰούδας Ἰούδας
+        ///260101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///260101 N- ----GSM- Χριστοῦ Χριστοῦ Χριστοῦ Χριστός
+        ///260101 N- ----NSM- δοῦλος, δοῦλος δοῦλος δοῦλος
+        ///260101 N- ----NSM- ἀδελφὸς ἀδελφὸς ἀδελφός ἀδελφός
+        ///260101 C- -------- δὲ δὲ δέ δέ
+        ///260101 N- ----GSM- Ἰακώβου, Ἰακώβου Ἰακώβου Ἰάκωβος
+        ///260101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///260101 P- -------- ἐν ἐν ἐν ἐν
+        ///260101 N- ----DSM- θεῷ θεῷ θεῷ θεός
+        ///260101 N- ----DSM- πατρὶ πατρὶ πατρί πατήρ
+        ///260101 V- -XPPDPM- ⸀ἠγαπημένοις [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _86_Jud_morphgnt {
+        internal static string _86_Jud_morphgnt {
             get {
-                return ResourceManager.GetStream("_86_Jud_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_86_Jud_morphgnt", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        ///   Looks up a localized string similar to 270101 N- ----NSF- Ἀποκάλυψις Ἀποκάλυψις ἀποκάλυψις ἀποκάλυψις
+        ///270101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
+        ///270101 N- ----GSM- Χριστοῦ, Χριστοῦ Χριστοῦ Χριστός
+        ///270101 RR ----ASF- ἣν ἣν ἥν ὅς
+        ///270101 V- 3AAI-S-- ἔδωκεν ἔδωκεν ἔδωκε(ν) δίδωμι
+        ///270101 RP ----DSM- αὐτῷ αὐτῷ αὐτῷ αὐτός
+        ///270101 RA ----NSM- ὁ ὁ ὁ ὁ
+        ///270101 N- ----NSM- θεὸς θεὸς θεός θεός
+        ///270101 V- -AAN---- δεῖξαι δεῖξαι δεῖξαι δείκνυμι
+        ///270101 RA ----DPM- τοῖς τοῖς τοῖς ὁ
+        ///270101 N- ----DPM- δούλοις δούλοις δούλοις δοῦλος
+        ///270101 RP ----GSM- αὐ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream _87_Re_morphgnt {
+        internal static string _87_Re_morphgnt {
             get {
-                return ResourceManager.GetStream("_87_Re_morphgnt", resourceCulture);
+                return ResourceManager.GetString("_87_Re_morphgnt", resourceCulture);
             }
         }
         

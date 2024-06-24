@@ -25,13 +25,6 @@ namespace BibleCore.Greek
 
                 Lexemes.Add(lexeme);
             }
-            //else
-            //{
-            //    if (lexeme.PartOfSpeech != partOfSpeech)
-            //    {
-            //        throw new ArgumentOutOfRangeException(nameof(partOfSpeech), lexeme.PartOfSpeech, "Existing lexeme specifies different part of speech.");
-            //    }
-            //}
 
             return lexeme;
         }

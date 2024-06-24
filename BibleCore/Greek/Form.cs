@@ -8,6 +8,8 @@ namespace BibleCore.Greek
 {
     public class Form
     {
+        public required Lexeme Lexeme { get; init; }
+
         public required string Word { get; init; }
 
         public Inflection Inflection { get; init; }

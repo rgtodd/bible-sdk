@@ -4,9 +4,15 @@ using BibleCore.Greek.SblGnt;
 
 using System.Text;
 
-Console.WriteLine("Hello, World!");
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.WriteLine("Hello, World!");
 
-Console.OutputEncoding = Encoding.UTF8;
 
-SblGntFileParser.Parse();
+        SblGntFileParser.Parse();
+    }
+}
 //Console.WriteLine(Yaml.GetForms());

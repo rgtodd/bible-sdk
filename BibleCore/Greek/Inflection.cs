@@ -26,12 +26,6 @@ namespace BibleCore.Greek
 
         public Degrees? Degree { get; init; }
 
-        public override string ToString()
-        {
-            return ToCode(Person) + "-" + ToCode(Tense) + "-" + ToCode(Voice) + "-" + ToCode(Mood) + "-" + ToCode(Case) + "-" + ToCode(Number) + "-" + ToCode(Gender) + "-" + ToCode(Degree);
-        }
-
-
         public static string ToCode(Persons? persons)
         {
             return persons switch
@@ -131,6 +125,11 @@ namespace BibleCore.Greek
                 Degrees.Superlative => "SUP",
                 _ => "???"
             };
+        }
+
+        public override string ToString()
+        {
+            return ToCode(Person) + "-" + ToCode(Tense) + "-" + ToCode(Voice) + "-" + ToCode(Mood) + "-" + ToCode(Case) + "-" + ToCode(Number) + "-" + ToCode(Gender) + "-" + ToCode(Degree);
         }
 
         public override bool Equals(object? obj)

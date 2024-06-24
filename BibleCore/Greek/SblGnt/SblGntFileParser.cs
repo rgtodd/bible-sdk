@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,51 +19,52 @@ namespace BibleCore.Greek.SblGnt
             var lexicon = new Lexicon();
 
             int lineCount = 0;
-            ReadBook(lexicon, "Mt", "_61_Mt_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Mk", "_62_Mk_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Lk", "_63_Lk_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Jn", "_64_Jn_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Ac", "_65_Ac_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Ro", "_66_Ro_morphgnt", ref lineCount);
-            ReadBook(lexicon, "1Co", "_67_1Co_morphgnt", ref lineCount);
-            ReadBook(lexicon, "2Co", "_68_2Co_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Ga", "_69_Ga_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Eph", "_70_Eph_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Php", "_71_Php_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Col", "_72_Col_morphgnt", ref lineCount);
-            ReadBook(lexicon, "1Th", "_73_1Th_morphgnt", ref lineCount);
-            ReadBook(lexicon, "2Th", "_74_2Th_morphgnt", ref lineCount);
-            ReadBook(lexicon, "1Ti", "_75_1Ti_morphgnt", ref lineCount);
-            ReadBook(lexicon, "2Ti", "_76_2Ti_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Tit", "_77_Tit_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Phm", "_78_Phm_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Heb", "_79_Heb_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Jas", "_80_Jas_morphgnt", ref lineCount);
-            ReadBook(lexicon, "1Pe", "_81_1Pe_morphgnt", ref lineCount);
-            ReadBook(lexicon, "2Pe", "_82_2Pe_morphgnt", ref lineCount);
-            ReadBook(lexicon, "1Jn", "_83_1Jn_morphgnt", ref lineCount);
-            ReadBook(lexicon, "2Jn", "_84_2Jn_morphgnt", ref lineCount);
-            ReadBook(lexicon, "3Jn", "_85_3Jn_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Jud", "_86_Jud_morphgnt", ref lineCount);
-            ReadBook(lexicon, "Re", "_87_Re_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_61_Mt_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_62_Mk_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_63_Lk_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_64_Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_65_Ac_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_66_Ro_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_67_1Co_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_68_2Co_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_69_Ga_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_70_Eph_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_71_Php_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_72_Col_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_73_1Th_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_74_2Th_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_75_1Ti_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_76_2Ti_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_77_Tit_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_78_Phm_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_79_Heb_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_80_Jas_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_81_1Pe_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_82_2Pe_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_83_1Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_84_2Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_85_3Jn_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_86_Jud_morphgnt", ref lineCount);
+            ReadBook(lexicon, "_87_Re_morphgnt", ref lineCount);
 
             Console.WriteLine(lineCount + "lines processed.");
 
             //var sortedInflections = new List<string>(inflections);
             //sortedInflections.Sort();
 
-            foreach (var inflection in LexiconReporter.GetAllInflections(lexicon))
-            {
-                Console.WriteLine(inflection);
-            }
+            LexiconReporter.DumpReferences(lexicon);
 
             return lexicon;
         }
 
-        private static void ReadBook(Lexicon lexicon, string bookName, string fileName, ref int lineCount)
+        private static void ReadBook(Lexicon lexicon, string fileName, ref int lineCount)
         {
-            using var stream = Resources.ResourceManager.GetStream(fileName);
+            var bookText = Resources.ResourceManager.GetString(fileName);
+            ArgumentNullException.ThrowIfNull(bookText, nameof(bookText));
+
+            using var stream = new MemoryStream(Encoding.UTF8.GetBytes(bookText));
             ArgumentNullException.ThrowIfNull(stream, nameof(stream));
+
             using var reader = new StreamReader(stream);
 
             //var inflections = new HashSet<string>();
@@ -87,21 +89,11 @@ namespace BibleCore.Greek.SblGnt
 
                 var partOfSpeech = ParsePartOfSpeech(partOfSpeechCode);
                 var inflection = new InflectionBuilder().ParseInflection(parsingCode).Build();
-                var reference = new Reference() { Value = normalizedWord };
+                var reference = new Reference() { Value = bookChapterVerse };
 
                 var lexeme = lexicon.GetOrCreateLexeme(lemma, partOfSpeech);
-                var form = lexeme.GetOrCreateForm(normalizedWord, inflection);
+                var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, inflection);
                 form.References.Add(reference);
-
-                //inflections.Add(partOfSpeech + '-' + inflection);
-
-                //                *book / chapter / verse
-                //* part of speech
-                // *parsing code
-                // * text(including punctuation)
-                // *word(with punctuation stripped)
-                // * normalized word
-                // * lemma
             }
         }
 
