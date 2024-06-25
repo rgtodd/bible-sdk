@@ -12,6 +12,12 @@ namespace BibleCore.Greek
 
         public PartsOfSpeech PartOfSpeech { get; init; }
 
+        public string? Gloss { get; set; }
+
+        public int[] Strongs { get; set; } = [];
+
+        public int[] Gk { get; set; } = [];
+
         public List<Form> Forms { get; } = [];
 
         //public IEnumerable<Form> Forms

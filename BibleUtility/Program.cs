@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BibleCore;
+using BibleCore.Greek;
 using BibleCore.Greek.SblGnt;
 
 using System.Text;
@@ -11,8 +12,12 @@ internal class Program
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine("Hello, World!");
 
+        var lexicon = new Lexicon();
 
-        SblGntFileParser.Parse();
+        MorphGntFileParser.Parse(lexicon);
+        MorphGntLexemeParser.Parse(lexicon);
+
+        LexiconReporter.DumpReferences(lexicon);
     }
 }
 //Console.WriteLine(Yaml.GetForms());

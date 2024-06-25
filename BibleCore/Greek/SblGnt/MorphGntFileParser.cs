@@ -12,13 +12,12 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek.SblGnt
 {
-    public class SblGntFileParser
+    public class MorphGntFileParser
     {
-        public static Lexicon Parse()
+        public static void Parse(Lexicon lexicon)
         {
-            var lexicon = new Lexicon();
-
             int lineCount = 0;
+
             ReadBook(lexicon, "_61_Mt_morphgnt", ref lineCount);
             ReadBook(lexicon, "_62_Mk_morphgnt", ref lineCount);
             ReadBook(lexicon, "_63_Lk_morphgnt", ref lineCount);
@@ -48,13 +47,6 @@ namespace BibleCore.Greek.SblGnt
             ReadBook(lexicon, "_87_Re_morphgnt", ref lineCount);
 
             Console.WriteLine(lineCount + "lines processed.");
-
-            //var sortedInflections = new List<string>(inflections);
-            //sortedInflections.Sort();
-
-            LexiconReporter.DumpReferences(lexicon);
-
-            return lexicon;
         }
 
         private static void ReadBook(Lexicon lexicon, string fileName, ref int lineCount)
