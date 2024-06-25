@@ -91,9 +91,9 @@ namespace BibleCore.Greek.SblGnt
                 if (bookChapterVerse != currentBookChapterVerse)
                 {
                     currentBookChapterVerse = bookChapterVerse;
-                    currentBook = ParseBook(bookChapterVerse.Substring(0, 2));
-                    currentChapter = byte.Parse(bookChapterVerse.Substring(2, 2));
-                    currentVerse = byte.Parse(bookChapterVerse.Substring(4, 2));
+                    currentBook = ParseBook(bookChapterVerse[..2]);
+                    currentChapter = byte.Parse(bookChapterVerse[2..4]);
+                    currentVerse = byte.Parse(bookChapterVerse[4..]);
                     currentPosition = 0;
                 }
                 else
