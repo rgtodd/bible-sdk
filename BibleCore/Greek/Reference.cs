@@ -8,6 +8,6 @@ namespace BibleCore.Greek
 {
     public readonly struct Reference
     {
-        public required string Value { get; init; }
+        public required TextEntryBookmark Bookmark { get; init; }
     }
 }

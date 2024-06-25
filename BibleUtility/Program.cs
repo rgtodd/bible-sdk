@@ -12,9 +12,10 @@ internal class Program
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine("Hello, World!");
 
+        var text = new Text();
         var lexicon = new Lexicon();
 
-        MorphGntFileParser.Parse(lexicon);
+        MorphGntFileParser.Parse(text, lexicon);
         MorphGntLexemeParser.Parse(lexicon);
 
         LexiconReporter.DumpReferences(lexicon);
