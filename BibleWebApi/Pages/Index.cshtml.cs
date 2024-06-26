@@ -9,24 +9,24 @@ using System.IO;
 using BibleWebApi;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using BibleWebApi.Code;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WordQuiz.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel(ILogger<IndexModel> logger) : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<IndexModel> _logger = logger;
 
-        public LexemeData? LexemeData { get; set; }
+        public required LexemeData LexemeData { get; set; } = LexemeData.Empty;
 
         private static HttpClient client = new HttpClient()
         {
             BaseAddress = new Uri("https://localhost:7085/")
         };
 
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
+        [BindProperty]
+        public string Strongs { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -35,27 +35,19 @@ namespace WordQuiz.Pages
             {
                 var json = await response.Content.ReadAsStringAsync();
 
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-                options.Converters.Add(new JsonStringEnumConverter());
-                LexemeData = JsonSerializer.Deserialize<LexemeData>(json, options);
+                LexemeData = JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions) ?? LexemeData.Empty;
             }
         }
 
-        private async Task<LexemeData?> GetLexemeData()
+        public async  Task OnPostAsync()
         {
-            LexemeData? lexeme = null;
-            HttpResponseMessage response = await client.GetAsync("~/Lexeme/1");
+            HttpResponseMessage response = await client.GetAsync("api/lexeme/" + Strongs);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
 
-                lexeme= JsonSerializer.Deserialize<LexemeData>(json);
-
+                LexemeData = JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions) ?? LexemeData.Empty;
             }
-            return lexeme;
         }
     }
 }

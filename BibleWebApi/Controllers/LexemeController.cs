@@ -15,7 +15,7 @@ namespace BibleWebApi.Controllers
         [HttpGet("{id}")]
         public LexemeData? Get(int id)
         {
-            var lexeme = GlobalGreek.Instance.Lexicon.Lexemes[0];
+            var lexeme = GlobalGreek.Instance.Lexicon.Lexemes.Where(l => l.Strongs.Contains(id)).FirstOrDefault();
             var lexemeData = DataFactory.CreateLexemeData(lexeme);
 
             return lexemeData;
