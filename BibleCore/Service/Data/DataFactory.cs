@@ -10,7 +10,6 @@ namespace BibleCore.Service.Data
 {
     public static class DataFactory
     {
-
         public static LexemeData CreateLexemeData(Lexeme lexeme)
         {
             return new LexemeData()

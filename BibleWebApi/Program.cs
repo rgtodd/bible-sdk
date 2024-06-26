@@ -26,6 +26,9 @@ namespace BibleWebApi
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
+            //WEB
+            builder.Services.AddRazorPages();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -37,10 +40,15 @@ namespace BibleWebApi
 
             app.UseHttpsRedirection();
 
+            // WEB
+            app.UseRouting();
+
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            // WEB 
+            app.MapRazorPages();
 
             app.Run();
         }
