@@ -66,7 +66,7 @@ namespace BibleCore.Greek.SblGnt
             string? line;
 
             string currentBookChapterVerse = "";
-            Books currentBook = default;
+            Book currentBook = default;
             byte currentChapter = default;
             byte currentVerse = default;
             byte currentPosition = default;
@@ -122,58 +122,58 @@ namespace BibleCore.Greek.SblGnt
             }
         }
 
-        private static Books ParseBook(string value)
+        private static Book ParseBook(string value)
         {
             return value switch
             {
-                "01" => Books.Matthew,
-                "02" => Books.Mark,
-                "03" => Books.Luke,
-                "04" => Books.John,
-                "05" => Books.Acts,
-                "06" => Books.Romans,
-                "07" => Books.FirstCorinthians,
-                "08" => Books.SecondCorinthians,
-                "09" => Books.Galatians,
-                "10" => Books.Ephesians,
-                "11" => Books.Philippians,
-                "12" => Books.Colossians,
-                "13" => Books.FirstThessalonians,
-                "14" => Books.SecondThessalonians,
-                "15" => Books.FirstTimothy,
-                "16" => Books.SecondTimothy,
-                "17" => Books.Titus,
-                "18" => Books.Philemon,
-                "19" => Books.Hebrews,
-                "20" => Books.James,
-                "21" => Books.FirstPeter,
-                "22" => Books.SecondPeter,
-                "23" => Books.FirstJohn,
-                "24" => Books.SecondJohn,
-                "25" => Books.ThirdJohn,
-                "26" => Books.Jude,
-                "27" => Books.Revelation,
+                "01" => Book.Matthew,
+                "02" => Book.Mark,
+                "03" => Book.Luke,
+                "04" => Book.John,
+                "05" => Book.Acts,
+                "06" => Book.Romans,
+                "07" => Book.FirstCorinthians,
+                "08" => Book.SecondCorinthians,
+                "09" => Book.Galatians,
+                "10" => Book.Ephesians,
+                "11" => Book.Philippians,
+                "12" => Book.Colossians,
+                "13" => Book.FirstThessalonians,
+                "14" => Book.SecondThessalonians,
+                "15" => Book.FirstTimothy,
+                "16" => Book.SecondTimothy,
+                "17" => Book.Titus,
+                "18" => Book.Philemon,
+                "19" => Book.Hebrews,
+                "20" => Book.James,
+                "21" => Book.FirstPeter,
+                "22" => Book.SecondPeter,
+                "23" => Book.FirstJohn,
+                "24" => Book.SecondJohn,
+                "25" => Book.ThirdJohn,
+                "26" => Book.Jude,
+                "27" => Book.Revelation,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static PartsOfSpeech ParsePartOfSpeech(string value)
+        private static PartOfSpeech ParsePartOfSpeech(string value)
         {
             return value switch
             {
-                "A-" => PartsOfSpeech.Adjective,
-                "C-" => PartsOfSpeech.Conjunction,
-                "D-" => PartsOfSpeech.Adverb,
-                "I-" => PartsOfSpeech.Interjection,
-                "N-" => PartsOfSpeech.Noun,
-                "P-" => PartsOfSpeech.Preposition,
-                "RA" => PartsOfSpeech.DefiniteArticle,
-                "RD" => PartsOfSpeech.DemonstrativePronoun,
-                "RI" => PartsOfSpeech.IndefinitePronoun,
-                "RP" => PartsOfSpeech.PersonalPronoun,
-                "RR" => PartsOfSpeech.RelativePronoun,
-                "V-" => PartsOfSpeech.Verb,
-                "X-" => PartsOfSpeech.Particle,
+                "A-" => PartOfSpeech.Adjective,
+                "C-" => PartOfSpeech.Conjunction,
+                "D-" => PartOfSpeech.Adverb,
+                "I-" => PartOfSpeech.Interjection,
+                "N-" => PartOfSpeech.Noun,
+                "P-" => PartOfSpeech.Preposition,
+                "RA" => PartOfSpeech.DefiniteArticle,
+                "RD" => PartOfSpeech.DemonstrativePronoun,
+                "RI" => PartOfSpeech.IndefinitePronoun,
+                "RP" => PartOfSpeech.PersonalPronoun,
+                "RR" => PartOfSpeech.RelativePronoun,
+                "V-" => PartOfSpeech.Verb,
+                "X-" => PartOfSpeech.Particle,
                 _ => throw new NotImplementedException()
             };
         }

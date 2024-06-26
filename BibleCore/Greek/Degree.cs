@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Persons
+    public enum Degree
     {
-        First, // 1
-        Second, // 2
-        Third // 3
+        Comparative, // C
+        Superlative // S
     }
 }

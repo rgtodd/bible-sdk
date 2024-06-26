@@ -10,7 +10,7 @@ namespace BibleCore.Greek
     {
         public required string Lemma { get; init; }
 
-        public PartsOfSpeech PartOfSpeech { get; init; }
+        public PartOfSpeech PartOfSpeech { get; init; }
 
         public string? Gloss { get; set; }
 

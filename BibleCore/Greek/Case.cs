@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Tenses
+    public enum Case
     {
-        Present, // P
-        Imperfect, // I
-        Future, // F
-        Aorist, // A
-        Perfect, // X
-        Pluperfect // Y
+        Nominative, // N
+        Genitive, // G
+        Dative, // D
+        Accusative, // A
+        V
     }
 }

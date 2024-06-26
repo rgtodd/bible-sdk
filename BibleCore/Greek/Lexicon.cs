@@ -10,7 +10,7 @@ namespace BibleCore.Greek
     {
         public List<Lexeme> Lexemes { get; } = [];
 
-        public Lexeme GetOrCreateLexeme(string lemma, PartsOfSpeech partOfSpeech)
+        public Lexeme GetOrCreateLexeme(string lemma, PartOfSpeech partOfSpeech)
         {
             ArgumentNullException.ThrowIfNull(lemma, nameof(lemma));
 

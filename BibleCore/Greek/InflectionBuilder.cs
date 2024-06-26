@@ -8,58 +8,58 @@ namespace BibleCore.Greek
 {
     public class InflectionBuilder
     {
-        private Persons? m_person;
-        private Tenses? m_tense;
-        private Voices? m_voice;
-        private Moods? m_mood;
-        private Cases? m_case;
-        private Numbers? m_number;
-        private Genders? m_gender;
-        private Degrees? m_degree;
+        private Person? m_person;
+        private Tense? m_tense;
+        private Voice? m_voice;
+        private Mood? m_mood;
+        private Case? m_case;
+        private Number? m_number;
+        private Gender? m_gender;
+        private Degree? m_degree;
 
-        public InflectionBuilder SetPerson(Persons? person)
+        public InflectionBuilder SetPerson(Person? person)
         {
             m_person = person;
             return this;
         }
 
-        public InflectionBuilder SetTense(Tenses? tense)
+        public InflectionBuilder SetTense(Tense? tense)
         {
             m_tense = tense;
             return this;
         }
 
-        public InflectionBuilder SetVoice(Voices? voice)
+        public InflectionBuilder SetVoice(Voice? voice)
         {
             m_voice = voice;
             return this;
         }
 
-        public InflectionBuilder SetMood(Moods? mood)
+        public InflectionBuilder SetMood(Mood? mood)
         {
             m_mood = mood;
             return this;
         }
 
-        public InflectionBuilder SetCase(Cases? _case)
+        public InflectionBuilder SetCase(Case? _case)
         {
             m_case = _case;
             return this;
         }
 
-        public InflectionBuilder SetNumber(Numbers? number)
+        public InflectionBuilder SetNumber(Number? number)
         {
             m_number = number;
             return this;
         }
 
-        public InflectionBuilder SetGender(Genders? gender)
+        public InflectionBuilder SetGender(Gender? gender)
         {
             m_gender = gender;
             return this;
         }
 
-        public InflectionBuilder SetDegree(Degrees? degree)
+        public InflectionBuilder SetDegree(Degree? degree)
         {
             m_degree = degree;
             return this;
@@ -121,103 +121,103 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Persons ParsePerson(char value)
+        public static Person ParsePerson(char value)
         {
             switch (value)
             {
-                case '1': return Persons.First;
-                case '2': return Persons.Second;
-                case '3': return Persons.Third;
+                case '1': return Person.First;
+                case '2': return Person.Second;
+                case '3': return Person.Third;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Tenses ParseTense(char value)
+        public static Tense ParseTense(char value)
         {
             switch (value)
             {
-                case 'P': return Tenses.Present;
-                case 'I': return Tenses.Imperfect;
-                case 'F': return Tenses.Future;
-                case 'A': return Tenses.Aorist;
-                case 'X': return Tenses.Perfect;
-                case 'Y': return Tenses.Pluperfect;
+                case 'P': return Tense.Present;
+                case 'I': return Tense.Imperfect;
+                case 'F': return Tense.Future;
+                case 'A': return Tense.Aorist;
+                case 'X': return Tense.Perfect;
+                case 'Y': return Tense.Pluperfect;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Voices ParseVoice(char value)
+        public static Voice ParseVoice(char value)
         {
             switch (value)
             {
-                case 'A': return Voices.Active;
-                case 'M': return Voices.Middle;
-                case 'P': return Voices.Passive;
+                case 'A': return Voice.Active;
+                case 'M': return Voice.Middle;
+                case 'P': return Voice.Passive;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Moods ParseMood(char value)
+        public static Mood ParseMood(char value)
         {
             switch (value)
             {
-                case 'I': return Moods.Indicative;
-                case 'D': return Moods.Imperative;
-                case 'S': return Moods.Subjunctive;
-                case 'O': return Moods.Optative;
-                case 'N': return Moods.Infinitive;
-                case 'P': return Moods.Participle;
+                case 'I': return Mood.Indicative;
+                case 'D': return Mood.Imperative;
+                case 'S': return Mood.Subjunctive;
+                case 'O': return Mood.Optative;
+                case 'N': return Mood.Infinitive;
+                case 'P': return Mood.Participle;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Cases ParseCase(char value)
+        public static Case ParseCase(char value)
         {
             switch (value)
             {
-                case 'N': return Cases.Nominative;
-                case 'G': return Cases.Genitive;
-                case 'D': return Cases.Dative;
-                case 'A': return Cases.Accusative;
-                case 'V': return Cases.V;
+                case 'N': return Case.Nominative;
+                case 'G': return Case.Genitive;
+                case 'D': return Case.Dative;
+                case 'A': return Case.Accusative;
+                case 'V': return Case.V;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Numbers ParseNumber(char value)
+        public static Number ParseNumber(char value)
         {
             switch (value)
             {
-                case 'S': return Numbers.Singular;
-                case 'P': return Numbers.Plural;
+                case 'S': return Number.Singular;
+                case 'P': return Number.Plural;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Genders ParseGender(char value)
+        public static Gender ParseGender(char value)
         {
             switch (value)
             {
-                case 'M': return Genders.Masculine;
-                case 'F': return Genders.Feminine;
-                case 'N': return Genders.Neuter;
+                case 'M': return Gender.Masculine;
+                case 'F': return Gender.Feminine;
+                case 'N': return Gender.Neuter;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }
         }
 
-        public static Degrees ParseDegree(char value)
+        public static Degree ParseDegree(char value)
         {
             switch (value)
             {
-                case 'C': return Degrees.Comparative;
-                case 'S': return Degrees.Superlative;
+                case 'C': return Degree.Comparative;
+                case 'S': return Degree.Superlative;
                 default:
                     throw new ArgumentOutOfRangeException(paramName: nameof(value));
             }

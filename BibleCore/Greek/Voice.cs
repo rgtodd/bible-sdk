@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Numbers
+    public enum Voice
     {
-        Singular, // S
-        Plural // P
+        Active, // A
+        Middle, // M
+        Passive // P
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Moods
+    public enum Mood
     {
         Indicative, // I
         Imperative, // D 

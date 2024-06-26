@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Books
+    public enum Book
     {
         Matthew,
         Mark,

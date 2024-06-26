@@ -11,126 +11,126 @@ namespace BibleCore.Service.Data
     public static class DataFactory
     {
 
-        public static CaseData? CreateCaseData(Cases? _case)
+        public static CaseData? CreateCaseData(Case? _case)
         {
             return _case switch
             {
                 null => null,
-                Cases.Accusative => CaseData.Accusative,
-                Cases.Dative => CaseData.Dative,
-                Cases.Genitive => CaseData.Genitive,
-                Cases.Nominative => CaseData.Nominative,
-                Cases.V => CaseData.V,
+                Case.Accusative => CaseData.Accusative,
+                Case.Dative => CaseData.Dative,
+                Case.Genitive => CaseData.Genitive,
+                Case.Nominative => CaseData.Nominative,
+                Case.V => CaseData.V,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static DegreeData? CreateDegreeData(Degrees? degree)
+        public static DegreeData? CreateDegreeData(Degree? degree)
         {
             return degree switch
             {
                 null => null,
-                Degrees.Comparative => DegreeData.Comparative,
-                Degrees.Superlative => DegreeData.Superlative,
+                Degree.Comparative => DegreeData.Comparative,
+                Degree.Superlative => DegreeData.Superlative,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static GenderData? CreateGenderData(Genders? gender)
+        public static GenderData? CreateGenderData(Gender? gender)
         {
             return gender switch
             {
                 null => null,
-                Genders.Feminine => GenderData.Feminine,
-                Genders.Masculine => GenderData.Masculine,
-                Genders.Neuter => GenderData.Neuter,
+                Gender.Feminine => GenderData.Feminine,
+                Gender.Masculine => GenderData.Masculine,
+                Gender.Neuter => GenderData.Neuter,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static MoodData? CreateMoodData(Moods? mood)
+        public static MoodData? CreateMoodData(Mood? mood)
         {
             return mood switch
             {
                 null => null,
-                Moods.Imperative => MoodData.Imperative,
-                Moods.Indicative => MoodData.Indicative,
-                Moods.Infinitive => MoodData.Infinitive,
-                Moods.Optative => MoodData.Optative,
-                Moods.Participle => MoodData.Participle,
-                Moods.Subjunctive => MoodData.Subjunctive,
+                Mood.Imperative => MoodData.Imperative,
+                Mood.Indicative => MoodData.Indicative,
+                Mood.Infinitive => MoodData.Infinitive,
+                Mood.Optative => MoodData.Optative,
+                Mood.Participle => MoodData.Participle,
+                Mood.Subjunctive => MoodData.Subjunctive,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static NumberData? CreateNumberData(Numbers? number)
+        public static NumberData? CreateNumberData(Number? number)
         {
             return number switch
             {
                 null => null,
-                Numbers.Plural => NumberData.Plural,
-                Numbers.Singular => NumberData.Singular,
+                Number.Plural => NumberData.Plural,
+                Number.Singular => NumberData.Singular,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static PartOfSpeechData? CreatePartOfSpeechData(PartsOfSpeech? partOfSpeech)
+        public static PartOfSpeechData? CreatePartOfSpeechData(PartOfSpeech? partOfSpeech)
         {
             return partOfSpeech switch
             {
                 null => null,
-                PartsOfSpeech.Adjective => PartOfSpeechData.Adjective,
-                PartsOfSpeech.Adverb => PartOfSpeechData.Adverb,
-                PartsOfSpeech.Conjunction => PartOfSpeechData.Conjunction,
-                PartsOfSpeech.DefiniteArticle => PartOfSpeechData.DefiniteArticle,
-                PartsOfSpeech.DemonstrativePronoun => PartOfSpeechData.DemonstrativePronoun,
-                PartsOfSpeech.IndefinitePronoun => PartOfSpeechData.IndefinitePronoun,
-                PartsOfSpeech.Interjection => PartOfSpeechData.Interjection,
-                PartsOfSpeech.Noun => PartOfSpeechData.Noun,
-                PartsOfSpeech.Particle => PartOfSpeechData.Particle,
-                PartsOfSpeech.PersonalPronoun => PartOfSpeechData.PersonalPronoun,
-                PartsOfSpeech.Preposition => PartOfSpeechData.Preposition,
-                PartsOfSpeech.RelativePronoun => PartOfSpeechData.RelativePronoun,
-                PartsOfSpeech.Verb => PartOfSpeechData.Verb,
+                PartOfSpeech.Adjective => PartOfSpeechData.Adjective,
+                PartOfSpeech.Adverb => PartOfSpeechData.Adverb,
+                PartOfSpeech.Conjunction => PartOfSpeechData.Conjunction,
+                PartOfSpeech.DefiniteArticle => PartOfSpeechData.DefiniteArticle,
+                PartOfSpeech.DemonstrativePronoun => PartOfSpeechData.DemonstrativePronoun,
+                PartOfSpeech.IndefinitePronoun => PartOfSpeechData.IndefinitePronoun,
+                PartOfSpeech.Interjection => PartOfSpeechData.Interjection,
+                PartOfSpeech.Noun => PartOfSpeechData.Noun,
+                PartOfSpeech.Particle => PartOfSpeechData.Particle,
+                PartOfSpeech.PersonalPronoun => PartOfSpeechData.PersonalPronoun,
+                PartOfSpeech.Preposition => PartOfSpeechData.Preposition,
+                PartOfSpeech.RelativePronoun => PartOfSpeechData.RelativePronoun,
+                PartOfSpeech.Verb => PartOfSpeechData.Verb,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static PersonData? CreatePersonData(Persons? person)
+        public static PersonData? CreatePersonData(Person? person)
         {
             return person switch
             {
                 null => null,
-                Persons.First => PersonData.First,
-                Persons.Second => PersonData.Second,
-                Persons.Third => PersonData.Third,
+                Person.First => PersonData.First,
+                Person.Second => PersonData.Second,
+                Person.Third => PersonData.Third,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static TenseData? CreateTenseData(Tenses? tense)
+        public static TenseData? CreateTenseData(Tense? tense)
         {
             return tense switch
             {
                 null => null,
-                Tenses.Aorist => TenseData.Aorist,
-                Tenses.Future => TenseData.Future,
-                Tenses.Imperfect => TenseData.Imperfect,
-                Tenses.Perfect => TenseData.Perfect,
-                Tenses.Pluperfect => TenseData.Pluperfect,
-                Tenses.Present => TenseData.Present,
+                Tense.Aorist => TenseData.Aorist,
+                Tense.Future => TenseData.Future,
+                Tense.Imperfect => TenseData.Imperfect,
+                Tense.Perfect => TenseData.Perfect,
+                Tense.Pluperfect => TenseData.Pluperfect,
+                Tense.Present => TenseData.Present,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public static VoiceData? CreateVoiceData(Voices? voice)
+        public static VoiceData? CreateVoiceData(Voice? voice)
         {
             return voice switch
             {
                 null => null,
-                Voices.Active => VoiceData.Active,
-                Voices.Middle => VoiceData.Middle,
-                Voices.Passive => VoiceData.Passive,
+                Voice.Active => VoiceData.Active,
+                Voice.Middle => VoiceData.Middle,
+                Voice.Passive => VoiceData.Passive,
                 _ => throw new NotImplementedException()
             };
         }

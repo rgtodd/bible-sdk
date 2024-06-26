@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum PartsOfSpeech
+    public enum PartOfSpeech
     {
         Adjective, // A
         Conjunction, // C

@@ -8,7 +8,7 @@ namespace BibleCore.Greek
 {
     public readonly struct TextEntryBookmark : IEquatable<TextEntryBookmark>, IComparable<TextEntryBookmark>
     {
-        public readonly Books Book { get; init; }
+        public readonly Book Book { get; init; }
 
         public readonly byte Chapter { get; init; }
 

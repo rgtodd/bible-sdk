@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Voices
+    public enum Person
     {
-        Active, // A
-        Middle, // M
-        Passive // P
+        First, // 1
+        Second, // 2
+        Third // 3
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public enum Genders
+    public enum Gender
     {
         Masculine, // M
         Feminine, // F
