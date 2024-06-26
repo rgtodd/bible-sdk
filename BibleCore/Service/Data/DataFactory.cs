@@ -11,6 +11,47 @@ namespace BibleCore.Service.Data
     public static class DataFactory
     {
 
+        public static LexemeData CreateLexemeData(Lexeme lexeme)
+        {
+            return new LexemeData()
+            {
+                Lemma = lexeme.Lemma,
+                PartOfSpeech = CreatePartOfSpeechData(lexeme.PartOfSpeech),
+                Gloss = lexeme.Gloss ?? string.Empty,
+                Gk = lexeme.Gk,
+                Strongs = lexeme.Strongs,
+                Forms = CreateFormDataArray(lexeme.Forms)
+            };
+        }
+
+        public static ReferenceData CreateReferenceData(Reference reference)
+        {
+            return new ReferenceData()
+            {
+                Bookmark = reference.Bookmark.ToString() ?? string.Empty
+            };
+        }
+
+        public static ReferenceData[] CreateReferenceDataArray(IEnumerable<Reference> references)
+        {
+            return references.Select(CreateReferenceData).ToArray();
+        }
+
+        public static FormData CreateFormData(Form form)
+        {
+            return new FormData()
+            {
+                Word = form.Word,
+                Inflection = CreateInflectionData(form.Inflection),
+                References = CreateReferenceDataArray(form.References)
+            };
+        }
+
+        public static FormData[] CreateFormDataArray(IEnumerable<Form> forms)
+        {
+            return forms.Select(CreateFormData).ToArray();
+        }
+
         public static CaseData? CreateCaseData(Case? _case)
         {
             return _case switch
@@ -74,11 +115,10 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static PartOfSpeechData? CreatePartOfSpeechData(PartOfSpeech? partOfSpeech)
+        public static PartOfSpeechData CreatePartOfSpeechData(PartOfSpeech partOfSpeech)
         {
             return partOfSpeech switch
             {
-                null => null,
                 PartOfSpeech.Adjective => PartOfSpeechData.Adjective,
                 PartOfSpeech.Adverb => PartOfSpeechData.Adverb,
                 PartOfSpeech.Conjunction => PartOfSpeechData.Conjunction,

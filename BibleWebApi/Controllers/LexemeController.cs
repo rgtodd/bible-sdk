@@ -1,4 +1,5 @@
-﻿using BibleCore.Service.Data;
+﻿using BibleCore.Greek;
+using BibleCore.Service.Data;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +15,10 @@ namespace BibleWebApi.Controllers
         [HttpGet("{id}")]
         public LexemeData? Get(int id)
         {
-            return null;
+            var lexeme = GlobalGreek.Instance.Lexicon.Lexemes[0];
+            var lexemeData = DataFactory.CreateLexemeData(lexeme);
+
+            return lexemeData;
         }
     }
 }

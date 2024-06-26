@@ -16,6 +16,11 @@ namespace BibleCore.Greek
 
         public readonly byte Position { get; init; }
 
+        public override string ToString()
+        {
+            return $"{Book} {Chapter}:{Verse}.{Position}";
+        }
+
         public override bool Equals(object? obj)
         {
             return obj is TextEntryBookmark bookmark && Equals(bookmark);
