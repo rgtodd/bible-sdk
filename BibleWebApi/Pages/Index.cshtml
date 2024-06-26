@@ -3,63 +3,51 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<button type="button" class="btn btn-primary">Base class</button>
-<button type="button" class="btn btn-primary">Base class</button>
-<button type="button" class="btn btn-primary">Base class</button>
-
-<div class="card">
-    <div class="card-body">
-        This is some text within a card body.
-    </div>
-</div>
-
-<div class="card text-center" style="width: 25rem">
+<div>
     <form method="post" >
         <fieldset>
-          <legend>Lookup</legend>
-          <div>
-            <label for="CompanyName">Strongs:</label>
-            <input type="text" name="Strongs" value="" />
-          </div>
-          <div>
-            <label>&nbsp;</label>
-            <input type="submit" value="Submit" class="submit" />
-          </div>
+            <legend>Lookup</legend>
+            <div>
+                <label for="CompanyName">Strongs:</label>
+                <input type="text" name="Strongs" value="@Model.Strongs" />
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Submit" class="submit" />
+            </div>
         </fieldset>
-      </form>
+    </form>
     <div class="card-body">
         <h5 class="card-title" style="font-family: 'Times New Roman', Times, serif">@Model.LexemeData?.Lemma</h5>
-                <p class="card-text" style="font-family: 'Times New Roman', Times, serif">@Model.LexemeData?.PartOfSpeech</p>
+        <p class="card-text" style="font-family: 'Times New Roman', Times, serif">@Model.LexemeData?.PartOfSpeech</p>
         <p class="card-text">@Model.LexemeData?.Gloss</p>
         <p class="card-text">Strongs: @string.Join(',', Model.LexemeData.Strongs.Select(s => s.ToString()).ToArray())</p>
         <p class="card-text">GK: @string.Join(',', Model.LexemeData.Gk.Select(s => s.ToString()).ToArray())</p>
-        <p class="card-text" style="font-family: 'Times New Roman', Times, serif">-ου, ὁ</p>
-        <p class="card-text" style="font-family: 'Times New Roman', Times, serif">*ἀγγελο</p>
-        <p class="card-text">
-            <button type="button" class="btn btn-primary">angel; messenger</button>
-            <button type="button" class="btn btn-primary">angel; messenger</button>
-            <button type="button" class="btn btn-primary">angel; messenger</button>
-        </p>
-        @foreach(var form in Model.LexemeData.Forms)
-        {
-            <p>@form.Word</p>
-            <p>@form.Inflection.Case
-            @form.Inflection.Degree
-            @form.Inflection.Gender
-            @form.Inflection.Mood
-            @form.Inflection.Number
-            @form.Inflection.Person
-            @form.Inflection.Tense
-            @form.Inflection.Voice</p>
-            <p>
-            @foreach (var r in form.References)
-            {
-                <span>@r.Bookmark</span>
-            }
-            </p>
-        }
-        <p class="card-text">Noun - masculine</p>
-        <p class="card-text">G32 / 4</p>
     </div>
+    @foreach(var form in Model.LexemeData.Forms)
+    {
+        <div class="row border">
+            <div class="col-12 col-md-4">
+                <p>@form.Word</p>
+                <p>@form.Inflection.Case
+                @form.Inflection.Degree
+                @form.Inflection.Gender
+                @form.Inflection.Mood
+                @form.Inflection.Number
+                @form.Inflection.Person
+                @form.Inflection.Tense
+                @form.Inflection.Voice</p>
+            </div>
+            <div class="col">
+                <div class="row">
+                @foreach (var r in form.References)
+                {
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+                        @r.Bookmark
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    }
 </div>
