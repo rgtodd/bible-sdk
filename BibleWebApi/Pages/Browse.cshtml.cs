@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace BibleWebApi.Pages
+namespace WordQuiz.Pages
 {
-    public class LexemePageModel : PageModel
+    public class BrowseModel : PageModel
     {
         public void OnGet()
         {
