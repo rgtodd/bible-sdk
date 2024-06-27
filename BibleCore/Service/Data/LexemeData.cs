@@ -9,19 +9,11 @@ namespace BibleCore.Service.Data
 {
     public class LexemeData
     {
-        public static LexemeData Empty { get; } = new()
-        {
-            Lemma = string.Empty,
-            PartOfSpeech = PartOfSpeechData.Noun,
-            Gloss = string.Empty,
-            Strongs = [],
-            Gk = [],
-            Forms = []
-        };
-
         public required string Lemma { get; init; }
 
         public required PartOfSpeechData PartOfSpeech { get; init; }
+
+        public required string FullCitationForm { get; init; }
 
         public required string Gloss { get; init; }
 

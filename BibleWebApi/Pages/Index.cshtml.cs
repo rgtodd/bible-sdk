@@ -18,7 +18,9 @@ namespace WordQuiz.Pages
     {
         private readonly ILogger<IndexModel> _logger = logger;
 
-        public required LexemeData LexemeData { get; set; } = LexemeData.Empty;
+        public string? Message { get; set; }
+
+        public LexemeData? LexemeData { get; set; }
 
         private static HttpClient client = new HttpClient()
         {
@@ -34,20 +36,22 @@ namespace WordQuiz.Pages
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-
-                LexemeData = JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions) ?? LexemeData.Empty;
+                LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
             }
+
+            Message = LexemeData == null ? "Not found." : null;
         }
 
-        public async  Task OnPostAsync()
+        public async Task OnPostAsync()
         {
             HttpResponseMessage response = await client.GetAsync("api/lexeme/" + Strongs);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-
-                LexemeData = JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions) ?? LexemeData.Empty;
+                LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
             }
+
+            Message = LexemeData == null ? "Not found." : null;
         }
     }
 }

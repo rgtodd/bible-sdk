@@ -9,5 +9,7 @@ namespace BibleCore.Service.Data
     public class ReferenceData
     {
         public required string Bookmark { get; init; }
+
+        public required string Reference { get; init; }
     }
 }

@@ -31,6 +31,7 @@ namespace BibleCore.Greek.SblGnt
                 }
                 if (lexemes.TryGetValue(lexeme.Lemma, out var morphGntLexeme))
                 {
+                    lexeme.FullCitationForm = morphGntLexeme.FullCitationForm;
                     lexeme.Gloss = morphGntLexeme.GlossAsString;
                     lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
                     lexeme.Gk = morphGntLexeme.GkAsIntegers;

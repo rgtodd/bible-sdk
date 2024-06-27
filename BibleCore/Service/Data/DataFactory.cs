@@ -16,6 +16,7 @@ namespace BibleCore.Service.Data
             {
                 Lemma = lexeme.Lemma,
                 PartOfSpeech = CreatePartOfSpeechData(lexeme.PartOfSpeech),
+                FullCitationForm = lexeme.FullCitationForm ?? string.Empty,
                 Gloss = lexeme.Gloss ?? string.Empty,
                 Gk = lexeme.Gk,
                 Strongs = lexeme.Strongs,
@@ -27,7 +28,8 @@ namespace BibleCore.Service.Data
         {
             return new ReferenceData()
             {
-                Bookmark = reference.Bookmark.ToString() ?? string.Empty
+                Bookmark = reference.Bookmark.ToString() ?? string.Empty,
+                Reference = $"{DataFormatter.FormatBook(reference.Bookmark.Book)} {reference.Bookmark.Chapter}:{reference.Bookmark.Verse}"
             };
         }
 
