@@ -12,17 +12,13 @@ namespace BibleWebApi.Controllers
     public class TextController : ControllerBase
     {
         // GET api/<LexemeController>/5
-        [HttpGet("{id}")]
-        public LexemeData? Get(int id)
+        [HttpGet()]
+        public TextData? Get()
         {
-            var lexeme = GlobalGreek.Instance.Lexicon.Lexemes.Where(l => l.Strongs.Contains(id)).FirstOrDefault();
-            if (lexeme == null)
-            {
-                return null;
-            }
+            var textEntries = GlobalGreek.Instance.Text.Select();
+            var textData = DataFactory.CreateTextData(textEntries);
 
-            var lexemeData = DataFactory.CreateLexemeData(lexeme);
-            return lexemeData;
+            return textData;
         }
     }
 }

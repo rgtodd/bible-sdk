@@ -40,6 +40,66 @@ namespace BibleCore.Service.Data
             }
         }
 
+        public static TextData CreateTextData(IEnumerable<TextEntry> textEntries)
+        {
+            var textVerses = new List<TextVerseData>();
+
+            var currentBook = Book.Matthew;
+            var currentChapter = (byte)0;
+            var currentVerse = (byte)0;
+            var currentWords = (List<TextWordData>?)null;
+
+            foreach (var textEntry in textEntries)
+            {
+                if (currentWords == null
+                    || textEntry.Bookmark.Book != currentBook
+                    || textEntry.Bookmark.Chapter != currentChapter
+                    || textEntry.Bookmark.Verse != currentVerse
+                    )
+                {
+                    if (currentWords != null)
+                    {
+                        var textVerse = new TextVerseData()
+                        {
+                            Book = CreateBookData(currentBook),
+                            Chapter = currentChapter,
+                            Verse = currentVerse,
+                            Words = [.. currentWords]
+                        };
+                        textVerses.Add(textVerse);
+                    }
+
+                    currentBook = textEntry.Bookmark.Book;
+                    currentChapter = textEntry.Bookmark.Chapter;
+                    currentVerse = textEntry.Bookmark.Verse;
+                    currentWords = [];
+                }
+
+                var word = new TextWordData()
+                {
+                    Word = textEntry.Text
+                };
+                currentWords.Add(word);
+            }
+
+            {
+                var textVerse = new TextVerseData()
+                {
+                    Book = CreateBookData(currentBook),
+                    Chapter = currentChapter,
+                    Verse = currentVerse,
+                    Words = [.. currentWords]
+                };
+                textVerses.Add(textVerse);
+            }
+
+            var textData = new TextData()
+            {
+                Verses = [.. textVerses]
+            };
+
+            return textData;
+        }
         public static TextEntryBookmarkData[] CreateTextEntryBookmarkDataArray(IEnumerable<TextEntryBookmark> bookmarks)
         {
             return bookmarks.Select(CreateTextEntryBookmarkData).ToArray();

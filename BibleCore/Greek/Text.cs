@@ -25,5 +25,17 @@ namespace BibleCore.Greek
 
             return textEntry;
         }
+
+        public IEnumerable<TextEntry> Select()
+        {
+            foreach (var entry in Entries)
+            {
+                if (entry.Bookmark.Book == Book.FirstJohn && entry.Bookmark.Chapter == 1)
+                {
+                    yield return entry;
+                }
+            }
+
+        }
     }
 }
