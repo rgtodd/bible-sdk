@@ -62,10 +62,10 @@
                     </div>
                     <div class="col">
                         <div class="row">
-                        @foreach (var r in form.References)
+                        @foreach (var bookmark in form.Bookmarks)
                         {
                             <div class="col-4 col-lg-2 text-nowrap">
-                                @r.Reference
+                                @bookmark.FormattedBookmark
                             </div>
                         }
                         </div>

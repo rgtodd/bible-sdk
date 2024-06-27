@@ -11,21 +11,21 @@ namespace BibleCore.Service.Data
 {
     public class InflectionData
     {
-        public PersonData? Person { get; init; }
+        public required PersonData? Person { get; init; }
 
-        public TenseData? Tense { get; init; }
+        public required TenseData? Tense { get; init; }
 
-        public VoiceData? Voice { get; init; }
+        public required VoiceData? Voice { get; init; }
 
-        public MoodData? Mood { get; init; }
+        public required MoodData? Mood { get; init; }
 
-        public CaseData? Case { get; init; }
+        public required CaseData? Case { get; init; }
 
-        public NumberData? Number { get; init; }
+        public required NumberData? Number { get; init; }
 
-        public GenderData? Gender { get; init; }
+        public required GenderData? Gender { get; init; }
 
-        public DegreeData? Degree { get; init; }
+        public required DegreeData? Degree { get; init; }
 
     }
 }

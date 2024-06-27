@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Service.Data
 {
-    public class ReferenceData
+    public class TextWordData
     {
-        public required string Bookmark { get; init; }
+        public required string Word { get; init; }
 
-        public required string Reference { get; init; }
     }
 }

@@ -27,7 +27,7 @@ namespace BibleCore.Greek
 
         public static void DumpReferences(Lexicon lexicon)
         {
-            var references = lexicon.Lexemes.SelectMany(l => l.Forms).SelectMany(f => f.References).Count();
+            var references = lexicon.Lexemes.SelectMany(l => l.Forms).SelectMany(f => f.Bookmarks).Count();
             Console.WriteLine($"Reference count = {references}");
         }
 

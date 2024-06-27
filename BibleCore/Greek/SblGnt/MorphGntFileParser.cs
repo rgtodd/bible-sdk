@@ -101,7 +101,7 @@ namespace BibleCore.Greek.SblGnt
                     ++currentPosition;
                 }
 
-                var textEntryBookmark = new TextEntryBookmark()
+                var bookmark = new TextEntryBookmark()
                 {
                     Book = currentBook,
                     Chapter = currentChapter,
@@ -111,13 +111,12 @@ namespace BibleCore.Greek.SblGnt
 
                 var partOfSpeech = ParsePartOfSpeech(partOfSpeechCode);
                 var inflection = new InflectionBuilder().ParseInflection(parsingCode).Build();
-                var reference = new Reference() { Bookmark = textEntryBookmark };
 
                 var lexeme = lexicon.GetOrCreateLexeme(lemma, partOfSpeech);
                 var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, inflection);
-                form.References.Add(reference);
+                form.Bookmarks.Add(bookmark);
 
-                var textEntry = text.CreateTextEntry(textEntryBookmark, textValue, word, normalizedWord);
+                var textEntry = text.CreateTextEntry(bookmark, textValue, word, normalizedWord);
 
             }
         }

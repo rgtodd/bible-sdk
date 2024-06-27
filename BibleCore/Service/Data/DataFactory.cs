@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using YamlDotNet.Core;
+
 namespace BibleCore.Service.Data
 {
     public static class DataFactory
@@ -24,18 +26,23 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static ReferenceData CreateReferenceData(Reference reference)
+        public static TextEntryBookmarkData CreateTextEntryBookmarkData(TextEntryBookmark bookmark)
         {
-            return new ReferenceData()
             {
-                Bookmark = reference.Bookmark.ToString() ?? string.Empty,
-                Reference = $"{DataFormatter.FormatBook(reference.Bookmark.Book)} {reference.Bookmark.Chapter}:{reference.Bookmark.Verse}"
-            };
+                return new TextEntryBookmarkData()
+                {
+                    Book = CreateBookData(bookmark.Book),
+                    Chapter = bookmark.Chapter,
+                    Verse = bookmark.Verse,
+                    Position = bookmark.Position,
+                    FormattedBookmark = $"{DataFormatter.FormatBook(bookmark.Book)} {bookmark.Chapter}:{bookmark.Verse}"
+                };
+            }
         }
 
-        public static ReferenceData[] CreateReferenceDataArray(IEnumerable<Reference> references)
+        public static TextEntryBookmarkData[] CreateTextEntryBookmarkDataArray(IEnumerable<TextEntryBookmark> bookmarks)
         {
-            return references.Select(CreateReferenceData).ToArray();
+            return bookmarks.Select(CreateTextEntryBookmarkData).ToArray();
         }
 
         public static FormData CreateFormData(Form form)
@@ -44,7 +51,7 @@ namespace BibleCore.Service.Data
             {
                 Word = form.Word,
                 Inflection = CreateInflectionData(form.Inflection),
-                References = CreateReferenceDataArray(form.References)
+                Bookmarks = CreateTextEntryBookmarkDataArray(form.Bookmarks)
             };
         }
 
@@ -63,6 +70,41 @@ namespace BibleCore.Service.Data
                 Case.Genitive => CaseData.Genitive,
                 Case.Nominative => CaseData.Nominative,
                 Case.V => CaseData.V,
+                _ => throw new NotImplementedException()
+            };
+        }
+
+        public static BookData CreateBookData(Book book)
+        {
+            return book switch
+            {
+                Book.Matthew => BookData.Matthew,
+                Book.Mark => BookData.Mark,
+                Book.Luke => BookData.Luke,
+                Book.John => BookData.John,
+                Book.Acts => BookData.Acts,
+                Book.Romans => BookData.Romans,
+                Book.FirstCorinthians => BookData.FirstCorinthians,
+                Book.SecondCorinthians => BookData.SecondCorinthians,
+                Book.Galatians => BookData.Galatians,
+                Book.Ephesians => BookData.Ephesians,
+                Book.Philippians => BookData.Philippians,
+                Book.Colossians => BookData.Colossians,
+                Book.FirstThessalonians => BookData.FirstThessalonians,
+                Book.SecondThessalonians => BookData.SecondThessalonians,
+                Book.FirstTimothy => BookData.FirstTimothy,
+                Book.SecondTimothy => BookData.SecondTimothy,
+                Book.Titus => BookData.Titus,
+                Book.Philemon => BookData.Philemon,
+                Book.Hebrews => BookData.Hebrews,
+                Book.James => BookData.James,
+                Book.FirstPeter => BookData.FirstPeter,
+                Book.SecondPeter => BookData.SecondPeter,
+                Book.FirstJohn => BookData.FirstJohn,
+                Book.SecondJohn => BookData.SecondJohn,
+                Book.ThirdJohn => BookData.ThirdJohn,
+                Book.Jude => BookData.Jude,
+                Book.Revelation => BookData.Revelation,
                 _ => throw new NotImplementedException()
             };
         }

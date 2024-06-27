@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibleCore.Greek
+namespace BibleCore.Service.Data
 {
-    public readonly struct Reference
+    public class TextData
     {
-        public required TextEntryBookmark Bookmark { get; init; }
+        public required TextVerseData[] Verses { get; init; }
     }
 }
