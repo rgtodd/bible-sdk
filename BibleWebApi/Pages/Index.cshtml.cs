@@ -11,28 +11,30 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using BibleWebApi.Code;
 using System.Diagnostics.CodeAnalysis;
+using System.Net.Http;
 
 namespace WordQuiz.Pages
 {
-    public class IndexModel(ILogger<IndexModel> logger) : PageModel
+    public class IndexModel(ILogger<IndexModel> logger, IHttpClientFactory httpClientFactory) : PageModel
     {
         private readonly ILogger<IndexModel> _logger = logger;
+        private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
+
 
         public string? Message { get; set; }
 
         public LexemeData? LexemeData { get; set; }
 
-        private static HttpClient client = new HttpClient()
-        {
-            BaseAddress = new Uri("https://localhost:7085/")
-        };
-
         [BindProperty]
-        public string Strongs { get; set; }
+        public string? Strongs { get; set; }
 
         public async Task OnGetAsync()
         {
-            HttpResponseMessage response = await client.GetAsync("api/lexeme/1");
+            var request = PageContext.HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/lexeme/1";
+
+            var c = _httpClientFactory.CreateClient();
+            HttpResponseMessage response = await c.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
@@ -44,7 +46,11 @@ namespace WordQuiz.Pages
 
         public async Task OnPostAsync()
         {
-            HttpResponseMessage response = await client.GetAsync("api/lexeme/" + Strongs);
+            var request = PageContext.HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/lexeme/{Strongs}";
+
+            var c = _httpClientFactory.CreateClient();
+            HttpResponseMessage response = await c.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();

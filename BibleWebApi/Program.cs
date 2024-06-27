@@ -12,6 +12,10 @@ namespace BibleWebApi
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-8.0
+            builder.Services.AddHttpClient();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
