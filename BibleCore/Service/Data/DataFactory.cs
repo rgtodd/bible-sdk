@@ -77,7 +77,8 @@ namespace BibleCore.Service.Data
 
                 var word = new TextWordData()
                 {
-                    Word = textEntry.Text
+                    Word = textEntry.Text,
+                    Strongs = textEntry.Lexeme.Strongs.FirstOrDefault()
                 };
                 currentWords.Add(word);
             }

@@ -12,9 +12,11 @@ namespace BibleCore.Greek
 
         public required string Text { get; init; }
 
-        public required string Word { get; init; }  
+        public required string Word { get; init; }
 
-        public required string NormalizedWord { get;init; }
+        public required string NormalizedWord { get; init; }
+
+        public required Lexeme Lexeme { get; init; }
 
     }
 }

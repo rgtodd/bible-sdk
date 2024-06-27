@@ -13,8 +13,25 @@
         <button class="btn">Next</button>
     </div>
 </div>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Hendrerit dolor magna eget est. In tellus integer feugiat scelerisque varius morbi enim. Sit amet nulla facilisi morbi. Elementum tempus egestas sed sed risus pretium. Vel facilisis volutpat est velit egestas dui. Neque convallis a cras semper auctor neque. Ut aliquam purus sit amet luctus venenatis lectus magna. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Quam adipiscing vitae proin sagittis nisl. Egestas quis ipsum suspendisse ultrices. Laoreet non curabitur gravida arcu. Nisi lacus sed viverra tellus in hac habitasse platea.</p>
-<p>Enim sit amet venenatis urna cursus eget nunc scelerisque. Mi tempus imperdiet nulla malesuada pellentesque elit. Lobortis feugiat vivamus at augue. Dictum sit amet justo donec enim diam vulputate. Magna sit amet purus gravida. Tellus mauris a diam maecenas sed enim ut. Congue nisi vitae suscipit tellus mauris. Sit amet consectetur adipiscing elit ut. Mauris sit amet massa vitae. Purus semper eget duis at tellus. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus. At elementum eu facilisis sed odio morbi quis commodo odio. Tellus pellentesque eu tincidunt tortor aliquam nulla. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Massa massa ultricies mi quis hendrerit dolor magna eget est. Egestas diam in arcu cursus euismod quis. Arcu vitae elementum curabitur vitae. Diam maecenas ultricies mi eget mauris.</p>
-<p>Risus in hendrerit gravida rutrum quisque non tellus. Integer eget aliquet nibh praesent tristique magna. Nibh tellus molestie nunc non blandit massa enim nec. Cursus euismod quis viverra nibh. Feugiat in ante metus dictum at tempor commodo. Suspendisse in est ante in nibh mauris cursus mattis molestie. Ac odio tempor orci dapibus ultrices. Diam sit amet nisl suscipit adipiscing bibendum est ultricies integer. Dui ut ornare lectus sit amet est. Id velit ut tortor pretium viverra suspendisse potenti nullam. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Sit amet justo donec enim. Ac felis donec et odio pellentesque diam volutpat commodo sed. Diam maecenas sed enim ut. Pellentesque habitant morbi tristique senectus et netus et.</p>
-<p>Porttitor leo a diam sollicitudin tempor. Sed libero enim sed faucibus turpis. Odio euismod lacinia at quis risus sed vulputate odio ut. Nisi lacus sed viverra tellus in hac habitasse platea. Convallis a cras semper auctor neque vitae. Iaculis eu non diam phasellus. Euismod in pellentesque massa placerat. Posuere morbi leo urna molestie at elementum eu facilisis. Iaculis at erat pellentesque adipiscing. Lorem donec massa sapien faucibus et molestie ac feugiat. Varius quam quisque id diam vel quam elementum pulvinar etiam. Fames ac turpis egestas sed tempus urna et pharetra pharetra. Elit sed vulputate mi sit amet mauris commodo. Lectus proin nibh nisl condimentum id venenatis a condimentum.</p>
-<p>Lectus vestibulum mattis ullamcorper velit sed. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Viverra accumsan in nisl nisi. Tristique senectus et netus et malesuada fames ac turpis egestas. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Consectetur libero id faucibus nisl. Gravida rutrum quisque non tellus orci ac auctor augue. Nisl nisi scelerisque eu ultrices vitae auctor eu. Pulvinar pellentesque habitant morbi tristique senectus et netus. Id venenatis a condimentum vitae sapien pellentesque habitant.</p>
+@if (Model.TextData != null)
+{
+    foreach (var verse in Model.TextData.Verses)
+    {
+        <p class="fs-5" style="font-family: 'Times New Roman', Times, serif">
+            <span>@verse.Verse</span>
+            @foreach (var word in verse.Words)
+            {
+                <a href="@($"/lookup/{word.Strongs}")" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>
+@*                 <span data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">@word.Word</span>
+ *@            }
+        </p>
+    }
+}
+@section Scripts
+{
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+}

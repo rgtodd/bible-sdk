@@ -116,7 +116,7 @@ namespace BibleCore.Greek.SblGnt
                 var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, inflection);
                 form.Bookmarks.Add(bookmark);
 
-                var textEntry = text.CreateTextEntry(bookmark, textValue, word, normalizedWord);
+                var textEntry = text.CreateTextEntry(bookmark, textValue, word, normalizedWord, lexeme);
 
             }
         }

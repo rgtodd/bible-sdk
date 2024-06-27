@@ -27,20 +27,29 @@ namespace WordQuiz.Pages
         [BindProperty]
         public string? Strongs { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? id)
         {
-            var request = PageContext.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/lexeme/1";
-
-            var c = _httpClientFactory.CreateClient();
-            HttpResponseMessage response = await c.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            if (id == null)
             {
-                var json = await response.Content.ReadAsStringAsync();
-                LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
+                LexemeData = null;
+                Message = null;
             }
+            else
+            {
+                var request = PageContext.HttpContext.Request;
+                var url = $"{request.Scheme}://{request.Host}/api/lexeme/{id.Value}";
 
-            Message = LexemeData == null ? "Not found." : null;
+                var c = _httpClientFactory.CreateClient();
+                HttpResponseMessage response = await c.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
+                }
+
+                Message = LexemeData == null ? "Not found." : null;
+                Strongs = id.Value.ToString();
+            }
         }
 
         public async Task OnPostAsync()

@@ -11,14 +11,15 @@ namespace BibleCore.Greek
         public List<TextEntry> Entries { get; } = [];
 
 
-        public TextEntry CreateTextEntry(TextEntryBookmark bookmark, string text, string word, string normalizedWord)
+        public TextEntry CreateTextEntry(TextEntryBookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
             {
                 Bookmark = bookmark,
                 Text = text,
                 Word = word,
-                NormalizedWord = normalizedWord
+                NormalizedWord = normalizedWord,
+                Lexeme = lexeme
             };
 
             Entries.Add(textEntry);
