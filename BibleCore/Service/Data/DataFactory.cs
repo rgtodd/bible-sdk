@@ -35,7 +35,8 @@ namespace BibleCore.Service.Data
                     Chapter = bookmark.Chapter,
                     Verse = bookmark.Verse,
                     Position = bookmark.Position,
-                    FormattedBookmark = BookmarkFactory.Format(bookmark)
+                    FormattedBookmark = BookmarkFactory.Format(bookmark),
+                    FormattedBook = BookmarkFactory.GetShortTitle(bookmark.Book)
                 };
             }
         }
@@ -61,9 +62,13 @@ namespace BibleCore.Service.Data
                     {
                         var textVerse = new TextVerseData()
                         {
-                            Book = CreateBookData(currentBook),
-                            Chapter = currentChapter,
-                            Verse = currentVerse,
+                            Bookmark = CreateBookmarkData(new Bookmark()
+                            {
+                                Book = currentBook,
+                                Chapter = currentChapter,
+                                Verse = currentVerse,
+                                Position = 0
+                            }),
                             Words = [.. currentWords]
                         };
                         textVerses.Add(textVerse);
@@ -86,9 +91,15 @@ namespace BibleCore.Service.Data
             {
                 var textVerse = new TextVerseData()
                 {
-                    Book = CreateBookData(currentBook),
-                    Chapter = currentChapter,
-                    Verse = currentVerse,
+                    Bookmark = CreateBookmarkData(
+                        new Bookmark()
+                        {
+                            Book = currentBook,
+                            Chapter = currentChapter,
+                            Verse = currentVerse,
+                            Position = 0
+                        }
+                    ),
                     Words = [.. currentWords]
                 };
                 textVerses.Add(textVerse);

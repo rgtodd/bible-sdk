@@ -163,8 +163,8 @@ namespace BibleCore.Greek
             int idxDash = text.IndexOf('-');
             if (idxDash != -1)
             {
-                var textFrom = text.Substring(0, idxDash);
-                var textTo = text.Substring(idxDash + 1);
+                var textFrom = text[..idxDash];
+                var textTo = text[(idxDash + 1)..];
 
                 var bookmarkFrom = ParseBookmark(textFrom);
                 var bookmarkTo = ParseBookmark(textTo);

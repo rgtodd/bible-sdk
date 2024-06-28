@@ -1,4 +1,5 @@
-﻿@page
+﻿@page "{range?}"
+@using BibleCore.Service.Data
 @model BrowseModel
 @{
     ViewData["Title"] = "Browse";
@@ -24,11 +25,27 @@
 </form>
 @if (Model.TextData != null)
 {
+    var currentBook = (BookData?)null;
+    var currentChapter = (byte)0;
+
     <hr />
     foreach (var verse in Model.TextData.Verses)
     {
+        if (currentBook == null || currentBook != verse.Bookmark.Book)
+        {
+            currentBook = verse.Bookmark.Book;
+            currentChapter = 0;
+
+            <h5>@verse.Bookmark.FormattedBook</h5>
+        }
+        if (currentChapter == 0 || currentChapter != verse.Bookmark.Chapter)
+        {
+            currentChapter = verse.Bookmark.Chapter;
+
+            <h6>Chapter @currentChapter</h6>
+        }
         <p class="fs-5" style="font-family: 'Times New Roman', Times, serif">
-            <span>@verse.Verse</span>
+            <span>@verse.Bookmark.Verse</span>
             @foreach (var word in verse.Words)
             {
                 <a href="@($"/lookup/{word.Strongs}")" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>

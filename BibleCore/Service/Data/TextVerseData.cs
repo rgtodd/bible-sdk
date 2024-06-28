@@ -8,11 +8,7 @@ namespace BibleCore.Service.Data
 {
     public class TextVerseData
     {
-        public required BookData Book { get; init;}
-
-        public required byte Chapter { get; init;  }
-
-        public required byte Verse { get; init; }
+        public required BookmarkData Bookmark { get; init; }
 
         public required TextWordData[] Words { get; init; }
     }

@@ -17,5 +17,7 @@ namespace BibleCore.Service.Data
         public required byte Position { get; init; }
 
         public required string FormattedBookmark { get; init; }
+
+        public required string FormattedBook { get; init; }
     }
 }

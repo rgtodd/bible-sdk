@@ -17,30 +17,28 @@ namespace WordQuiz.Pages
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
         public string? Message { get; set; }
-        
+
         public TextData? TextData { get; set; }
 
         [BindProperty]
         public string? RangeExpression { get; set; }
 
-        public async Task OnGet()
+        public async Task OnGet(string? range)
         {
-            var request = PageContext.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/text?range={RangeExpression}";
-
-            var c = HttpClientFactory.CreateClient();
-            HttpResponseMessage response = await c.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                var json = await response.Content.ReadAsStringAsync();
-                TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, PageResources.JsonSerializerOptions);
-            }
+            await RenderRage(range ?? "John 3:16");
         }
 
         public async Task OnPostAsync()
         {
+            var range = RangeExpression;
+
+            await RenderRage(range);
+        }
+
+        private async Task RenderRage(string? range)
+        {
             var request = PageContext.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/text?range={RangeExpression}";
+            var url = $"{request.Scheme}://{request.Host}/api/text?range={range}";
 
             var c = HttpClientFactory.CreateClient();
             HttpResponseMessage response = await c.GetAsync(url);
@@ -59,6 +57,5 @@ namespace WordQuiz.Pages
                 }
             }
         }
-
     }
 }
