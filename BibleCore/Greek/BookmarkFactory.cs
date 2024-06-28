@@ -92,14 +92,42 @@ namespace BibleCore.Greek
 
         public static string Format(Bookmark bookmark)
         {
-            return $"{GetShortTitle(bookmark.Book)} {bookmark.Chapter}:{bookmark.Verse}";
+            var sb = new StringBuilder();
+
+            sb.Append(GetShortTitle(bookmark.Book));
+            if (bookmark.Chapter != 0)
+            {
+                sb.Append(' ');
+                sb.Append(bookmark.Chapter);
+                if (bookmark.Verse != 0)
+                {
+                    sb.Append(':');
+                    sb.Append(bookmark.Verse);
+                }
+            }
+
+            return sb.ToString();
         }
 
-        public static Bookmark? Parse(string reference)
+        public static string Format(Range range)
         {
-            reference = reference.Trim().ToLower();
+            var sb = new StringBuilder();
 
-            var match = s_referenceRegex.Match(reference);
+            sb.Append(Format(range.From));
+            if (range.To != range.From)
+            {
+                sb.Append(" - ");
+                sb.Append(Format(range.To));
+            }
+
+            return sb.ToString();
+        }
+
+        public static Bookmark? ParseBookmark(string text)
+        {
+            text = text.Trim().ToLower();
+
+            var match = s_referenceRegex.Match(text);
             if (!match.Success)
             {
                 return null;
@@ -109,11 +137,9 @@ namespace BibleCore.Greek
             var bookName = match.Groups[2].Value;
             var chapter = match.Groups[3].Value;
             var verse = match.Groups[4].Value;
-            //Console.WriteLine($"{reference}: '{number}' '{bookName}' '{chapter}':'{verse}'");
 
             string title = !string.IsNullOrEmpty(number) ? $"{number} {bookName}" : bookName;
             var book = ParseBook(title);
-            //Console.WriteLine(book);
             if (book == null)
             {
                 return null;
@@ -132,13 +158,46 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Book? ParseBook(string title)
+        public static Range? ParseRange(string text)
+        {
+            int idxDash = text.IndexOf('-');
+            if (idxDash != -1)
+            {
+                var textFrom = text.Substring(0, idxDash);
+                var textTo = text.Substring(idxDash + 1);
+
+                var bookmarkFrom = ParseBookmark(textFrom);
+                var bookmarkTo = ParseBookmark(textTo);
+
+                return bookmarkFrom != null && bookmarkTo != null
+                    ? new Range()
+                    {
+                        From = bookmarkFrom.Value,
+                        To = bookmarkTo.Value
+                    }
+                    : null;
+            }
+            else
+            {
+                var bookmark = ParseBookmark(text);
+
+                return bookmark != null
+                    ? new Range()
+                    {
+                        From = bookmark.Value,
+                        To = bookmark.Value
+                    }
+                    : null;
+            }
+        }
+
+        public static Book? ParseBook(string text)
         {
             string? currentKnownTitle = null;
 
             foreach (var knownTitle in s_booksByTitle.Keys)
             {
-                if (knownTitle.StartsWith(title))
+                if (knownTitle.StartsWith(text))
                 {
                     if (currentKnownTitle == null || knownTitle.Length < currentKnownTitle.Length)
                     {

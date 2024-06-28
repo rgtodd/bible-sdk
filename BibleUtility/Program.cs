@@ -15,22 +15,22 @@ internal class Program
 
         Bookmark? bookmark;
 
-        bookmark = BookmarkFactory.Parse("1 John 3:1");
+        bookmark = BookmarkFactory.ParseBookmark("1 John 3:1");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
 
-        bookmark = BookmarkFactory.Parse("43 John 3:1");
+        bookmark = BookmarkFactory.ParseBookmark("43 John 3:1");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
 
-        bookmark = BookmarkFactory.Parse("John 3:1");
+        bookmark = BookmarkFactory.ParseBookmark("John 3:1");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
 
-        bookmark = BookmarkFactory.Parse("John 3");
+        bookmark = BookmarkFactory.ParseBookmark("John 3");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
 
-        bookmark = BookmarkFactory.Parse("John");
+        bookmark = BookmarkFactory.ParseBookmark("John");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
 
-        bookmark = BookmarkFactory.Parse("p :2");
+        bookmark = BookmarkFactory.ParseBookmark("p :2");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
     }
 }

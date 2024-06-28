@@ -11,12 +11,27 @@ namespace BibleWebApi.Controllers
     [ApiController]
     public class TextController : ControllerBase
     {
+        [FromQuery(Name = "range")]
+        public string? RangeParameter { get; set; }
+
         // GET api/<LexemeController>/5
         [HttpGet()]
         public TextData? Get()
         {
-            var textEntries = GlobalGreek.Instance.Text.Select();
-            var textData = DataFactory.CreateTextData(textEntries);
+            if (RangeParameter == null)
+            {
+                return null;
+            }
+
+            var range = BookmarkFactory.ParseRange(RangeParameter);
+            if (range == null)
+            {
+                return null;
+            }
+
+            var textEntries = GlobalGreek.Instance.Text.Select(range);
+
+            var textData = DataFactory.CreateTextData(range, textEntries);
 
             return textData;
         }

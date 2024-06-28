@@ -27,8 +27,10 @@ namespace BibleCore.Greek
             return textEntry;
         }
 
-        public IEnumerable<TextEntry> Select()
+        public IEnumerable<TextEntry> Select(Range range)
         {
+            Console.WriteLine($"range = {range}");
+
             foreach (var entry in Entries)
             {
                 if (entry.Bookmark.Book == Book.FirstJohn && entry.Bookmark.Chapter == 1)

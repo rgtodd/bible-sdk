@@ -40,7 +40,7 @@ namespace BibleCore.Service.Data
             }
         }
 
-        public static TextData CreateTextData(IEnumerable<TextEntry> textEntries)
+        public static TextData CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries)
         {
             var textVerses = new List<TextVerseData>();
 
@@ -96,6 +96,7 @@ namespace BibleCore.Service.Data
 
             var textData = new TextData()
             {
+                RangeExpression = BookmarkFactory.Format(range),
                 Verses = [.. textVerses]
             };
 

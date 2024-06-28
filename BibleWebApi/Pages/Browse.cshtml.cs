@@ -18,10 +18,13 @@ namespace WordQuiz.Pages
 
         public TextData? TextData { get; set; }
 
+        [BindProperty]
+        public string? RangeExpression { get; set; }
+
         public async Task OnGet()
         {
             var request = PageContext.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/text";
+            var url = $"{request.Scheme}://{request.Host}/api/text?range={RangeExpression}";
 
             var c = HttpClientFactory.CreateClient();
             HttpResponseMessage response = await c.GetAsync(url);
@@ -30,8 +33,22 @@ namespace WordQuiz.Pages
                 var json = await response.Content.ReadAsStringAsync();
                 TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, PageResources.JsonSerializerOptions);
             }
-
-
         }
+
+        public async Task OnPostAsync()
+        {
+            var request = PageContext.HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/text?range={RangeExpression}";
+
+            var c = HttpClientFactory.CreateClient();
+            HttpResponseMessage response = await c.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, PageResources.JsonSerializerOptions);
+                RangeExpression = TextData?.RangeExpression;
+            }
+        }
+
     }
 }
