@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public readonly struct Inflection : IEquatable<Inflection>
+    public readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
     {
-        public Person? Person { get; init; }
-
         public Tense? Tense { get; init; }
 
         public Voice? Voice { get; init; }
@@ -19,6 +17,8 @@ namespace BibleCore.Greek
         public Mood? Mood { get; init; }
 
         public Case? Case { get; init; }
+
+        public Person? Person { get; init; }
 
         public Number? Number { get; init; }
 
@@ -154,6 +154,41 @@ namespace BibleCore.Greek
             return HashCode.Combine(Person, Tense, Voice, Mood, Case, Number, Gender, Degree);
         }
 
+        public int CompareTo(Inflection other)
+        {
+            int result = ((int?)Tense ?? 0).CompareTo((int?)other.Tense ?? 0);
+            if (result == 0)
+            {
+                result = ((int?)Voice ?? 0).CompareTo((int?)other.Voice ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Mood ?? 0).CompareTo((int?)other.Mood ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Case ?? 0).CompareTo((int?)other.Case ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Person ?? 0).CompareTo((int?)other.Person ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Number ?? 0).CompareTo((int?)other.Number ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Gender ?? 0).CompareTo((int?)other.Gender ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Degree ?? int.MinValue).CompareTo((int?)other.Degree ?? int.MaxValue);
+            }
+
+            return result;
+        }
+
         public static bool operator ==(Inflection left, Inflection right)
         {
             return left.Equals(right);
@@ -162,6 +197,26 @@ namespace BibleCore.Greek
         public static bool operator !=(Inflection left, Inflection right)
         {
             return !(left == right);
+        }
+
+        public static bool operator <(Inflection left, Inflection right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator <=(Inflection left, Inflection right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >(Inflection left, Inflection right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator >=(Inflection left, Inflection right)
+        {
+            return left.CompareTo(right) >= 0;
         }
     }
 }

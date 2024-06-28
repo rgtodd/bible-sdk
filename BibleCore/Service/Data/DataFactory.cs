@@ -130,7 +130,10 @@ namespace BibleCore.Service.Data
 
         public static FormData[] CreateFormDataArray(IEnumerable<Form> forms)
         {
-            return forms.Select(CreateFormData).ToArray();
+            var sortedForms = new List<Form>(forms);
+            sortedForms.Sort((l, r) => l.Inflection.CompareTo(r.Inflection));
+
+            return sortedForms.Select(CreateFormData).ToArray();
         }
 
         public static CaseData? CreateCaseData(Case? _case)

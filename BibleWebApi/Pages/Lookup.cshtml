@@ -51,14 +51,17 @@
                 <div class="card-body row ">
                     <div class="card-text col-12 col-md-4">
                         <h5 style="font-family: 'Times New Roman', Times, serif">@form.Word</h5>
-                        <p>@form.Inflection.Case
-                        @form.Inflection.Degree
-                        @form.Inflection.Gender
-                        @form.Inflection.Mood
-                        @form.Inflection.Number
-                        @form.Inflection.Person
+                        <p>
                         @form.Inflection.Tense
-                        @form.Inflection.Voice</p>
+                        @form.Inflection.Voice
+                        @form.Inflection.Mood
+                        |
+                        @form.Inflection.Case
+                        @form.Inflection.Person
+                        @form.Inflection.Number
+                        @form.Inflection.Gender
+                        @form.Inflection.Degree
+                        </p>
                     </div>
                     <div class="col">
                         <div class="row">

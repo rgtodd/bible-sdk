@@ -9,9 +9,9 @@ namespace BibleCore.Greek
     public enum Mood
     {
         Indicative, // I
-        Imperative, // D 
         Subjunctive, // S
         Optative, // O
+        Imperative, // D 
         Infinitive, // N
         Participle // P
     }
