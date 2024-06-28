@@ -26,16 +26,16 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static TextEntryBookmarkData CreateTextEntryBookmarkData(TextEntryBookmark bookmark)
+        public static BookmarkData CreateBookmarkData(Bookmark bookmark)
         {
             {
-                return new TextEntryBookmarkData()
+                return new BookmarkData()
                 {
                     Book = CreateBookData(bookmark.Book),
                     Chapter = bookmark.Chapter,
                     Verse = bookmark.Verse,
                     Position = bookmark.Position,
-                    FormattedBookmark = $"{DataFormatter.FormatBook(bookmark.Book)} {bookmark.Chapter}:{bookmark.Verse}"
+                    FormattedBookmark = BookmarkFactory.Format(bookmark)
                 };
             }
         }
@@ -101,9 +101,9 @@ namespace BibleCore.Service.Data
 
             return textData;
         }
-        public static TextEntryBookmarkData[] CreateTextEntryBookmarkDataArray(IEnumerable<TextEntryBookmark> bookmarks)
+        public static BookmarkData[] CreateBookmarkDataArray(IEnumerable<Bookmark> bookmarks)
         {
-            return bookmarks.Select(CreateTextEntryBookmarkData).ToArray();
+            return bookmarks.Select(CreateBookmarkData).ToArray();
         }
 
         public static FormData CreateFormData(Form form)
@@ -112,7 +112,7 @@ namespace BibleCore.Service.Data
             {
                 Word = form.Word,
                 Inflection = CreateInflectionData(form.Inflection),
-                Bookmarks = CreateTextEntryBookmarkDataArray(form.Bookmarks)
+                Bookmarks = CreateBookmarkDataArray(form.Bookmarks)
             };
         }
 

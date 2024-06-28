@@ -11,7 +11,7 @@ namespace BibleCore.Greek
         public List<TextEntry> Entries { get; } = [];
 
 
-        public TextEntry CreateTextEntry(TextEntryBookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
+        public TextEntry CreateTextEntry(Bookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
             {

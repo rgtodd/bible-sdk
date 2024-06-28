@@ -8,7 +8,7 @@ namespace BibleCore.Greek
 {
     public class TextEntry
     {
-        public required TextEntryBookmark Bookmark { get; init; }
+        public required Bookmark Bookmark { get; init; }
 
         public required string Text { get; init; }
 

@@ -14,7 +14,7 @@ namespace BibleCore.Greek
 
         public Inflection Inflection { get; init; }
 
-        public List<TextEntryBookmark> Bookmarks { get; } = [];
+        public List<Bookmark> Bookmarks { get; } = [];
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Service.Data
 {
-    public class TextEntryBookmarkData
+    public class BookmarkData
     {
         public required BookData Book { get; init; }
 

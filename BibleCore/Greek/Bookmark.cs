@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Greek
 {
-    public readonly struct TextEntryBookmark : IEquatable<TextEntryBookmark>, IComparable<TextEntryBookmark>
+    public readonly struct Bookmark : IEquatable<Bookmark>, IComparable<Bookmark>
     {
         public readonly Book Book { get; init; }
 
@@ -23,10 +23,10 @@ namespace BibleCore.Greek
 
         public override bool Equals(object? obj)
         {
-            return obj is TextEntryBookmark bookmark && Equals(bookmark);
+            return obj is Bookmark bookmark && Equals(bookmark);
         }
 
-        public bool Equals(TextEntryBookmark other)
+        public bool Equals(Bookmark other)
         {
             return Book == other.Book &&
                    Chapter == other.Chapter &&
@@ -39,7 +39,7 @@ namespace BibleCore.Greek
             return HashCode.Combine(Book, Chapter, Verse, Position);
         }
 
-        public int CompareTo(TextEntryBookmark other)
+        public int CompareTo(Bookmark other)
         {
             var result = Book.CompareTo(other.Book);
             if (result == 0)
@@ -57,32 +57,32 @@ namespace BibleCore.Greek
             return result;
         }
 
-        public static bool operator ==(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator ==(Bookmark left, Bookmark right)
         {
             return left.Equals(right);
         }
 
-        public static bool operator !=(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator !=(Bookmark left, Bookmark right)
         {
             return !(left == right);
         }
 
-        public static bool operator <(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator <(Bookmark left, Bookmark right)
         {
             return left.CompareTo(right) < 0;
         }
 
-        public static bool operator <=(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator <=(Bookmark left, Bookmark right)
         {
             return left.CompareTo(right) <= 0;
         }
 
-        public static bool operator >(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator >(Bookmark left, Bookmark right)
         {
             return left.CompareTo(right) > 0;
         }
 
-        public static bool operator >=(TextEntryBookmark left, TextEntryBookmark right)
+        public static bool operator >=(Bookmark left, Bookmark right)
         {
             return left.CompareTo(right) >= 0;
         }

@@ -101,7 +101,7 @@ namespace BibleCore.Greek.SblGnt
                     ++currentPosition;
                 }
 
-                var bookmark = new TextEntryBookmark()
+                var bookmark = new Bookmark()
                 {
                     Book = currentBook,
                     Chapter = currentChapter,

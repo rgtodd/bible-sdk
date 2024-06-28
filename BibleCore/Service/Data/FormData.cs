@@ -14,7 +14,7 @@ namespace BibleCore.Service.Data
 
         public required InflectionData Inflection { get; init; }
 
-        public required TextEntryBookmarkData[] Bookmarks { get; init; }
+        public required BookmarkData[] Bookmarks { get; init; }
 
     }
 }
