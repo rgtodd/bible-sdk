@@ -12,5 +12,9 @@ namespace BibleCore.Greek
         
         public required Bookmark To { get; init; }
 
+        public bool Contains(Bookmark bookmark)
+        {
+            return bookmark >= From && bookmark <= To;
+        }
     }
 }

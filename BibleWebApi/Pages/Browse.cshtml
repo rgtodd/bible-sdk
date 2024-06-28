@@ -4,6 +4,12 @@
     ViewData["Title"] = "Browse";
 }
 <h2>Read</h2>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-primary" role="alert">
+        @Model.Message
+    </div>
+}
 <form method="post">
     <div class="row">
         <div class="col">
@@ -18,6 +24,7 @@
 </form>
 @if (Model.TextData != null)
 {
+    <hr />
     foreach (var verse in Model.TextData.Verses)
     {
         <p class="fs-5" style="font-family: 'Times New Roman', Times, serif">

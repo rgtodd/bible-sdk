@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Lookup";
 }
+<h2>Lookup</h2>
 <div>
     @if (!string.IsNullOrEmpty(Model.Message))
     {
@@ -12,7 +13,6 @@
     }
     <form method="post" class="mb-4" style="width: 25rem">
         <fieldset>
-            <legend>Lookup</legend>
             <div class="row mb-3">
                 <label for="strongs" class="col-5 col-form-label">Strong's number:</label>
                 <div class="col-7">

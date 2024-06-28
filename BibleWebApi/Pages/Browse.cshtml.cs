@@ -16,6 +16,8 @@ namespace WordQuiz.Pages
     {
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
+        public string? Message { get; set; }
+        
         public TextData? TextData { get; set; }
 
         [BindProperty]
@@ -46,7 +48,15 @@ namespace WordQuiz.Pages
             {
                 var json = await response.Content.ReadAsStringAsync();
                 TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, PageResources.JsonSerializerOptions);
-                RangeExpression = TextData?.RangeExpression;
+                var rangeExpression = TextData?.RangeExpression;
+                if (rangeExpression != null)
+                {
+                    RangeExpression = TextData?.RangeExpression;
+                }
+                else
+                {
+                    Message = "Range not recognized.";
+                }
             }
         }
 

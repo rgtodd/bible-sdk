@@ -29,7 +29,7 @@ namespace BibleWebApi.Controllers
                 return null;
             }
 
-            var textEntries = GlobalGreek.Instance.Text.Select(range);
+            var textEntries = GlobalGreek.Instance.Text.Select(range, 500);
 
             var textData = DataFactory.CreateTextData(range, textEntries);
 

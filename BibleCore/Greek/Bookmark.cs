@@ -16,6 +16,17 @@ namespace BibleCore.Greek
 
         public readonly byte Position { get; init; }
 
+        public Bookmark ToUpper()
+        {
+            return new Bookmark()
+            {
+                Book = Book,
+                Chapter = Chapter == 0 ? byte.MaxValue : Chapter,
+                Verse = Verse == 0 ? byte.MaxValue : Verse,
+                Position = Position == 0 ? byte.MaxValue : Position
+            };
+        }
+
         public override string ToString()
         {
             return $"{Book} {Chapter}:{Verse}.{Position}";

@@ -27,15 +27,26 @@ namespace BibleCore.Greek
             return textEntry;
         }
 
-        public IEnumerable<TextEntry> Select(Range range)
+        public IEnumerable<TextEntry> Select(Range range, int maxEntries)
         {
             Console.WriteLine($"range = {range}");
 
+            var adjustedRange = new Range()
+            {
+                From = range.From,
+                To = range.To.ToUpper()
+            };
+
+            int count = 0;
             foreach (var entry in Entries)
             {
-                if (entry.Bookmark.Book == Book.FirstJohn && entry.Bookmark.Chapter == 1)
+                if (adjustedRange.Contains(entry.Bookmark))
                 {
                     yield return entry;
+                    if (++count == maxEntries)
+                    {
+                        yield break;
+                    }
                 }
             }
 
