@@ -50,7 +50,7 @@
                 <hr class="m-0 p-0"/>
                 <div class="card-body row ">
                     <div class="card-text col-12 col-md-4">
-                        <h5 style="font-family: 'Times New Roman', Times, serif">@form.Word</h5>
+                        <h5 style="font-family: 'Times New Roman', Times, serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
                         <p>
                         @form.Inflection.Tense
                         @form.Inflection.Voice

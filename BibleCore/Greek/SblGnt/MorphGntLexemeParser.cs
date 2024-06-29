@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,16 +32,95 @@ namespace BibleCore.Greek.SblGnt
                 }
                 if (lexemes.TryGetValue(lexeme.Lemma, out var morphGntLexeme))
                 {
-                    lexeme.FullCitationForm = morphGntLexeme.FullCitationForm;
+                    string fullCitationForm = morphGntLexeme.FullCitationForm;
+
+                    lexeme.FullCitationForm = fullCitationForm;
                     lexeme.Gloss = morphGntLexeme.GlossAsString;
                     lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
                     lexeme.Gk = morphGntLexeme.GkAsIntegers;
+
+                    var normalizedLemma = RemoveAccents(lexeme.Lemma);
+
+                    foreach (var form in lexeme.Forms)
+                    {
+                        var normalizedWord = RemoveAccents(form.Word);
+
+                        var lcs = LongestCommonSubstrings(normalizedLemma, normalizedWord);
+                        if (lcs.Length > 0)
+                        {
+                            var core = lcs[0];
+
+                            var idxLemma = normalizedLemma.IndexOf(core);
+                            var lemmaPrefixRemoved = idxLemma > 0;
+                            var lemmaSuffixRemoved = idxLemma + core.Length < normalizedLemma.Length;
+
+                            int idxWord = normalizedWord.IndexOf(core);
+
+                            form.Prefix = form.Word[..idxWord];
+                            if (lemmaPrefixRemoved && form.Prefix.Length == 0)
+                            {
+                                form.Prefix = "*";
+                            }
+
+                            form.Core = form.Word.Substring(idxWord, core.Length);
+
+                            form.Suffix = form.Word[(idxWord + core.Length)..];
+                            if (lemmaSuffixRemoved && form.Suffix.Length == 0)
+                            {
+                                form.Suffix = "*";
+                            }
+                        }
+                        else // Exception scenarios
+                        {
+                            form.Core = form.Word;
+                        }
+                    }
                 }
                 else
                 {
                     Console.WriteLine($"{lexeme.Lemma} lemma not found");
                 }
             }
+        }
+
+        public static string RemoveAccents(string value)
+        {
+            return string.Concat(value.Normalize(NormalizationForm.FormD).Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)).Normalize(NormalizationForm.FormC);
+        }
+
+        public static string[] LongestCommonSubstrings(string s, string t)
+        {
+            var l = new int[s.Length, t.Length];
+            var z = 0;
+            var result = new HashSet<string>();
+
+            for (int i = 0; i < s.Length; ++i)
+            {
+                for (int j = 0; j < t.Length; ++j)
+                {
+                    if (s[i] == t[j])
+                    {
+                        l[i, j] = i == 0 || j == 0 ? 1 : l[i - 1, j - 1] + 1;
+
+                        if (l[i, j] > z)
+                        {
+                            z = l[i, j];
+                            result.Clear();
+                            result.Add(s[(i - z + 1)..(i + 1)]);
+                        }
+                        if (l[i, j] == z)
+                        {
+                            result.Add(s[(i - z + 1)..(i + 1)]);
+                        }
+                    }
+                    else
+                    {
+                        l[i, j] = 0;
+                    }
+                }
+            }
+
+            return [.. result];
         }
     }
 }

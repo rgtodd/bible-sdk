@@ -12,6 +12,6 @@ namespace BibleCore.Service.Data
         Genitive, // G
         Dative, // D
         Accusative, // A
-        V
+        Vocative // V
     }
 }

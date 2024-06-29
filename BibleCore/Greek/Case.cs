@@ -12,6 +12,6 @@ namespace BibleCore.Greek
         Genitive, // G
         Dative, // D
         Accusative, // A
-        V
+        Vocative
     }
 }

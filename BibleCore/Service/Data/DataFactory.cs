@@ -123,6 +123,9 @@ namespace BibleCore.Service.Data
             return new FormData()
             {
                 Word = form.Word,
+                Prefix = form.Prefix,
+                Core = form.Core,
+                Suffix = form.Suffix,
                 Inflection = CreateInflectionData(form.Inflection),
                 Bookmarks = CreateBookmarkDataArray(form.Bookmarks)
             };
@@ -145,7 +148,7 @@ namespace BibleCore.Service.Data
                 Case.Dative => CaseData.Dative,
                 Case.Genitive => CaseData.Genitive,
                 Case.Nominative => CaseData.Nominative,
-                Case.V => CaseData.V,
+                Case.Vocative => CaseData.Vocative,
                 _ => throw new NotImplementedException()
             };
         }

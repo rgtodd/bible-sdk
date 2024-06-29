@@ -32,6 +32,12 @@ internal class Program
 
         bookmark = BookmarkFactory.ParseBookmark("p :2");
         Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+
+        var result = MorphGntLexemeParser.LongestCommonSubstrings("abcdabcdabcd", "abcqdabcqdabcrd");
+        foreach (var s in result)
+        {
+            Console.WriteLine(s);
+        }
     }
 }
 //Console.WriteLine(Yaml.GetForms());

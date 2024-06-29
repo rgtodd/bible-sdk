@@ -123,104 +123,96 @@ namespace BibleCore.Greek
 
         public static Person ParsePerson(char value)
         {
-            switch (value)
+            return value switch
             {
-                case '1': return Person.First;
-                case '2': return Person.Second;
-                case '3': return Person.Third;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                '1' => Person.First,
+                '2' => Person.Second,
+                '3' => Person.Third,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Tense ParseTense(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'P': return Tense.Present;
-                case 'I': return Tense.Imperfect;
-                case 'F': return Tense.Future;
-                case 'A': return Tense.Aorist;
-                case 'X': return Tense.Perfect;
-                case 'Y': return Tense.Pluperfect;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'P' => Tense.Present,
+                'I' => Tense.Imperfect,
+                'F' => Tense.Future,
+                'A' => Tense.Aorist,
+                'X' => Tense.Perfect,
+                'Y' => Tense.Pluperfect,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Voice ParseVoice(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'A': return Voice.Active;
-                case 'M': return Voice.Middle;
-                case 'P': return Voice.Passive;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'A' => Voice.Active,
+                'M' => Voice.Middle,
+                'P' => Voice.Passive,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Mood ParseMood(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'I': return Mood.Indicative;
-                case 'D': return Mood.Imperative;
-                case 'S': return Mood.Subjunctive;
-                case 'O': return Mood.Optative;
-                case 'N': return Mood.Infinitive;
-                case 'P': return Mood.Participle;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'I' => Mood.Indicative,
+                'D' => Mood.Imperative,
+                'S' => Mood.Subjunctive,
+                'O' => Mood.Optative,
+                'N' => Mood.Infinitive,
+                'P' => Mood.Participle,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Case ParseCase(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'N': return Case.Nominative;
-                case 'G': return Case.Genitive;
-                case 'D': return Case.Dative;
-                case 'A': return Case.Accusative;
-                case 'V': return Case.V;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'N' => Case.Nominative,
+                'G' => Case.Genitive,
+                'D' => Case.Dative,
+                'A' => Case.Accusative,
+                'V' => Case.Vocative,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Number ParseNumber(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'S': return Number.Singular;
-                case 'P': return Number.Plural;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'S' => Number.Singular,
+                'P' => Number.Plural,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Gender ParseGender(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'M': return Gender.Masculine;
-                case 'F': return Gender.Feminine;
-                case 'N': return Gender.Neuter;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'M' => Gender.Masculine,
+                'F' => Gender.Feminine,
+                'N' => Gender.Neuter,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
 
         public static Degree ParseDegree(char value)
         {
-            switch (value)
+            return value switch
             {
-                case 'C': return Degree.Comparative;
-                case 'S': return Degree.Superlative;
-                default:
-                    throw new ArgumentOutOfRangeException(paramName: nameof(value));
-            }
+                'C' => Degree.Comparative,
+                'S' => Degree.Superlative,
+                _ => throw new ArgumentOutOfRangeException(paramName: nameof(value)),
+            };
         }
     }
 }
