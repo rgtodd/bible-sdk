@@ -26,7 +26,7 @@ namespace BibleCore.Greek
 
         public Degree? Degree { get; init; }
 
-        public static string ToCode(Person? persons)
+        private static string ToCode(Person? persons)
         {
             return persons switch
             {
@@ -38,7 +38,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Tense? tense)
+        private static string ToCode(Tense? tense)
         {
             return tense switch
             {
@@ -53,7 +53,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Voice? voice)
+        private static string ToCode(Voice? voice)
         {
             return voice switch
             {
@@ -65,7 +65,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Mood? mood)
+        private static string ToCode(Mood? mood)
         {
             return mood switch
             {
@@ -80,7 +80,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Case? _case)
+        private static string ToCode(Case? _case)
         {
             return _case switch
             {
@@ -93,7 +93,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Number? number)
+        private static string ToCode(Number? number)
         {
             return number switch
             {
@@ -104,7 +104,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Gender? gender)
+        private static string ToCode(Gender? gender)
         {
             return gender switch
             {
@@ -116,7 +116,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static string ToCode(Degree? degree)
+        private static string ToCode(Degree? degree)
         {
             return degree switch
             {

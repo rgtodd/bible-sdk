@@ -26,21 +26,6 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static BookmarkData CreateBookmarkData(Bookmark bookmark)
-        {
-            {
-                return new BookmarkData()
-                {
-                    Book = CreateBookData(bookmark.Book),
-                    Chapter = bookmark.Chapter,
-                    Verse = bookmark.Verse,
-                    Position = bookmark.Position,
-                    FormattedBookmark = bookmark.Format(),
-                    FormattedBook = Bookmark.FormatBook(bookmark.Book)
-                };
-            }
-        }
-
         public static TextData CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries)
         {
             var textVerses = new List<TextVerseData>();
@@ -113,16 +98,32 @@ namespace BibleCore.Service.Data
 
             return textData;
         }
-        public static BookmarkData[] CreateBookmarkDataArray(IEnumerable<Bookmark> bookmarks)
+
+        private static BookmarkData CreateBookmarkData(Bookmark bookmark)
+        {
+            {
+                return new BookmarkData()
+                {
+                    Book = CreateBookData(bookmark.Book),
+                    Chapter = bookmark.Chapter,
+                    Verse = bookmark.Verse,
+                    Position = bookmark.Position,
+                    FormattedBookmark = bookmark.Format(),
+                    FormattedBook = Bookmark.FormatBook(bookmark.Book)
+                };
+            }
+        }
+
+        private static BookmarkData[] CreateBookmarkDataArray(IEnumerable<Bookmark> bookmarks)
         {
             return bookmarks.Select(CreateBookmarkData).ToArray();
         }
 
-        public static FormData CreateFormData(Form form)
+        private static FormData CreateFormData(Form form)
         {
             return new FormData()
             {
-                Word = form.Word,
+                InflectedForm = form.InflectedForm,
                 Prefix = form.Prefix,
                 Core = form.Core,
                 Suffix = form.Suffix,
@@ -131,7 +132,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static FormData[] CreateFormDataArray(IEnumerable<Form> forms)
+        private static FormData[] CreateFormDataArray(IEnumerable<Form> forms)
         {
             var sortedForms = new List<Form>(forms);
             sortedForms.Sort((l, r) => l.Inflection.CompareTo(r.Inflection));
@@ -139,7 +140,7 @@ namespace BibleCore.Service.Data
             return sortedForms.Select(CreateFormData).ToArray();
         }
 
-        public static CaseData? CreateCaseData(Case? _case)
+        private static CaseData? CreateCaseData(Case? _case)
         {
             return _case switch
             {
@@ -153,7 +154,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static BookData CreateBookData(Book book)
+        private static BookData CreateBookData(Book book)
         {
             return book switch
             {
@@ -188,7 +189,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static DegreeData? CreateDegreeData(Degree? degree)
+        private static DegreeData? CreateDegreeData(Degree? degree)
         {
             return degree switch
             {
@@ -199,7 +200,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static GenderData? CreateGenderData(Gender? gender)
+        private static GenderData? CreateGenderData(Gender? gender)
         {
             return gender switch
             {
@@ -211,7 +212,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static MoodData? CreateMoodData(Mood? mood)
+        private static MoodData? CreateMoodData(Mood? mood)
         {
             return mood switch
             {
@@ -226,7 +227,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static NumberData? CreateNumberData(Number? number)
+        private static NumberData? CreateNumberData(Number? number)
         {
             return number switch
             {
@@ -237,7 +238,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static PartOfSpeechData CreatePartOfSpeechData(PartOfSpeech partOfSpeech)
+        private static PartOfSpeechData CreatePartOfSpeechData(PartOfSpeech partOfSpeech)
         {
             return partOfSpeech switch
             {
@@ -258,7 +259,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static PersonData? CreatePersonData(Person? person)
+        private static PersonData? CreatePersonData(Person? person)
         {
             return person switch
             {
@@ -270,7 +271,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static TenseData? CreateTenseData(Tense? tense)
+        private static TenseData? CreateTenseData(Tense? tense)
         {
             return tense switch
             {
@@ -285,7 +286,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static VoiceData? CreateVoiceData(Voice? voice)
+        private static VoiceData? CreateVoiceData(Voice? voice)
         {
             return voice switch
             {
@@ -297,7 +298,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static InflectionData CreateInflectionData(Inflection inflection)
+        private static InflectionData CreateInflectionData(Inflection inflection)
         {
             return new InflectionData
             {

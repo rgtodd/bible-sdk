@@ -43,9 +43,9 @@ namespace BibleCore.Greek.SblGnt
 
                     foreach (var form in lexeme.Forms)
                     {
-                        var normalizedWord = RemoveAccents(form.Word);
+                        var normalizedInflectedForm = RemoveAccents(form.InflectedForm);
 
-                        var lcs = LongestCommonSubstrings(normalizedLemma, normalizedWord);
+                        var lcs = LongestCommonSubstrings(normalizedLemma, normalizedInflectedForm);
                         if (lcs.Length > 0)
                         {
                             var core = lcs[0];
@@ -54,17 +54,17 @@ namespace BibleCore.Greek.SblGnt
                             var lemmaPrefixRemoved = idxLemma > 0;
                             var lemmaSuffixRemoved = idxLemma + core.Length < normalizedLemma.Length;
 
-                            int idxWord = normalizedWord.IndexOf(core);
+                            int idxWord = normalizedInflectedForm.IndexOf(core);
 
-                            form.Prefix = form.Word[..idxWord];
+                            form.Prefix = form.InflectedForm[..idxWord];
                             if (lemmaPrefixRemoved && form.Prefix.Length == 0)
                             {
                                 form.Prefix = "*";
                             }
 
-                            form.Core = form.Word.Substring(idxWord, core.Length);
+                            form.Core = form.InflectedForm.Substring(idxWord, core.Length);
 
-                            form.Suffix = form.Word[(idxWord + core.Length)..];
+                            form.Suffix = form.InflectedForm[(idxWord + core.Length)..];
                             if (lemmaSuffixRemoved && form.Suffix.Length == 0)
                             {
                                 form.Suffix = "*";
@@ -72,7 +72,7 @@ namespace BibleCore.Greek.SblGnt
                         }
                         else // Exception scenarios
                         {
-                            form.Core = form.Word;
+                            form.Core = form.InflectedForm;
                         }
                     }
                 }

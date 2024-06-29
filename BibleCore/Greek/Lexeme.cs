@@ -22,35 +22,23 @@ namespace BibleCore.Greek
 
         public List<Form> Forms { get; } = [];
 
-        //public IEnumerable<Form> Forms
-        //{
-        //    get { return m_forms; }
-        //}
-
-        public Form GetOrCreateForm(Lexeme lexeme, string word, Inflection inflection)
+        public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, Inflection inflection)
         {
             ArgumentNullException.ThrowIfNull(lexeme, nameof(lexeme));
-            ArgumentNullException.ThrowIfNull(word, nameof(word));
+            ArgumentNullException.ThrowIfNull(inflectedForm, nameof(inflectedForm));
 
-            var form = Forms.Where(form => form.Word == word && form.Inflection == inflection).SingleOrDefault();
+            var form = Forms.Where(form => form.InflectedForm == inflectedForm && form.Inflection == inflection).SingleOrDefault();
             if (form == null)
             {
                 form = new Form()
                 {
                     Lexeme = lexeme,
-                    Word = word,
+                    InflectedForm = inflectedForm,
                     Inflection = inflection
                 };
 
                 Forms.Add(form);
             }
-            //else
-            //{
-            //    if (form.Inflection != inflection)
-            //    {
-            //        throw new ArgumentOutOfRangeException(nameof(inflection), form.Inflection, "Existing form specifies different inflection.");
-            //    }
-            //}
 
             return form;
         }

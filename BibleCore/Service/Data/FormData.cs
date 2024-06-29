@@ -10,7 +10,7 @@ namespace BibleCore.Service.Data
 {
     public class FormData
     {
-        public required string Word { get; init; }
+        public required string InflectedForm { get; init; }
 
         public required string Prefix { get; init; }
 

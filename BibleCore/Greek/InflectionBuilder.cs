@@ -121,7 +121,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Person ParsePerson(char value)
+        private static Person ParsePerson(char value)
         {
             return value switch
             {
@@ -132,7 +132,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Tense ParseTense(char value)
+        private static Tense ParseTense(char value)
         {
             return value switch
             {
@@ -146,7 +146,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Voice ParseVoice(char value)
+        private static Voice ParseVoice(char value)
         {
             return value switch
             {
@@ -157,7 +157,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Mood ParseMood(char value)
+        private static Mood ParseMood(char value)
         {
             return value switch
             {
@@ -171,7 +171,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Case ParseCase(char value)
+        private static Case ParseCase(char value)
         {
             return value switch
             {
@@ -184,7 +184,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Number ParseNumber(char value)
+        private static Number ParseNumber(char value)
         {
             return value switch
             {
@@ -194,7 +194,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Gender ParseGender(char value)
+        private static Gender ParseGender(char value)
         {
             return value switch
             {
@@ -205,7 +205,7 @@ namespace BibleCore.Greek
             };
         }
 
-        public static Degree ParseDegree(char value)
+        private static Degree ParseDegree(char value)
         {
             return value switch
             {

@@ -10,7 +10,7 @@ namespace BibleCore.Greek
     {
         public required Lexeme Lexeme { get; init; }
 
-        public required string Word { get; init; }
+        public required string InflectedForm { get; init; }
 
         public string Prefix { get; set; } = "";
 
