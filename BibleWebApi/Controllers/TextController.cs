@@ -23,7 +23,7 @@ namespace BibleWebApi.Controllers
                 return null;
             }
 
-            var range = BookmarkFactory.ParseRange(RangeParameter);
+            var range = BibleCore.Greek.Range.Parse(RangeParameter);
             if (range == null)
             {
                 return null;

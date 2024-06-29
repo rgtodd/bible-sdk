@@ -10,7 +10,6 @@ namespace BibleCore.Greek
     {
         public List<TextEntry> Entries { get; } = [];
 
-
         public TextEntry CreateTextEntry(Bookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
@@ -34,7 +33,7 @@ namespace BibleCore.Greek
             var adjustedRange = new Range()
             {
                 From = range.From,
-                To = range.To.ToUpper()
+                To = range.To.ToUpperBound()
             };
 
             int count = 0;

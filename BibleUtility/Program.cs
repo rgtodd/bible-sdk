@@ -15,23 +15,23 @@ internal class Program
 
         Bookmark? bookmark;
 
-        bookmark = BookmarkFactory.ParseBookmark("1 John 3:1");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("1 John 3:1");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
-        bookmark = BookmarkFactory.ParseBookmark("43 John 3:1");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("43 John 3:1");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
-        bookmark = BookmarkFactory.ParseBookmark("John 3:1");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("John 3:1");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
-        bookmark = BookmarkFactory.ParseBookmark("John 3");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("John 3");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
-        bookmark = BookmarkFactory.ParseBookmark("John");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("John");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
-        bookmark = BookmarkFactory.ParseBookmark("p :2");
-        Console.WriteLine(bookmark.HasValue ? BookmarkFactory.Format(bookmark.Value) : "Failure!");
+        bookmark = Bookmark.Parse("p :2");
+        Console.WriteLine(bookmark.HasValue ? bookmark.Value.Format() : "Failure!");
 
         var result = MorphGntLexemeParser.LongestCommonSubstrings("abcdabcdabcd", "abcqdabcqdabcrd");
         foreach (var s in result)

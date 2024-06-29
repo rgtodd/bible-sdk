@@ -35,8 +35,8 @@ namespace BibleCore.Service.Data
                     Chapter = bookmark.Chapter,
                     Verse = bookmark.Verse,
                     Position = bookmark.Position,
-                    FormattedBookmark = BookmarkFactory.Format(bookmark),
-                    FormattedBook = BookmarkFactory.GetShortTitle(bookmark.Book)
+                    FormattedBookmark = bookmark.Format(),
+                    FormattedBook = Bookmark.FormatBook(bookmark.Book)
                 };
             }
         }
@@ -107,7 +107,7 @@ namespace BibleCore.Service.Data
 
             var textData = new TextData()
             {
-                RangeExpression = BookmarkFactory.Format(range),
+                RangeExpression = range.Format(),
                 Verses = [.. textVerses]
             };
 
