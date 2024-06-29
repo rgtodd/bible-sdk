@@ -20,6 +20,7 @@ namespace BibleCore.Greek
                 lexeme = new Lexeme
                 {
                     Lemma = lemma,
+                    LemmaTransliteration = Alphabet.Transliterate(lemma),
                     PartOfSpeech = partOfSpeech
                 };
 

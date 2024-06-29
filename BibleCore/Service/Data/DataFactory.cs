@@ -17,6 +17,7 @@ namespace BibleCore.Service.Data
             return new LexemeData()
             {
                 Lemma = lexeme.Lemma,
+                LemmaTransliteration = lexeme.LemmaTransliteration,
                 PartOfSpeech = CreatePartOfSpeechData(lexeme.PartOfSpeech),
                 FullCitationForm = lexeme.FullCitationForm ?? string.Empty,
                 Gloss = lexeme.Gloss ?? string.Empty,

@@ -10,6 +10,8 @@ namespace BibleCore.Greek
     {
         public required string Lemma { get; init; }
 
+        public required string LemmaTransliteration { get; init; }
+
         public PartOfSpeech PartOfSpeech { get; init; }
 
         public string? FullCitationForm { get; set; }

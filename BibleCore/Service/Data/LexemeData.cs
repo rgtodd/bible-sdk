@@ -11,6 +11,8 @@ namespace BibleCore.Service.Data
     {
         public required string Lemma { get; init; }
 
+        public required string LemmaTransliteration { get; init; }
+
         public required PartOfSpeechData PartOfSpeech { get; init; }
 
         public required string FullCitationForm { get; init; }

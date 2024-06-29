@@ -39,11 +39,11 @@ namespace BibleCore.Greek.SblGnt
                     lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
                     lexeme.Gk = morphGntLexeme.GkAsIntegers;
 
-                    var normalizedLemma = RemoveAccents(lexeme.Lemma);
+                    var normalizedLemma = Alphabet.RemoveAccents(lexeme.Lemma);
 
                     foreach (var form in lexeme.Forms)
                     {
-                        var normalizedInflectedForm = RemoveAccents(form.InflectedForm);
+                        var normalizedInflectedForm = Alphabet.RemoveAccents(form.InflectedForm);
 
                         var lcs = LongestCommonSubstrings(normalizedLemma, normalizedInflectedForm);
                         if (lcs.Length > 0)
@@ -81,11 +81,6 @@ namespace BibleCore.Greek.SblGnt
                     Console.WriteLine($"{lexeme.Lemma} lemma not found");
                 }
             }
-        }
-
-        public static string RemoveAccents(string value)
-        {
-            return string.Concat(value.Normalize(NormalizationForm.FormD).Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)).Normalize(NormalizationForm.FormC);
         }
 
         public static string[] LongestCommonSubstrings(string s, string t)

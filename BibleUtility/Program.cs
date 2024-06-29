@@ -3,7 +3,10 @@ using BibleCore;
 using BibleCore.Greek;
 using BibleCore.Greek.SblGnt;
 
+using System.Globalization;
 using System.Text;
+
+using YamlDotNet.Core.Tokens;
 
 internal class Program
 {
@@ -37,6 +40,20 @@ internal class Program
         foreach (var s in result)
         {
             Console.WriteLine(s);
+        }
+
+        foreach (var c in "ἡγιασμένοις".Normalize(NormalizationForm.FormD))
+        {
+            Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)}");
+        }
+
+        foreach (var c in "ἁγίου".Normalize(NormalizationForm.FormD))
+        {
+            Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
+        }
+        foreach (var c in "ἁγίου")
+        {
+            Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
         }
     }
 }
