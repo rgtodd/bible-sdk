@@ -1,4 +1,5 @@
 ﻿using BibleCore.Greek;
+using BibleCore.Greek.Study;
 using BibleCore.Service.Data;
 
 using Microsoft.AspNetCore.Mvc;
@@ -9,20 +10,16 @@ namespace BibleWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LexemeController : ControllerBase
+    public class PracticeController : ControllerBase
     {
         // GET api/<LexemeController>/5
         [HttpGet("{id}")]
-        public LexemeData? Get(int id)
+        public PracticeVocabularyData Get(int id)
         {
-            var lexeme = GlobalGreek.Instance.Lexicon.GetByStrongs(id);
-            if (lexeme == null)
-            {
-                return null;
-            }
+            var practiceVocabulary = PracticeVocabulary.Load(GlobalGreek.Instance.Lexicon);
+            var practiceVocabularData = DataFactory.CreatePracticeVocabularyData(practiceVocabulary);
 
-            var lexemeData = DataFactory.CreateLexemeData(lexeme);
-            return lexemeData;
+            return practiceVocabularData;
         }
     }
 }

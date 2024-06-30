@@ -1,4 +1,5 @@
 ﻿using BibleCore.Greek;
+using BibleCore.Greek.Study;
 
 using System;
 using System.Collections.Generic;
@@ -98,6 +99,34 @@ namespace BibleCore.Service.Data
             };
 
             return textData;
+        }
+
+        public static PracticeVocabularyData CreatePracticeVocabularyData(PracticeVocabulary vocabulary)
+        {
+            return new PracticeVocabularyData()
+            {
+                Words = CreatePracticeWordDataArray(vocabulary.Words)
+            };
+        }
+
+        private static PracticeWordData[] CreatePracticeWordDataArray(IEnumerable<PracticeWord> practiceWords)
+        {
+            return practiceWords.Select(CreatePracticeWordData).ToArray();
+        }
+
+        private static PracticeWordData CreatePracticeWordData(PracticeWord practiceWord)
+        {
+            return new PracticeWordData()
+            {
+                Lemma = practiceWord.Lexeme.Lemma,
+                Strongs = practiceWord.Lexeme.Strongs[0],
+                DefinitionMastery = practiceWord.Masteries[Mastery.Definition],
+                PartOfSpeechMastery = practiceWord.Masteries[Mastery.PartOfSpeech],
+                Gloss = practiceWord.Lexeme.Gloss ?? string.Empty,
+                Glosses = practiceWord.Glosses,
+                PartOfSpeech = CreatePartOfSpeechData(practiceWord.Lexeme.PartOfSpeech),
+                PartsOfSpeech = practiceWord.PartsOfSpeech.Select(CreatePartOfSpeechData).ToArray()
+            };
         }
 
         private static BookmarkData CreateBookmarkData(Bookmark bookmark)
