@@ -15,9 +15,9 @@ using System.Net.Http;
 
 namespace WordQuiz.Pages
 {
-    public class LookupModel(ILogger<IndexModel> logger, IHttpClientFactory httpClientFactory) : PageModel
+    public class LookupModel(ILogger<LookupModel> logger, IHttpClientFactory httpClientFactory) : PageModel
     {
-        private readonly ILogger<IndexModel> _logger = logger;
+        private readonly ILogger<LookupModel> _logger = logger;
         private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
 
         public string? Message { get; set; }

@@ -30,10 +30,10 @@ namespace BibleCore.Greek
             return lexeme;
         }
 
-        public Lexeme? GetByStrongs(int strongs)
+        public Lexeme GetByStrongs(int strongs)
         {
             var lexeme = Lexemes.Where(l => l.Strongs.Contains(strongs)).FirstOrDefault();
-            return lexeme;
+            return lexeme ?? throw new ArgumentOutOfRangeException(nameof(strongs));
         }
 
     }

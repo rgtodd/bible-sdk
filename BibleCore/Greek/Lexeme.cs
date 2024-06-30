@@ -14,9 +14,9 @@ namespace BibleCore.Greek
 
         public PartOfSpeech PartOfSpeech { get; init; }
 
-        public string? FullCitationForm { get; set; }
+        public string FullCitationForm { get; set; } = string.Empty;
 
-        public string? Gloss { get; set; }
+        public string Gloss { get; set; } = string.Empty;
 
         public int[] Strongs { get; set; } = [];
 

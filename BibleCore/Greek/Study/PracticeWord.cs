@@ -13,7 +13,7 @@ namespace BibleCore.Greek.Study
         private readonly string[] m_glosses;
         private readonly PartOfSpeech[] m_partsOfSpeech;
 
-        public PracticeWord(Lexeme lexeme)
+        public PracticeWord(Lexeme lexeme, IEnumerable<string> glosses, IEnumerable<PartOfSpeech> partsOfSpeech)
         {
             m_lexeme = lexeme;
             m_masteries = [];
@@ -21,8 +21,8 @@ namespace BibleCore.Greek.Study
             {
                 m_masteries.Add(mastery, 0);
             }
-            m_glosses = ["this", "is", "a", "test"];
-            m_partsOfSpeech = [PartOfSpeech.Noun, PartOfSpeech.Verb, PartOfSpeech.Adjective];
+            m_glosses = glosses.ToArray();
+            m_partsOfSpeech = partsOfSpeech.ToArray();
         }
 
         public Lexeme Lexeme => m_lexeme;

@@ -1,4 +1,5 @@
 ﻿@page "{id:int?}"
+@using BibleCore.Service.Data
 @model LookupModel
 @{
     ViewData["Title"] = "Lookup";
@@ -27,25 +28,27 @@
     </form>
     @if (Model.LexemeData != null)
     {
+        LexemeData lexemeData = Model.LexemeData;
+
         <div class="card">
             <h3 class="card-header text-center" style="font-family: 'Times New Roman', Times, serif">
-                @Model.LexemeData?.Lemma (@Model.LexemeData?.LemmaTransliteration)
+                @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
             </h3>
             <div class="card-body row">
                 <div class="col">
-                    @if (!string.IsNullOrEmpty(Model.LexemeData?.FullCitationForm))
+                    @if (!string.IsNullOrEmpty(lexemeData.FullCitationForm))
                     {
                         <h5 class="card-text" style="font-family: 'Times New Roman', Times, serif">@Model.LexemeData?.FullCitationForm</h5>
                     }
-                    <p class="card-text">@Model.LexemeData?.Gloss</p>
+                    <p class="card-text">@lexemeData.Gloss</p>
                 </div>
                 <div class="col">
-                    <p class="card-text">Part of speech: @Model.LexemeData?.PartOfSpeech</p>
-                    <p class="card-text">@($"Strong's number: G{string.Join(',', Model.LexemeData.Strongs.Select(s => s.ToString()).ToArray())}")</p>
-                    <p class="card-text">@($"GK number: GK{string.Join(',', Model.LexemeData.Gk.Select(s => s.ToString()).ToArray())}")</p>
+                    <p class="card-text">Part of speech: @lexemeData.PartOfSpeech</p>
+                    <p class="card-text">@($"Strong's number: G{string.Join(',', lexemeData.Strongs.Select(s => s.ToString()).ToArray())}")</p>
+                    <p class="card-text">@($"GK number: GK{string.Join(',', lexemeData.Gk.Select(s => s.ToString()).ToArray())}")</p>
                 </div>
             </div>
-            @foreach(var form in Model.LexemeData.Forms)
+            @foreach(var form in lexemeData.Forms)
             {
                 <hr class="m-0 p-0"/>
                 <div class="card-body row ">
