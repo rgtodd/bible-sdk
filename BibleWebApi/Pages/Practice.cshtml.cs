@@ -16,7 +16,7 @@ namespace BibleWebApi.Pages
 {
     public class PracticeModel(ILogger<PracticeModel> logger, IHttpClientFactory httpClientFactory) : PageModel
     {
-        private  ILogger<PracticeModel> Logger { get; init; } = logger;
+        private ILogger<PracticeModel> Logger { get; init; } = logger;
 
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
@@ -43,12 +43,26 @@ namespace BibleWebApi.Pages
             }
         }
 
-        public void OnPost(string? lemma, string? gloss)
+        public void OnPost(string? word, string? option)
         {
-            Logger.LogInformation("Lemma {lemma}, Gloss {gloss}", lemma, gloss);
+            Logger.LogInformation("Word {word}, Option {option}", word, option);
 
-            //await Render();
+            foreach (var exerciseWord in ExerciseModel!.Words)
+            {
+                if (exerciseWord.Word == word)
+                {
+                    foreach (var exerciseOption in exerciseWord.Options)
+                    {
+                        exerciseOption.IsSelected = exerciseOption.Option == option;
+                    }
+                    break;
+                }
+
+                //await Render();
+            }
+
+            ModelState.Clear();
+
         }
-
     }
 }

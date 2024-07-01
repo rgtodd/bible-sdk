@@ -55,6 +55,8 @@ namespace BibleCore.Greek.Study
             return vocabulary;
         }
 
+        public PracticeWord[] Words => m_words;
+
         private static List<Lexeme> GetLexemes(Lexicon lexicon)
         {
             var result = new List<Lexeme>
@@ -90,17 +92,17 @@ namespace BibleCore.Greek.Study
             return result;
         }
 
-        public static string[] GetAllGlosses(IEnumerable<Lexeme> lexemes)
+        private static string[] GetAllGlosses(IEnumerable<Lexeme> lexemes)
         {
             return lexemes.Select(l => l.Gloss).ToArray();
         }
 
-        public static PartOfSpeech[] GetAllPartsOfSpeech(IEnumerable<Lexeme> lexemes)
+        private static PartOfSpeech[] GetAllPartsOfSpeech(IEnumerable<Lexeme> lexemes)
         {
             return lexemes.Select(l => l.PartOfSpeech).Distinct().ToArray();
         }
 
-        public static HashSet<int> GetRandomIndexes(int count, int sourceCount, int requiredIndex)
+        private static HashSet<int> GetRandomIndexes(int count, int sourceCount, int requiredIndex)
         {
             var result = new HashSet<int>();
 
@@ -122,9 +124,7 @@ namespace BibleCore.Greek.Study
             return result;
         }
 
-        public PracticeWord[] Words => m_words;
-
-        public static PracticeWord CreatePracticeWord(Lexeme lexeme, string[] allGlosses, PartOfSpeech[] allPartsOfSpeech)
+        private static PracticeWord CreatePracticeWord(Lexeme lexeme, string[] allGlosses, PartOfSpeech[] allPartsOfSpeech)
         {
             var requiredGlossIndex = Array.IndexOf(allGlosses, lexeme.Gloss);
             var requiredPartOfSpeechIndex = Array.IndexOf(allPartsOfSpeech, lexeme.PartOfSpeech);

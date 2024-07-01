@@ -16,11 +16,11 @@
                 <div class="col">
                     @foreach (var option in word.Options)
                     {
-                        <input type="submit" value="@option.Option" formaction="~/Practice?lemma=@word.Word&gloss=@option.Option" class="btn btn-outline-primary submit" />
+                        <input type="submit" value="@option.Option" formaction="~/Practice?word=@word.Word&option=@option.Option" class="btn @option.BootstrapButtonClass submit" />
                     }
                 </div>
             </div>
         }
-        <input asp-for="ExerciseModel" />
+        <input type="hidden" asp-for="ExerciseModel" />
     </form>
 }

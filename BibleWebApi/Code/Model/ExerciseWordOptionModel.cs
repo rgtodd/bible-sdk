@@ -1,4 +1,5 @@
 ﻿using BibleCore.Utility;
+
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
@@ -10,8 +11,30 @@ namespace BibleWebApi.Code.Model
 
         public required bool IsCorrect { get; init; }
 
-        public required bool IsSelected { get; init; }
-        
+        public required bool IsSelected { get; set; }
+
+        public string BootstrapButtonClass
+        {
+            get
+            {
+                if (IsSelected)
+                {
+                    if (IsCorrect)
+                    {
+                        return "btn-success";
+                    }
+                    else
+                    {
+                        return "btn-danger";
+                    }
+                }
+                else
+                {
+                    return "btn-outline-primary";
+                }
+            }
+        }
+
         public override string ToString()
         {
             return JsonSerializer.Serialize(this, Serialization.JsonSerializerOptions);
