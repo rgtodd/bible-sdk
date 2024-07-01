@@ -22,6 +22,8 @@ namespace BibleCore.Greek
 
         public int[] Gk { get; set; } = [];
 
+        public int? MounceChapterNumber { get; set; } = null;
+
         public List<Form> Forms { get; } = [];
 
         public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, Inflection inflection)

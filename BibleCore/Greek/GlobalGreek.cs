@@ -2,9 +2,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BibleCore.Greek
 {
@@ -40,6 +43,11 @@ namespace BibleCore.Greek
 
                             MorphGntFileParser.Parse(text, lexicon);
                             MorphGntLexemeParser.Parse(lexicon);
+                            FlashworksGreekParser.Parse(lexicon);
+
+                            lexicon.Lexemes.GroupBy(l => l.MounceChapterNumber, l => l.MounceChapterNumber, (number, numbers) => new { Key = number, Count = numbers.Count() })
+                                           .ToList()
+                                           .ForEach(i => Console.WriteLine($"{i.Key} = {i.Count}."));
 
                             m_instance = new GlobalGreek()
                             {

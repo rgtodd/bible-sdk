@@ -31,7 +31,7 @@ namespace BibleWebApi.Pages
         private async Task Render()
         {
             var request = PageContext.HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/practice/1";
+            var url = $"{request.Scheme}://{request.Host}/api/practice/8";
 
             var c = HttpClientFactory.CreateClient();
             HttpResponseMessage response = await c.GetAsync(url);

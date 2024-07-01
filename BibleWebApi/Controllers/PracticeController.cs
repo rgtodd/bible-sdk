@@ -16,7 +16,7 @@ namespace BibleWebApi.Controllers
         [HttpGet("{id}")]
         public ExerciseVocabularyData Get(int id)
         {
-            var practiceVocabulary = PracticeVocabulary.Load(GlobalGreek.Instance.Lexicon);
+            var practiceVocabulary = PracticeVocabulary.Load(GlobalGreek.Instance.Lexicon, id);
             var exerciseVocabularyData = DataFactory.CreateExerciseVocabularyData(practiceVocabulary);
 
             return exerciseVocabularyData;

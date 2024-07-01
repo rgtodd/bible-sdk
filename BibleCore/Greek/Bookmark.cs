@@ -57,7 +57,7 @@ namespace BibleCore.Greek
             { "luke", Book.Luke },
             { "matthew", Book.Matthew },
             { "mark", Book.Mark },
-            { "phil", Book.Philemon },
+            { "phil", Book.Philippians },
             { "philemon", Book.Philemon },
             { "philippians", Book.Philippians },
             { "phlm", Book.Philemon },

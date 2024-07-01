@@ -598,6 +598,23 @@ namespace BibleCore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4	N	175	ἄγγελος, -ου, ὁ	angel; messenger	34		aggelo	4	5	1
+        ///4	O	128	ἀμήν	verily, truly, amen, so let it be	297		amhn	4	5	1
+        ///4	N	550	ἄνθρωπος, -ου, ὁ	man; person, human being; people, mankind	476		anqrwp	4	5	1
+        ///4	N	81	ἀπόστολος, -ου, ὁ	apostle; envoy, messenger	693		aposto	4	5	1
+        ///4	N	61	Γαλιλαία, -ας, ἡ	Galilee	1133		galila	4	5	1
+        ///4	N	50	γραφή, -ῆς, ἡ	writing; Scripture	1210		graphe	4	5	1
+        ///4	N	166	δόξα, -ης, ἡ	glory, majesty, fame	1518		doxa	4	5	1
+        ///4	A	1800	ἐγώ	I	1609		egw	4	5	1
+        ///4	A	52	ἔσχατος, -η, -ον	last	2274		es [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string flashworksgreek {
+            get {
+                return ResourceManager.GetString("flashworksgreek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ἀαρών:
         ///    M:
         ///        NS:

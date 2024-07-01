@@ -15,9 +15,9 @@ namespace BibleCore.Greek.Study
             m_words = words;
         }
 
-        public static PracticeVocabulary Load(Lexicon lexicon)
+        public static PracticeVocabulary Load(Lexicon lexicon, int mounceChapterNumber)
         {
-            var lexemes = GetLexemes(lexicon);
+            var lexemes = GetLexemes(lexicon, mounceChapterNumber);
             var allGlosses = GetAllGlosses(lexemes);
             var allPartsOfSpeech = GetAllPartsOfSpeech(lexemes);
 
@@ -57,39 +57,41 @@ namespace BibleCore.Greek.Study
 
         public PracticeWord[] Words => m_words;
 
-        private static List<Lexeme> GetLexemes(Lexicon lexicon)
+        private static List<Lexeme> GetLexemes(Lexicon lexicon, int mounceChapterNumber)
         {
-            var result = new List<Lexeme>
-            {
-                lexicon.GetByStrongs(11),
-                lexicon.GetByStrongs(32),
-                lexicon.GetByStrongs(281),
-                lexicon.GetByStrongs(444),
-                lexicon.GetByStrongs(652),
-                lexicon.GetByStrongs(1056),
-                lexicon.GetByStrongs(1124),
-                lexicon.GetByStrongs(1138),
-                lexicon.GetByStrongs(1391),
-                lexicon.GetByStrongs(1473),
-                lexicon.GetByStrongs(2078),
-                lexicon.GetByStrongs(2222),
-                lexicon.GetByStrongs(2316),
-                lexicon.GetByStrongs(2532),
-                lexicon.GetByStrongs(2588),
-                lexicon.GetByStrongs(2889),
-                lexicon.GetByStrongs(3056),
-                lexicon.GetByStrongs(3972),
-                lexicon.GetByStrongs(4074),
-                lexicon.GetByStrongs(4091),
-                lexicon.GetByStrongs(4151),
-                lexicon.GetByStrongs(4396),
-                lexicon.GetByStrongs(4521),
-                lexicon.GetByStrongs(4613),
-                lexicon.GetByStrongs(5456),
-                lexicon.GetByStrongs(5547)
-            };
+            return lexicon.GetByMounceChapter(mounceChapterNumber).ToList();
+                
+            //var result = new List<Lexeme>
+            //{
+            //    lexicon.GetByStrongs(11),
+            //    lexicon.GetByStrongs(32),
+            //    lexicon.GetByStrongs(281),
+            //    lexicon.GetByStrongs(444),
+            //    lexicon.GetByStrongs(652),
+            //    lexicon.GetByStrongs(1056),
+            //    lexicon.GetByStrongs(1124),
+            //    lexicon.GetByStrongs(1138),
+            //    lexicon.GetByStrongs(1391),
+            //    lexicon.GetByStrongs(1473),
+            //    lexicon.GetByStrongs(2078),
+            //    lexicon.GetByStrongs(2222),
+            //    lexicon.GetByStrongs(2316),
+            //    lexicon.GetByStrongs(2532),
+            //    lexicon.GetByStrongs(2588),
+            //    lexicon.GetByStrongs(2889),
+            //    lexicon.GetByStrongs(3056),
+            //    lexicon.GetByStrongs(3972),
+            //    lexicon.GetByStrongs(4074),
+            //    lexicon.GetByStrongs(4091),
+            //    lexicon.GetByStrongs(4151),
+            //    lexicon.GetByStrongs(4396),
+            //    lexicon.GetByStrongs(4521),
+            //    lexicon.GetByStrongs(4613),
+            //    lexicon.GetByStrongs(5456),
+            //    lexicon.GetByStrongs(5547)
+            //};
 
-            return result;
+            //return result;
         }
 
         private static string[] GetAllGlosses(IEnumerable<Lexeme> lexemes)

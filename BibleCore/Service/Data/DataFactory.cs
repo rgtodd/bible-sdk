@@ -28,7 +28,7 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static TextData CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries)
+        public static TextData? CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries)
         {
             var textVerses = new List<TextVerseData>();
 
@@ -75,6 +75,7 @@ namespace BibleCore.Service.Data
                 currentWords.Add(word);
             }
 
+            if (currentWords != null)
             {
                 var textVerse = new TextVerseData()
                 {
@@ -90,6 +91,11 @@ namespace BibleCore.Service.Data
                     Words = [.. currentWords]
                 };
                 textVerses.Add(textVerse);
+            }
+
+            if (textVerses.Count == 0)
+            {
+                return null;
             }
 
             var textData = new TextData()

@@ -36,5 +36,23 @@ namespace BibleCore.Greek
             return lexeme ?? throw new ArgumentOutOfRangeException(nameof(strongs));
         }
 
+        public Lexeme? GetByGkNumber(int gkNumber)
+        {
+            var lexeme = Lexemes.Where(l => l.Gk.Contains(gkNumber)).FirstOrDefault();
+            return lexeme; //?? throw new ArgumentOutOfRangeException(nameof(gkNumber));
+        }
+
+        public Lexeme GetByLemma(string lemma)
+        {
+            var lexeme = Lexemes.Where(l => l.Lemma == lemma).FirstOrDefault();
+            return lexeme ?? throw new ArgumentOutOfRangeException(nameof(lemma));
+        }
+
+        public IEnumerable<Lexeme> GetByMounceChapter(int mounceChapter)
+        {
+            var lexemes = Lexemes.Where(l => l.MounceChapterNumber == mounceChapter);
+            return lexemes;
+        }
+
     }
 }
