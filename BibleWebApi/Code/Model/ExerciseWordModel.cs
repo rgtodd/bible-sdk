@@ -6,6 +6,8 @@ namespace BibleWebApi.Code.Model
 {
     public class ExerciseWordModel : IParsable<ExerciseWordModel>
     {
+        public required int Sequence { get; init; }
+
         public required string Word { get; init; }
 
         public required ExerciseWordOptionModel[] Options { get; init; }

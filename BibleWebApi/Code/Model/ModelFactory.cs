@@ -14,18 +14,21 @@ namespace BibleWebApi.Code.Model
                 };
         }
 
-        public static ExerciseWordModel CreateExerciseWordModel(ExerciseWordData practiceWord)
+        public static ExerciseWordModel CreateExerciseWordModel(ExerciseWordData practiceWord, int sequence)
         {
             return new ExerciseWordModel()
             {
                 Word = practiceWord.Lemma,
+                Sequence = sequence,
                 Options = CreateExerciseWordOptionModelArray(practiceWord.Glosses, practiceWord.Gloss)
             };
         }
 
         public static ExerciseWordModel[] CreateExerciseWordModelArray(IEnumerable<ExerciseWordData> practiceWords)
         {
-            return practiceWords.Select(CreateExerciseWordModel).ToArray();
+            int sequence = 0;
+
+            return practiceWords.Select(w => CreateExerciseWordModel(w, ++sequence)).ToArray();
         }
 
         public static ExerciseWordOptionModel CreateExerciseWordOptionModel(string option, bool isCorrect)
