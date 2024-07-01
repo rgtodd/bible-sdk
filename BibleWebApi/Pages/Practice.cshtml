@@ -4,22 +4,23 @@
     ViewData["Title"] = "Practice";
 }
 <h2>Practice</h2>
-@if (Model.PracticeVocabularyData != null)
+@if (Model.ExerciseModel != null)
 {
     <form method="post">
-    @foreach (var word in Model.PracticeVocabularyData.Words)
-    {
-        <div class="row my-2">
-            <div class="col-12 col-md-2" style="font-family: 'Times New Roman', Times, serif">
-                @word.Lemma
+        @foreach (var word in Model.ExerciseModel.Words)
+        {
+            <div class="row my-2">
+                <div class="col-12 col-md-2" style="font-family: 'Times New Roman', Times, serif">
+                    @word.Word
+                </div>
+                <div class="col">
+                    @foreach (var option in word.Options)
+                    {
+                        <input type="submit" value="@option.Option" formaction="~/Practice?lemma=@word.Word&gloss=@option.Option" class="btn btn-outline-primary submit" />
+                    }
+                </div>
             </div>
-            <div class="col">
-                @foreach (var gloss in word.Glosses)
-                {
-                    <input type="submit" value="@gloss" formaction="~/Practice?lemma=@word.Lemma&gloss=@word.Gloss" class="btn btn-outline-primary submit" />
-                }
-            </div>
-        </div>
-    }
+        }
+        <input asp-for="ExerciseModel" />
     </form>
 }

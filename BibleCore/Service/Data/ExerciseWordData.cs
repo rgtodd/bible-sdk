@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BibleCore.Service.Data
 {
-    public class PracticeWordData
+    public class ExerciseWordData
     {
         public required string Lemma { get; init; }
 
@@ -16,13 +16,12 @@ namespace BibleCore.Service.Data
 
         public int PartOfSpeechMastery { get; init; } = 0;
 
-        public required string Gloss { get; init;  }
+        public required string Gloss { get; init; }
 
-        public required string[] Glosses {  get; init; }
+        public required string[] Glosses { get; init; }
 
         public required PartOfSpeechData PartOfSpeech { get; init; }
 
         public required PartOfSpeechData[] PartsOfSpeech { get; init; }
-
     }
 }

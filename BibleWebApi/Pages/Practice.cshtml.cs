@@ -1,6 +1,8 @@
 using BibleCore.Service.Data;
+using BibleCore.Utility;
 
 using BibleWebApi.Code;
+using BibleWebApi.Code.Model;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,7 +20,8 @@ namespace BibleWebApi.Pages
 
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
-        public PracticeVocabularyData? PracticeVocabularyData { get; set; }
+        [BindProperty]
+        public ExerciseModel? ExerciseModel { get; set; }
 
         public async Task OnGet()
         {
@@ -35,15 +38,16 @@ namespace BibleWebApi.Pages
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                PracticeVocabularyData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<PracticeVocabularyData>(json, PageResources.JsonSerializerOptions);
+                var exerciseVocabularyData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<ExerciseVocabularyData>(json, Serialization.JsonSerializerOptions);
+                ExerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData);
             }
         }
 
-        public async Task OnPost(string? lemma, string? gloss)
+        public void OnPost(string? lemma, string? gloss)
         {
             Logger.LogInformation("Lemma {lemma}, Gloss {gloss}", lemma, gloss);
 
-            await Render();
+            //await Render();
         }
 
     }

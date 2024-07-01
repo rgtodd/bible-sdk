@@ -10,6 +10,8 @@ using System.Net.Http;
 
 using System.Text.Json;
 
+using BibleCore.Utility;
+
 namespace WordQuiz.Pages
 {
     public class BrowseModel(IHttpClientFactory httpClientFactory) : PageModel
@@ -45,7 +47,7 @@ namespace WordQuiz.Pages
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, PageResources.JsonSerializerOptions);
+                TextData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, Serialization.JsonSerializerOptions);
                 var rangeExpression = TextData?.RangeExpression;
                 if (rangeExpression != null)
                 {

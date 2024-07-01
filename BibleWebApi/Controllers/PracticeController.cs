@@ -14,12 +14,12 @@ namespace BibleWebApi.Controllers
     {
         // GET api/<LexemeController>/5
         [HttpGet("{id}")]
-        public PracticeVocabularyData Get(int id)
+        public ExerciseVocabularyData Get(int id)
         {
             var practiceVocabulary = PracticeVocabulary.Load(GlobalGreek.Instance.Lexicon);
-            var practiceVocabularData = DataFactory.CreatePracticeVocabularyData(practiceVocabulary);
+            var exerciseVocabularyData = DataFactory.CreateExerciseVocabularyData(practiceVocabulary);
 
-            return practiceVocabularData;
+            return exerciseVocabularyData;
         }
     }
 }

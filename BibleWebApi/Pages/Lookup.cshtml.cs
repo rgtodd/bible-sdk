@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using BibleWebApi.Code;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
+using BibleCore.Utility;
 
 namespace WordQuiz.Pages
 {
@@ -44,7 +45,7 @@ namespace WordQuiz.Pages
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
+                    LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions);
                 }
 
                 Message = LexemeData == null ? "Not found." : null;
@@ -62,7 +63,7 @@ namespace WordQuiz.Pages
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, PageResources.JsonSerializerOptions);
+                LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions);
             }
 
             Message = LexemeData == null ? "Not found." : null;

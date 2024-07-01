@@ -1,13 +1,13 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace BibleWebApi.Code
+namespace BibleCore.Utility
 {
-    public static class PageResources
+    public static class Serialization
     {
         private static readonly JsonSerializerOptions m_jsonSerializerOptions;
 
-        static PageResources()
+        static Serialization()
         {
             m_jsonSerializerOptions = new JsonSerializerOptions
             {

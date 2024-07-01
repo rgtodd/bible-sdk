@@ -101,22 +101,22 @@ namespace BibleCore.Service.Data
             return textData;
         }
 
-        public static PracticeVocabularyData CreatePracticeVocabularyData(PracticeVocabulary vocabulary)
+        public static ExerciseVocabularyData CreateExerciseVocabularyData(PracticeVocabulary vocabulary)
         {
-            return new PracticeVocabularyData()
+            return new ExerciseVocabularyData()
             {
-                Words = CreatePracticeWordDataArray(vocabulary.Words)
+                Words = CreateExerciseWordDataArray(vocabulary.Words)
             };
         }
 
-        private static PracticeWordData[] CreatePracticeWordDataArray(IEnumerable<PracticeWord> practiceWords)
+        private static ExerciseWordData[] CreateExerciseWordDataArray(IEnumerable<PracticeWord> practiceWords)
         {
-            return practiceWords.Select(CreatePracticeWordData).ToArray();
+            return practiceWords.Select(CreateExerciseWordData).ToArray();
         }
 
-        private static PracticeWordData CreatePracticeWordData(PracticeWord practiceWord)
+        private static ExerciseWordData CreateExerciseWordData(PracticeWord practiceWord)
         {
-            return new PracticeWordData()
+            return new ExerciseWordData()
             {
                 Lemma = practiceWord.Lexeme.Lemma,
                 Strongs = practiceWord.Lexeme.Strongs[0],
