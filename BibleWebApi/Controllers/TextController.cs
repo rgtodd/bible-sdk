@@ -1,4 +1,4 @@
-﻿using BibleCore.Greek;
+﻿using BibleCore.Service;
 using BibleCore.Service.Data;
 
 using Microsoft.AspNetCore.Mvc;
@@ -9,31 +9,15 @@ namespace BibleWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TextController : ControllerBase
+    public class TextController(ITextService textService) : ControllerBase
     {
         [FromQuery(Name = "range")]
         public string? RangeParameter { get; set; }
 
-        // GET api/<LexemeController>/5
         [HttpGet()]
         public TextData? Get()
         {
-            if (RangeParameter == null)
-            {
-                return null;
-            }
-
-            var range = BibleCore.Greek.Range.Parse(RangeParameter);
-            if (range == null)
-            {
-                return null;
-            }
-
-            var textEntries = GlobalGreek.Instance.Text.Select(range, 5000);
-
-            var textData = DataFactory.CreateTextData(range, textEntries);
-
-            return textData;
+            return textService.GetText(RangeParameter);
         }
     }
 }

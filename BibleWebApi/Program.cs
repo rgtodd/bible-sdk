@@ -1,4 +1,4 @@
-
+using BibleCore.Service;
 using System.Text.Json.Serialization;
 
 namespace BibleWebApi
@@ -26,6 +26,11 @@ namespace BibleWebApi
 
             //WEB
             builder.Services.AddRazorPages();
+
+            builder.Services.AddSingleton<IGlobalGreek, GlobalGreek>();
+            builder.Services.AddScoped<ILexemeService, LexemeService>();
+            builder.Services.AddScoped<ITextService, TextService>();
+            builder.Services.AddScoped<IExerciseService, ExerciseService>();
 
             var app = builder.Build();
 
