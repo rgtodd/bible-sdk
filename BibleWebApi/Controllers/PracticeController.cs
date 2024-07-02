@@ -1,21 +1,76 @@
-﻿using BibleCore.Greek.Study;
-using BibleCore.Service;
-using BibleCore.Service.Data;
+﻿using BibleCore.Service.Data;
+using BibleCore.Utility;
+
+using BibleWebApi.Code.Model;
+using BibleWebApi.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using System.Text.Json;
 
 namespace BibleWebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PracticeController(IExerciseService exerciseService) : ControllerBase
+    public class PracticeController(ILogger<PracticeModel> logger, IHttpClientFactory httpClientFactory) : Controller
     {
-        [HttpGet("{id}")]
-        public ExerciseVocabularyData Get(int id)
+        private ILogger<PracticeModel> Logger { get; init; } = logger;
+
+        private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return exerciseService.GetExerciseByMounceChapterNumber(id);
+            var model = await Render();
+
+            return View("Index", model);
         }
+
+        [HttpPost]
+        public IActionResult Update(PracticeModel model, string? word, string? option)
+        {
+            Logger.LogInformation("Word {word}, Option {option}", word, option);
+
+            foreach (var exerciseWord in model?.ExerciseModel?.Words)
+            {
+                if (exerciseWord.Word == word)
+                {
+                    foreach (var exerciseOption in exerciseWord.Options)
+                    {
+                        exerciseOption.IsSelected = exerciseOption.Option == option;
+                    }
+                    break;
+                }
+
+                //await Render();
+            }
+
+            ModelState.Clear();
+
+            return View("Index", model);
+
+        }
+
+
+        private async Task<PracticeModel?> Render()
+        {
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/PracticeApi/8";
+
+            var c = HttpClientFactory.CreateClient();
+            HttpResponseMessage response = await c.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var exerciseVocabularyData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<ExerciseVocabularyData>(json, Serialization.JsonSerializerOptions);
+                var exerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData);
+                return new PracticeModel()
+                {
+                    ExerciseModel = exerciseModel
+                };
+            }
+
+            return null;
+        }
+
+
     }
 }

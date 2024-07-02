@@ -24,9 +24,6 @@ namespace BibleWebApi
             builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
-            //WEB
-            builder.Services.AddRazorPages();
-
             builder.Services.AddSingleton<IGlobalGreek, GlobalGreek>();
             builder.Services.AddScoped<ILexemeService, LexemeService>();
             builder.Services.AddScoped<ITextService, TextService>();
@@ -48,10 +45,16 @@ namespace BibleWebApi
 
             app.UseAuthorization();
 
-            app.MapControllers();
+            //app.MapControllers();
 
             // WEB 
-            app.MapRazorPages();
+            _ = app.UseEndpoints(endpoints =>
+            {
+                _ = endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                _ = endpoints.MapRazorPages();
+            });
 
             app.Run();
         }
