@@ -1,4 +1,5 @@
 using BibleCore.Service;
+
 using System.Text.Json.Serialization;
 
 namespace BibleWebApi
@@ -9,21 +10,28 @@ namespace BibleWebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // ASP.NET MVC Support
+            //
+            builder.Services.AddControllersWithViews();
 
-            builder.Services.AddControllers();
-
+            // Add IHttpClientFactory
             // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests?view=aspnetcore-8.0
+            //
             builder.Services.AddHttpClient();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            //
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configure JSON serialization.
             // https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/2293
+            //
             builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
             builder.Services.Configure<Microsoft.AspNetCore.Mvc.JsonOptions>(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
+            // DI for application services.
+            //
             builder.Services.AddSingleton<IGlobalGreek, GlobalGreek>();
             builder.Services.AddScoped<ILexemeService, LexemeService>();
             builder.Services.AddScoped<ITextService, TextService>();
@@ -31,29 +39,31 @@ namespace BibleWebApi
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Enable Swagger in development
+            //
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
+            // Enable HTTP to HTTPS redirection.
+            //
             app.UseHttpsRedirection();
 
-            // WEB
+            // Enable routing middleware required by ASP.NET MVC
+            //
             app.UseRouting();
 
             app.UseAuthorization();
 
-            //app.MapControllers();
-
-            // WEB 
+            // Configure default routing used by ASP.NET MVC controllers.
+            //
             _ = app.UseEndpoints(endpoints =>
             {
                 _ = endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                _ = endpoints.MapRazorPages();
             });
 
             app.Run();
