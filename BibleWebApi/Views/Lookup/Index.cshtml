@@ -10,9 +10,9 @@
     {
         <div class="alert alert-primary" role="alert">
             @Model.Message
-        </div>        
+        </div>
     }
-    @using (Html.BeginForm("Update", "Lookup", FormMethod.Post,new { @class="mb-4", style="width: 25rem" }))
+    @using (Html.BeginForm("Update", "Lookup", FormMethod.Post, new { @class = "mb-4", style = "width: 25rem" }))
     {
         <fieldset>
             <div class="row mb-3">
@@ -49,9 +49,9 @@
                     <p class="card-text">@($"GK number: GK{string.Join(',', lexemeData.Gk.Select(s => s.ToString()).ToArray())}")</p>
                 </div>
             </div>
-            @foreach(var form in lexemeData.Forms)
+            @foreach (var form in lexemeData.Forms)
             {
-                <hr class="m-0 p-0"/>
+                <hr class="m-0 p-0" />
                 <div class="card-body row ">
                     <div class="card-text col-12 col-md-4">
                         <h5 style="font-family: 'Times New Roman', Times, serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
@@ -69,10 +69,10 @@
                     </div>
                     <div class="col">
                         <div class="row">
-                        @foreach (var bookmark in form.Bookmarks)
-                        {
-                            <a asp-controller="Browse" asp-action="Index" asp-route-id="@bookmark.FormattedBookmark" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover col-4 col-lg-2 text-nowrap">@bookmark.FormattedBookmark</a>
-                        }
+                            @foreach (var bookmark in form.Bookmarks)
+                            {
+                                <a asp-controller="Browse" asp-action="Index" asp-route-id="@bookmark.FormattedBookmark" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover col-4 col-lg-2 text-nowrap">@bookmark.FormattedBookmark</a>
+                            }
                         </div>
                     </div>
                 </div>

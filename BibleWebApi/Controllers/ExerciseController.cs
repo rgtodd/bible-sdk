@@ -18,9 +18,9 @@ namespace BibleWebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var model = await Render();
+            var model = await GetExerciseModel(8);
 
-            return View("Index", model);
+            return View("Exercise", model);
         }
 
         [HttpPost]
@@ -38,20 +38,18 @@ namespace BibleWebApi.Controllers
                     }
                     break;
                 }
-
-                //await Render();
             }
 
             ModelState.Clear();
 
-            return View("Index", new ExerciseModel() { Data = data });
+            return View("Exercise", new ExerciseModel() { Data = data });
         }
 
 
-        private async Task<ExerciseModel> Render()
+        private async Task<ExerciseModel> GetExerciseModel(int exerciseId)
         {
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/8";
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/{exerciseId}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);

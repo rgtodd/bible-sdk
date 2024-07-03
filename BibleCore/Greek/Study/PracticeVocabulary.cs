@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BibleCore.Greek.Study
+﻿namespace BibleCore.Greek.Study
 {
     public class PracticeVocabulary
     {
@@ -60,7 +54,7 @@ namespace BibleCore.Greek.Study
         private static List<Lexeme> GetLexemes(Lexicon lexicon, int mounceChapterNumber)
         {
             return lexicon.GetByMounceChapter(mounceChapterNumber).ToList();
-                
+
             //var result = new List<Lexeme>
             //{
             //    lexicon.GetByStrongs(11),

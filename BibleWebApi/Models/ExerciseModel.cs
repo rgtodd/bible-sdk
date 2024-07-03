@@ -1,9 +1,4 @@
-﻿using BibleCore.Utility;
-
-using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
-
-namespace BibleWebApi.Models
+﻿namespace BibleWebApi.Models
 {
     public class ExerciseModel
     {

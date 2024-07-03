@@ -1,12 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using BibleCore;
 using BibleCore.Greek;
 using BibleCore.Greek.SblGnt;
 
 using System.Globalization;
 using System.Text;
-
-using YamlDotNet.Core.Tokens;
 
 internal class Program
 {

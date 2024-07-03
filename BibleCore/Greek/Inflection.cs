@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BibleCore.Greek
+﻿namespace BibleCore.Greek
 {
     public readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
     {
