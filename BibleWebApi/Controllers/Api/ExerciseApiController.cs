@@ -9,7 +9,7 @@ namespace BibleWebApi.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PracticeApiController(IExerciseService exerciseService) : ControllerBase
+    public class ExerciseApiController(IExerciseService exerciseService) : ControllerBase
     {
         [HttpGet("{id}")]
         public ExerciseVocabularyData Get(int id)

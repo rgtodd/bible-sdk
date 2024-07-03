@@ -31,37 +31,39 @@ namespace BibleWebApi.Controllers
             return View("Index", newModel);
         }
 
-        private async Task<BrowseModel?> RenderRage(string? range)
+        private async Task<BrowseModel> RenderRage(string? range)
         {
             var request = HttpContext.Request;
             var url = $"{request.Scheme}://{request.Host}/api/TextApi?range={range}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                var json = await response.Content.ReadAsStringAsync();
-                var textData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<TextData>(json, Serialization.JsonSerializerOptions);
-                var rangeExpression = textData?.RangeExpression;
-                var message = string.Empty;
-                if (rangeExpression != null)
-                {
-                    rangeExpression = textData?.RangeExpression;
-                }
-                else
-                {
-                    message = "Range not recognized.";
-                }
-
-                return new BrowseModel()
-                {
-                    TextData = textData,
-                    RangeExpression = rangeExpression,
-                    Message = message
-                };
+                throw new ApplicationException(response.ReasonPhrase);
             }
 
-            return null;
+            var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
+
+            var textData = JsonSerializer.Deserialize<TextData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+
+            var rangeExpression = textData.RangeExpression;
+            var message = string.Empty;
+            //if (rangeExpression != null)
+            //{
+            //    rangeExpression = textData?.RangeExpression;
+            //}
+            //else
+            //{
+            //    message = "Range not recognized.";
+            //}
+
+            return new BrowseModel()
+            {
+                TextData = textData,
+                RangeExpression = rangeExpression,
+                Message = message
+            };
         }
     }
 }

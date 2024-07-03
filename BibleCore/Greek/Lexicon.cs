@@ -10,6 +10,8 @@ namespace BibleCore.Greek
     {
         public List<Lexeme> Lexemes { get; } = [];
 
+        public Dictionary<int, int> MounceChapterWordCount { get; } = [];
+
         public Lexeme GetOrCreateLexeme(string lemma, PartOfSpeech partOfSpeech)
         {
             ArgumentNullException.ThrowIfNull(lemma, nameof(lemma));

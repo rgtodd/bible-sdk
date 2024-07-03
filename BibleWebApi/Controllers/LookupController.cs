@@ -29,12 +29,15 @@ namespace BibleWebApi.Controllers
                 var url = $"{request.Scheme}://{request.Host}/api/LexemeApi/{id.Value}";
 
                 var c = HttpClientFactory.CreateClient();
-                HttpResponseMessage response = await c.GetAsync(url);
-                if (response.IsSuccessStatusCode)
+                var response = await c.GetAsync(url);
+                if (!response.IsSuccessStatusCode)
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    model.LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions);
+                    throw new ApplicationException(response.ReasonPhrase);
                 }
+
+                var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
+
+                model.LexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
                 model.Message = model.LexemeData == null ? "Not found." : null;
                 model.Strongs = id.Value.ToString();
@@ -50,17 +53,19 @@ namespace BibleWebApi.Controllers
             var url = $"{request.Scheme}://{request.Host}/api/LexemeApi/{model.Strongs}";
 
             var c = HttpClientFactory.CreateClient();
-            HttpResponseMessage response = await c.GetAsync(url);
-            if (response.IsSuccessStatusCode)
+            var response = await c.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
             {
-                var json = await response.Content.ReadAsStringAsync();
-                model.LexemeData = string.IsNullOrEmpty(json) ? null : JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions);
+                throw new ApplicationException(response.ReasonPhrase);
             }
+
+            var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
+
+            model.LexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
             model.Message = model.LexemeData == null ? "Not found." : null;
 
             return View("Index", model);
         }
-
     }
 }

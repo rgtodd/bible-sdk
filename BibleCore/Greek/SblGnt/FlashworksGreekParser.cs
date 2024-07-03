@@ -36,6 +36,8 @@ namespace BibleCore.Greek.SblGnt
                 else
                 {
                     lexeme.MounceChapterNumber = chapter;
+
+                    lexicon.MounceChapterWordCount[chapter] = lexicon.MounceChapterWordCount.TryGetValue(chapter, out int count) ? count + 1 : 1;
                 }
 
                 line = reader.ReadLine();

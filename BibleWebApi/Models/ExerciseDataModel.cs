@@ -3,25 +3,25 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
-namespace BibleWebApi.Code.Model
+namespace BibleWebApi.Models
 {
-    public class ExerciseModel : IParsable<ExerciseModel>
+    public class ExerciseDataModel : IParsable<ExerciseDataModel>
     {
-        public required ExerciseWordModel[] Words {  get; init; }
+        public required ExerciseWordModel[] Words { get; init; }
 
         public override string ToString()
         {
             return JsonSerializer.Serialize(this, Serialization.JsonSerializerOptions);
         }
 
-        public static ExerciseModel Parse(string value, IFormatProvider? provider)
+        public static ExerciseDataModel Parse(string value, IFormatProvider? provider)
         {
             return !TryParse(value, provider, out var result)
                 ? throw new ArgumentException("Could not parse supplied value.", nameof(value))
                 : result;
         }
 
-        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseModel result)
+        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseDataModel result)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -29,7 +29,7 @@ namespace BibleWebApi.Code.Model
                 return false;
             }
 
-            result = JsonSerializer.Deserialize<ExerciseModel>(value, Serialization.JsonSerializerOptions);
+            result = JsonSerializer.Deserialize<ExerciseDataModel>(value, Serialization.JsonSerializerOptions);
             return result != null;
         }
 

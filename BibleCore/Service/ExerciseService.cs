@@ -18,5 +18,13 @@ namespace BibleCore.Service
 
             return exerciseVocabularyData;
         }
+
+        public ExerciseData GetExerciseData()
+        {
+            return new ExerciseData()
+            {
+                MounceChapterWordCount = globalGreek.Lexicon.MounceChapterWordCount
+            };
+        }
     }
 }

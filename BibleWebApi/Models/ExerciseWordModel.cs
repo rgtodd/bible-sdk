@@ -1,9 +1,8 @@
 ﻿using BibleCore.Utility;
-
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 
-namespace BibleWebApi.Code.Model
+namespace BibleWebApi.Models
 {
     public class ExerciseWordModel : IParsable<ExerciseWordModel>
     {
