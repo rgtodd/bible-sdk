@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class Text
+    internal class Text
     {
         public List<TextEntry> Entries { get; } = [];
 

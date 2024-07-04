@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
-    public class MorphGntFileParser
+    internal class MorphGntFileParser
     {
         public static void Parse(Text text, Lexicon lexicon)
         {

@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
+    internal readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
     {
         public Tense? Tense { get; init; }
 

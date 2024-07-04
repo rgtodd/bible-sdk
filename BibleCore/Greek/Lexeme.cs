@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class Lexeme
+    internal class Lexeme
     {
         public required string Lemma { get; init; }
 

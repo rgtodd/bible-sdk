@@ -3,7 +3,7 @@ using BibleCore.Service.Data;
 
 namespace BibleCore.Service
 {
-    public class ExerciseService(IGlobalGreek globalGreek) : IExerciseService
+    internal class ExerciseService(IGlobalGreek globalGreek) : IExerciseService
     {
         public ExerciseVocabularyData GetExerciseByMounceChapterNumber(int mounceChapterNumber)
         {

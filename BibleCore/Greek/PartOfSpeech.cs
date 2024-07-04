@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum PartOfSpeech
+    internal enum PartOfSpeech
     {
         Adjective, // A
         Conjunction, // C

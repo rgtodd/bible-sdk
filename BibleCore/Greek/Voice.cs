@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Voice
+    internal enum Voice
     {
         Active, // A
         Middle, // M

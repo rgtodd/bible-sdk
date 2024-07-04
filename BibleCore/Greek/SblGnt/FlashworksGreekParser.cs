@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
-    public static class FlashworksGreekParser
+    internal static class FlashworksGreekParser
     {
         public static void Parse(Lexicon lexicon)
         {

@@ -2,7 +2,7 @@
 
 namespace BibleCore.Service
 {
-    public interface IGlobalGreek
+    internal interface IGlobalGreek
     {
         Lexicon Lexicon { get; }
 

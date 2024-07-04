@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    public class PracticeWord
+    internal class PracticeWord
     {
         private readonly Lexeme m_lexeme;
         private readonly Dictionary<Mastery, int> m_masteries;

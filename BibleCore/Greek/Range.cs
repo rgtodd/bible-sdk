@@ -2,7 +2,7 @@
 
 namespace BibleCore.Greek
 {
-    public class Range
+    internal class Range
     {
         public required Bookmark From { get; init; }
 

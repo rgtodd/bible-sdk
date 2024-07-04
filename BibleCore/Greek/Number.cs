@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Number
+    internal enum Number
     {
         Singular, // S
         Plural // P

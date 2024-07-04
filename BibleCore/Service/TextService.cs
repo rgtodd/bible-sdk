@@ -2,7 +2,7 @@
 
 namespace BibleCore.Service
 {
-    public class TextService(IGlobalGreek globalGreek) : ITextService
+    internal class TextService(IGlobalGreek globalGreek) : ITextService
     {
         public TextData? GetText(string? rangeExpression)
         {

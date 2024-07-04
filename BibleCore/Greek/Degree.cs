@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Degree
+    internal enum Degree
     {
         Comparative, // C
         Superlative // S

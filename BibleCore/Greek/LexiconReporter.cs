@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public static class LexiconReporter
+    internal static class LexiconReporter
     {
         public static void DumpInflections(Lexicon lexicon)
         {

@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    public class PracticeVocabulary
+    internal class PracticeVocabulary
     {
         private readonly PracticeWord[] m_words;
 

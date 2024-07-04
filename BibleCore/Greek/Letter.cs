@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Letter
+    internal enum Letter
     {
         Alpha,
         Beta,

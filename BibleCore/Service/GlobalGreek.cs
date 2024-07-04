@@ -3,7 +3,7 @@ using BibleCore.Greek.SblGnt;
 
 namespace BibleCore.Service
 {
-    public sealed class GlobalGreek : IGlobalGreek
+    internal sealed class GlobalGreek : IGlobalGreek
     {
         // The volatile keyword ensures that the instantiation is complete 
         // before it can be accessed further helping with thread safety.

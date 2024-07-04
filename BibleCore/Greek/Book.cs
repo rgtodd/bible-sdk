@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Book
+    internal enum Book
     {
         Matthew,
         Mark,

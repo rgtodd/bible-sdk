@@ -7,7 +7,7 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace BibleCore.Greek.SblGnt
 {
-    public static class MorphGntLexemeParser
+    internal static class MorphGntLexemeParser
     {
         public static void Parse(Lexicon lexicon)
         {

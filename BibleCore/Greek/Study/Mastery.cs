@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    public enum Mastery
+    internal enum Mastery
     {
         Definition,
         PartOfSpeech

@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Mood
+    internal enum Mood
     {
         Indicative, // I
         Subjunctive, // S

@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Case
+    internal enum Case
     {
         Nominative, // N
         Genitive, // G

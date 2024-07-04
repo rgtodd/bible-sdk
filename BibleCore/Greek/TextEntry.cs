@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class TextEntry
+    internal class TextEntry
     {
         public required Bookmark Bookmark { get; init; }
 

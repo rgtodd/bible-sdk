@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class InflectionBuilder
+    internal class InflectionBuilder
     {
         private Person? m_person;
         private Tense? m_tense;

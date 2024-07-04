@@ -5,32 +5,32 @@ namespace BibleWebApi.Models
 {
     public static class ModelFactory
     {
-        public static ExerciseCatagoryListModel CreateExerciseCatagoryListModel(Lexicon lexicon)
-        {
-            var exerciseCategoryItems = new List<ExerciseCategoryItemModel>();
-            foreach (var chapter in lexicon.MounceChapterWordCount.Keys.Order())
-            {
-                exerciseCategoryItems.Add(new ExerciseCategoryItemModel()
-                {
-                    Name = $"Chapter {chapter} ({lexicon.MounceChapterWordCount[chapter]} words)"
-                });
-            }
+        //public static ExerciseCatagoryListModel CreateExerciseCatagoryListModel(Lexicon lexicon)
+        //{
+        //    var exerciseCategoryItems = new List<ExerciseCategoryItemModel>();
+        //    foreach (var chapter in lexicon.MounceChapterWordCount.Keys.Order())
+        //    {
+        //        exerciseCategoryItems.Add(new ExerciseCategoryItemModel()
+        //        {
+        //            Name = $"Chapter {chapter} ({lexicon.MounceChapterWordCount[chapter]} words)"
+        //        });
+        //    }
 
-            var exerciseCategories = new List<ExerciseCatagoryModel>();
-            var exerciseCategory = new ExerciseCatagoryModel()
-            {
-                Name = "Definitions",
-                Items = [.. exerciseCategoryItems]
-            };
-            exerciseCategories.Add(exerciseCategory);
+        //    var exerciseCategories = new List<ExerciseCatagoryModel>();
+        //    var exerciseCategory = new ExerciseCatagoryModel()
+        //    {
+        //        Name = "Definitions",
+        //        Items = [.. exerciseCategoryItems]
+        //    };
+        //    exerciseCategories.Add(exerciseCategory);
 
-            var exerciseCategoryList = new ExerciseCatagoryListModel()
-            {
-                Categories = [.. exerciseCategories]
-            };
+        //    var exerciseCategoryList = new ExerciseCatagoryListModel()
+        //    {
+        //        Categories = [.. exerciseCategories]
+        //    };
 
-            return exerciseCategoryList;
-        }
+        //    return exerciseCategoryList;
+        //}
 
         public static ExerciseModel CreateExerciseModel(ExerciseVocabularyData practiceVocabulary)
         {

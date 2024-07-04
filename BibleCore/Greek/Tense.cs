@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public enum Tense
+    internal enum Tense
     {
         Present, // P
         Imperfect, // I

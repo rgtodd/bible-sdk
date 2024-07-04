@@ -32,10 +32,11 @@ namespace BibleWebApi
 
             // DI for application services.
             //
-            builder.Services.AddSingleton<IGlobalGreek, GlobalGreek>();
-            builder.Services.AddScoped<ILexemeService, LexemeService>();
-            builder.Services.AddScoped<ITextService, TextService>();
-            builder.Services.AddScoped<IExerciseService, ExerciseService>();
+            BibleServiceRegistrar.Register(builder.Services);
+            //builder.Services.AddSingleton<IGlobalGreek, GlobalGreek>();
+            //builder.Services.AddScoped<ILexemeService, LexemeService>();
+            //builder.Services.AddScoped<ITextService, TextService>();
+            //builder.Services.AddScoped<IExerciseService, ExerciseService>();
 
             var app = builder.Build();
 

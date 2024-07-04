@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class Lexicon
+    internal class Lexicon
     {
         public List<Lexeme> Lexemes { get; } = [];
 

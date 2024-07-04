@@ -2,7 +2,7 @@
 
 namespace BibleCore.Service
 {
-    public class LexemeService(IGlobalGreek globalGreek) : ILexemeService
+    internal class LexemeService(IGlobalGreek globalGreek) : ILexemeService
     {
         public LexemeData? GetByStrongsNumber(int strongsNumber)
         {

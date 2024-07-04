@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    public class Form
+    internal class Form
     {
         public required Lexeme Lexeme { get; init; }
 

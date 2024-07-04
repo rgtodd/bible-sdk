@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace BibleCore.Greek
 {
-    public readonly struct Bookmark : IEquatable<Bookmark>, IComparable<Bookmark>
+    internal readonly struct Bookmark : IEquatable<Bookmark>, IComparable<Bookmark>
     {
         private readonly static Dictionary<Book, string> s_shortTitlesByBook = new()
         {

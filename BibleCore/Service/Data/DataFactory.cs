@@ -3,7 +3,7 @@ using BibleCore.Greek.Study;
 
 namespace BibleCore.Service.Data
 {
-    public static class DataFactory
+    internal static class DataFactory
     {
         public static LexemeData CreateLexemeData(Lexeme lexeme)
         {

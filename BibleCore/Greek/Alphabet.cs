@@ -3,7 +3,7 @@ using System.Text;
 
 namespace BibleCore.Greek
 {
-    public class Alphabet(Letter letter,
+    internal class Alphabet(Letter letter,
                           char lowerCase,
                           char upperCase,
                           char? alternateLowerCase,
