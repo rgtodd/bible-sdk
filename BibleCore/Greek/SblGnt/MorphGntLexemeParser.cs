@@ -20,16 +20,23 @@ namespace BibleCore.Greek.SblGnt
 
             foreach (var lexeme in lexicon.Lexemes)
             {
-                if (lexeme.Lemma == "ἄπειμι")
-                {
-                    Debug.Print("ἄπειμι");
-                }
                 if (lexemes.TryGetValue(lexeme.Lemma, out var morphGntLexeme))
                 {
                     string fullCitationForm = morphGntLexeme.FullCitationForm;
 
+                    string gloss = "RGT";
+                    if (morphGntLexeme.Gloss != null)
+                    {
+                        gloss = morphGntLexeme.GlossAsString;
+                    }
+
+                    if (gloss == "RGT")
+                    {
+                        Debug.WriteLine($"Gloss not specified for {morphGntLexeme}");
+                    }
+
                     lexeme.FullCitationForm = fullCitationForm;
-                    lexeme.Gloss = morphGntLexeme.GlossAsString;
+                    lexeme.Gloss = gloss;
                     lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
                     lexeme.Gk = morphGntLexeme.GkAsIntegers;
 

@@ -35,7 +35,7 @@ namespace BibleCore.Greek.SblGnt
                 switch (Gloss)
                 {
                     case null:
-                        break;
+                        throw new Exception($"Gloss not specified for {FullCitationForm}"); ;
 
                     case string stringValue:
                         sb.Append(stringValue);
@@ -57,22 +57,14 @@ namespace BibleCore.Greek.SblGnt
         {
             get
             {
-                switch (Strongs)
+                return Strongs switch
                 {
-                    case null: return [];
-
-                    case int intValue:
-                        return [intValue];
-
-                    case string stringValue:
-                        return [int.Parse(stringValue)];
-
-                    case List<object> listValue:
-                        return listValue.Select(o => int.Parse(o.ToString() ?? "")).ToArray();
-
-                    default:
-                        throw new Exception($"Unknown Strongs type {Strongs.GetType()}");
-                }
+                    null => [],
+                    int intValue => [intValue],
+                    string stringValue => [int.Parse(stringValue)],
+                    List<object> listValue => listValue.Select(o => int.Parse(o.ToString() ?? "")).ToArray(),
+                    _ => throw new Exception($"Unknown Strongs type {Strongs.GetType()}"),
+                };
             }
         }
 
@@ -80,23 +72,20 @@ namespace BibleCore.Greek.SblGnt
         {
             get
             {
-                switch (Gk)
+                return Gk switch
                 {
-                    case null: return [];
-
-                    case int intValue:
-                        return [intValue];
-
-                    case string stringValue:
-                        return [int.Parse(stringValue)];
-
-                    case List<object> listValue:
-                        return listValue.Select(o => int.Parse(o.ToString() ?? "")).ToArray();
-
-                    default:
-                        throw new Exception($"Unknown Gk type {Gk.GetType()}");
-                }
+                    null => [],
+                    int intValue => [intValue],
+                    string stringValue => [int.Parse(stringValue)],
+                    List<object> listValue => listValue.Select(o => int.Parse(o.ToString() ?? "")).ToArray(),
+                    _ => throw new Exception($"Unknown Gk type {Gk.GetType()}"),
+                };
             }
+        }
+
+        public override string? ToString()
+        {
+            return $"{Pos}-{FullCitationForm}-{BdagHeadword}-{DankerEntry}-{DodsonEntry}-{MounceHeadword}-{Strongs}-{Gk}-{DodsonPos}-{Gloss}-{MounceMorphcat}";
         }
     }
 }

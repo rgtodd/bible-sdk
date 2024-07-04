@@ -33,7 +33,9 @@ namespace BibleCore.Greek.Study
 
                 var answers = possibleGlosses.Select(g => new Answer(g, g == correctGloss)).ToArray();
 
-                var question = new Question(lexeme.Lemma, answers);
+                var detail = $"{lexeme.PartOfSpeech} - {lexeme.FullCitationForm}";
+
+                var question = new Question(lexeme.Lemma, detail, answers);
                 questions.Add(question);
             }
 

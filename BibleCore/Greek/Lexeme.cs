@@ -16,7 +16,7 @@
 
         public int[] Gk { get; set; } = [];
 
-        public int? MounceChapterNumber { get; set; } = null;
+        public int MounceChapterNumber { get; set; } = 0;
 
         public List<Form> Forms { get; } = [];
 

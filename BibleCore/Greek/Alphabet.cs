@@ -102,7 +102,5 @@ namespace BibleCore.Greek
 
             return sb.ToString();
         }
-
-
     }
 }

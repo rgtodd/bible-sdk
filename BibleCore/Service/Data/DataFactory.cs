@@ -149,6 +149,7 @@ namespace BibleCore.Service.Data
             return new ExerciseQuestionData()
             {
                 Question = question.Text,
+                Detail = question.Detail,
                 Answers = CreateExerciseAnswerDataArray(question.Answers)
             };
         }
