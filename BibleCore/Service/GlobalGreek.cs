@@ -88,11 +88,13 @@ namespace BibleCore.Service
         {
             ArgumentNullException.ThrowIfNull(m_lexicon);
 
-            var exerciseCatalog = new ExerciseCatalog([
-                new ExerciseCategory(
-                    ExerciseCategory.DEFINITIONS,
-                    [new DefinitionExerciseFactory(m_lexicon, 8)])
-                ]);
+            var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Distinct().Order().Where(n => n.HasValue);
+
+            var exerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, n.Value)).ToArray();
+
+            var definitionExerciseCategory = new ExerciseCategory(ExerciseCategory.DEFINITIONS, exerciseFactories);
+
+            var exerciseCatalog = new ExerciseCatalog([definitionExerciseCategory]);
 
             m_exerciseCatalog = exerciseCatalog;
         }
