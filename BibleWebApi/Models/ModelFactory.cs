@@ -13,7 +13,43 @@ namespace BibleWebApi.Models
             };
         }
 
-        public static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise)
+        public static ExerciseCatalogModel CreateExerciseCatalogModel(ExerciseCatalogData exerciseCatalog)
+        {
+            return new ExerciseCatalogModel()
+            {
+                Categories = CreateExerciseCategoryModelArray(exerciseCatalog.Categories)
+            };
+        }
+
+        private static ExerciseCategoryModel CreateExerciseCategoryModel(ExerciseCategoryData exerciseCategory)
+        {
+            return new ExerciseCategoryModel()
+            {
+                Name = exerciseCategory.Name,
+                Items = CreateExerciseCategoryItemModelArray(exerciseCategory.Items)
+            };
+        }
+
+        private static ExerciseCategoryModel[] CreateExerciseCategoryModelArray(IEnumerable<ExerciseCategoryData> exerciseCategories)
+        {
+            return exerciseCategories.Select(CreateExerciseCategoryModel).ToArray();
+        }
+
+        private static ExerciseCategoryItemModel CreateExerciseCategoryItemModel(ExerciseCategoryItemData exerciseCategoryItem)
+        {
+            return new ExerciseCategoryItemModel()
+            {
+                Id = exerciseCategoryItem.Id,
+                Name = exerciseCategoryItem.Name,
+            };
+        }
+
+        private static ExerciseCategoryItemModel[] CreateExerciseCategoryItemModelArray(IEnumerable<ExerciseCategoryItemData> exerciseCategoryItems)
+        {
+            return exerciseCategoryItems.Select(CreateExerciseCategoryItemModel).ToArray();
+        }
+
+        private static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise)
         {
             return new ExerciseDataModel()
             {
@@ -21,7 +57,7 @@ namespace BibleWebApi.Models
             };
         }
 
-        public static ExerciseQuestionModel CreateExerciseWordModel(ExerciseQuestionData question, int sequence)
+        private static ExerciseQuestionModel CreateExerciseWordModel(ExerciseQuestionData question, int sequence)
         {
             return new ExerciseQuestionModel()
             {
@@ -31,14 +67,14 @@ namespace BibleWebApi.Models
             };
         }
 
-        public static ExerciseQuestionModel[] CreateExerciseWordModelArray(IEnumerable<ExerciseQuestionData> questions)
+        private static ExerciseQuestionModel[] CreateExerciseWordModelArray(IEnumerable<ExerciseQuestionData> questions)
         {
             int sequence = 0;
 
             return questions.Select(w => CreateExerciseWordModel(w, ++sequence)).ToArray();
         }
 
-        public static ExerciseAnswerModel CreateExerciseWordOptionModel(ExerciseAnswerData answer)
+        private static ExerciseAnswerModel CreateExerciseWordOptionModel(ExerciseAnswerData answer)
         {
             return new ExerciseAnswerModel()
             {
@@ -48,7 +84,7 @@ namespace BibleWebApi.Models
             };
         }
 
-        public static ExerciseAnswerModel[] CreateExerciseWordOptionModelArray(IEnumerable<ExerciseAnswerData> answers)
+        private static ExerciseAnswerModel[] CreateExerciseWordOptionModelArray(IEnumerable<ExerciseAnswerData> answers)
         {
             return answers.Select(CreateExerciseWordOptionModel).ToArray();
         }

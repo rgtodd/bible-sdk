@@ -4,6 +4,8 @@ namespace BibleCore.Service
 {
     public interface IExerciseService
     {
-        ExerciseData GetExerciseData(string categoryName, string exerciseName);
+        ExerciseCatalogData GetExerciseCatalog();
+
+        ExerciseData GetExercise(string id);
     }
 }

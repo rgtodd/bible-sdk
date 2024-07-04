@@ -99,6 +99,43 @@ namespace BibleCore.Service.Data
             return textData;
         }
 
+        public static ExerciseCatalogData CreateExerciseCatalogData(ExerciseCatalog catalog)
+        {
+            return new ExerciseCatalogData()
+            {
+                Categories = CreateExerciseCategoryDataArray(catalog.Categories)
+            };
+        }
+
+        private static ExerciseCategoryData CreateExerciseCategoryData(ExerciseCategory category)
+        {
+            return new ExerciseCategoryData()
+            {
+                Name = category.Name,
+                Items = CreateExerciseCategoryItemDataArray(category, category.ExerciseFactories)
+            };
+        }
+
+        private static ExerciseCategoryData[] CreateExerciseCategoryDataArray(IEnumerable<ExerciseCategory> exerciseCategories)
+        {
+            return exerciseCategories.Select(CreateExerciseCategoryData).ToArray();
+        }
+
+        private static ExerciseCategoryItemData CreateExerciseCategoryItemData(ExerciseCategory category, IExerciseFactory exerciseFactory)
+        {
+
+            return new ExerciseCategoryItemData()
+            {
+                Id = $"{category.Name}-{exerciseFactory.Name}",
+                Name = exerciseFactory.Name
+            };
+        }
+
+        private static ExerciseCategoryItemData[] CreateExerciseCategoryItemDataArray(ExerciseCategory category, IEnumerable<IExerciseFactory> exerciseFactories)
+        {
+            return exerciseFactories.Select(ef => CreateExerciseCategoryItemData(category, ef)).ToArray();
+        }
+
         public static ExerciseData CreateExerciseData(Exercise exercise)
         {
             return new ExerciseData()

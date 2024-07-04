@@ -1,0 +1,15 @@
+﻿@using BibleCore.Service.Data
+@using BibleWebApi.Models
+@model ExerciseCatalogModel
+@{
+    ViewData["Title"] = "Exercisies";
+}
+<h2>Exercises</h2>
+@foreach (var category in Model.Categories)
+{
+    <h3>@category.Name</h3>
+    foreach (var categoryItem in category.Items)
+    {
+        <a asp-controller="Exercise" asp-action="Start" asp-route-id="@categoryItem.Id">@categoryItem.Name</a>
+    }
+}

@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Service.Data
 {
-    public class ExerciseCatagoryData
+    public class ExerciseCategoryData
     {
         public required string Name { get; init; }
 

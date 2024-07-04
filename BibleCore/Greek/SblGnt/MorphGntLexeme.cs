@@ -2,7 +2,7 @@
 
 namespace BibleCore.Greek.SblGnt
 {
-    public class MorphGntLexeme
+    internal class MorphGntLexeme
     {
         public string? Pos { get; set; }
 

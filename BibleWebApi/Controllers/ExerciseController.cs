@@ -18,7 +18,16 @@ namespace BibleWebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var model = await GetExerciseModel(8);
+            var model = await GetExerciseCatalogModel();
+
+            return View("Catalog", model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Start(string id)
+        {
+
+            var model = await GetExerciseModel(id);
 
             return View("Exercise", model);
         }
@@ -46,10 +55,31 @@ namespace BibleWebApi.Controllers
         }
 
 
-        private async Task<ExerciseModel> GetExerciseModel(int exerciseId)
+        private async Task<ExerciseCatalogModel> GetExerciseCatalogModel()
         {
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/{exerciseId}";
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/catalog";
+
+            var c = HttpClientFactory.CreateClient();
+            var response = await c.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(response.ReasonPhrase);
+            }
+
+            var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
+
+            var exerciseCatalogData = JsonSerializer.Deserialize<ExerciseCatalogData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+
+            var exerciseCatalogModel = ModelFactory.CreateExerciseCatalogModel(exerciseCatalogData);
+
+            return exerciseCatalogModel;
+        }
+
+        private async Task<ExerciseModel> GetExerciseModel(string exerciseId)
+        {
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise/{exerciseId}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);

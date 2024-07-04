@@ -1,6 +1,6 @@
 ﻿namespace BibleWebApi.Models
 {
-    public class ExerciseCatagoryModel
+    public class ExerciseCategoryModel
     {
         public required string Name { get; init; }
 
