@@ -1,4 +1,5 @@
 ﻿using BibleCore.Greek;
+using BibleCore.Greek.Study;
 
 namespace BibleCore.Service
 {
@@ -7,5 +8,7 @@ namespace BibleCore.Service
         Lexicon Lexicon { get; }
 
         Text Text { get; }
+
+        ExerciseCatalog ExerciseCatalog { get; }
     }
 }

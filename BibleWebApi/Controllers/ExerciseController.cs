@@ -28,13 +28,13 @@ namespace BibleWebApi.Controllers
         {
             Logger.LogInformation("Word {word}, Option {option}", word, option);
 
-            foreach (var exerciseWord in data.Words)
+            foreach (var question in data.Questions)
             {
-                if (exerciseWord.Word == word)
+                if (question.Question == word)
                 {
-                    foreach (var exerciseOption in exerciseWord.Options)
+                    foreach (var answer in question.Answers)
                     {
-                        exerciseOption.IsSelected = exerciseOption.Option == option;
+                        answer.IsSelected = answer.Answer == option;
                     }
                     break;
                 }
@@ -60,7 +60,7 @@ namespace BibleWebApi.Controllers
 
             var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
 
-            var exerciseVocabularyData = JsonSerializer.Deserialize<ExerciseVocabularyData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+            var exerciseVocabularyData = JsonSerializer.Deserialize<ExerciseData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
             var exerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData);
 

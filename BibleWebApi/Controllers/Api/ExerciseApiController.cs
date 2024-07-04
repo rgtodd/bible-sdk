@@ -12,9 +12,9 @@ namespace BibleWebApi.Controllers.Api
     public class ExerciseApiController(IExerciseService exerciseService) : ControllerBase
     {
         [HttpGet("{id}")]
-        public ExerciseVocabularyData Get(int id)
+        public ExerciseData Get(int id)
         {
-            return exerciseService.GetExerciseByMounceChapterNumber(id);
+            return exerciseService.GetExerciseData("Definitions", $"Mounce {id}");
         }
     }
 }

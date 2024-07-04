@@ -5,27 +5,27 @@ using System.Text.Json;
 
 namespace BibleWebApi.Models
 {
-    public class ExerciseWordModel : IParsable<ExerciseWordModel>
+    public class ExerciseQuestionModel : IParsable<ExerciseQuestionModel>
     {
         public required int Sequence { get; init; }
 
-        public required string Word { get; init; }
+        public required string Question { get; init; }
 
-        public required ExerciseWordOptionModel[] Options { get; init; }
+        public required ExerciseAnswerModel[] Answers { get; init; }
 
         public override string ToString()
         {
             return JsonSerializer.Serialize(this, Serialization.JsonSerializerOptions);
         }
 
-        public static ExerciseWordModel Parse(string value, IFormatProvider? provider)
+        public static ExerciseQuestionModel Parse(string value, IFormatProvider? provider)
         {
             return !TryParse(value, provider, out var result)
                 ? throw new ArgumentException("Could not parse supplied value.", nameof(value))
                 : result;
         }
 
-        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseWordModel result)
+        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseQuestionModel result)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -33,7 +33,7 @@ namespace BibleWebApi.Models
                 return false;
             }
 
-            result = JsonSerializer.Deserialize<ExerciseWordModel>(value, Serialization.JsonSerializerOptions);
+            result = JsonSerializer.Deserialize<ExerciseQuestionModel>(value, Serialization.JsonSerializerOptions);
             return result != null;
         }
     }

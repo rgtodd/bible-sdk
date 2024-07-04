@@ -7,7 +7,7 @@ namespace BibleWebApi.Models
 {
     public class ExerciseDataModel : IParsable<ExerciseDataModel>
     {
-        public required ExerciseWordModel[] Words { get; init; }
+        public required ExerciseQuestionModel[] Questions { get; init; }
 
         public override string ToString()
         {

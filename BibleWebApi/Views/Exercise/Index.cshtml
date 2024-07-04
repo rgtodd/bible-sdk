@@ -7,16 +7,16 @@
 <h2>Exercise</h2>
 @using (Html.BeginForm("Update", "Exercise", FormMethod.Post, null))
 {
-    foreach (var word in Model.Data.Words)
+    foreach (var word in Model.Data.Questions)
     {
         <div class="row my-2" id="word-@word.Sequence">
             <div class="col-12 col-md-2" style="font-family: 'Times New Roman', Times, serif">
-                @word.Word
+                @word.Question
             </div>
             <div class="col">
-                @foreach (var option in word.Options)
+                @foreach (var option in word.Answers)
                 {
-                    <input type="submit" value="@option.Option" asp-controller="Exercise" asp-action="Update" asp-route-word="@word.Word" asp-route-option="@option.Option" class="btn @option.BootstrapButtonClass submit" onclick="maintainscrollposition()" />
+                    <input type="submit" value="@option.Answer" asp-controller="Exercise" asp-action="Update" asp-route-word="@word.Question" asp-route-option="@option.Answer" class="btn @option.BootstrapButtonClass submit" onclick="maintainscrollposition()" />
                 }
             </div>
         </div>

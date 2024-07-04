@@ -2,6 +2,6 @@
 {
     public class ExerciseData
     {
-        public required Dictionary<int, int> MounceChapterWordCount { get; init; }
+        public required ExerciseQuestionData[] Questions { get; init; }
     }
 }

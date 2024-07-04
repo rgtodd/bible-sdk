@@ -99,32 +99,40 @@ namespace BibleCore.Service.Data
             return textData;
         }
 
-        public static ExerciseVocabularyData CreateExerciseVocabularyData(PracticeVocabulary vocabulary)
+        public static ExerciseData CreateExerciseData(Exercise exercise)
         {
-            return new ExerciseVocabularyData()
+            return new ExerciseData()
             {
-                Words = CreateExerciseWordDataArray(vocabulary.Words)
+                Questions = CreateExerciseQuestionDataArray(exercise.Questions)
             };
         }
 
-        private static ExerciseWordData[] CreateExerciseWordDataArray(IEnumerable<PracticeWord> practiceWords)
+        private static ExerciseQuestionData CreateExerciseQuestionData(Question question)
         {
-            return practiceWords.Select(CreateExerciseWordData).ToArray();
+            return new ExerciseQuestionData()
+            {
+                Question = question.Text,
+                Answers = CreateExerciseAnswerDataArray(question.Answers)
+            };
         }
 
-        private static ExerciseWordData CreateExerciseWordData(PracticeWord practiceWord)
+        private static ExerciseQuestionData[] CreateExerciseQuestionDataArray(IEnumerable<Question> questions)
         {
-            return new ExerciseWordData()
+            return questions.Select(CreateExerciseQuestionData).ToArray();
+        }
+
+        private static ExerciseAnswerData CreateExerciseAnswerData(Answer answer)
+        {
+            return new ExerciseAnswerData()
             {
-                Lemma = practiceWord.Lexeme.Lemma,
-                Strongs = practiceWord.Lexeme.Strongs[0],
-                DefinitionMastery = practiceWord.Masteries[Mastery.Definition],
-                PartOfSpeechMastery = practiceWord.Masteries[Mastery.PartOfSpeech],
-                Gloss = practiceWord.Lexeme.Gloss ?? string.Empty,
-                Glosses = practiceWord.Glosses,
-                PartOfSpeech = CreatePartOfSpeechData(practiceWord.Lexeme.PartOfSpeech),
-                PartsOfSpeech = practiceWord.PartsOfSpeech.Select(CreatePartOfSpeechData).ToArray()
+                Answer = answer.Text,
+                IsCorrect = answer.IsCorrect,
             };
+        }
+
+        private static ExerciseAnswerData[] CreateExerciseAnswerDataArray(IEnumerable<Answer> answers)
+        {
+            return answers.Select(CreateExerciseAnswerData).ToArray();
         }
 
         private static BookmarkData CreateBookmarkData(Bookmark bookmark)

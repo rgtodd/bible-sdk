@@ -5,9 +5,9 @@ using System.Text.Json;
 
 namespace BibleWebApi.Models
 {
-    public class ExerciseWordOptionModel : IParsable<ExerciseWordOptionModel>
+    public class ExerciseAnswerModel : IParsable<ExerciseAnswerModel>
     {
-        public required string Option { get; init; }
+        public required string Answer { get; init; }
 
         public required bool IsCorrect { get; init; }
 
@@ -40,14 +40,14 @@ namespace BibleWebApi.Models
             return JsonSerializer.Serialize(this, Serialization.JsonSerializerOptions);
         }
 
-        public static ExerciseWordOptionModel Parse(string value, IFormatProvider? provider)
+        public static ExerciseAnswerModel Parse(string value, IFormatProvider? provider)
         {
             return !TryParse(value, provider, out var result)
                 ? throw new ArgumentException("Could not parse supplied value.", nameof(value))
                 : result;
         }
 
-        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseWordOptionModel result)
+        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseAnswerModel result)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -55,7 +55,7 @@ namespace BibleWebApi.Models
                 return false;
             }
 
-            result = JsonSerializer.Deserialize<ExerciseWordOptionModel>(value, Serialization.JsonSerializerOptions);
+            result = JsonSerializer.Deserialize<ExerciseAnswerModel>(value, Serialization.JsonSerializerOptions);
             return result != null;
         }
     }
