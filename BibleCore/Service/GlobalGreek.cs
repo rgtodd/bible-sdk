@@ -90,11 +90,13 @@ namespace BibleCore.Service
 
             var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Distinct().Order().Where(n => n != 0);
 
-            var exerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, ExerciseCategory.DEFINITIONS, n)).ToArray();
+            var definitionExerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, ExerciseCategory.DEFINITIONS, n)).ToArray();
+            var definitionExerciseCategory = new ExerciseCategory(ExerciseCategory.DEFINITIONS, definitionExerciseFactories);
 
-            var definitionExerciseCategory = new ExerciseCategory(ExerciseCategory.DEFINITIONS, exerciseFactories);
+            var partsOfSpeechExerciseFactories = mounceChapterNumbers.Select(n => new PartOfSpeechExerciseFactory(m_lexicon, ExerciseCategory.PARTS_OF_SPEECH, n)).ToArray();
+            var partsOfSpeechExerciseCategory = new ExerciseCategory(ExerciseCategory.PARTS_OF_SPEECH, partsOfSpeechExerciseFactories);
 
-            var exerciseCatalog = new ExerciseCatalog([definitionExerciseCategory]);
+            var exerciseCatalog = new ExerciseCatalog([definitionExerciseCategory, partsOfSpeechExerciseCategory]);
 
             m_exerciseCatalog = exerciseCatalog;
         }

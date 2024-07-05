@@ -20,6 +20,20 @@
 
         public List<Form> Forms { get; } = [];
 
+        public string? NounForm
+        {
+            get
+            {
+                var nounForm = FullCitationForm;
+                if (nounForm != null)
+                {
+                    var idx = nounForm.IndexOf(',');
+                    nounForm = idx != -1 ? nounForm[(idx + 1)..].TrimStart() : null;
+                }
+                return nounForm;
+            }
+        }
+
         public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, Inflection inflection)
         {
             ArgumentNullException.ThrowIfNull(lexeme, nameof(lexeme));
