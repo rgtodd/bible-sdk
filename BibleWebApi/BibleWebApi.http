@@ -1,6 +1,9 @@
 @BibleWebApi_HostAddress = http://localhost:5022
 
-GET {{BibleWebApi_HostAddress}}/weatherforecast/
+GET {{BibleWebApi_HostAddress}}/api/ExerciseApi/Catalog
 Accept: application/json
 
 ###
+
+GET {{BibleWebApi_HostAddress}}/api/ExerciseApi/Exercise?categoryName=Definitions&name=Chapter%204
+Accept: application/json
