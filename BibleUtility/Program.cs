@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Globalization;
 using System.Text;
 
 internal class Program
@@ -40,14 +41,15 @@ internal class Program
         //    Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)}");
         //}
 
-        //foreach (var c in "ἁγίου".Normalize(NormalizationForm.FormD))
-        //{
-        //    Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
-        //}
-        //foreach (var c in "ἁγίου")
-        //{
-        //    Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
-        //}
+        foreach (var c in "A̓braám".Normalize(NormalizationForm.FormD))
+        {
+            Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
+        }
+
+        foreach (var c in "ἁγίου")
+        {
+            Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
+        }
     }
 }
 //Console.WriteLine(Yaml.GetForms());

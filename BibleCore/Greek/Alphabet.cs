@@ -83,24 +83,80 @@ namespace BibleCore.Greek
         {
             var sb = new StringBuilder();
 
-            value = RemoveAccents(value);
-            foreach (char c in value)
+            var pendingTransliteration = (string?)null;
+
+            foreach (char c in value.Normalize(NormalizationForm.FormD))
             {
-                if (s_letterByLowerCase.TryGetValue(c, out var lowerCaseLetter))
+                var currentTransliteration = (string?)null;
+
+                if (CharUnicodeInfo.GetUnicodeCategory(c) == UnicodeCategory.NonSpacingMark)
                 {
-                    sb.Append(s_alphabet[lowerCaseLetter].LowerTransliteration);
-                }
-                else if (s_letterByUpperCase.TryGetValue(c, out var upperCaseLetter))
-                {
-                    sb.Append(s_alphabet[upperCaseLetter].UpperTransliteration);
+                    if (c == '\x0314') // rough breathing mark
+                    {
+                        // Modify previous character and discard.
+                        //
+                        if (pendingTransliteration == null)
+                        {
+                            pendingTransliteration = "h?";
+                        }
+                        else
+                        {
+                            pendingTransliteration = "h" + pendingTransliteration;
+                        }
+                    }
+                    else if (c == '\x0313') // soft breathing mark
+                    {
+                        // Discard.
+                    }
+                    else
+                    {
+                        // Append latin accent
+                        //
+                        currentTransliteration = '\x0301'.ToString();
+                    }
                 }
                 else
                 {
-                    sb.Append('?');
+                    if (s_letterByLowerCase.TryGetValue(c, out var lowerCaseLetter))
+                    {
+                        // Transform gg -> ng
+                        //
+                        if (c == 'γ')
+                        {
+                            if (pendingTransliteration == "g")
+                            {
+                                pendingTransliteration = "n";
+                            }
+                        }
+
+                        currentTransliteration = s_alphabet[lowerCaseLetter].LowerTransliteration;
+                    }
+                    else if (s_letterByUpperCase.TryGetValue(c, out var upperCaseLetter))
+                    {
+                        currentTransliteration = s_alphabet[upperCaseLetter].UpperTransliteration;
+                    }
+                    else
+                    {
+                        currentTransliteration = "?";
+                    }
+                }
+
+                if (currentTransliteration != null)
+                {
+                    if (pendingTransliteration != null)
+                    {
+                        sb.Append(pendingTransliteration);
+                    }
+                    pendingTransliteration = currentTransliteration;
                 }
             }
 
-            return sb.ToString();
+            if (pendingTransliteration != null)
+            {
+                sb.Append(pendingTransliteration);
+            }
+
+            return sb.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     internal class ExerciseCategory(string name, IExerciseFactory[] exerciseFactories)
     {
+        public readonly static string PRONOUNCIATIONS = "Pronounciations";
         public readonly static string DEFINITIONS = "Definitions";
         public readonly static string PARTS_OF_SPEECH = "Parts of Speech";
 
