@@ -1,15 +1,14 @@
-﻿using BibleCore.Greek;
-using BibleCore.Service.Data;
+﻿using BibleCore.Service.Data;
 
 namespace BibleWebApi.Models
 {
     public static class ModelFactory
     {
-        public static ExerciseModel CreateExerciseModel(ExerciseData exercise)
+        public static ExerciseModel CreateExerciseModel(ExerciseData exercise, bool sort)
         {
             return new ExerciseModel()
             {
-                Data = CreateExerciseDataModel(exercise)
+                Data = CreateExerciseDataModel(exercise, sort)
             };
         }
 
@@ -39,7 +38,7 @@ namespace BibleWebApi.Models
         {
             return new ExerciseCategoryItemModel()
             {
-                Id = exerciseCategoryItem.Id,
+                CategoryName = exerciseCategoryItem.CategoryName,
                 Name = exerciseCategoryItem.Name,
             };
         }
@@ -49,11 +48,13 @@ namespace BibleWebApi.Models
             return exerciseCategoryItems.Select(CreateExerciseCategoryItemModel).ToArray();
         }
 
-        private static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise)
+        private static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise, bool sort)
         {
             return new ExerciseDataModel()
             {
-                Questions = CreateExerciseWordModelArray(exercise.Questions)
+                CategoryName = exercise.CategoryName,
+                Name = exercise.Name,
+                Questions = CreateExerciseWordModelArray(exercise.Questions, sort)
             };
         }
 
@@ -68,9 +69,14 @@ namespace BibleWebApi.Models
             };
         }
 
-        private static ExerciseQuestionModel[] CreateExerciseWordModelArray(IEnumerable<ExerciseQuestionData> questions)
+        private static ExerciseQuestionModel[] CreateExerciseWordModelArray(IEnumerable<ExerciseQuestionData> questions, bool sort)
         {
             int sequence = 0;
+
+            if (sort)
+            {
+                questions = questions.OrderBy(q => q.Question);
+            }
 
             return questions.Select(w => CreateExerciseWordModel(w, ++sequence)).ToArray();
         }

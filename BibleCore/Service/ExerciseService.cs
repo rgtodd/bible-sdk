@@ -1,5 +1,4 @@
-﻿using BibleCore.Greek.Study;
-using BibleCore.Service.Data;
+﻿using BibleCore.Service.Data;
 
 namespace BibleCore.Service
 {
@@ -11,13 +10,9 @@ namespace BibleCore.Service
             return exerciseCatalogData;
         }
 
-        public ExerciseData GetExercise(string id)
+        public ExerciseData GetExercise(string categoryName, string name)
         {
-            var fields = id.Split('-');
-            string categoryName = fields[0];
-            string exerciseName = fields[1];
-
-            var exercise = globalGreek.ExerciseCatalog.GetCategory(categoryName).GetExerciseFactory(exerciseName).CreateExercise();
+            var exercise = globalGreek.ExerciseCatalog.GetCategory(categoryName).GetExerciseFactory(name).CreateExercise();
             var exerciseData = DataFactory.CreateExerciseData(exercise);
             return exerciseData;
         }

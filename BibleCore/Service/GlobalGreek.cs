@@ -90,7 +90,7 @@ namespace BibleCore.Service
 
             var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Distinct().Order().Where(n => n != 0);
 
-            var exerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, n)).ToArray();
+            var exerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, ExerciseCategory.DEFINITIONS, n)).ToArray();
 
             var definitionExerciseCategory = new ExerciseCategory(ExerciseCategory.DEFINITIONS, exerciseFactories);
 

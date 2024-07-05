@@ -17,10 +17,10 @@ namespace BibleWebApi.Controllers.Api
             return exerciseService.GetExerciseCatalog();
         }
 
-        [HttpGet("exercise/{id}")]
-        public ExerciseData GetExercise(string id)
+        [HttpGet("exercise")]
+        public ExerciseData GetExercise(string categoryName, string name)
         {
-            return exerciseService.GetExercise(id);
+            return exerciseService.GetExercise(categoryName, name);
         }
     }
 }

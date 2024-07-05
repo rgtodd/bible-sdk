@@ -24,12 +24,19 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Start(string id)
+        public async Task<IActionResult> Start(string categoryName, string name)
         {
-
-            var model = await GetExerciseModel(id);
+            var model = await GetExerciseModel(categoryName, name, false);
 
             return View("Exercise", model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Study(string categoryName, string name)
+        {
+            var model = await GetExerciseModel(categoryName, name, true);
+
+            return View("Study", model);
         }
 
         [HttpPost]
@@ -76,10 +83,10 @@ namespace BibleWebApi.Controllers
             return exerciseCatalogModel;
         }
 
-        private async Task<ExerciseModel> GetExerciseModel(string exerciseId)
+        private async Task<ExerciseModel> GetExerciseModel(string categoryName, string name, bool sort)
         {
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise/{exerciseId}";
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise?categoryName={categoryName}&name={name}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);
@@ -92,7 +99,7 @@ namespace BibleWebApi.Controllers
 
             var exerciseVocabularyData = JsonSerializer.Deserialize<ExerciseData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
-            var exerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData);
+            var exerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData, sort);
 
             return exerciseModel;
         }

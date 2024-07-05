@@ -1,19 +1,12 @@
-﻿using BibleCore.Service;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BibleCore.Greek.Study
+﻿namespace BibleCore.Greek.Study
 {
-    internal class DefinitionExerciseFactory(Lexicon lexicon, int mounceChapterNumber) : IExerciseFactory
+    internal class DefinitionExerciseFactory(Lexicon lexicon, string categoryName, int mounceChapterNumber) : IExerciseFactory
     {
         private static readonly int AnswerCount = 3;
 
-        public string Name => $"Mounce {mounceChapterNumber}";
+        public string CategoryName => categoryName;
+
+        public string Name => $"Chapter {mounceChapterNumber}";
 
         public Exercise CreateExercise()
         {
@@ -33,13 +26,13 @@ namespace BibleCore.Greek.Study
 
                 var answers = possibleGlosses.Select(g => new Answer(g, g == correctGloss)).ToArray();
 
-                var detail = $"{lexeme.PartOfSpeech} - {lexeme.FullCitationForm}";
+                var detail = new string[] { lexeme.PartOfSpeech.AsString(), lexeme.FullCitationForm };
 
                 var question = new Question(lexeme.Lemma, detail, answers);
                 questions.Add(question);
             }
 
-            return new Exercise([.. questions]);
+            return new Exercise(CategoryName, Name, [.. questions]);
         }
     }
 }

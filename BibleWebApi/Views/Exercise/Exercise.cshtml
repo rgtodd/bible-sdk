@@ -4,28 +4,39 @@
 @{
     ViewData["Title"] = "Exercise";
 }
-<h2>Exercise</h2>
+<h2>Exercise - @Model.Data.CategoryName / @Model.Data.Name (<a asp-controller="Exercise" asp-action="Study" asp-route-categoryName="@Model.Data.CategoryName" asp-route-name="@Model.Data.Name">Study</a>)</h2>
 @using (Html.BeginForm("Update", "Exercise", FormMethod.Post, null))
 {
     foreach (var question in Model.Data.Questions)
     {
-        <div class="row" id="word-@question.Sequence">
+        <hr />
+        <div class="row align-items-center" id="word-@question.Sequence">
             <div class="col-12 col-lg-2" style="font-family: 'Times New Roman', Times, serif">
                 <h4>@question.Question</h4>
             </div>
-            <div class="col-12 col-lg-2">
+            <div class="col-12 col-lg-2" style="font-family: 'Times New Roman', Times, serif">
                 @if (question.IsCorrect)
                 {
-                    <p style="font-family: 'Times New Roman', Times, serif">@question.Detail</p>
+                    bool isFirst = true;
+                    foreach (var detail in question.Detail)
+                    {
+                        if (isFirst)
+                        {
+                            isFirst = false;
+                        }
+                        else
+                        {
+                            <br />
+                        }
+                        @detail
+                    }
                 }
             </div>
             <div class="col-12 col-lg-8">
-                <p>
-                    @foreach (var answer in question.Answers)
-                    {
-                        <input type="submit" value="@answer.Answer" asp-controller="Exercise" asp-action="Update" asp-route-word="@question.Question" asp-route-option="@answer.Answer" class="btn @answer.BootstrapButtonClass submit" onclick="maintainscrollposition()" />
-                    }
-                </p>
+                @foreach (var answer in question.Answers)
+                {
+                    <input type="submit" value="@answer.Answer" asp-controller="Exercise" asp-action="Update" asp-route-word="@question.Question" asp-route-option="@answer.Answer" class="btn @answer.BootstrapButtonClass my-1 submit" onclick="maintainscrollposition()" />
+                }
             </div>
         </div>
     }

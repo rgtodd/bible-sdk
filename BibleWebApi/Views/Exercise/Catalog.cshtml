@@ -7,9 +7,15 @@
 <h2>Exercises</h2>
 @foreach (var category in Model.Categories)
 {
-    <h3>@category.Name</h3>
-    foreach (var categoryItem in category.Items)
-    {
-        <a asp-controller="Exercise" asp-action="Start" asp-route-id="@categoryItem.Id">@categoryItem.Name</a>
-    }
+    <h4>@category.Name</h4>
+    <div class="row">
+        @foreach (var categoryItem in category.Items)
+        {
+            <div class="col-4 col-md-3 col-lg-2 col-xl-2 text-center">
+                <p>
+                    <a asp-controller="Exercise" asp-action="Start" asp-route-categoryName="@categoryItem.CategoryName" asp-route-name="@categoryItem.Name" class="btn btn-outline-primary">@categoryItem.Name</a>
+                </p>
+            </div>
+        }
+    </div>
 }

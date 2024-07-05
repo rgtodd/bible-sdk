@@ -126,7 +126,7 @@ namespace BibleCore.Service.Data
 
             return new ExerciseCategoryItemData()
             {
-                Id = $"{category.Name}-{exerciseFactory.Name}",
+                CategoryName = category.Name,
                 Name = exerciseFactory.Name
             };
         }
@@ -140,6 +140,8 @@ namespace BibleCore.Service.Data
         {
             return new ExerciseData()
             {
+                CategoryName = exercise.CategoryName,
+                Name = exercise.Name,
                 Questions = CreateExerciseQuestionDataArray(exercise.Questions)
             };
         }

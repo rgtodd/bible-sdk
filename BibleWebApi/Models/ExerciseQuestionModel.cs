@@ -11,7 +11,7 @@ namespace BibleWebApi.Models
 
         public required string Question { get; init; }
 
-        public required string Detail { get; init; }
+        public required string[] Detail { get; init; }
 
         public required ExerciseAnswerModel[] Answers { get; init; }
 
