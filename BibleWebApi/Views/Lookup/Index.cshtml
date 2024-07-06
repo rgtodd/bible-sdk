@@ -20,7 +20,16 @@
                 <div class="col-7">
                     <div class="input-group">
                         <span class="input-group-text">G</span>
-                        <input id="strongs" type="text" name="Strongs" class="form-control" value="@Model.Strongs" />
+                        <input asp-for="StrongsNumber" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="gk" class="col-5 col-form-label">GK number:</label>
+                <div class="col-7">
+                    <div class="input-group">
+                        <span class="input-group-text">GK</span>
+                        <input asp-for="GkNumber" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -45,8 +54,14 @@
                 </div>
                 <div class="col">
                     <p class="card-text">Part of speech: @lexemeData.PartOfSpeech</p>
-                    <p class="card-text">@($"Strong's number: G{string.Join(',', lexemeData.Strongs.Select(s => s.ToString()).ToArray())}")</p>
-                    <p class="card-text">@($"GK number: GK{string.Join(',', lexemeData.Gk.Select(s => s.ToString()).ToArray())}")</p>
+                    @if (lexemeData.StrongsNumber.Length > 0)
+                    {
+                        <p class="card-text">@($"Strong's number: G-{string.Join(", G-", lexemeData.StrongsNumber.Select(s => s.ToString()).ToArray())}")</p>
+                    }
+                    @if (lexemeData.GkNumber.Length > 0)
+                    {
+                        <p class="card-text">@($"GK number: GK-{string.Join(", GK-", lexemeData.GkNumber.Select(s => s.ToString()).ToArray())}")</p>
+                    }
                 </div>
             </div>
             @foreach (var form in lexemeData.Forms)

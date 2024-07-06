@@ -6,7 +6,19 @@ namespace BibleCore.Service
     {
         public LexemeData? GetByStrongsNumber(int strongsNumber)
         {
-            var lexeme = globalGreek.Lexicon.GetByStrongs(strongsNumber);
+            var lexeme = globalGreek.Lexicon.GetByStrongsNumber(strongsNumber);
+            if (lexeme == null)
+            {
+                return null;
+            }
+
+            var lexemeData = DataFactory.CreateLexemeData(lexeme);
+            return lexemeData;
+        }
+
+        public LexemeData? GetByGkNumber(int gkNumber)
+        {
+            var lexeme = globalGreek.Lexicon.GetByGkNumber(gkNumber);
             if (lexeme == null)
             {
                 return null;

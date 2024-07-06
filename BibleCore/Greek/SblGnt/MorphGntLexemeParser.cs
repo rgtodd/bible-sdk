@@ -40,8 +40,8 @@ namespace BibleCore.Greek.SblGnt
 
                     lexeme.FullCitationForm = fullCitationForm ?? string.Empty;
                     lexeme.Gloss = gloss;
-                    lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
-                    lexeme.Gk = morphGntLexeme.GkAsIntegers;
+                    lexeme.StrongsNumber = morphGntLexeme.StrongsAsIntegers;
+                    lexeme.GkNumber = morphGntLexeme.GkAsIntegers;
 
                     var normalizedLemma = Alphabet.RemoveAccents(lexeme.Lemma);
 

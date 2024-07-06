@@ -9,10 +9,16 @@ namespace BibleWebApi.Controllers.Api
     [ApiController]
     public class LexemeApiController(ILexemeService lexemeService) : ControllerBase
     {
-        [HttpGet("{id}")]
-        public LexemeData? Get(int id)
+        [HttpGet("strongs/{id}")]
+        public LexemeData? GetByStrongsNumber(int id)
         {
             return lexemeService.GetByStrongsNumber(id);
+        }
+
+        [HttpGet("gk/{id}")]
+        public LexemeData? GetByGkNumber(int id)
+        {
+            return lexemeService.GetByGkNumber(id);
         }
     }
 }

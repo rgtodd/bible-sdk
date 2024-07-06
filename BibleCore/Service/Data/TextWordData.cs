@@ -4,7 +4,8 @@
     {
         public required string Word { get; init; }
 
-        public required int Strongs { get; init; }
+        public required int? StrongsNumber { get; init; }
 
+        public required int? GkNumber { get; init; }
     }
 }

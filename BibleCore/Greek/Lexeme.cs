@@ -12,9 +12,9 @@
 
         public string Gloss { get; set; } = string.Empty;
 
-        public int[] Strongs { get; set; } = [];
+        public int[] StrongsNumber { get; set; } = [];
 
-        public int[] Gk { get; set; } = [];
+        public int[] GkNumber { get; set; } = [];
 
         public int MounceChapterNumber { get; set; } = 0;
 

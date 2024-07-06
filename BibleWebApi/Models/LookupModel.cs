@@ -8,6 +8,8 @@ namespace BibleWebApi.Models
 
         public LexemeData? LexemeData { get; set; }
 
-        public string? Strongs { get; set; }
+        public int? StrongsNumber { get; set; }
+
+        public int? GkNumber { get; set; }
     }
 }

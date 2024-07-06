@@ -14,8 +14,8 @@ namespace BibleCore.Service.Data
                 PartOfSpeech = CreatePartOfSpeechData(lexeme.PartOfSpeech),
                 FullCitationForm = lexeme.FullCitationForm ?? string.Empty,
                 Gloss = lexeme.Gloss ?? string.Empty,
-                Gk = lexeme.Gk,
-                Strongs = lexeme.Strongs,
+                GkNumber = lexeme.GkNumber,
+                StrongsNumber = lexeme.StrongsNumber,
                 Forms = CreateFormDataArray(lexeme.Forms)
             };
         }
@@ -59,10 +59,23 @@ namespace BibleCore.Service.Data
                     currentWords = [];
                 }
 
+                int? strongsNumber = null;
+                if (textEntry.Lexeme.StrongsNumber.Length > 0)
+                {
+                    strongsNumber = textEntry.Lexeme.StrongsNumber[0];
+                }
+
+                int? gkNumber = null;
+                if (textEntry.Lexeme.GkNumber.Length > 0)
+                {
+                    gkNumber = textEntry.Lexeme.GkNumber[0];
+                }
+
                 var word = new TextWordData()
                 {
                     Word = textEntry.Text,
-                    Strongs = textEntry.Lexeme.Strongs.FirstOrDefault()
+                    StrongsNumber = strongsNumber,
+                    GkNumber = gkNumber
                 };
                 currentWords.Add(word);
             }

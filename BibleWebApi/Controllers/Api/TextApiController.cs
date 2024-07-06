@@ -9,13 +9,10 @@ namespace BibleWebApi.Controllers.Api
     [ApiController]
     public class TextApiController(ITextService textService) : ControllerBase
     {
-        [FromQuery(Name = "range")]
-        public string? RangeParameter { get; set; }
-
         [HttpGet()]
-        public TextData? Get()
+        public TextData? Get(string range)
         {
-            return textService.GetText(RangeParameter);
+            return textService.GetText(range);
         }
     }
 }

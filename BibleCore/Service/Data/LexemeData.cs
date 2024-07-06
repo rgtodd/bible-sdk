@@ -12,9 +12,9 @@
 
         public required string Gloss { get; init; }
 
-        public required int[] Strongs { get; init; }
+        public required int[] StrongsNumber { get; init; }
 
-        public required int[] Gk { get; init; }
+        public required int[] GkNumber { get; init; }
 
         public required FormData[] Forms { get; init; }
     }

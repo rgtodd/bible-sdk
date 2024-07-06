@@ -42,6 +42,8 @@ namespace BibleWebApi.Controllers
         [HttpPost]
         public IActionResult Update(ExerciseDataModel data, string? word, string? option)
         {
+            ModelState.Clear();
+
             Logger.LogInformation("Word {word}, Option {option}", word, option);
 
             foreach (var question in data.Questions)
@@ -55,8 +57,6 @@ namespace BibleWebApi.Controllers
                     break;
                 }
             }
-
-            ModelState.Clear();
 
             return View("Exercise", new ExerciseModel() { Data = data });
         }

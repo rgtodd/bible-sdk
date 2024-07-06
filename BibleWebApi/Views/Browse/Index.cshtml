@@ -50,7 +50,7 @@
             <span>@verse.Bookmark.Verse</span>
             @foreach (var word in verse.Words)
             {
-                <a asp-controller="Lookup" asp-action="Index" asp-route-id="@word.Strongs" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>
+                <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@word.StrongsNumber" asp-route-gk="@word.GkNumber" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>
             }
         </p>
     }
