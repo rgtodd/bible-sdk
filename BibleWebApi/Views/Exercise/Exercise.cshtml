@@ -14,7 +14,7 @@
             <div class="col-12 col-md-3 col-lg-2 serif">
                 @question.Question
             </div>
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-12 col-md-6 col-lg-6 serif">
                 @foreach (var answer in question.Answers)
                 {
                     <input type="submit" value="@answer.Answer" asp-controller="Exercise" asp-action="Update" asp-route-word="@question.Question" asp-route-option="@answer.Answer" class="btn @answer.BootstrapButtonClass my-1 submit" onclick="maintainscrollposition()" />

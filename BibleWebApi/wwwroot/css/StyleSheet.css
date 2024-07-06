@@ -2,6 +2,11 @@
     scroll-behavior: auto !important;
 }
 
+@font-face {
+    font-family: Greek;
+    src: url('/fonts/SBL_grk.ttf');
+}
+
 .serif {
-    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif
+    font-family: Greek, Georgia, Cochin, Times, Times New Roman, serif
 }

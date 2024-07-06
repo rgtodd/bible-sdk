@@ -74,7 +74,7 @@ namespace BibleCore.Service
 
             MorphGntFileParser.Parse(text, lexicon);
             MorphGntLexemeParser.Parse(lexicon);
-            FlashworksGreekParser.Parse(lexicon);
+            MounceParser.Parse(lexicon);
 
             lexicon.Lexemes.GroupBy(l => l.MounceChapterNumber, l => l.MounceChapterNumber, (number, numbers) => new { Key = number, Count = numbers.Count() })
                            .ToList()

@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="flashworksgreek" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flashworksgreek.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="forms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forms.yaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="lexemes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lexemes.yaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="mounce" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mounce.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_61_Mt_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\61-Mt-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
