@@ -145,9 +145,20 @@ namespace BibleCore.Greek
                 {
                     if (pendingTransliteration != null)
                     {
-                        sb.Append(pendingTransliteration);
+                        if (IsDipthong(pendingTransliteration, currentTransliteration))
+                        {
+                            pendingTransliteration += currentTransliteration;
+                        }
+                        else
+                        {
+                            sb.Append(pendingTransliteration);
+                            pendingTransliteration = currentTransliteration;
+                        }
                     }
-                    pendingTransliteration = currentTransliteration;
+                    else
+                    {
+                        pendingTransliteration = currentTransliteration;
+                    }
                 }
             }
 
@@ -157,6 +168,17 @@ namespace BibleCore.Greek
             }
 
             return sb.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        private static bool IsDipthong(string firstLetter, string secondLetter)
+        {
+            return firstLetter switch
+            {
+                "a" or "A" or "e" or "E" or "o" or "O" => secondLetter == "i" || secondLetter == "u",
+                "ē" or "Ē" => secondLetter == "u",
+                "u" => secondLetter == "i",
+                _ => false
+            };
         }
     }
 }

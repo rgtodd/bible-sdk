@@ -22,20 +22,22 @@ namespace BibleCore.Greek.SblGnt
                 var fields = line.Split('\t');
 
                 int chapter = int.Parse(fields[0]);
+                string lemma = fields[3];
                 string entry = fields[4];
                 int gkNumber = int.Parse(fields[5]);
 
                 var lexeme = lexicon.GetByGkNumber(gkNumber);
                 if (lexeme == null)
                 {
-                    Debug.WriteLine($"Can't find GK number {gkNumber} for {entry}.");
+                    Debug.WriteLine($"Can't find GK number {gkNumber} for {lemma}.");
                 }
                 else
                 {
                     lexeme.MounceChapterNumber = chapter;
 
-                    if (lexeme.Gloss == null || lexeme.Gloss == "RGT")
+                    if (lexeme.Gloss == string.Empty)
                     {
+                        Debug.WriteLine($"Gloss updated for {lemma}");
                         lexeme.Gloss = entry;
                     }
 

@@ -26,7 +26,7 @@
 
                 var answers = possiblePartsOfSpeech.Select(g => new Answer(g, g == correctPartOfSpeech)).ToArray();
 
-                var detail = new string[] { lexeme.Gloss, lexeme.FullCitationForm };
+                var detail = new string[] { lexeme.FullCitationForm + " / " + lexeme.PartOfSpeech.AsString(), lexeme.Gloss };
 
                 var question = new Question(lexeme.Lemma, detail, answers);
                 questions.Add(question);

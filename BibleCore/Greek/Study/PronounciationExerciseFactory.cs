@@ -26,7 +26,7 @@
 
                 var answers = possibleTransliterations.Select(g => new Answer(g, g == correctTransliteration)).ToArray();
 
-                var detail = new string[] { lexeme.FullCitationForm, lexeme.Gloss };
+                var detail = new string[] { lexeme.FullCitationForm + " / " + lexeme.PartOfSpeech.AsString(), lexeme.Gloss };
 
                 var question = new Question(lexeme.Lemma, detail, answers);
                 questions.Add(question);

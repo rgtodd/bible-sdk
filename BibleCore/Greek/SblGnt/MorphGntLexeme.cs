@@ -6,7 +6,7 @@ namespace BibleCore.Greek.SblGnt
     {
         public string? Pos { get; set; }
 
-        public string FullCitationForm { get; set; } = string.Empty;
+        public string? FullCitationForm { get; set; }
 
         public string? BdagHeadword { get; set; }
 

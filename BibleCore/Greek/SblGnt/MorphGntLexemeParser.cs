@@ -22,20 +22,23 @@ namespace BibleCore.Greek.SblGnt
             {
                 if (lexemes.TryGetValue(lexeme.Lemma, out var morphGntLexeme))
                 {
-                    string fullCitationForm = morphGntLexeme.FullCitationForm;
+                    string? fullCitationForm = morphGntLexeme.FullCitationForm;
+                    if (fullCitationForm == null)
+                    {
+                        fullCitationForm = morphGntLexeme.BdagHeadword;
+                    }
 
-                    string gloss = "RGT";
+                    string gloss = string.Empty;
                     if (morphGntLexeme.Gloss != null)
                     {
                         gloss = morphGntLexeme.GlossAsString;
                     }
-
-                    if (gloss == "RGT")
+                    if (gloss == string.Empty)
                     {
                         Debug.WriteLine($"Gloss not specified for {morphGntLexeme}");
                     }
 
-                    lexeme.FullCitationForm = fullCitationForm;
+                    lexeme.FullCitationForm = fullCitationForm ?? string.Empty;
                     lexeme.Gloss = gloss;
                     lexeme.Strongs = morphGntLexeme.StrongsAsIntegers;
                     lexeme.Gk = morphGntLexeme.GkAsIntegers;
