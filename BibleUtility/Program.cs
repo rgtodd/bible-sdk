@@ -41,7 +41,7 @@ internal class Program
         //    Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)}");
         //}
 
-        foreach (var c in "A̓braám".Normalize(NormalizationForm.FormD))
+        foreach (var c in "Μωϋσῆς".Normalize(NormalizationForm.FormD))
         {
             Console.WriteLine($"{c}, {CharUnicodeInfo.GetUnicodeCategory(c)} 0x{(short)c:x}");
         }

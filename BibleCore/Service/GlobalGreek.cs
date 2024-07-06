@@ -2,9 +2,11 @@
 using BibleCore.Greek.SblGnt;
 using BibleCore.Greek.Study;
 
+using Microsoft.Extensions.Logging;
+
 namespace BibleCore.Service
 {
-    internal sealed class GlobalGreek : IGlobalGreek
+    internal sealed class GlobalGreek(ILogger<GlobalGreek> logger) : IGlobalGreek
     {
         // The volatile keyword ensures that the instantiation is complete 
         // before it can be accessed further helping with thread safety.
@@ -15,10 +17,6 @@ namespace BibleCore.Service
         private Text? m_text;
         private Lexicon? m_lexicon;
         private ExerciseCatalog? m_exerciseCatalog;
-
-        public GlobalGreek()
-        {
-        }
 
         public Text Text
         {
@@ -72,13 +70,14 @@ namespace BibleCore.Service
             var text = new Text();
             var lexicon = new Lexicon();
 
-            MorphGntFileParser.Parse(text, lexicon);
-            MorphGntLexemeParser.Parse(lexicon);
-            MounceParser.Parse(lexicon);
+            MorphGntFileParser.Parse(logger, text, lexicon);
+            MorphGntLexemeParser.Parse(logger, lexicon);
+            MounceParser.Parse(logger, lexicon);
 
-            lexicon.Lexemes.GroupBy(l => l.MounceChapterNumber, l => l.MounceChapterNumber, (number, numbers) => new { Key = number, Count = numbers.Count() })
+            lexicon.Lexemes.GroupBy(l => l.MounceChapterNumber, l => l.MounceChapterNumber, (number, numbers) => new { Chapter = number, Count = numbers.Count() })
+                           .OrderBy(l => l.Chapter)
                            .ToList()
-                           .ForEach(i => Console.WriteLine($"{i.Key} = {i.Count}."));
+                           .ForEach(i => logger.LogDebug("Chapter {key} contains {count} words.", i.Chapter, i.Count));
 
             m_text = text;
             m_lexicon = lexicon;

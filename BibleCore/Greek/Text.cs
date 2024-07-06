@@ -22,8 +22,6 @@
 
         public IEnumerable<TextEntry> Select(Range range, int maxEntries)
         {
-            Console.WriteLine($"range = {range}");
-
             var adjustedRange = new Range()
             {
                 From = range.From,

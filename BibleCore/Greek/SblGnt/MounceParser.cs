@@ -1,13 +1,14 @@
 ﻿using BibleCore.Properties;
 
-using System.Diagnostics;
+using Microsoft.Extensions.Logging;
+
 using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
     internal static class MounceParser
     {
-        public static void Parse(Lexicon lexicon)
+        public static void Parse(ILogger logger, Lexicon lexicon)
         {
             var bookText = Resources.mounce;
 
@@ -27,7 +28,7 @@ namespace BibleCore.Greek.SblGnt
                 var lexeme = lexicon.GetByGkNumber(gkNumber);
                 if (lexeme == null)
                 {
-                    Debug.WriteLine($"Can't find GK number {gkNumber}.");
+                    logger.LogInformation("Can't find GK number {gkNumber}.", gkNumber);
                 }
                 else
                 {

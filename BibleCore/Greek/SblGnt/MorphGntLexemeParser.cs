@@ -1,6 +1,6 @@
 ﻿using BibleCore.Properties;
 
-using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -9,7 +9,7 @@ namespace BibleCore.Greek.SblGnt
 {
     internal static class MorphGntLexemeParser
     {
-        public static void Parse(Lexicon lexicon)
+        public static void Parse(ILogger logger, Lexicon lexicon)
         {
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(HyphenatedNamingConvention.Instance)
@@ -35,7 +35,7 @@ namespace BibleCore.Greek.SblGnt
                     }
                     if (gloss == string.Empty)
                     {
-                        Debug.WriteLine($"Gloss not specified for {morphGntLexeme}");
+                        logger.LogError("Gloss not specified for {morphGntLexeme}", morphGntLexeme);
                     }
 
                     lexeme.FullCitationForm = fullCitationForm ?? string.Empty;
@@ -82,7 +82,7 @@ namespace BibleCore.Greek.SblGnt
                 }
                 else
                 {
-                    Console.WriteLine($"{lexeme.Lemma} lemma not found");
+                    logger.LogInformation("Lemma {lemma} not found.", lexeme.Lemma);
                 }
             }
         }

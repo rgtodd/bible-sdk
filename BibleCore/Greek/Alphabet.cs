@@ -108,11 +108,28 @@ namespace BibleCore.Greek
                     {
                         // Discard.
                     }
+                    else if (c == '\x0308') // Diaeresis
+                    {
+                        if (pendingTransliteration != null)
+                        {
+                            switch (pendingTransliteration.Length)
+                            {
+                                case 1:
+                                    pendingTransliteration = $"-{pendingTransliteration}";
+                                    break;
+                                case 2:
+                                    pendingTransliteration = $"{pendingTransliteration[0]}-{pendingTransliteration[1]}";
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
                     else
                     {
                         // Append latin accent
                         //
-                        currentTransliteration = '\x0301'.ToString();
+                        pendingTransliteration += '\x0301';
                     }
                 }
                 else

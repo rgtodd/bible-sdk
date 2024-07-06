@@ -1,47 +1,49 @@
 ﻿using BibleCore.Properties;
 
+using Microsoft.Extensions.Logging;
+
 using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
     internal class MorphGntFileParser
     {
-        public static void Parse(Text text, Lexicon lexicon)
+        public static void Parse(ILogger logger, Text text, Lexicon lexicon)
         {
             int lineCount = 0;
 
-            ReadBook(text, lexicon, "_61_Mt_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_62_Mk_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_63_Lk_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_64_Jn_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_65_Ac_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_66_Ro_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_67_1Co_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_68_2Co_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_69_Ga_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_70_Eph_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_71_Php_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_72_Col_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_73_1Th_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_74_2Th_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_75_1Ti_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_76_2Ti_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_77_Tit_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_78_Phm_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_79_Heb_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_80_Jas_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_81_1Pe_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_82_2Pe_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_83_1Jn_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_84_2Jn_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_85_3Jn_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_86_Jud_morphgnt", ref lineCount);
-            ReadBook(text, lexicon, "_87_Re_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_61_Mt_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_62_Mk_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_63_Lk_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_64_Jn_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_65_Ac_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_66_Ro_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_67_1Co_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_68_2Co_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_69_Ga_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_70_Eph_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_71_Php_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_72_Col_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_73_1Th_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_74_2Th_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_75_1Ti_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_76_2Ti_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_77_Tit_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_78_Phm_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_79_Heb_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_80_Jas_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_81_1Pe_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_82_2Pe_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_83_1Jn_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_84_2Jn_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_85_3Jn_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_86_Jud_morphgnt", ref lineCount);
+            ReadBook(logger, text, lexicon, "_87_Re_morphgnt", ref lineCount);
 
-            Console.WriteLine(lineCount + "lines processed.");
+            logger.LogInformation("{lineCount} lines processed.", lineCount);
         }
 
-        private static void ReadBook(Text text, Lexicon lexicon, string fileName, ref int lineCount)
+        private static void ReadBook(ILogger logger, Text text, Lexicon lexicon, string fileName, ref int lineCount)
         {
             var bookText = Resources.ResourceManager.GetString(fileName);
             ArgumentNullException.ThrowIfNull(bookText, nameof(bookText));
@@ -67,7 +69,7 @@ namespace BibleCore.Greek.SblGnt
                 string[] fields = line.Split(' ');
                 if (fields.Length != 7)
                 {
-                    Console.WriteLine(line);
+                    logger.LogError("Line {line} has unexpected field count of {count}.", line, fields.Length);
                 }
 
                 string bookChapterVerse = fields[0];
