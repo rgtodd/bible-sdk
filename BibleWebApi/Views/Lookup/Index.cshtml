@@ -32,14 +32,14 @@
         LexemeData lexemeData = Model.LexemeData;
 
         <div class="card">
-            <h3 class="card-header text-center" style="font-family: 'Times New Roman', Times, serif">
+            <h3 class="card-header text-center serif">
                 @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
             </h3>
             <div class="card-body row">
                 <div class="col">
                     @if (!string.IsNullOrEmpty(lexemeData.FullCitationForm))
                     {
-                        <h5 class="card-text" style="font-family: 'Times New Roman', Times, serif">@Model.LexemeData?.FullCitationForm</h5>
+                        <h5 class="card-text serif">@Model.LexemeData?.FullCitationForm</h5>
                     }
                     <p class="card-text">@lexemeData.Gloss</p>
                 </div>
@@ -54,7 +54,7 @@
                 <hr class="m-0 p-0" />
                 <div class="card-body row ">
                     <div class="card-text col-12 col-md-4">
-                        <h5 style="font-family: 'Times New Roman', Times, serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
+                        <h5 class="serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
                         <p>
                             @form.Inflection.Tense
                             @form.Inflection.Voice

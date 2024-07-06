@@ -67,6 +67,10 @@ namespace BibleWebApi
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            // Serve content under wwwroot
+            //
+            app.UseStaticFiles();
+
             app.Run();
         }
     }
