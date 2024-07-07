@@ -4,6 +4,8 @@
     {
         public List<TextEntry> Entries { get; } = [];
 
+        public Dictionary<Book, Dictionary<byte, Dictionary<byte, int>>> Counts { get; } = [];
+
         public TextEntry CreateTextEntry(Bookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
@@ -16,6 +18,25 @@
             };
 
             Entries.Add(textEntry);
+
+            var bookEntry = Counts.GetValueOrDefault(bookmark.Book);
+            if (bookEntry == null)
+            {
+                bookEntry = [];
+                Counts.Add(bookmark.Book, bookEntry);
+            }
+
+            var chapterEntry = bookEntry.GetValueOrDefault(bookmark.Chapter);
+            if (chapterEntry == null)
+            {
+                chapterEntry = [];
+                bookEntry.Add(bookmark.Chapter, chapterEntry);
+            }
+
+            chapterEntry[bookmark.Verse] =
+                chapterEntry.TryGetValue(bookmark.Verse, out var verseCount)
+                ? verseCount + 1
+                : 1;
 
             return textEntry;
         }
