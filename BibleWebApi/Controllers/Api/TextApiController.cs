@@ -14,5 +14,29 @@ namespace BibleWebApi.Controllers.Api
         {
             return textService.GetText(range);
         }
+
+        [HttpGet("movePrevious")]
+        public TextData? MovePrevious(string range)
+        {
+            return textService.MovePreviousText(range);
+        }
+
+        [HttpGet("moveNext")]
+        public TextData? MoveNext(string range)
+        {
+            return textService.MoveNextText(range);
+        }
+
+        [HttpGet("extendPrevious")]
+        public TextData? ExtendPrevious(string range)
+        {
+            return textService.ExtendPreviousText(range);
+        }
+
+        [HttpGet("extendNext")]
+        public TextData? ExtendNext(string range)
+        {
+            return textService.ExtendNextText(range);
+        }
     }
 }

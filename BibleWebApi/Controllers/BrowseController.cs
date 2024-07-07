@@ -5,6 +5,7 @@ using BibleWebApi.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
+using System.Reflection;
 using System.Text.Json;
 
 namespace BibleWebApi.Controllers
@@ -18,9 +19,12 @@ namespace BibleWebApi.Controllers
         {
             id ??= "John 3:16";
 
-            var model = await RenderRange(id);
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi?range={id}";
 
-            return View("Index", model);
+            var newModel = await GetBrowseModel(id, url);
+
+            return View("Index", newModel);
         }
 
         [HttpPost]
@@ -28,16 +32,68 @@ namespace BibleWebApi.Controllers
         {
             ModelState.Clear();
 
-            var newModel = await RenderRange(model.RangeExpression);
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi?range={model.RangeExpression}";
+
+            var newModel = await GetBrowseModel(model.RangeExpression, url);
 
             return View("Index", newModel);
         }
 
-        private async Task<BrowseModel> RenderRange(string? range)
+        [HttpPost]
+        public async Task<ActionResult> MovePrevious(BrowseModel model)
         {
-            var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/TextApi?range={range}";
+            ModelState.Clear();
 
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi/movePrevious?range={model.RangeExpression}";
+
+            var newModel = await GetBrowseModel(model.RangeExpression, url);
+
+            return View("Index", newModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> MoveNext(BrowseModel model)
+        {
+            ModelState.Clear();
+
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi/moveNext?range={model.RangeExpression}";
+
+            var newModel = await GetBrowseModel(model.RangeExpression, url);
+
+            return View("Index", newModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ExtendPrevious(BrowseModel model)
+        {
+            ModelState.Clear();
+
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi/extendPrevious?range={model.RangeExpression}";
+
+            var newModel = await GetBrowseModel(model.RangeExpression, url);
+
+            return View("Index", newModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ExtendNext(BrowseModel model)
+        {
+            ModelState.Clear();
+
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi/extendNext?range={model.RangeExpression}";
+
+            var newModel = await GetBrowseModel(model.RangeExpression, url);
+
+            return View("Index", newModel);
+        }
+
+        private async Task<BrowseModel> GetBrowseModel(string? range, string url)
+        {
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);
             if (!response.IsSuccessStatusCode)
@@ -63,14 +119,6 @@ namespace BibleWebApi.Controllers
 
             var rangeExpression = textData.RangeExpression;
             var message = string.Empty;
-            //if (rangeExpression != null)
-            //{
-            //    rangeExpression = textData?.RangeExpression;
-            //}
-            //else
-            //{
-            //    message = "Range not recognized.";
-            //}
 
             return new BrowseModel()
             {

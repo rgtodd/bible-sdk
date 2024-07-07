@@ -11,22 +11,31 @@
         @Model.Message
     </div>
 }
-@using (Html.BeginForm("Update", "Browse", FormMethod.Post, null))
+@using (Html.BeginForm(FormMethod.Post))
 {
-    <div class="row">
-        <div class="col">
-            <button class="btn">Previous</button>
-            <button class="btn">Extend</button>
-            <input id="rangeExpression" type="text" name="rangeExpression" class="" value="@Model.RangeExpression" />
-            <button class="btn">Extend</button>
-            <button class="btn">Next</button>
+    <div class="row mb-2">
+        <div class="col-auto">
+            <input type="submit" asp-controller="Browse" asp-action="Update" hidden />
+            <button type="submit" asp-controller="Browse" asp-action="ExtendPrevious" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></button>
+            <button type="submit" asp-controller="Browse" asp-action="MovePrevious" class="btn btn-outline-primary"><i class="bi bi-skip-backward"></i></button>
+        </div>
+        <div class="col-auto">
+            <input asp-for="RangeExpression" class="form-control" style="width: 12rem" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" asp-controller="Browse" asp-action="MoveNext" class="btn btn-outline-primary"><i class="bi bi-skip-forward"></i></button>
+            <button type="submit" asp-controller="Browse" asp-action="ExtendNext" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></button>
         </div>
     </div>
-    <input type="submit" value="Submit" class="btn btn-primary submit" />
+    <div class="row mb-2">
+        <div class="col">
+            <input type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary" />
+        </div>
+    </div>
 }
 @if (Model.TextData != null)
 {
-    <hr />
+    <hr class="m-0 p-0 mb-2" />
 
     var currentBook = (BookData?)null;
     var currentChapter = (byte)0;
