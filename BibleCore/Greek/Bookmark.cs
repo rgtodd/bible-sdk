@@ -86,7 +86,6 @@ namespace BibleCore.Greek
 
         public readonly byte Verse { get; init; }
 
-        public readonly byte Position { get; init; }
 
         public static Bookmark? Parse(string text)
         {
@@ -118,8 +117,7 @@ namespace BibleCore.Greek
             {
                 Book = book.Value,
                 Chapter = chapterValue,
-                Verse = verseValue,
-                Position = 0
+                Verse = verseValue
             };
         }
 
@@ -171,14 +169,13 @@ namespace BibleCore.Greek
             {
                 Book = Book,
                 Chapter = Chapter == 0 ? byte.MaxValue : Chapter,
-                Verse = Verse == 0 ? byte.MaxValue : Verse,
-                Position = Position == 0 ? byte.MaxValue : Position
+                Verse = Verse == 0 ? byte.MaxValue : Verse
             };
         }
 
         public override string ToString()
         {
-            return $"{Book} {Chapter}:{Verse}.{Position}";
+            return $"{Book} {Chapter}:{Verse}";
         }
 
         public override bool Equals(object? obj)
@@ -190,13 +187,12 @@ namespace BibleCore.Greek
         {
             return Book == other.Book &&
                    Chapter == other.Chapter &&
-                   Verse == other.Verse &&
-                   Position == other.Position;
+                   Verse == other.Verse;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Book, Chapter, Verse, Position);
+            return HashCode.Combine(Book, Chapter, Verse);
         }
 
         public int CompareTo(Bookmark other)
@@ -209,10 +205,6 @@ namespace BibleCore.Greek
             if (result == 0)
             {
                 result = Verse.CompareTo(other.Verse);
-            }
-            if (result == 0)
-            {
-                result = Position.CompareTo(other.Position);
             }
             return result;
         }

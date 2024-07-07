@@ -97,8 +97,7 @@ namespace BibleCore.Greek.SblGnt
                 {
                     Book = currentBook,
                     Chapter = currentChapter,
-                    Verse = currentVerse,
-                    Position = currentPosition
+                    Verse = currentVerse
                 };
 
                 var partOfSpeech = ParsePartOfSpeech(partOfSpeechCode);
@@ -108,7 +107,7 @@ namespace BibleCore.Greek.SblGnt
                 var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, inflection);
                 form.Bookmarks.Add(bookmark);
 
-                var textEntry = text.CreateTextEntry(bookmark, textValue, word, normalizedWord, lexeme);
+                var textEntry = text.CreateTextEntry(bookmark, currentPosition, textValue, word, normalizedWord, lexeme);
 
             }
         }

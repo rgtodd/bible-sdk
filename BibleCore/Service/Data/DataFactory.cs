@@ -45,8 +45,7 @@ namespace BibleCore.Service.Data
                             {
                                 Book = currentBook,
                                 Chapter = currentChapter,
-                                Verse = currentVerse,
-                                Position = 0
+                                Verse = currentVerse
                             }),
                             Words = [.. currentWords]
                         };
@@ -73,6 +72,7 @@ namespace BibleCore.Service.Data
 
                 var word = new TextWordData()
                 {
+                    Position = textEntry.Position,
                     Word = textEntry.Text,
                     StrongsNumber = strongsNumber,
                     GkNumber = gkNumber
@@ -89,8 +89,7 @@ namespace BibleCore.Service.Data
                         {
                             Book = currentBook,
                             Chapter = currentChapter,
-                            Verse = currentVerse,
-                            Position = 0
+                            Verse = currentVerse
                         }
                     ),
                     Words = [.. currentWords]
@@ -196,7 +195,6 @@ namespace BibleCore.Service.Data
                     Book = CreateBookData(bookmark.Book),
                     Chapter = bookmark.Chapter,
                     Verse = bookmark.Verse,
-                    Position = bookmark.Position,
                     FormattedBookmark = bookmark.Format(),
                     FormattedBook = Bookmark.FormatBook(bookmark.Book)
                 };

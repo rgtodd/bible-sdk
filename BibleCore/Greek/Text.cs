@@ -6,11 +6,12 @@
 
         public Dictionary<Book, Dictionary<byte, Dictionary<byte, int>>> Counts { get; } = [];
 
-        public TextEntry CreateTextEntry(Bookmark bookmark, string text, string word, string normalizedWord, Lexeme lexeme)
+        public TextEntry CreateTextEntry(Bookmark bookmark, byte position, string text, string word, string normalizedWord, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
             {
                 Bookmark = bookmark,
+                Position = position,
                 Text = text,
                 Word = word,
                 NormalizedWord = normalizedWord,

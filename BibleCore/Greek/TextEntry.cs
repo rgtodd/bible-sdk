@@ -4,6 +4,8 @@
     {
         public required Bookmark Bookmark { get; init; }
 
+        public required byte Position { get; init; }
+
         public required string Text { get; init; }
 
         public required string Word { get; init; }
