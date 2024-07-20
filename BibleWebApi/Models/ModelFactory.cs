@@ -39,7 +39,7 @@ namespace BibleWebApi.Models
             return new ThirdPartyWordListModel()
             {
                 Name = thirdPartyWordList.Name,
-                MounceChapterNumber = thirdPartyWordList.MounceChapterNumber
+                WordListId = thirdPartyWordList.WordListId
             };
         }
 
@@ -53,8 +53,9 @@ namespace BibleWebApi.Models
             return new ExerciseDataModel()
             {
                 Name = exercise.Name,
-                MounceChapterNumber = exercise.MounceChapterNumber,
                 WordListDescription = exercise.WordListDescription,
+                WordListId = exercise.WordListId,
+                Range = exercise.Range,
                 Questions = CreateExerciseWordModelArray(exercise.Questions, sort)
             };
         }

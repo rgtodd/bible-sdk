@@ -4,6 +4,6 @@
     {
         public required string Name { get; init; }
 
-        public required int MounceChapterNumber { get; init; }
+        public required string WordListId { get; init; }
     }
 }

@@ -23,18 +23,36 @@ namespace BibleWebApi.Controllers
             return View("Catalog", model);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Start(string name, int mounce)
+        [HttpPost]
+        public async Task<IActionResult> Begin(ExerciseCatalogModel model, string factory)
         {
-            var model = await GetExerciseModel(name, mounce, null, false);
+            try
+            {
+                var exerciseModel = await GetExerciseModel(factory, model.WordListId, model.Range, false);
+                return View("Exercise", exerciseModel);
+            }
+            catch (ApplicationException ex)
+            {
+                ModelState.Clear();
+
+                model = await GetExerciseCatalogModel();
+                model.Message = ex.Message;
+                return View("Catalog", model);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Start(string name, string? wordListId, string? range)
+        {
+            var model = await GetExerciseModel(name, wordListId, range, false);
 
             return View("Exercise", model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Study(string name, int mounce)
+        public async Task<IActionResult> Study(string name, string? wordListId, string? range)
         {
-            var model = await GetExerciseModel(name, mounce, null, true);
+            var model = await GetExerciseModel(name, wordListId, range, true);
 
             return View("Study", model);
         }
@@ -82,16 +100,17 @@ namespace BibleWebApi.Controllers
             return exerciseCatalogModel;
         }
 
-        private async Task<ExerciseModel> GetExerciseModel(string name, int? mounce, string? range, bool sort)
+        private async Task<ExerciseModel> GetExerciseModel(string name, string? wordListId, string? range, bool sort)
         {
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise?name={name}&mounce={mounce}&range={range}";
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise?name={name}&wordListId={wordListId}&range={range}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException(response.ReasonPhrase);
+                var message = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
+                throw new ApplicationException(message);
             }
 
             var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");

@@ -93,7 +93,7 @@ namespace BibleCore.Service
                 new PartOfSpeechExerciseFactory()];
 
             var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Where(n => n != 0).Distinct().Order();
-            var thirdPartyWordLists = mounceChapterNumbers.Select(m => new ThirdPartyWordList() { Name = $"Chapter {m}", MounceChapterNumber = m }).ToArray();
+            var thirdPartyWordLists = mounceChapterNumbers.Select(m => new ThirdPartyWordList() { Name = $"Chapter {m}", WordListId = $"m-{m}" }).ToArray();
 
             var exerciseCatalog = new ExerciseCatalog(exerciseFactories, thirdPartyWordLists);
 

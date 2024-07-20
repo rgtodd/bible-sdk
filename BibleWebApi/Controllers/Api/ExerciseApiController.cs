@@ -3,8 +3,6 @@ using BibleCore.Service.Data;
 
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace BibleWebApi.Controllers.Api
 {
     [Route("api/[controller]")]
@@ -12,15 +10,26 @@ namespace BibleWebApi.Controllers.Api
     public class ExerciseApiController(IExerciseService exerciseService) : ControllerBase
     {
         [HttpGet("catalog")]
-        public ExerciseCatalogData GetExerciseCatalog()
+        [ProducesResponseType<ExerciseCatalogData>(StatusCodes.Status200OK)]
+        public IActionResult GetExerciseCatalog()
         {
-            return exerciseService.GetExerciseCatalog();
+            return Ok(exerciseService.GetExerciseCatalog());
         }
 
         [HttpGet("exercise")]
-        public ExerciseData GetExercise(string name, int? mounce, string? range)
+        [ProducesResponseType<ExerciseData>(StatusCodes.Status200OK)]
+        [ProducesResponseType<string>(StatusCodes.Status400BadRequest)]
+        public IActionResult GetExercise(string name, string? wordListId, string? range)
         {
-            return exerciseService.GetExercise(name, mounce, range);
+            try
+            {
+                var exerciseData = exerciseService.GetExercise(name, wordListId, range);
+                return Ok(exerciseData);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

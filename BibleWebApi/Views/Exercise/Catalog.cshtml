@@ -5,17 +5,52 @@
     ViewData["Title"] = "Exercisies";
 }
 <h2>Practice</h2>
-@foreach (var factory in Model.Factories)
+@if (!string.IsNullOrEmpty(Model.Message))
 {
-    <h5>@factory.Name</h5>
-    <div class="row">
-        @foreach (var thirdPartyWordList in Model.ThirdPartyWordLists)
-        {
-            <div class="col-4 col-md-3 col-lg-2 col-xl-2 text-center">
-                <p>
-                    <a asp-controller="Exercise" asp-action="Start" asp-route-name="@factory.Name" asp-route-mounce="@thirdPartyWordList.MounceChapterNumber" class="btn btn-outline-primary">@thirdPartyWordList.Name</a>
-                </p>
-            </div>
-        }
+    <div class="alert alert-primary" role="alert">
+        @Model.Message
     </div>
+}
+<p>Choose a word list or scripture passage, then click the desired exercise.</p>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="row mb-3">
+        <label class="col-12 col-sm-3 col-md-2 col-form-label">Word lists:</label>
+        <div class="col-12 col-sm-9 col-md-10">
+            @foreach (var wordList in Model.ThirdPartyWordLists)
+            {
+                <input asp-for="@Model.WordListId" id="wordList-@wordList.WordListId" value="@wordList.WordListId" type="radio" class="btn-check ctrl-word" autocomplete="off">
+                <label for="wordList-@wordList.WordListId" class="btn btn-outline-dark m-1">@wordList.Name</label>
+            }
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label asp-for="Range" class="col-12 col-sm-3 col-md-2 col-form-label">Scripture passage:</label>
+        <div class="col">
+            <input asp-for="Range" class="form-control ctrl-range m-1" style="width: 12em" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-12 col-sm-3 col-md-2 col-form-label">Exercise:</label>
+        <div class="col-12 col-sm-9 col-md-10">
+            @foreach (var factory in Model.Factories)
+            {
+                <button asp-controller="Exercise" asp-action="Begin" asp-route-factory="@factory.Name" class="btn btn-primary m-1">@factory.Name</button>
+            }
+        </div>
+    </div>
+}
+@section Scripts
+{
+    <script type="text/javascript" language="javascript">
+        $(".ctrl-word").on('input', function () {
+            $(".ctrl-range").val("");
+        })
+
+        $(".ctrl-range").on('input', function () {
+            $(".ctrl-word").prop("checked", false);
+        })
+    </script>
 }

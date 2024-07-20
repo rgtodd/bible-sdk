@@ -11,12 +11,13 @@ namespace BibleCore.Service
             return exerciseCatalogData;
         }
 
-        public ExerciseData GetExercise(string name, int? mounceChapterNumber, string? rangeExpression)
+        public ExerciseData GetExercise(string name, string? wordListId, string? rangeExpression)
         {
             WordList wordList;
-            if (mounceChapterNumber.HasValue)
+            if (wordListId != null)
             {
-                wordList = WordList.CreateForMounceChapter(globalGreek.Lexicon, mounceChapterNumber.Value);
+                var mounceChapterNumber = int.Parse(wordListId[2..]); // HACK
+                wordList = WordList.CreateForMounceChapter(globalGreek.Lexicon, mounceChapterNumber);
             }
             else if (rangeExpression != null)
             {
@@ -25,7 +26,7 @@ namespace BibleCore.Service
             }
             else
             {
-                throw new ArgumentException("No word list specified.");
+                throw new ArgumentException("A word list or scripture reference must be specified.");
             }
 
             var exercise = globalGreek.ExerciseCatalog.GetExerciseFactory(name).CreateExercise(wordList);

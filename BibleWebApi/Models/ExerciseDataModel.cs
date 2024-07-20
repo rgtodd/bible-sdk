@@ -9,9 +9,11 @@ namespace BibleWebApi.Models
     {
         public required string Name { get; init; }
 
-        public required int MounceChapterNumber { get; init; }
-
         public required string WordListDescription { get; init; }
+
+        public required string? WordListId { get; init; }
+
+        public required string? Range { get; init; }
 
         public required ExerciseQuestionModel[] Questions { get; init; }
 

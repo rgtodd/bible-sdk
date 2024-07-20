@@ -125,8 +125,9 @@ namespace BibleCore.Service.Data
             return new ExerciseData()
             {
                 Name = exercise.Name,
-                MounceChapterNumber = exercise.MounceChapterNumber,
                 WordListDescription = exercise.WordListDescription,
+                WordListId = exercise.WordListId,
+                Range = exercise.Range,
                 Questions = CreateExerciseQuestionDataArray(exercise.Questions)
             };
         }
@@ -149,7 +150,7 @@ namespace BibleCore.Service.Data
             return new ThirdPartyWordListData()
             {
                 Name = thirdPartyWordList.Name,
-                MounceChapterNumber = thirdPartyWordList.MounceChapterNumber
+                WordListId = thirdPartyWordList.WordListId
             };
         }
 

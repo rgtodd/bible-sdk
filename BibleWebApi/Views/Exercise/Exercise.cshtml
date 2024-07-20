@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Exercise";
 }
-<h2>Practice - @Model.Data.Name / @Model.Data.WordListDescription (<a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Data.Name" asp-route-mounce="@Model.Data.MounceChapterNumber">Study</a>)</h2>
+<h2>Practice - @Model.Data.Name / @Model.Data.WordListDescription (<a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Data.Name" asp-route-wordListId="@Model.Data.WordListId" asp-route-range="@Model.Data.Range">Study</a>)</h2>
 @using (Html.BeginForm("Update", "Exercise", FormMethod.Post, null))
 {
     foreach (var question in Model.Data.Questions)

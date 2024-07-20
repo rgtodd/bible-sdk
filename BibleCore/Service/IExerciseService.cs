@@ -6,6 +6,6 @@ namespace BibleCore.Service
     {
         ExerciseCatalogData GetExerciseCatalog();
 
-        ExerciseData GetExercise(string name, int? mounceChapterNumber, string? rangeExpression);
+        ExerciseData GetExercise(string name, string? wordListId, string? rangeExpression);
     }
 }

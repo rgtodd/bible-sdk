@@ -30,7 +30,7 @@
                 questions.Add(question);
             }
 
-            return new Exercise(Name, wordList.Description, wordList.MounceChapterNumber, [.. questions]);
+            return new Exercise(Name, wordList.Description, wordList.WordListId, wordList.Range, [.. questions]);
         }
     }
 }
