@@ -2,6 +2,8 @@
 {
     public class ExerciseCatalogData
     {
-        public required ExerciseCategoryData[] Categories { get; init; }
+        public required ExerciseFactoryData[] Factories { get; init; }
+
+        public required ThirdPartyWordListData[] WordLists { get; init; }
     }
 }

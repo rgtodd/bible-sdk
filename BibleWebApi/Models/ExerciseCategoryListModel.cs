@@ -2,6 +2,6 @@
 {
     public class ExerciseCategoryListModel
     {
-        public required ExerciseCategoryModel[] Categories { get; init; }
+        public required ExerciseFactoryModel[] Categories { get; init; }
     }
 }

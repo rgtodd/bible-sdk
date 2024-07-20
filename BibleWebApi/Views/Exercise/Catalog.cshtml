@@ -5,15 +5,15 @@
     ViewData["Title"] = "Exercisies";
 }
 <h2>Practice</h2>
-@foreach (var category in Model.Categories)
+@foreach (var factory in Model.Factories)
 {
-    <h5>@category.Name</h5>
+    <h5>@factory.Name</h5>
     <div class="row">
-        @foreach (var categoryItem in category.Items)
+        @foreach (var thirdPartyWordList in Model.ThirdPartyWordLists)
         {
             <div class="col-4 col-md-3 col-lg-2 col-xl-2 text-center">
                 <p>
-                    <a asp-controller="Exercise" asp-action="Start" asp-route-categoryName="@categoryItem.CategoryName" asp-route-name="@categoryItem.Name" class="btn btn-outline-primary">@categoryItem.Name</a>
+                    <a asp-controller="Exercise" asp-action="Start" asp-route-name="@factory.Name" asp-route-mounce="@thirdPartyWordList.MounceChapterNumber" class="btn btn-outline-primary">@thirdPartyWordList.Name</a>
                 </p>
             </div>
         }

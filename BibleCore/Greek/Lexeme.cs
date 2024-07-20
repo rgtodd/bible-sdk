@@ -1,6 +1,6 @@
 ﻿namespace BibleCore.Greek
 {
-    internal class Lexeme
+    internal class Lexeme : IEquatable<Lexeme?>
     {
         public required string Lemma { get; init; }
 
@@ -34,6 +34,22 @@
             }
         }
 
+        public override bool Equals(object? obj)
+        {
+            return Equals(obj as Lexeme);
+        }
+
+        public bool Equals(Lexeme? other)
+        {
+            return other is not null &&
+                   FullCitationForm == other.FullCitationForm;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(FullCitationForm);
+        }
+
         public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, Inflection inflection)
         {
             ArgumentNullException.ThrowIfNull(lexeme, nameof(lexeme));
@@ -53,6 +69,16 @@
             }
 
             return form;
+        }
+
+        public static bool operator ==(Lexeme? left, Lexeme? right)
+        {
+            return EqualityComparer<Lexeme>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(Lexeme? left, Lexeme? right)
+        {
+            return !(left == right);
         }
     }
 }

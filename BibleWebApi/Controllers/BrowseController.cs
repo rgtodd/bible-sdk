@@ -5,7 +5,6 @@ using BibleWebApi.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
-using System.Reflection;
 using System.Text.Json;
 
 namespace BibleWebApi.Controllers

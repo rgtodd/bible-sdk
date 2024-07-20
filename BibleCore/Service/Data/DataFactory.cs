@@ -115,47 +115,47 @@ namespace BibleCore.Service.Data
         {
             return new ExerciseCatalogData()
             {
-                Categories = CreateExerciseCategoryDataArray(catalog.Categories)
+                Factories = CreateExerciseFactoryDataArray(catalog.ExerciseFactories),
+                WordLists = CreateThirdPartyWordListDataArray(catalog.ThirdPartyWordLists)
             };
-        }
-
-        private static ExerciseCategoryData CreateExerciseCategoryData(ExerciseCategory category)
-        {
-            return new ExerciseCategoryData()
-            {
-                Name = category.Name,
-                Items = CreateExerciseCategoryItemDataArray(category, category.ExerciseFactories)
-            };
-        }
-
-        private static ExerciseCategoryData[] CreateExerciseCategoryDataArray(IEnumerable<ExerciseCategory> exerciseCategories)
-        {
-            return exerciseCategories.Select(CreateExerciseCategoryData).ToArray();
-        }
-
-        private static ExerciseCategoryItemData CreateExerciseCategoryItemData(ExerciseCategory category, IExerciseFactory exerciseFactory)
-        {
-
-            return new ExerciseCategoryItemData()
-            {
-                CategoryName = category.Name,
-                Name = exerciseFactory.Name
-            };
-        }
-
-        private static ExerciseCategoryItemData[] CreateExerciseCategoryItemDataArray(ExerciseCategory category, IEnumerable<IExerciseFactory> exerciseFactories)
-        {
-            return exerciseFactories.Select(ef => CreateExerciseCategoryItemData(category, ef)).ToArray();
         }
 
         public static ExerciseData CreateExerciseData(Exercise exercise)
         {
             return new ExerciseData()
             {
-                CategoryName = exercise.CategoryName,
                 Name = exercise.Name,
+                MounceChapterNumber = exercise.MounceChapterNumber,
+                WordListDescription = exercise.WordListDescription,
                 Questions = CreateExerciseQuestionDataArray(exercise.Questions)
             };
+        }
+
+        private static ExerciseFactoryData CreateExerciseFactoryData(IExerciseFactory exerciseFactory)
+        {
+            return new ExerciseFactoryData()
+            {
+                Name = exerciseFactory.Name
+            };
+        }
+
+        private static ExerciseFactoryData[] CreateExerciseFactoryDataArray(IEnumerable<IExerciseFactory> exerciseFactories)
+        {
+            return exerciseFactories.Select(CreateExerciseFactoryData).ToArray();
+        }
+
+        private static ThirdPartyWordListData CreateThirdPartyWordListData(ThirdPartyWordList thirdPartyWordList)
+        {
+            return new ThirdPartyWordListData()
+            {
+                Name = thirdPartyWordList.Name,
+                MounceChapterNumber = thirdPartyWordList.MounceChapterNumber
+            };
+        }
+
+        private static ThirdPartyWordListData[] CreateThirdPartyWordListDataArray(IEnumerable<ThirdPartyWordList> thirdPartyWordLists)
+        {
+            return thirdPartyWordLists.Select(CreateThirdPartyWordListData).ToArray();
         }
 
         private static ExerciseQuestionData CreateExerciseQuestionData(Question question)

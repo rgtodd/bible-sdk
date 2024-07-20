@@ -1,10 +1,12 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    internal class Exercise(string categoryName, string name, Question[] questions)
+    internal class Exercise(string name, string wordListDescription, int mounceChapterNumber, Question[] questions)
     {
-        public string CategoryName => categoryName;
-
         public string Name => name;
+
+        public string WordListDescription => wordListDescription;
+
+        public int MounceChapterNumber => mounceChapterNumber;
 
         public Question[] Questions => questions;
     }

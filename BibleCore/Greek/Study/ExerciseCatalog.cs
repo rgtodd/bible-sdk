@@ -1,12 +1,14 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    internal class ExerciseCatalog(ExerciseCategory[] categories)
+    internal class ExerciseCatalog(IExerciseFactory[] exerciseFactories, ThirdPartyWordList[] thirdPartyWordLists)
     {
-        public ExerciseCategory[] Categories => categories;
+        public IExerciseFactory[] ExerciseFactories => exerciseFactories;
 
-        public ExerciseCategory GetCategory(string name)
+        public ThirdPartyWordList[] ThirdPartyWordLists => thirdPartyWordLists;
+
+        public IExerciseFactory GetExerciseFactory(string name)
         {
-            return categories.Where(c => c.Name == name).Single();
+            return ExerciseFactories.Where(c => c.Name == name).Single();
         }
     }
 }

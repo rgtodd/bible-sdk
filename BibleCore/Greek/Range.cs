@@ -8,8 +8,10 @@ namespace BibleCore.Greek
 
         public required Bookmark To { get; init; }
 
-        public static Range? Parse(string text)
+        public static Range Parse(string text)
         {
+            ArgumentException.ThrowIfNullOrEmpty(text, nameof(text));
+
             int idxDash = text.IndexOf('-');
             if (idxDash != -1)
             {
@@ -19,25 +21,21 @@ namespace BibleCore.Greek
                 var bookmarkFrom = Bookmark.Parse(textFrom);
                 var bookmarkTo = Bookmark.Parse(textTo);
 
-                return bookmarkFrom != null && bookmarkTo != null
-                    ? new Range()
-                    {
-                        From = bookmarkFrom.Value,
-                        To = bookmarkTo.Value
-                    }
-                    : null;
+                return new Range()
+                {
+                    From = bookmarkFrom,
+                    To = bookmarkTo
+                };
             }
             else
             {
                 var bookmark = Bookmark.Parse(text);
 
-                return bookmark != null
-                    ? new Range()
-                    {
-                        From = bookmark.Value,
-                        To = bookmark.Value
-                    }
-                    : null;
+                return new Range()
+                {
+                    From = bookmark,
+                    To = bookmark
+                };
             }
         }
 

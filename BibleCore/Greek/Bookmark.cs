@@ -87,14 +87,16 @@ namespace BibleCore.Greek
         public readonly byte Verse { get; init; }
 
 
-        public static Bookmark? Parse(string text)
+        public static Bookmark Parse(string text)
         {
+            ArgumentException.ThrowIfNullOrEmpty(text, nameof(text));
+
             text = text.Trim().ToLower();
 
             var match = s_referenceRegex.Match(text);
             if (!match.Success)
             {
-                return null;
+                throw new ArgumentException("Text is not a valid range expression.");
             }
 
             var number = match.Groups[1].Value;
@@ -103,19 +105,14 @@ namespace BibleCore.Greek
             var verse = match.Groups[4].Value;
 
             string title = !string.IsNullOrEmpty(number) ? $"{number} {bookName}" : bookName;
-            var book = ParseBook(title);
-            if (book == null)
-            {
-                return null;
-            }
-
+            var book = ParseBook(title) ?? throw new ArgumentException($"Unknown book title {title}.");
             var chapterValue = string.IsNullOrEmpty(chapter) ? (byte)0 : byte.Parse(chapter);
 
             var verseValue = string.IsNullOrEmpty(verse) ? (byte)0 : byte.Parse(verse);
 
             return new Bookmark()
             {
-                Book = book.Value,
+                Book = book,
                 Chapter = chapterValue,
                 Verse = verseValue
             };

@@ -8,7 +8,6 @@
 
         public required byte Verse { get; init; }
 
-
         public required string FormattedBookmark { get; init; }
 
         public required string FormattedBook { get; init; }

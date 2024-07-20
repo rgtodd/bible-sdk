@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Study";
 }
-<h2>Study - @Model.Data.CategoryName / @Model.Data.Name (<a asp-controller="Exercise" asp-action="Start" asp-route-categoryName="@Model.Data.CategoryName" asp-route-name="@Model.Data.Name">Practice</a>)</h2>
+<h2>Study - @Model.Data.Name / @Model.Data.WordListDescription (<a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Data.Name" asp-route-mounce="@Model.Data.MounceChapterNumber">Practice</a>)</h2>
 @foreach (var question in Model.Data.Questions)
 {
     <hr class="p-0 m-0" />

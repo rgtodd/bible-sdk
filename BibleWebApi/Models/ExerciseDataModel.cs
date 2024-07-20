@@ -7,9 +7,11 @@ namespace BibleWebApi.Models
 {
     public class ExerciseDataModel : IParsable<ExerciseDataModel>
     {
-        public required string CategoryName { get; init; }
-
         public required string Name { get; init; }
+
+        public required int MounceChapterNumber { get; init; }
+
+        public required string WordListDescription { get; init; }
 
         public required ExerciseQuestionModel[] Questions { get; init; }
 

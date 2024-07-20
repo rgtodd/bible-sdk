@@ -2,6 +2,8 @@
 {
     public class ExerciseCatalogModel
     {
-        public required ExerciseCategoryModel[] Categories { get; init; }
+        public required ExerciseFactoryModel[] Factories { get; init; }
+
+        public required ThirdPartyWordListModel[] ThirdPartyWordLists { get; init; }
     }
 }

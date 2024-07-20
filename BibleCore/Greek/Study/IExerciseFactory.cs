@@ -4,6 +4,6 @@
     {
         public string Name { get; }
 
-        public Exercise CreateExercise();
+        public Exercise CreateExercise(WordList wordList);
     }
 }

@@ -18,9 +18,9 @@ namespace BibleWebApi.Controllers.Api
         }
 
         [HttpGet("exercise")]
-        public ExerciseData GetExercise(string categoryName, string name)
+        public ExerciseData GetExercise(string name, int? mounce, string? range)
         {
-            return exerciseService.GetExercise(categoryName, name);
+            return exerciseService.GetExercise(name, mounce, range);
         }
     }
 }

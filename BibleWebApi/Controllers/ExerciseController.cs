@@ -24,17 +24,17 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Start(string categoryName, string name)
+        public async Task<IActionResult> Start(string name, int mounce)
         {
-            var model = await GetExerciseModel(categoryName, name, false);
+            var model = await GetExerciseModel(name, mounce, null, false);
 
             return View("Exercise", model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Study(string categoryName, string name)
+        public async Task<IActionResult> Study(string name, int mounce)
         {
-            var model = await GetExerciseModel(categoryName, name, true);
+            var model = await GetExerciseModel(name, mounce, null, true);
 
             return View("Study", model);
         }
@@ -61,7 +61,6 @@ namespace BibleWebApi.Controllers
             return View("Exercise", new ExerciseModel() { Data = data });
         }
 
-
         private async Task<ExerciseCatalogModel> GetExerciseCatalogModel()
         {
             var request = HttpContext.Request;
@@ -83,10 +82,10 @@ namespace BibleWebApi.Controllers
             return exerciseCatalogModel;
         }
 
-        private async Task<ExerciseModel> GetExerciseModel(string categoryName, string name, bool sort)
+        private async Task<ExerciseModel> GetExerciseModel(string name, int? mounce, string? range, bool sort)
         {
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise?categoryName={categoryName}&name={name}";
+            var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/exercise?name={name}&mounce={mounce}&range={range}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);

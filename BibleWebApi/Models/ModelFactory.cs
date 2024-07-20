@@ -16,44 +16,45 @@ namespace BibleWebApi.Models
         {
             return new ExerciseCatalogModel()
             {
-                Categories = CreateExerciseCategoryModelArray(exerciseCatalog.Categories)
+                Factories = CreateExerciseCategoryModelArray(exerciseCatalog.Factories),
+                ThirdPartyWordLists = CreateThirdPartyWordListModelArray(exerciseCatalog.WordLists)
             };
         }
 
-        private static ExerciseCategoryModel CreateExerciseCategoryModel(ExerciseCategoryData exerciseCategory)
+        private static ExerciseFactoryModel CreateExerciseFactoryModel(ExerciseFactoryData exerciseFactory)
         {
-            return new ExerciseCategoryModel()
+            return new ExerciseFactoryModel()
             {
-                Name = exerciseCategory.Name,
-                Items = CreateExerciseCategoryItemModelArray(exerciseCategory.Items)
+                Name = exerciseFactory.Name
             };
         }
 
-        private static ExerciseCategoryModel[] CreateExerciseCategoryModelArray(IEnumerable<ExerciseCategoryData> exerciseCategories)
+        private static ExerciseFactoryModel[] CreateExerciseCategoryModelArray(IEnumerable<ExerciseFactoryData> exerciseFactories)
         {
-            return exerciseCategories.Select(CreateExerciseCategoryModel).ToArray();
+            return exerciseFactories.Select(CreateExerciseFactoryModel).ToArray();
         }
 
-        private static ExerciseCategoryItemModel CreateExerciseCategoryItemModel(ExerciseCategoryItemData exerciseCategoryItem)
+        private static ThirdPartyWordListModel CreateThirdPartyWordListModel(ThirdPartyWordListData thirdPartyWordList)
         {
-            return new ExerciseCategoryItemModel()
+            return new ThirdPartyWordListModel()
             {
-                CategoryName = exerciseCategoryItem.CategoryName,
-                Name = exerciseCategoryItem.Name,
+                Name = thirdPartyWordList.Name,
+                MounceChapterNumber = thirdPartyWordList.MounceChapterNumber
             };
         }
 
-        private static ExerciseCategoryItemModel[] CreateExerciseCategoryItemModelArray(IEnumerable<ExerciseCategoryItemData> exerciseCategoryItems)
+        private static ThirdPartyWordListModel[] CreateThirdPartyWordListModelArray(IEnumerable<ThirdPartyWordListData> thirdPartyWordLists)
         {
-            return exerciseCategoryItems.Select(CreateExerciseCategoryItemModel).ToArray();
+            return thirdPartyWordLists.Select(CreateThirdPartyWordListModel).ToArray();
         }
 
         private static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise, bool sort)
         {
             return new ExerciseDataModel()
             {
-                CategoryName = exercise.CategoryName,
                 Name = exercise.Name,
+                MounceChapterNumber = exercise.MounceChapterNumber,
+                WordListDescription = exercise.WordListDescription,
                 Questions = CreateExerciseWordModelArray(exercise.Questions, sort)
             };
         }

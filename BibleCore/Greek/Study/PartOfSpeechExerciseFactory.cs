@@ -1,16 +1,14 @@
 ﻿namespace BibleCore.Greek.Study
 {
-    internal class PartOfSpeechExerciseFactory(Lexicon lexicon, string categoryName, int mounceChapterNumber) : IExerciseFactory
+    internal class PartOfSpeechExerciseFactory() : IExerciseFactory
     {
         private static readonly int AnswerCount = 3;
 
-        public string CategoryName => categoryName;
+        public string Name => "Parts of Speech";
 
-        public string Name => $"Chapter {mounceChapterNumber}";
-
-        public Exercise CreateExercise()
+        public Exercise CreateExercise(WordList wordList)
         {
-            var lexemes = lexicon.GetByMounceChapter(mounceChapterNumber).ToArray();
+            var lexemes = wordList.Lexemes;
             Random.Shared.Shuffle(lexemes);
 
             var allPartsOfSpeech = lexemes.Select(CreatePartOfSpeech).ToArray();
@@ -32,7 +30,7 @@
                 questions.Add(question);
             }
 
-            return new Exercise(CategoryName, Name, [.. questions]);
+            return new Exercise(Name, wordList.Description, wordList.MounceChapterNumber, [.. questions]);
         }
 
         private static string CreatePartOfSpeech(Lexeme lexeme)

@@ -87,18 +87,15 @@ namespace BibleCore.Service
         {
             ArgumentNullException.ThrowIfNull(m_lexicon);
 
-            var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Distinct().Order().Where(n => n != 0);
+            IExerciseFactory[] exerciseFactories = [
+                new PronounciationExerciseFactory(),
+                new DefinitionExerciseFactory(),
+                new PartOfSpeechExerciseFactory()];
 
-            var pronounciationExerciseFactories = mounceChapterNumbers.Select(n => new PronounciationExerciseFactory(m_lexicon, ExerciseCategory.PRONOUNCIATIONS, n)).ToArray();
-            var pronounciationExerciseCategory = new ExerciseCategory(ExerciseCategory.PRONOUNCIATIONS, pronounciationExerciseFactories);
+            var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Where(n => n != 0).Distinct().Order();
+            var thirdPartyWordLists = mounceChapterNumbers.Select(m => new ThirdPartyWordList() { Name = $"Chapter {m}", MounceChapterNumber = m }).ToArray();
 
-            var definitionExerciseFactories = mounceChapterNumbers.Select(n => new DefinitionExerciseFactory(m_lexicon, ExerciseCategory.DEFINITIONS, n)).ToArray();
-            var definitionExerciseCategory = new ExerciseCategory(ExerciseCategory.DEFINITIONS, definitionExerciseFactories);
-
-            var partsOfSpeechExerciseFactories = mounceChapterNumbers.Select(n => new PartOfSpeechExerciseFactory(m_lexicon, ExerciseCategory.PARTS_OF_SPEECH, n)).ToArray();
-            var partsOfSpeechExerciseCategory = new ExerciseCategory(ExerciseCategory.PARTS_OF_SPEECH, partsOfSpeechExerciseFactories);
-
-            var exerciseCatalog = new ExerciseCatalog([pronounciationExerciseCategory, definitionExerciseCategory, partsOfSpeechExerciseCategory]);
+            var exerciseCatalog = new ExerciseCatalog(exerciseFactories, thirdPartyWordLists);
 
             m_exerciseCatalog = exerciseCatalog;
         }
