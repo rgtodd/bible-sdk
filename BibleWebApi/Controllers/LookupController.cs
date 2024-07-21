@@ -14,22 +14,33 @@ namespace BibleWebApi.Controllers
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
         [HttpGet]
-        public async Task<IActionResult> Index(int? strongs, int? gk)
+        public async Task<IActionResult> Index(int? strongs, int? gk, string? range)
         {
-            var model = new LookupModel();
+            var model = await GetLookupModel(strongs, gk, range);
+
+            return View("Index", model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(LookupModel model)
+        {
+            ModelState.Clear();
+
+            model = await GetLookupModel(model.StrongsNumber, model.GkNumber, model.Range);
+
+            return View("Index", model);
+        }
+
+        private async Task<LookupModel> GetLookupModel(int? strongs, int? gk, string? range)
+        {
+            LexemeData? lexemeData = null;
 
             if (strongs != null || gk != null)
             {
                 var request = HttpContext.Request;
-                string url;
-                if (strongs != null)
-                {
-                    url = $"{request.Scheme}://{request.Host}/api/LexemeApi/strongs/{strongs}";
-                }
-                else // Gk must be specified.
-                {
-                    url = $"{request.Scheme}://{request.Host}/api/LexemeApi/gk/{gk}";
-                }
+                string url = strongs != null
+                    ? $"{request.Scheme}://{request.Host}/api/LexemeApi/strongs/{strongs}"
+                    : $"{request.Scheme}://{request.Host}/api/LexemeApi/gk/{gk}";
 
                 var c = HttpClientFactory.CreateClient();
                 var response = await c.GetAsync(url);
@@ -40,84 +51,21 @@ namespace BibleWebApi.Controllers
 
                 var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
 
-                model.LexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
-                if (model.LexemeData != null)
-                {
-                    if (model.LexemeData.StrongsNumber.Length > 0)
-                    {
-                        model.StrongsNumber = model.LexemeData.StrongsNumber[0];
-                    }
-                    if (model.LexemeData.GkNumber.Length > 0)
-                    {
-                        model.GkNumber = model.LexemeData.GkNumber[0];
-                    }
-                }
-                else
-                {
-                    model.Message = "Not found.";
-                }
+                lexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
             }
 
-            return View("Index", model);
-        }
+            var message = lexemeData != null ? null : "Not found.";
 
-        [HttpPost]
-        public async Task<IActionResult> Update(LookupModel model)
-        {
-            var strongsNumber = model.StrongsNumber;
-            var gkNumber = model.GkNumber;
-
-            ModelState.Clear();
-
-            model = new LookupModel
+            var model = new LookupModel()
             {
-                StrongsNumber = strongsNumber,
-                GkNumber = gkNumber
+                Message = message,
+                LexemeData = lexemeData,
+                StrongsNumber = strongs,
+                GkNumber = gk,
+                Range = range
             };
 
-            var request = HttpContext.Request;
-            string url;
-            if (strongsNumber != null)
-            {
-                url = $"{request.Scheme}://{request.Host}/api/LexemeApi/strongs/{strongsNumber}";
-            }
-            else if (gkNumber != null)
-            {
-                url = $"{request.Scheme}://{request.Host}/api/LexemeApi/gk/{gkNumber}";
-            }
-            else
-            {
-                return View("Index", model);
-            }
-
-            var c = HttpClientFactory.CreateClient();
-            var response = await c.GetAsync(url);
-            if (!response.IsSuccessStatusCode)
-            {
-                model.Message = "Not found.";
-                return View("Index", model);
-            }
-
-            var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
-
-            model.LexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
-            if (model.LexemeData != null)
-            {
-                if (model.LexemeData.StrongsNumber.Length > 0)
-                {
-                    model.StrongsNumber = model.LexemeData.StrongsNumber[0];
-                }
-                if (model.LexemeData.GkNumber.Length > 0)
-                {
-                    model.GkNumber = model.LexemeData.GkNumber[0];
-                }
-            }
-            else
-            {
-                model.Message = "Not found.";
-            }
-
-            return View("Index", model);
+            return model;
         }
     }
 }

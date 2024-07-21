@@ -13,51 +13,61 @@
 }
 @using (Html.BeginForm(FormMethod.Post))
 {
-    <div class="row mb-2">
+    <div class="row mb-3">
+        <label asp-for="RangeExpression" class="col-auto col-form-label">Scripture passage:</label>
         <div class="col-auto">
             <input type="submit" asp-controller="Browse" asp-action="Update" hidden />
-            <button type="submit" asp-controller="Browse" asp-action="ExtendPrevious" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></button>
-            <button type="submit" asp-controller="Browse" asp-action="MovePrevious" class="btn btn-outline-primary"><i class="bi bi-skip-backward"></i></button>
-        </div>
-        <div class="col-auto">
-            <input asp-for="RangeExpression" class="form-control" style="width: 12rem" />
+            <input asp-for="RangeExpression" class="form-control ctrl-range" style="width: 12em" />
         </div>
         <div class="col-auto">
             <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">View</button>
-            <button type="submit" asp-controller="Browse" asp-action="MoveNext" class="btn btn-outline-primary"><i class="bi bi-skip-forward"></i></button>
-            <button type="submit" asp-controller="Browse" asp-action="ExtendNext" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></button>
         </div>
     </div>
-}
-@if (Model.TextData != null)
-{
-    <hr class="m-0 p-0 mb-2" />
 
-    var currentBook = (BookData?)null;
-    var currentChapter = (byte)0;
-
-    foreach (var verse in Model.TextData.Verses)
+    if (Model.TextData != null)
     {
-        if (currentBook == null || currentBook != verse.Bookmark.Book)
-        {
-            currentBook = verse.Bookmark.Book;
-            currentChapter = 0;
+        <hr class="py-1 my-1" />
 
-            <h5>@verse.Bookmark.FormattedBook</h5>
-        }
-        if (currentChapter == 0 || currentChapter != verse.Bookmark.Chapter)
-        {
-            currentChapter = verse.Bookmark.Chapter;
+        <div class="row mb-2 d-print-none">
+            <div class="col-auto">
+                <button type="submit" asp-controller="Browse" asp-action="MovePrevious" class="btn btn-outline-dark"><i class="bi bi-arrow-up"></i></button>
+                <button type="submit" asp-controller="Browse" asp-action="ExtendPrevious" class="btn btn-outline-dark"><i class="bi bi-plus-lg"></i></button>
+            </div>
+        </div>
 
-            <h6>Chapter @currentChapter</h6>
-        }
-        <p class="fs-5 serif">
-            <span>@verse.Bookmark.Verse</span>
-            @foreach (var word in verse.Words)
+        var currentBook = (BookData?)null;
+        var currentChapter = (byte)0;
+
+        foreach (var verse in Model.TextData.Verses)
+        {
+            if (currentBook == null || currentBook != verse.Bookmark.Book)
             {
-                <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@word.StrongsNumber" asp-route-gk="@word.GkNumber" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>
+                currentBook = verse.Bookmark.Book;
+                currentChapter = 0;
+
+                <h5>@verse.Bookmark.FormattedBook</h5>
             }
-        </p>
+            if (currentChapter == 0 || currentChapter != verse.Bookmark.Chapter)
+            {
+                currentChapter = verse.Bookmark.Chapter;
+
+                <h6>Chapter @currentChapter</h6>
+            }
+            <p class="fs-5 serif">
+                <span>@verse.Bookmark.Verse</span>
+                @foreach (var word in verse.Words)
+                {
+                    <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@word.StrongsNumber" asp-route-gk="@word.GkNumber" asp-route-range="@Model.RangeExpression" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Word</a>
+                }
+            </p>
+        }
+
+        <div class="row mb-2 d-print-none">
+            <div class="col-auto">
+                <button type="submit" asp-controller="Browse" asp-action="MoveNext" class="btn btn-outline-dark"><i class="bi bi-arrow-down"></i></button>
+                <button type="submit" asp-controller="Browse" asp-action="ExtendNext" class="btn btn-outline-dark"><i class="bi bi-plus-lg"></i></button>
+            </div>
+        </div>
     }
 }
 @section Scripts

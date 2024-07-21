@@ -4,7 +4,17 @@
 @{
     ViewData["Title"] = "Lookup";
 }
-<h2>Lookup</h2>
+<div class="row">
+    <div class="col-auto pe-0">
+        <h2>Lookup</h2>
+    </div>
+    @if (Model.Range != null)
+    {
+        <div class="col-auto pe-0">
+            <a asp-controller="Browse" asp-action="Index" asp-route-range="@Model.Range" class="btn btn-outline-dark">Back</a>
+        </div>
+    }
+</div>
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <div class="alert alert-primary" role="alert">
@@ -32,8 +42,9 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="Submit" class="btn btn-primary submit" />
+        <input type="submit" value="Lookup" class="btn btn-primary submit" />
     </fieldset>
+    <input type="hidden" asp-for="Range" />
 }
 @if (Model.LexemeData != null)
 {

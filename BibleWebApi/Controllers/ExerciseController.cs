@@ -37,6 +37,7 @@ namespace BibleWebApi.Controllers
 
                 model = await GetExerciseCatalogModel(model.WordListId, model.Range);
                 model.Message = ex.Message;
+
                 return View("Catalog", model);
             }
         }
@@ -78,7 +79,7 @@ namespace BibleWebApi.Controllers
                 }
             }
 
-            return View("Exercise", new ExerciseModel()
+            model = new ExerciseModel()
             {
                 Name = model.Name,
                 WordListDescription = model.WordListDescription,
@@ -86,7 +87,9 @@ namespace BibleWebApi.Controllers
                 Range = model.Range,
                 Questions = questions,
                 QuestionsMomento = ExerciseModel.CreateQuestionsMomento(questions)
-            });
+            };
+
+            return View("Exercise", model);
         }
 
         private async Task<ExerciseCatalogModel> GetExerciseCatalogModel(string? wordListId, string? range)

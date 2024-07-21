@@ -4,12 +4,14 @@ namespace BibleWebApi.Models
 {
     public class LookupModel
     {
-        public string? Message { get; set; }
+        public required string? Message { get; init; }
 
-        public LexemeData? LexemeData { get; set; }
+        public required LexemeData? LexemeData { get; init; }
 
-        public int? StrongsNumber { get; set; }
+        public required int? StrongsNumber { get; init; }
 
-        public int? GkNumber { get; set; }
+        public required int? GkNumber { get; init; }
+
+        public required string? Range { get; init; }
     }
 }
