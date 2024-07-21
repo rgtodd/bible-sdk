@@ -14,7 +14,7 @@ namespace BibleWebApi.Controllers
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
         [HttpGet]
-        public async Task<ActionResult> Index(string? range)
+        public async Task<IActionResult> Index(string? range)
         {
             range ??= "John 3:16";
 
@@ -27,7 +27,7 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Update(BrowseModel model)
+        public async Task<IActionResult> Update(BrowseModel model)
         {
             ModelState.Clear();
 
@@ -40,7 +40,13 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> MovePrevious(BrowseModel model)
+        public IActionResult Practice(BrowseModel model)
+        {
+            return RedirectToAction("Index", "Exercise", new { range = model.RangeExpression });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MovePrevious(BrowseModel model)
         {
             ModelState.Clear();
 
@@ -53,7 +59,7 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> MoveNext(BrowseModel model)
+        public async Task<IActionResult> MoveNext(BrowseModel model)
         {
             ModelState.Clear();
 
@@ -66,7 +72,7 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ExtendPrevious(BrowseModel model)
+        public async Task<IActionResult> ExtendPrevious(BrowseModel model)
         {
             ModelState.Clear();
 
@@ -79,7 +85,7 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ExtendNext(BrowseModel model)
+        public async Task<IActionResult> ExtendNext(BrowseModel model)
         {
             ModelState.Clear();
 

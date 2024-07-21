@@ -7,7 +7,7 @@ namespace BibleWebApi.Controllers
     public class HomeController() : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public IActionResult Index()
         {
             var model = new HomeModel();
 
