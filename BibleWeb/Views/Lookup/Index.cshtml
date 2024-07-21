@@ -104,3 +104,15 @@
         }
     </div>
 }
+@section Scripts
+{
+    <script type="text/javascript" language="javascript">
+        $("#StrongsNumber").on('input', function () {
+            $("#GkNumber").val("");
+        })
+
+        $("#GkNumber").on('input', function () {
+            $("#StrongsNumber").val("");
+        })
+    </script>
+}

@@ -26,16 +26,16 @@
             return lexeme;
         }
 
-        public Lexeme GetByStrongsNumber(int strongsNumber)
+        public Lexeme? GetByStrongsNumber(int strongsNumber)
         {
             var lexeme = Lexemes.Where(l => l.StrongsNumber.Contains(strongsNumber)).FirstOrDefault();
-            return lexeme ?? throw new ArgumentOutOfRangeException(nameof(strongsNumber));
+            return lexeme;
         }
 
         public Lexeme? GetByGkNumber(int gkNumber)
         {
             var lexeme = Lexemes.Where(l => l.GkNumber.Contains(gkNumber)).FirstOrDefault();
-            return lexeme; //?? throw new ArgumentOutOfRangeException(nameof(gkNumber));
+            return lexeme;
         }
 
         public Lexeme GetByLemma(string lemma)

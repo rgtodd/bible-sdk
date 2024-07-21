@@ -50,11 +50,26 @@ namespace BibleWebApi.Controllers
                 }
 
                 var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
-
-                lexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+                if (!string.IsNullOrEmpty(json))
+                {
+                    lexemeData = JsonSerializer.Deserialize<LexemeData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+                }
             }
 
-            var message = lexemeData != null ? null : "Not found.";
+            if (lexemeData != null)
+            {
+                if (lexemeData.StrongsNumber != null && lexemeData.StrongsNumber.Length > 0)
+                {
+                    strongs = lexemeData.StrongsNumber[0];
+                }
+
+                if (lexemeData.GkNumber != null && lexemeData.GkNumber.Length > 0)
+                {
+                    gk = lexemeData.GkNumber[0];
+                }
+            }
+
+            var message = (strongs != null || gk != null) && lexemeData == null ? "Not found." : null;
 
             var model = new LookupModel()
             {
