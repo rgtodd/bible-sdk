@@ -4,7 +4,17 @@
 @{
     ViewData["Title"] = "Study";
 }
-<h2>Study - @Model.Name / @Model.WordListDescription (<a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range">Practice</a>)</h2>
+<div class="row">
+    <div class="col-auto pe-0 d-print-none">
+        <a asp-controller="Exercise" asp-action="Index" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i></a>
+    </div>
+    <div class="col-auto pe-0">
+        <h2>Study - @Model.Name / @Model.WordListDescription</h2>
+    </div>
+    <div class="col-auto pe-0 d-print-none">
+        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Practice</a>
+    </div>
+</div>
 @foreach (var question in Model.Questions)
 {
     <hr class="p-0 m-0" />

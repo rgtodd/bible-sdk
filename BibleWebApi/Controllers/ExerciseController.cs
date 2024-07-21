@@ -16,9 +16,9 @@ namespace BibleWebApi.Controllers
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? wordListId, string? range)
         {
-            var model = await GetExerciseCatalogModel();
+            var model = await GetExerciseCatalogModel(wordListId, range);
 
             return View("Catalog", model);
         }
@@ -35,7 +35,7 @@ namespace BibleWebApi.Controllers
             {
                 ModelState.Clear();
 
-                model = await GetExerciseCatalogModel();
+                model = await GetExerciseCatalogModel(model.WordListId, model.Range);
                 model.Message = ex.Message;
                 return View("Catalog", model);
             }
@@ -89,7 +89,7 @@ namespace BibleWebApi.Controllers
             });
         }
 
-        private async Task<ExerciseCatalogModel> GetExerciseCatalogModel()
+        private async Task<ExerciseCatalogModel> GetExerciseCatalogModel(string? wordListId, string? range)
         {
             var request = HttpContext.Request;
             var url = $"{request.Scheme}://{request.Host}/api/ExerciseApi/catalog";
@@ -105,7 +105,7 @@ namespace BibleWebApi.Controllers
 
             var exerciseCatalogData = JsonSerializer.Deserialize<ExerciseCatalogData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
-            var exerciseCatalogModel = ModelFactory.CreateExerciseCatalogModel(exerciseCatalogData);
+            var exerciseCatalogModel = ModelFactory.CreateExerciseCatalogModel(exerciseCatalogData, wordListId, range);
 
             return exerciseCatalogModel;
         }
@@ -125,9 +125,9 @@ namespace BibleWebApi.Controllers
 
             var json = await response.Content.ReadAsStringAsync() ?? throw new ApplicationException("Empty response");
 
-            var exerciseVocabularyData = JsonSerializer.Deserialize<ExerciseData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
+            var exerciseData = JsonSerializer.Deserialize<ExerciseData>(json, Serialization.JsonSerializerOptions) ?? throw new ApplicationException("Null deserialization.");
 
-            var exerciseModel = ModelFactory.CreateExerciseModel(exerciseVocabularyData, sort);
+            var exerciseModel = ModelFactory.CreateExerciseModel(exerciseData, sort);
 
             return exerciseModel;
         }

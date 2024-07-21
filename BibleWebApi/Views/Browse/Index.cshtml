@@ -23,13 +23,9 @@
             <input asp-for="RangeExpression" class="form-control" style="width: 12rem" />
         </div>
         <div class="col-auto">
+            <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">View</button>
             <button type="submit" asp-controller="Browse" asp-action="MoveNext" class="btn btn-outline-primary"><i class="bi bi-skip-forward"></i></button>
             <button type="submit" asp-controller="Browse" asp-action="ExtendNext" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i></button>
-        </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col">
-            <input type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary" />
         </div>
     </div>
 }

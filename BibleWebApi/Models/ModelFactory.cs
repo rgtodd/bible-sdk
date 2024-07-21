@@ -4,12 +4,14 @@ namespace BibleWebApi.Models
 {
     public static class ModelFactory
     {
-        public static ExerciseCatalogModel CreateExerciseCatalogModel(ExerciseCatalogData exerciseCatalog)
+        public static ExerciseCatalogModel CreateExerciseCatalogModel(ExerciseCatalogData exerciseCatalog, string? wordListId, string? range)
         {
             return new ExerciseCatalogModel()
             {
                 Factories = CreateExerciseCategoryModelArray(exerciseCatalog.Factories),
-                ThirdPartyWordLists = CreateThirdPartyWordListModelArray(exerciseCatalog.WordLists)
+                ThirdPartyWordLists = CreateThirdPartyWordListModelArray(exerciseCatalog.WordLists),
+                WordListId = wordListId,
+                Range = range
             };
         }
 

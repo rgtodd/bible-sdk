@@ -4,12 +4,22 @@
 @{
     ViewData["Title"] = "Exercise";
 }
-<h2>Practice - @Model.Name / @Model.WordListDescription (<a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range">Study</a>)</h2>
+<div class="row">
+    <div class="col-auto pe-0">
+        <a asp-controller="Exercise" asp-action="Index" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i></a>
+    </div>
+    <div class="col-auto pe-0">
+        <h2>Practice - @Model.Name / @Model.WordListDescription</h2>
+    </div>
+    <div class="col-auto pe-0">
+        <a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Study</a>
+    </div>
+</div>
 @using (Html.BeginForm(FormMethod.Post))
 {
     foreach (var question in Model.Questions)
     {
-        <hr class="p-0 m-0" />
+        <hr class="py-1 my-1" />
         <div class="row align-items-center" id="word-@question.Sequence">
             <div class="col-12 col-md-3 col-lg-2 serif">
                 @question.Question
