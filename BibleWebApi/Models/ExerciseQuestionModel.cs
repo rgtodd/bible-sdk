@@ -1,11 +1,6 @@
-﻿using BibleCore.Utility;
-
-using System.Diagnostics.CodeAnalysis;
-using System.Text.Json;
-
-namespace BibleWebApi.Models
+﻿namespace BibleWebApi.Models
 {
-    public class ExerciseQuestionModel : IParsable<ExerciseQuestionModel>
+    public class ExerciseQuestionModel
     {
         public required int Sequence { get; init; }
 
@@ -28,30 +23,6 @@ namespace BibleWebApi.Models
                 }
                 return false;
             }
-        }
-
-        public override string ToString()
-        {
-            return JsonSerializer.Serialize(this, Serialization.JsonSerializerOptions);
-        }
-
-        public static ExerciseQuestionModel Parse(string value, IFormatProvider? provider)
-        {
-            return !TryParse(value, provider, out var result)
-                ? throw new ArgumentException("Could not parse supplied value.", nameof(value))
-                : result;
-        }
-
-        public static bool TryParse([NotNullWhen(true)] string? value, IFormatProvider? provider, [MaybeNullWhen(false)] out ExerciseQuestionModel result)
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                result = default;
-                return false;
-            }
-
-            result = JsonSerializer.Deserialize<ExerciseQuestionModel>(value, Serialization.JsonSerializerOptions);
-            return result != null;
         }
     }
 }

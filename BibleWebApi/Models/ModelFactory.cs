@@ -4,20 +4,27 @@ namespace BibleWebApi.Models
 {
     public static class ModelFactory
     {
-        public static ExerciseModel CreateExerciseModel(ExerciseData exercise, bool sort)
-        {
-            return new ExerciseModel()
-            {
-                Data = CreateExerciseDataModel(exercise, sort)
-            };
-        }
-
         public static ExerciseCatalogModel CreateExerciseCatalogModel(ExerciseCatalogData exerciseCatalog)
         {
             return new ExerciseCatalogModel()
             {
                 Factories = CreateExerciseCategoryModelArray(exerciseCatalog.Factories),
                 ThirdPartyWordLists = CreateThirdPartyWordListModelArray(exerciseCatalog.WordLists)
+            };
+        }
+
+        public static ExerciseModel CreateExerciseModel(ExerciseData exercise, bool sort)
+        {
+            var questions = CreateExerciseWordModelArray(exercise.Questions, sort);
+
+            return new ExerciseModel()
+            {
+                Name = exercise.Name,
+                WordListDescription = exercise.WordListDescription,
+                WordListId = exercise.WordListId,
+                Range = exercise.Range,
+                Questions = questions,
+                QuestionsMomento = ExerciseModel.CreateQuestionsMomento(questions)
             };
         }
 
@@ -46,18 +53,6 @@ namespace BibleWebApi.Models
         private static ThirdPartyWordListModel[] CreateThirdPartyWordListModelArray(IEnumerable<ThirdPartyWordListData> thirdPartyWordLists)
         {
             return thirdPartyWordLists.Select(CreateThirdPartyWordListModel).ToArray();
-        }
-
-        private static ExerciseDataModel CreateExerciseDataModel(ExerciseData exercise, bool sort)
-        {
-            return new ExerciseDataModel()
-            {
-                Name = exercise.Name,
-                WordListDescription = exercise.WordListDescription,
-                WordListId = exercise.WordListId,
-                Range = exercise.Range,
-                Questions = CreateExerciseWordModelArray(exercise.Questions, sort)
-            };
         }
 
         private static ExerciseQuestionModel CreateExerciseWordModel(ExerciseQuestionData question, int sequence)

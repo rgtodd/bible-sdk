@@ -58,25 +58,35 @@ namespace BibleWebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(ExerciseDataModel data, string? word, string? option)
+        public IActionResult Update(ExerciseModel model, string? question, string? answer)
         {
             ModelState.Clear();
 
-            Logger.LogInformation("Word {word}, Option {option}", word, option);
+            var questions = ExerciseModel.RestoreQuestionsMomento(model.QuestionsMomento);
 
-            foreach (var question in data.Questions)
+            Logger.LogInformation("Word {word}, Option {option}", question, answer);
+
+            foreach (var exerciseQuestion in questions)
             {
-                if (question.Question == word)
+                if (exerciseQuestion.Question == question)
                 {
-                    foreach (var answer in question.Answers)
+                    foreach (var exerciseAnswer in exerciseQuestion.Answers)
                     {
-                        answer.IsSelected = answer.Answer == option;
+                        exerciseAnswer.IsSelected = exerciseAnswer.Answer == answer;
                     }
                     break;
                 }
             }
 
-            return View("Exercise", new ExerciseModel() { Data = data });
+            return View("Exercise", new ExerciseModel()
+            {
+                Name = model.Name,
+                WordListDescription = model.WordListDescription,
+                WordListId = model.WordListId,
+                Range = model.Range,
+                Questions = questions,
+                QuestionsMomento = ExerciseModel.CreateQuestionsMomento(questions)
+            });
         }
 
         private async Task<ExerciseCatalogModel> GetExerciseCatalogModel()
