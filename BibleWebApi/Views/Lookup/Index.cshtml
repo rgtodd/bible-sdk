@@ -96,7 +96,7 @@
                     <div class="row">
                         @foreach (var bookmark in form.Bookmarks)
                         {
-                            <a asp-controller="Browse" asp-action="Index" asp-route-id="@bookmark.FormattedBookmark" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover col-4 col-lg-2 text-nowrap">@bookmark.FormattedBookmark</a>
+                            <a asp-controller="Browse" asp-action="Index" asp-route-range="@bookmark.FormattedBookmark" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover col-4 col-lg-2 text-nowrap">@bookmark.FormattedBookmark</a>
                         }
                     </div>
                 </div>
