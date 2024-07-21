@@ -38,7 +38,7 @@ namespace BibleCore.Greek
                 { Letter.Rho,     new Alphabet(Letter.Rho,     'ρ', 'Ρ', null, "r",  "R",  'R') },
                 { Letter.Sigma,   new Alphabet(Letter.Sigma,   'σ', 'Σ', 'ς',  "s",  "S",  'S') },
                 { Letter.Tau,     new Alphabet(Letter.Tau,     'τ', 'Τ', null, "t",  "T",  'T') },
-                { Letter.Upsilon, new Alphabet(Letter.Upsilon, 'υ', 'Υ', null, "u",  "U",  'Y') }, // (u in diphthongs αυ, ευ, ηυ, ου, υι, and ωυ)/u
+                { Letter.Upsilon, new Alphabet(Letter.Upsilon, 'υ', 'Υ', null, "y",  "Y",  'Y') }, // (u in diphthongs αυ, ευ, ηυ, ου, υι, and ωυ)
                 { Letter.Phi,     new Alphabet(Letter.Phi,     'φ', 'Φ', null, "ph", "Ph", 'F') },
                 { Letter.Chi,     new Alphabet(Letter.Chi,     'χ', 'Χ', null, "ch", "Ch", 'X') },
                 { Letter.Psi,     new Alphabet(Letter.Psi,     'ψ', 'Ψ', null, "ps", "Ps", 'C') },
@@ -79,6 +79,11 @@ namespace BibleCore.Greek
             return string.Concat(value.Normalize(NormalizationForm.FormD).Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)).Normalize(NormalizationForm.FormC);
         }
 
+        public static Alphabet For(Letter letter)
+        {
+            return s_alphabet[letter];
+        }
+
         public static string Transliterate(string value)
         {
             var sb = new StringBuilder();
@@ -91,7 +96,7 @@ namespace BibleCore.Greek
 
                 if (CharUnicodeInfo.GetUnicodeCategory(c) == UnicodeCategory.NonSpacingMark)
                 {
-                    if (c == '\x0314') // rough breathing mark
+                    if (c == '\x0314') // Combining Reversed Comma Above (i.e., hard breathing mark)
                     {
                         // Modify previous character and discard.
                         //
@@ -104,11 +109,11 @@ namespace BibleCore.Greek
                             pendingTransliteration = "h" + pendingTransliteration;
                         }
                     }
-                    else if (c == '\x0313') // soft breathing mark
+                    else if (c == '\x0313') // Combining Comma Above (i.e., soft breathing mark)
                     {
                         // Discard.
                     }
-                    else if (c == '\x0308') // Diaeresis
+                    else if (c == '\x0308') // Combining Diaeresis
                     {
                         if (pendingTransliteration != null)
                         {
@@ -125,6 +130,22 @@ namespace BibleCore.Greek
                             }
                         }
                     }
+                    else if (c == '\x0301') // Combining Acute Accent
+                    {
+                        // Append latin accent
+                        //
+                        pendingTransliteration += '\x0301';
+                    }
+                    else if (c == '\x0342') // Combining Greek Perispomeni
+                    {
+                        // Append latin accent
+                        //
+                        pendingTransliteration += '\x0301';
+                    }
+                    else if (c == '\x0345') // Combining Greek Ypogegrammeni
+                    {
+                        // Discard
+                    }
                     else
                     {
                         // Append latin accent
@@ -136,17 +157,54 @@ namespace BibleCore.Greek
                 {
                     if (s_letterByLowerCase.TryGetValue(c, out var lowerCaseLetter))
                     {
-                        // Transform gg -> ng
+                        currentTransliteration = s_alphabet[lowerCaseLetter].LowerTransliteration;
+
+                        // gg -> ng
+                        // gx -> nx
+                        // gch -> nch
                         //
-                        if (c == 'γ')
+                        if (currentTransliteration is "g" or "x" or "ch")
                         {
                             if (pendingTransliteration == "g")
                             {
                                 pendingTransliteration = "n";
                             }
                         }
-
-                        currentTransliteration = s_alphabet[lowerCaseLetter].LowerTransliteration;
+                        //
+                        // gk -> ng
+                        //
+                        else if (currentTransliteration is "k")
+                        {
+                            if (pendingTransliteration == "g")
+                            {
+                                pendingTransliteration = "n";
+                                currentTransliteration = "g";
+                            }
+                        }
+                        //
+                        // ay -> au
+                        // ey -> eu
+                        // ēy -> ēu
+                        // oy -> ou
+                        // ōy -> ōu
+                        //
+                        else if (currentTransliteration is "y")
+                        {
+                            if (pendingTransliteration is "a" or "e" or "ē" or "o" or "ō")
+                            {
+                                currentTransliteration = "u";
+                            }
+                        }
+                        //
+                        // yi -> ui
+                        //
+                        else if (currentTransliteration is "i")
+                        {
+                            if (pendingTransliteration is "y")
+                            {
+                                pendingTransliteration = "u";
+                            }
+                        }
                     }
                     else if (s_letterByUpperCase.TryGetValue(c, out var upperCaseLetter))
                     {
@@ -189,11 +247,28 @@ namespace BibleCore.Greek
 
         private static bool IsDipthong(string firstLetter, string secondLetter)
         {
+            // αι ai
+            // αυ au
+            // ει ei
+            // ευ eu
+            // οι oi
+            // ου ou
+            //
+            // ηυ ēu
+            //
+            // υι ui
+            //
+            // γγ ng
+            // γκ ng
+            // γξ nx
+            // γχ nch
+            //
             return firstLetter switch
             {
-                "a" or "A" or "e" or "E" or "o" or "O" => secondLetter == "i" || secondLetter == "u",
-                "ē" or "Ē" => secondLetter == "u",
-                "u" => secondLetter == "i",
+                "a" or "A" or "e" or "E" or "o" or "O" => secondLetter is "i" or "u",
+                "ē" or "Ē" => secondLetter is "u",
+                "u" => secondLetter is "i",
+                "n" => secondLetter is "g" or "x" or "ch",
                 _ => false
             };
         }
