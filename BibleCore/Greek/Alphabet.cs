@@ -148,9 +148,7 @@ namespace BibleCore.Greek
                     }
                     else
                     {
-                        // Append latin accent
-                        //
-                        pendingTransliteration += '\x0301';
+                        pendingTransliteration += '?';
                     }
                 }
                 else
@@ -212,7 +210,7 @@ namespace BibleCore.Greek
                     }
                     else
                     {
-                        currentTransliteration = "?";
+                        currentTransliteration = c.ToString();
                     }
                 }
 
