@@ -21,16 +21,16 @@
     {
         <hr class="py-1 my-1" />
         <div class="row align-items-center" id="word-@question.Sequence">
-            <div class="col-12 col-md-3 col-lg-2 serif">
+            <div class="col-12 col-md-3 col-lg-2 fs-5 serif">
                 @question.Question
             </div>
-            <div class="col-12 col-md-6 col-lg-6 serif">
+            <div class="col-12 col-md-6 col-lg-6 fs-5 serif">
                 @foreach (var answer in question.Answers)
                 {
                     <input type="submit" value="@answer.Answer" asp-controller="Exercise" asp-action="Update" asp-route-question="@question.Question" asp-route-answer="@answer.Answer" class="btn @answer.BootstrapButtonClass my-1 submit" onclick="maintainscrollposition()" />
                 }
             </div>
-            <div class="col-12 col-md-3 col-lg-4 serif">
+            <div class="col-12 col-md-3 col-lg-4 fs-5 serif">
                 @if (question.IsCorrect)
                 {
                     bool isFirst = true;

@@ -5,36 +5,36 @@
 @{
     ViewData["Title"] = "Welcome";
 }
-<div class="p-3 mb-4 bg-body-tertiary rounded-3">
+<div class="row p-3 bg-body-tertiary rounded-3">
     <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">It's Greek to Me</h1>
         <p class="col-md-8 fs-4">Tools for studying New Testament Greek.</p>
     </div>
 </div>
 
-<div class="row border rounded m-1 pt-2 position-relative">
-    <i class="bi bi-search col-3 col-lg-1" style="font-size: 3rem"></i>
-    <div class="col-9 col-lg-11">
-        <h5 class="">Lookup</h5>
-        <p>Lookup the definition and inflections for word.</p>
+<div class="row align-items-center border rounded my-2 position-relative">
+    <i class="bi bi-search col-auto" style="font-size: 3rem"></i>
+    <div class="col-auto">
+        <h5>Lookup</h5>
+        <p class="m-0">Lookup the definition and inflections for word.</p>
         <a asp-controller="Lookup" class="stretched-link"></a>
     </div>
 </div>
 
-<div class="row border rounded m-1 pt-2 position-relative">
-    <i class="bi bi-book col-3 col-lg-1" style="font-size: 3rem"></i>
-    <div class="col-9 col-lg-11">
-        <h5 class="">Read</h5>
-        <p>Read a passage in the New Testament.</p>
+<div class="row align-items-center border rounded my-2 position-relative">
+    <i class="bi bi-book col-auto" style="font-size: 3rem"></i>
+    <div class="col-auto">
+        <h5>Read</h5>
+        <p class="m-0">Read a passage in the New Testament.</p>
         <a asp-controller="Browse" class="stretched-link"></a>
     </div>
 </div>
 
-<div class="row border rounded m-1 pt-2 position-relative">
-    <i class="bi bi-trophy col-3 col-lg-1" style="font-size: 3rem"></i>
-    <div class="col-9 col-lg-11">
-        <h5 class="">Practice</h5>
-        <p>Practice your language skills.</p>
+<div class="row align-items-center border rounded my-2 position-relative">
+    <i class="bi bi-trophy col-auto" style="font-size: 3rem"></i>
+    <div class="col-auto">
+        <h5>Practice</h5>
+        <p class="m-0">Practice your language skills.</p>
         <a asp-controller="Exercise" class="stretched-link"></a>
     </div>
 </div>

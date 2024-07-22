@@ -18,5 +18,34 @@
 
         public required DegreeData? Degree { get; init; }
 
+        public string VerbInflection
+        {
+            get
+            {
+                return $"{Tense} {Voice} {Mood}".Trim();
+            }
+        }
+
+        public string NounInflection
+        {
+            get
+            {
+                return $"{Case} {Person} {Number} {Gender} {Degree}".Trim();
+            }
+        }
+
+        public string Inflection
+        {
+            get
+            {
+                var verbInflection = VerbInflection;
+                var nounInflection = NounInflection;
+
+                return !string.IsNullOrEmpty(verbInflection)
+                    ? !string.IsNullOrEmpty(nounInflection) ? $"{verbInflection} | {nounInflection}" : verbInflection
+                    : !string.IsNullOrEmpty(nounInflection) ? $"{nounInflection}" : "";
+            }
+        }
+
     }
 }

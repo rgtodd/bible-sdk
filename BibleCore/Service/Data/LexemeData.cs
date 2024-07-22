@@ -8,6 +8,8 @@
 
         public required PartOfSpeechData PartOfSpeech { get; init; }
 
+        public required string PartOfSpeechDescription { get; init; }
+
         public required string FullCitationForm { get; init; }
 
         public required string Gloss { get; init; }

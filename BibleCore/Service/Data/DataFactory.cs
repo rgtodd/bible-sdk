@@ -12,6 +12,7 @@ namespace BibleCore.Service.Data
                 Lemma = lexeme.Lemma,
                 LemmaTransliteration = lexeme.LemmaTransliteration,
                 PartOfSpeech = CreatePartOfSpeechData(lexeme.PartOfSpeech),
+                PartOfSpeechDescription = lexeme.PartOfSpeech.AsString(),
                 FullCitationForm = lexeme.FullCitationForm ?? string.Empty,
                 Gloss = lexeme.Gloss ?? string.Empty,
                 GkNumber = lexeme.GkNumber,

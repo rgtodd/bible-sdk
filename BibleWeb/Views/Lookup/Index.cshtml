@@ -63,7 +63,7 @@
                 <p class="card-text">@lexemeData.Gloss</p>
             </div>
             <div class="col">
-                <p class="card-text">Part of speech: @lexemeData.PartOfSpeech</p>
+                <p class="card-text">Part of speech: @lexemeData.PartOfSpeechDescription</p>
                 @if (lexemeData.StrongsNumber.Length > 0)
                 {
                     <p class="card-text">@($"Strong's number: G-{string.Join(", G-", lexemeData.StrongsNumber.Select(s => s.ToString()).ToArray())}")</p>
@@ -80,17 +80,14 @@
             <div class="card-body row ">
                 <div class="card-text col-12 col-md-4">
                     <h5 class="serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
-                    <p>
-                        @form.Inflection.Tense
-                        @form.Inflection.Voice
-                        @form.Inflection.Mood
-                        |
-                        @form.Inflection.Case
-                        @form.Inflection.Person
-                        @form.Inflection.Number
-                        @form.Inflection.Gender
-                        @form.Inflection.Degree
-                    </p>
+                    @if (!string.IsNullOrEmpty(form.Inflection.VerbInflection))
+                    {
+                        <p class="my-0">@form.Inflection.VerbInflection</p>
+                    }
+                    @if (!string.IsNullOrEmpty(form.Inflection.NounInflection))
+                    {
+                        <p class="my-0">@form.Inflection.NounInflection</p>
+                    }
                 </div>
                 <div class="col">
                     <div class="row">
