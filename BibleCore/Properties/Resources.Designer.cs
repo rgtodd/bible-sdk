@@ -61,6 +61,290 @@ namespace BibleCore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ Α&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;1 Corinthians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ Treg NA28 ] Ἰησοῦ Χριστοῦ WH RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Corinthians 1:2&lt;/verse&gt;
+        ///&lt;note&gt;2 ἡγιασμένοις ἐν Χριστῷ Ἰησοῦ τῇ οὔσῃ ἐν Κορίνθῳ Treg ] τῇ οὔσῃ ἐν Κορίνθῳ ἡγιασμένοις ἐν Χριστῷ Ἰησοῦ WH NA28 RP &lt;/note&gt;
+        ///&lt;note&gt;• αὐτῶν WH Treg NA28 ] + τε RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Corinthians 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 μου Treg NA28 RP ] – WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Corinthians 1:14&lt;/verse&gt;
+        ///&lt;note&gt;14 εὐχαριστῶ WH NIV ] + τῷ θεῷ Treg RP NA28&lt;/no [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _1Cor {
+            get {
+                return ResourceManager.GetString("_1Cor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΙΩΑΝΝΟΥ Α&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;1 John 1:3&lt;/verse&gt;
+        ///&lt;note&gt;1:3 καὶ WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 John 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 ἡμεῖς WH Treg NA28 ] ὑμῖν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 John 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 ἐν αὐτῷ οὐκ ἔστιν NA28 RP ] οὐκ ἔστιν ἐν αὐτῷ WH Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 John 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 δὲ WH Treg NA27 RP ] – NA28 &lt;/note&gt;
+        ///&lt;note&gt;• Ἰησοῦ WH Treg NA28 ] + Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 John 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 οὐκ ἔστιν ἐν ἡμῖν WH NA28 RP ] ἐν ἡμῖν οὐκ ἔστιν Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 John 2:4&lt;/v [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _1John {
+            get {
+                return ResourceManager.GetString("_1John", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΕΤΡΟΥ Α&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;1 Peter 1:6&lt;/verse&gt;
+        ///&lt;note&gt;1:6 δέον WH Treg ] + ἐστίν NA28 RP &lt;/note&gt;
+        ///&lt;note&gt;• λυπηθέντες WH Treg NA27 RP ] λυπηθέντας NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Peter 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 πολυτιμότερον WH Treg NA28 ] πολὺ τιμιώτερον RP &lt;/note&gt;
+        ///&lt;note&gt;• δόξαν καὶ τιμὴν WH Treg NA28 ] τιμὴν καὶ εἰς δόξαν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Peter 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 ἰδόντες WH Treg NA28 ] εἰδότες RP &lt;/note&gt;
+        ///&lt;note&gt;• ἀγαλλιᾶσθε Treg NA28 RP ] ἀγαλλιᾶτε WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Peter 1:9&lt;/verse&gt;
+        ///&lt;note&gt;9 ὑμῶν Tr [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _1Pet {
+            get {
+                return ResourceManager.GetString("_1Pet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΘΕΣΣΑΛΟΝΙΚΕΙΣ Α&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;1 Thessalonians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 εἰρήνη WH Treg NA28 ] + ἀπὸ θεοῦ πατρὸς ἡμῶν καὶ κυρίου Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Thessalonians 1:2&lt;/verse&gt;
+        ///&lt;note&gt;2 μνείαν WH Treg NA28 ] + ὑμῶν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Thessalonians 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 θεοῦ Treg RP ] τοῦ θεοῦ WH NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Thessalonians 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 καὶ WH ] + ἐν Treg NA28 RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐν Treg NA28 RP ] – WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Thessalonians 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 τύπον WH [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _1Thess {
+            get {
+                return ResourceManager.GetString("_1Thess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΤΙΜΟΘΕΟΝ Α&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;1 Timothy 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP &lt;/note&gt;
+        ///&lt;note&gt;• Χριστοῦ Ἰησοῦ WH Treg NA28 ] κυριόυ Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Timothy 1:2&lt;/verse&gt;
+        ///&lt;note&gt;2 πατρὸς WH Treg NA28 ] + ἡμῶν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Timothy 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 ἐκζητήσεις WH Treg NA28 ] ζητήσεις RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Timothy 1:12&lt;/verse&gt;
+        ///&lt;note&gt;12 Χάριν WH Treg NA28 ] Καὶ χάριν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;1 Timothy 1:13&lt;/verse&gt;
+        ///&lt;note&gt;13 τὸ WH Treg NA28 ] τὸν R [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _1Tim {
+            get {
+                return ResourceManager.GetString("_1Tim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ Β&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;2 Corinthians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Corinthians 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 εἴτε παρακαλούμεθα, ὑπὲρ τῆς ὑμῶν παρακλήσεως WH NA28 ] – Treg RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Corinthians 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 ὑμῶν WH NA28 ] + εἴτε παρακαλούμεθα, ὑπὲρ τῆς ὑμῶν παρακλήσεως καὶ σωτηρίας Treg RP &lt;/note&gt;
+        ///&lt;note&gt;• ὡς WH Treg NA28 ] ὥσπερ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Corinthians 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 ὑπὲρ WH NA28 RP ] περὶ Treg &lt;/note [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2Cor {
+            get {
+                return ResourceManager.GetString("_2Cor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΙΩΑΝΝΟΥ Β&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;2 John 1:3&lt;/verse&gt;
+        ///&lt;note&gt;3 παρὰ WH Treg NA28 ] + κυρίου RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 John 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 καινὴν γράφων σοι Treg NA27 ] γράφων σοι καινὴν WH NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 John 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 ἡ ἐντολή ἐστιν WH Treg NA28 ] ἐστιν ἡ ἐντολή RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 John 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 ἐξῆλθον WH Treg NA28 ] εἰσῆλθόν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 John 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 ἀπολέσητε WH Treg NA28 ] ἀπολέσωμεν RP &lt;/note&gt;
+        ///&lt;note&gt;• εἰργασάμεθα WH RP NA28 ] εἰργάσασθε Treg [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2John {
+            get {
+                return ResourceManager.GetString("_2John", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΕΤΡΟΥ Β&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;2 Peter 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Συμεὼν Treg NA28 RP ] Σιμων WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Peter 1:3&lt;/verse&gt;
+        ///&lt;note&gt;3 ἰδίᾳ δόξῃ καὶ ἀρετῇ Treg NA28 ] διὰ δόξης καὶ ἀρετῆς WH RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Peter 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 τίμια καὶ μέγιστα ἡμῖν WH NA28 ] μέγιστα καὶ τίμια ἡμῖν Treg; τίμια ἡμῖν καὶ μέγιστα RP &lt;/note&gt;
+        ///&lt;note&gt;• τῷ WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Peter 1:9&lt;/verse&gt;
+        ///&lt;note&gt;9 ἁμαρτημάτων Treg ] ἁμαρτιῶν WH NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Peter 1:12&lt;/verse&gt;
+        ///&lt;note&gt;12 μελλή [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2Pet {
+            get {
+                return ResourceManager.GetString("_2Pet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΘΕΣΣΑΛΟΝΙΚΕΙΣ Β&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;2 Thessalonians 1:2&lt;/verse&gt;
+        ///&lt;note&gt;1:2 πατρὸς WH NIV ] + ἡμῶν Treg RP NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Thessalonians 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 αὐτοὺς ἡμᾶς WH Treg NA28 ] ἡμᾶς αὐτοὺς RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐγκαυχᾶσθαι WH Treg NA28 ] καυχᾶσθαι RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Thessalonians 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 φλογὶ πυρός Treg ] πυρὶ φλογός WH NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Thessalonians 2:2&lt;/verse&gt;
+        ///&lt;note&gt;2:2 μηδὲ WH Treg NA28 ] μήτε RP &lt;/note&gt;
+        ///&lt;note&gt;• κυρίου WH Treg NA28 ] Χριστοῦ RP&lt;/note&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2Thess {
+            get {
+                return ResourceManager.GetString("_2Thess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΤΙΜΟΘΕΟΝ Β&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 λαβὼν WH Treg NA28 ] λαμβάνων RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 1:10&lt;/verse&gt;
+        ///&lt;note&gt;10 Ἰησοῦ Χριστοῦ RP ] Χριστοῦ Ἰησοῦ WH Treg NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 1:11&lt;/verse&gt;
+        ///&lt;note&gt;11 διδάσκαλος WH NA28 ] + ἐθνῶν Treg RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 1:17&lt;/verse&gt;
+        ///&lt;note&gt;17 σπουδαίως WH Treg NA28 ] σπουδαιότερον RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;2 Timothy 2:3&lt;/verse&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2Tim {
+            get {
+                return ResourceManager.GetString("_2Tim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΙΩΑΝΝΟΥ Γ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 χαράν Treg NA28 RP ] χάριν WH &lt;/note&gt;
+        ///&lt;note&gt;• τῇ WH Treg NA27 ] – NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 τοῦτο WH Treg NA28 ] εἰς τοὺς RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 ἐθνικῶν WH Treg NA28 ] ἐθνῶν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 ὑπολαμβάνειν WH Treg NA28 ] ἀπολαμβάνειν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:9&lt;/verse&gt;
+        ///&lt;note&gt;9 τι WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;3 John 1:12&lt;/verse&gt;
+        ///&lt;note&gt;12 οἶδας WH Treg NA28  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _3John {
+            get {
+                return ResourceManager.GetString("_3John", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 010101 N- ----NSF- Βίβλος Βίβλος βίβλος βίβλος
         ///010101 N- ----GSF- γενέσεως γενέσεως γενέσεως γένεσις
         ///010101 N- ----GSM- Ἰησοῦ Ἰησοῦ Ἰησοῦ Ἰησοῦς
@@ -598,6 +882,88 @@ namespace BibleCore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΑΞΕΙΣ ΑΠΟΣΤΟΛΩΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 ὁ NA28 RP ] – WH Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 ἐν πνεύματι βαπτισθήσεσθε WH Treg NA28 ] βαπτισθήσεσθε ἐν πνεύματι RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 ἠρώτων WH Treg NA28 ] ἐπηρώτων RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 δὲ NA28 RP ] – WH Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 μου WH Treg NA28 ] μοι RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Acts 1:10&lt;/verse&gt;
+        ///&lt;note&gt;10 ἐσθήσεσι λευκαῖς WH Treg NA28 ] ἐσθῆτι λευκῇ RP &lt;/no [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Acts {
+            get {
+                return ResourceManager.GetString("Acts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΚΟΛΟΣΣΑΕΙΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Colossians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Colossians 1:2&lt;/verse&gt;
+        ///&lt;note&gt;2 Κολοσσαῖς WH NA28 ] Κολασσαῖς Treg RP &lt;/note&gt;
+        ///&lt;note&gt;• ἡμῶν WH Treg NA28 ] + καὶ κυρίου Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Colossians 1:3&lt;/verse&gt;
+        ///&lt;note&gt;3 θεῷ WH NA28 ] + καὶ Treg RP &lt;/note&gt;
+        ///&lt;note&gt;• περὶ WH NA28 RP ] ὑπὲρ Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Colossians 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 ἣν ἔχετε WH Treg NA28 ] τὴν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Colossians 1:6&lt;/ver [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Col {
+            get {
+                return ResourceManager.GetString("Col", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΕΦΕΣΙΟΥΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐν Ἐφέσῳ WH Treg NA28 RP ] – WHapp&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 ἧς WH Treg NA28 ] ἐν ᾗ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 τὸ πλοῦτος WH Treg NA28 ] τὸν πλοῦτον RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1:14&lt;/verse&gt;
+        ///&lt;note&gt;14 ὅ WH NA28 ] ὅς Treg RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1:15&lt;/verse&gt;
+        ///&lt;note&gt;15 ἀγάπην τὴν Treg NA28 RP ] – WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Ephesians 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Eph {
+            get {
+                return ResourceManager.GetString("Eph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ἀαρών:
         ///    M:
         ///        NS:
@@ -636,6 +1002,138 @@ namespace BibleCore.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΓΑΛΑΤΑΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Galatians 1:3&lt;/verse&gt;
+        ///&lt;note&gt;1:3 καὶ κυρίου ἡμῶν Treg RP ] ἡμῶν καὶ κυρίου WH NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Galatians 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 ὑπὲρ WH NA28 ] περὶ Treg RP &lt;/note&gt;
+        ///&lt;note&gt;• αἰῶνος τοῦ ἐνεστῶτος WH Treg NA28 ] ἐνεστῶτος αἰῶνος RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Galatians 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 εὐαγγελίζηται Treg NA28 RP ] εὐαγγελίσηται WH &lt;/note&gt;
+        ///&lt;note&gt;• ὑμῖν WH Treg RP NA28 ] – NIV&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Galatians 1:10&lt;/verse&gt;
+        ///&lt;note&gt;10 εἰ WH Treg NA28 ] + γὰρ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Galatians [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Gal {
+            get {
+                return ResourceManager.GetString("Gal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΕΒΡΑΙΟΥΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Hebrews 1:2&lt;/verse&gt;
+        ///&lt;note&gt;1:2 ἐποίησεν τοὺς αἰῶνας WH Treg NA28 ] τοὺς αἰῶνας ἐποίησεν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Hebrews 1:3&lt;/verse&gt;
+        ///&lt;note&gt;3 διʼ αὑτοῦ Holmes ] αὐτοῦ WH Treg NA28; αὐτοῦ διʼ ἑαυτοῦ RP &lt;/note&gt;
+        ///&lt;note&gt;• τῶν ἁμαρτιῶν ποιησάμενος WH Treg NA28 ] ποιησάμενος τῶν ἁμαρτιῶν ἡμῶν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Hebrews 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 καὶ ἡ ῥάβδος τῆς εὐθύτητος WH Treg NA28 ] ῥάβδος εὐθύτητος ἡ RP &lt;/note&gt;
+        ///&lt;note&gt;• σου Treg NA28 RP ] αὐτοῦ WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Hebrews 1:12&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Heb {
+            get {
+                return ResourceManager.GetString("Heb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΙΑΚΩΒΟΥ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;James 1:5&lt;/verse&gt;
+        ///&lt;note&gt;1:5 μὴ WH Treg NA28 ] οὐκ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;James 1:12&lt;/verse&gt;
+        ///&lt;note&gt;12 ἐπηγγείλατο WH Treg NA28 ] + ὁ κύριος RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;James 1:19&lt;/verse&gt;
+        ///&lt;note&gt;19 Ἴστε WH Treg NA28 ] Ὥστε RP &lt;/note&gt;
+        ///&lt;note&gt;• δὲ WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;James 1:20&lt;/verse&gt;
+        ///&lt;note&gt;20 οὐκ ἐργάζεται WH Treg NA27 ] οὐ κατεργάζεται NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;James 1:22&lt;/verse&gt;
+        ///&lt;note&gt;22 ἀκροαταὶ μόνον WH Treg ] μόνον ἀκροαταὶ NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;James 1:25&lt;/verse [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Jas {
+            get {
+                return ResourceManager.GetString("Jas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΚΑΤΑ ΙΩΑΝΝΗΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;John 1:15&lt;/verse&gt;
+        ///&lt;note&gt;1:15 ὃν εἶπον Treg NA28 RP ] ὁ εἰπών WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;John 1:16&lt;/verse&gt;
+        ///&lt;note&gt;16 ὅτι WH Treg NA28 ] Καὶ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;John 1:18&lt;/verse&gt;
+        ///&lt;note&gt;18 μονογενὴς θεὸς WH Treg NA28 ] ὁ μονογενὴς υἱός RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;John 1:19&lt;/verse&gt;
+        ///&lt;note&gt;19 ἀπέστειλαν NIV RP ] + πρὸς αὐτὸν WH Treg NA28&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;John 1:20&lt;/verse&gt;
+        ///&lt;note&gt;20 Ἐγὼ οὐκ εἰμὶ WH Treg NA28 ] Οὐκ εἰμὶ ἐγὼ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;John 1:21&lt;/verse&gt;
+        ///&lt;note&gt;21 σὺ Ἠλίας εἶ WH Treg N [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string John {
+            get {
+                return ResourceManager.GetString("John", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΙΟΥΔΑ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Jude 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1 ἠγαπημένοις WH Treg NA28 ] ἠγίασμένοις RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Jude 1:3&lt;/verse&gt;
+        ///&lt;note&gt;3 ἡμῶν WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Jude 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 δεσπότην WH Treg NA28 ] + θεόν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Jude 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 ὑμᾶς ἅπαξ NA28 RP ] ἅπαξ ὑμᾶς NIV; ἅπαξ WH Treg; ὑμᾶς NA27 &lt;/note&gt;
+        ///&lt;note&gt;• πάντα WH Treg NA28 ] τοῦτο RP &lt;/note&gt;
+        ///&lt;note&gt;• Ἰησοῦς NA28 ] κύριος WH Treg; ὁ κύριος NIV RP; ὁ κύριος ἅπαξ NA27&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Jude 1:7&lt;/verse&gt;
+        ///&lt;no [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Jude {
+            get {
+                return ResourceManager.GetString("Jude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ἀαρών:
         ///    pos: N
         ///    full-citation-form: Ἀαρών, ὁ
@@ -664,6 +1162,87 @@ namespace BibleCore.Properties {
         internal static string lexemes {
             get {
                 return ResourceManager.GetString("lexemes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΚΑΤΑ ΛΟΥΚΑΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Luke 1:5&lt;/verse&gt;
+        ///&lt;note&gt;1:5 Ἡρῴδου WH Treg NA28 ] + τοῦ RP &lt;/note&gt;
+        ///&lt;note&gt;• καὶ WH Treg NA28 ] + ἡ RP &lt;/note&gt;
+        ///&lt;note&gt;• αὐτῷ WH Treg NA28 ] αὐτοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Luke 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 ἐναντίον WH Treg NA28 ] ἐνώπιον RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Luke 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 ἦν ἡ Ἐλισάβετ WH Treg NA28 ] ἡ Ἐλισάβετ ἦν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Luke 1:14&lt;/verse&gt;
+        ///&lt;note&gt;14 γενέσει WH Treg NA28 ] γεννήσει RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Luke 1:15&lt;/verse&gt;
+        ///&lt;note&gt;15 τοῦ Treg NA28 RP ] – WH&lt;/note&gt;
+        ///
+        ///&lt;vers [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Luke {
+            get {
+                return ResourceManager.GetString("Luke", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΚΑΤΑ ΜΑΡΚΟΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Mark 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 χριστοῦ WH ] + υἱοῦ θεοῦ Treg NA28; υἱοῦ τοῦ θεοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Mark 1:2&lt;/verse&gt;
+        ///&lt;note&gt;2 Καθὼς WH Treg NA28 ] Ὡς RP &lt;/note&gt;
+        ///&lt;note&gt;• τῷ Ἠσαΐᾳ τῷ προφήτῃ WH Treg NA28 ] τοῖς προφήταις RP &lt;/note&gt;
+        ///&lt;note&gt;•  Ἰδοὺ WH Treg NA28 ] + ἐγὼ RP &lt;/note&gt;
+        ///&lt;note&gt;• σου WH Treg NA28 ] + ἔμπροσθέν σου RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Mark 1:4&lt;/verse&gt;
+        ///&lt;note&gt;4 ὁ WH Treg NA28 ] – RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐρήμῳ WH ] + καὶ Treg NA28 RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Mark 1:5&lt;/verse&gt;
+        ///&lt;note&gt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Mark {
+            get {
+                return ResourceManager.GetString("Mark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΚΑΤΑ ΜΑΘΘΑΙΟΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Matthew 1:5&lt;/verse&gt;
+        ///&lt;note&gt;1:5 Βόες … Βόες WH NA28 ] Βοὸς … Βοὸς Treg; Βοὸζ … Βοὸζ RP &lt;/note&gt;
+        ///&lt;note&gt;• Ἰωβὴδ … Ἰωβὴδ WH Treg NA28 ] Ὠβὴδ … Ὠβὴδ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Matthew 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 δὲ WH Treg NA28 ] + ὁ βασιλεὺς RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Matthew 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7–8 Ἀσάφ Ἀσὰφ WH Treg NA28 ] Ἀσά Ἀσὰ NIV RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Matthew 1:10&lt;/verse&gt;
+        ///&lt;note&gt;10 Ἀμώς Ἀμὼς WH Treg NA28 ] Ἀμών Ἀμὼν NIV RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Matthew 1:18&lt;/verse&gt;
+        ///&lt;note&gt;18 Ἰησοῦ WH NA28 RP ] –  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Matt {
+            get {
+                return ResourceManager.GetString("Matt", resourceCulture);
             }
         }
         
@@ -739,6 +1318,140 @@ namespace BibleCore.Properties {
         internal static string mounce {
             get {
                 return ResourceManager.GetString("mounce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Philippians 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philippians 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 τῆς WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philippians 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 Χριστοῦ Ἰησοῦ Treg NA28 RP ] Ἰησοῦ Χριστοῦ WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philippians 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 μου WH Treg NA28 ] + ἐστιν RP &lt;/note&gt;
+        ///&lt;note&gt;• Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philippians 1:11&lt;/verse&gt;
+        ///&lt;note&gt;11 καρπὸν δικαιοσύνης τὸν W [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Phil {
+            get {
+                return ResourceManager.GetString("Phil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΦΙΛΗΜΟΝΑ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Philemon 1:2&lt;/verse&gt;
+        ///&lt;note&gt;1:2 ἀδελφῇ WH Treg NA28 ] ἀγαπητῇ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philemon 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 πρὸς NA28 RP ] εἰς WH Treg&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philemon 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 τοῦ WH NA28 RP ] – Treg &lt;/note&gt;
+        ///&lt;note&gt;• Χριστόν WH Treg NA28 ] + Ἰησοῦν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philemon 1:7&lt;/verse&gt;
+        ///&lt;note&gt;7 χαρὰν WH Treg NA28 ] Χάριν RP &lt;/note&gt;
+        ///&lt;note&gt;• πολλὴν ἔσχον WH Treg NA28 ] ἔχομεν πολλὴν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Philemon 1:9&lt;/verse&gt;
+        ///&lt;note&gt;9 Χριστοῦ Ἰησοῦ WH Treg NA28  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Phlm {
+            get {
+                return ResourceManager.GetString("Phlm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΑΠΟΚΑΛΥΨΙΣ ΙΩΑΝΝΟΥ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Revelation 1:4&lt;/verse&gt;
+        ///&lt;note&gt;1:4 ἀπὸ WH Treg NA28 ] + θεοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Revelation 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 λύσαντι WH Treg NA28 ] λούσαντι RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐκ WH Treg NA28 ] ἀπὸ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Revelation 1:6&lt;/verse&gt;
+        ///&lt;note&gt;6 τῶν αἰώνων Treg NA28 RP ] – WH&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Revelation 1:9&lt;/verse&gt;
+        ///&lt;note&gt;9 συγκοινωνὸς WH Treg NA28 ] κοινωνὸς RP &lt;/note&gt;
+        ///&lt;note&gt;• ἐν WH Treg NA28 ] + Χριστῷ RP &lt;/note&gt;
+        ///&lt;note&gt;• καὶ WH Treg NA28 ] + διὰ RP &lt;/note&gt;
+        ///&lt;note&gt;• Ἰησ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Rev {
+            get {
+                return ResourceManager.GetString("Rev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΡΩΜΑΙΟΥΣ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:1&lt;/verse&gt;
+        ///&lt;note&gt;1:1 Χριστοῦ Ἰησοῦ Treg NA28 ] Ἰησοῦ Χριστοῦ WH RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:8&lt;/verse&gt;
+        ///&lt;note&gt;8 περὶ WH Treg NA28 ] ὑπὲρ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:16&lt;/verse&gt;
+        ///&lt;note&gt;16 εὐαγγέλιον WH Treg NA28 ] + τοῦ χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:19&lt;/verse&gt;
+        ///&lt;note&gt;19 θεὸς γὰρ WH Treg NA28 ] γὰρ θεὸς RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:24&lt;/verse&gt;
+        ///&lt;note&gt;24 Διὸ WH Treg NA28 ] + καὶ RP &lt;/note&gt;
+        ///&lt;note&gt;• αὐτοῖς WH Treg NA28 ] ἑαυτοῖς RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Romans 1:27&lt; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Rom {
+            get {
+                return ResourceManager.GetString("Rom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;book&gt;
+        ///&lt;book-name&gt;ΠΡΟΣ ΤΙΤΟΝ&lt;/book-name&gt;
+        ///
+        ///&lt;verse&gt;Titus 1:4&lt;/verse&gt;
+        ///&lt;note&gt;1:4 καὶ WH Treg NA28 ] ἔλεος RP &lt;/note&gt;
+        ///&lt;note&gt;• Χριστοῦ Ἰησοῦ WH Treg NA28 ] κυρίου Ἰησοῦ χριστοῦ RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Titus 1:5&lt;/verse&gt;
+        ///&lt;note&gt;5 ἀπέλιπόν Treg NA28 ] ἀπέλειπόν WH; κατέλιπόν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Titus 1:10&lt;/verse&gt;
+        ///&lt;note&gt;10 καὶ RP NA28 ] – WH Treg NIV &lt;/note&gt;
+        ///&lt;note&gt;• τῆς WH Treg NA28 ] – RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Titus 1:15&lt;/verse&gt;
+        ///&lt;note&gt;15 πάντα WH Treg NA28 ] + μὲν RP&lt;/note&gt;
+        ///
+        ///&lt;verse&gt;Titus 2:3&lt;/verse&gt;
+        ///&lt;note&gt;2:3 μηδὲ WH Treg ] μὴ NA28 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Titus {
+            get {
+                return ResourceManager.GetString("Titus", resourceCulture);
             }
         }
     }

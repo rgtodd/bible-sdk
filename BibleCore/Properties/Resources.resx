@@ -118,14 +118,95 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Acts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Acts.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Col" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Col.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Eph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Eph.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="forms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forms.yaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Gal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Gal.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Heb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Heb.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Jas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Jas.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="John" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\John.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Jude" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Jude.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="lexemes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lexemes.yaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Luke" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Luke.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Mark.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Matt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Matt.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="mounce" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mounce.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Phil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Phil.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Phlm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Phlm.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Rev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Rev.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Rom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Rom.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Titus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\Titus.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1Cor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\1Cor.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1John" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\1John.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1Pet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\1Pet.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1Thess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\1Thess.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1Tim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\1Tim.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2Cor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\2Cor.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2John" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\2John.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2Pet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\2Pet.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2Thess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\2Thess.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2Tim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\2Tim.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_3John" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SblGntApparatus\3John.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="_61_Mt_morphgnt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MorphGnt\61-Mt-morphgnt.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
