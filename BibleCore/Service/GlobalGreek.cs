@@ -16,6 +16,7 @@ namespace BibleCore.Service
 
         private Text? m_text;
         private Lexicon? m_lexicon;
+        private Apparatus? m_apparatus;
         private ExerciseCatalog? m_exerciseCatalog;
 
         public Text Text
@@ -35,6 +36,16 @@ namespace BibleCore.Service
                 EnsureLoaded();
                 ArgumentNullException.ThrowIfNull(m_lexicon);
                 return m_lexicon;
+            }
+        }
+
+        public Apparatus Apparatus
+        {
+            get
+            {
+                EnsureLoaded();
+                ArgumentNullException.ThrowIfNull(m_apparatus);
+                return m_apparatus;
             }
         }
 
@@ -69,10 +80,12 @@ namespace BibleCore.Service
         {
             var text = new Text();
             var lexicon = new Lexicon();
+            var apparatus = new Apparatus();
 
             MorphGntFileParser.Parse(logger, text, lexicon);
             MorphGntLexemeParser.Parse(logger, lexicon);
             MounceParser.Parse(logger, lexicon);
+            SblGntApparatusParser.Parse(logger, apparatus);
 
             lexicon.Lexemes.GroupBy(l => l.MounceChapterNumber, l => l.MounceChapterNumber, (number, numbers) => new { Chapter = number, Count = numbers.Count() })
                            .OrderBy(l => l.Chapter)
@@ -81,6 +94,7 @@ namespace BibleCore.Service
 
             m_text = text;
             m_lexicon = lexicon;
+            m_apparatus = apparatus;
         }
 
         private void LoadExerciseCatalog()

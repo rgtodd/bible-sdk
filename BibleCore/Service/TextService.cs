@@ -17,9 +17,7 @@ namespace BibleCore.Service
                 return null;
             }
 
-            var textEntries = globalGreek.Text.Select(range, 5000);
-
-            var textData = DataFactory.CreateTextData(range, textEntries);
+            var textData = Select(range);
 
             return textData;
         }
@@ -43,9 +41,7 @@ namespace BibleCore.Service
                 return null;
             }
 
-            var textEntries = globalGreek.Text.Select(range, 5000);
-
-            var textData = DataFactory.CreateTextData(range, textEntries);
+            var textData = Select(range);
 
             return textData;
         }
@@ -69,9 +65,7 @@ namespace BibleCore.Service
                 return null;
             }
 
-            var textEntries = globalGreek.Text.Select(range, 5000);
-
-            var textData = DataFactory.CreateTextData(range, textEntries);
+            var textData = Select(range);
 
             return textData;
         }
@@ -95,9 +89,7 @@ namespace BibleCore.Service
                 return null;
             }
 
-            var textEntries = globalGreek.Text.Select(range, 5000);
-
-            var textData = DataFactory.CreateTextData(range, textEntries);
+            var textData = Select(range);
 
             return textData;
         }
@@ -121,9 +113,19 @@ namespace BibleCore.Service
                 return null;
             }
 
-            var textEntries = globalGreek.Text.Select(range, 5000);
+            var textData = Select(range);
 
-            var textData = DataFactory.CreateTextData(range, textEntries);
+            return textData;
+        }
+
+        private TextData? Select(Greek.Range range)
+        {
+            var textEntries = globalGreek.Text.Select(range, 5000);
+            var apparatusEntries = globalGreek.Apparatus.Select(range, 100);
+
+            var apparatusDictionary = apparatusEntries.GroupBy(a => a.Bookmark).ToDictionary(g => g.Key, g => g.ToList());
+
+            var textData = DataFactory.CreateTextData(range, textEntries, apparatusDictionary);
 
             return textData;
         }

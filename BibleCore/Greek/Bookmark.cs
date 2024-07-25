@@ -86,6 +86,15 @@ namespace BibleCore.Greek
 
         public readonly byte Verse { get; init; }
 
+        public static Bookmark Create(Book book, byte chapter, byte verse)
+        {
+            return new Bookmark()
+            {
+                Book = book,
+                Chapter = chapter,
+                Verse = verse
+            };
+        }
 
         public static Bookmark Parse(string text)
         {

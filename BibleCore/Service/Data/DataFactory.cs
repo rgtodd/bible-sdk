@@ -21,42 +21,45 @@ namespace BibleCore.Service.Data
             };
         }
 
-        public static TextData? CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries)
+        public static TextData? CreateTextData(Greek.Range range, IEnumerable<TextEntry> textEntries, Dictionary<Bookmark, List<ApparatusEntry>> apparatusDictionary)
         {
             var textVerses = new List<TextVerseData>();
 
-            var currentBook = Book.Matthew;
-            var currentChapter = (byte)0;
-            var currentVerse = (byte)0;
-            var currentWords = (List<TextWordData>?)null;
+            List<TextWordData> currentWords = [];
+            Bookmark currentBookmark = Bookmark.Create(Book.Matthew, 1, 1);
+            bool initializeBookmark = true;
 
             foreach (var textEntry in textEntries)
             {
-                if (currentWords == null
-                    || textEntry.Bookmark.Book != currentBook
-                    || textEntry.Bookmark.Chapter != currentChapter
-                    || textEntry.Bookmark.Verse != currentVerse
-                    )
+                if (initializeBookmark)
                 {
-                    if (currentWords != null)
+                    currentBookmark = textEntry.Bookmark;
+                    initializeBookmark = false;
+                }
+
+                if (textEntry.Bookmark != currentBookmark)
+                {
+                    if (currentWords.Count > 0)
                     {
-                        var textVerse = new TextVerseData()
+                        if (currentWords != null)
                         {
-                            Bookmark = CreateBookmarkData(new Bookmark()
+                            TextNoteData[] notes = apparatusDictionary.TryGetValue(currentBookmark, out var apparatusEntries)
+                                ? CreateTextNodeDataArray(apparatusEntries)
+                                : [];
+
+                            var textVerse = new TextVerseData()
                             {
-                                Book = currentBook,
-                                Chapter = currentChapter,
-                                Verse = currentVerse
-                            }),
-                            Words = [.. currentWords]
-                        };
-                        textVerses.Add(textVerse);
+                                Bookmark = CreateBookmarkData(currentBookmark),
+                                Words = [.. currentWords],
+                                Notes = notes
+                            };
+                            textVerses.Add(textVerse);
+                        }
+
+                        currentWords = [];
                     }
 
-                    currentBook = textEntry.Bookmark.Book;
-                    currentChapter = textEntry.Bookmark.Chapter;
-                    currentVerse = textEntry.Bookmark.Verse;
-                    currentWords = [];
+                    currentBookmark = textEntry.Bookmark;
                 }
 
                 int? strongsNumber = null;
@@ -81,19 +84,17 @@ namespace BibleCore.Service.Data
                 currentWords.Add(word);
             }
 
-            if (currentWords != null)
+            if (currentWords.Count > 0)
             {
+                TextNoteData[] notes = apparatusDictionary.TryGetValue(currentBookmark, out var apparatusEntries)
+                    ? CreateTextNodeDataArray(apparatusEntries)
+                    : [];
+
                 var textVerse = new TextVerseData()
                 {
-                    Bookmark = CreateBookmarkData(
-                        new Bookmark()
-                        {
-                            Book = currentBook,
-                            Chapter = currentChapter,
-                            Verse = currentVerse
-                        }
-                    ),
-                    Words = [.. currentWords]
+                    Bookmark = CreateBookmarkData(currentBookmark),
+                    Words = [.. currentWords],
+                    Notes = notes
                 };
                 textVerses.Add(textVerse);
             }
@@ -400,6 +401,19 @@ namespace BibleCore.Service.Data
                 Tense = CreateTenseData(inflection.Tense),
                 Voice = CreateVoiceData(inflection.Voice)
             };
+        }
+
+        private static TextNoteData CreateTextNoteData(ApparatusEntry apparatusEntry)
+        {
+            return new TextNoteData()
+            {
+                Note = apparatusEntry.Note
+            };
+        }
+
+        private static TextNoteData[] CreateTextNodeDataArray(IEnumerable<ApparatusEntry> apparatusEntries)
+        {
+            return apparatusEntries.Select(CreateTextNoteData).ToArray();
         }
     }
 }

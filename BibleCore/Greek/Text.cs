@@ -2,9 +2,9 @@
 {
     internal class Text
     {
-        public List<TextEntry> Entries { get; } = [];
+        private List<TextEntry> Entries { get; } = [];
 
-        public Dictionary<Book, Dictionary<byte, Dictionary<byte, int>>> Counts { get; } = [];
+        private Dictionary<Book, Dictionary<byte, Dictionary<byte, int>>> Counts { get; } = [];
 
         public TextEntry CreateTextEntry(Bookmark bookmark, byte position, string text, string word, string normalizedWord, Lexeme lexeme)
         {
@@ -232,7 +232,6 @@
                     }
                 }
             }
-
         }
     }
 }

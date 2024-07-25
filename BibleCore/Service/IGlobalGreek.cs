@@ -9,6 +9,8 @@ namespace BibleCore.Service
 
         Text Text { get; }
 
+        Apparatus Apparatus { get; }
+
         ExerciseCatalog ExerciseCatalog { get; }
     }
 }

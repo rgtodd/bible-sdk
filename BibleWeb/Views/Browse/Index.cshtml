@@ -69,6 +69,18 @@
                 <button type="submit" asp-controller="Browse" asp-action="ExtendNext" class="btn btn-outline-dark"><i class="bi bi-plus-lg"></i></button>
             </div>
         </div>
+
+        <hr class="py-1 my-1" />
+
+        foreach (var verse in Model.TextData.Verses)
+        {
+            foreach (var note in verse.Notes)
+            {
+                <p class="serif">
+                    @note.Note
+                </p>
+            }
+        }
     }
 }
 @section Scripts
