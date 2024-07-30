@@ -5,15 +5,13 @@
     ViewData["Title"] = "Lookup";
 }
 <div class="row">
-    <div class="col-auto pe-0">
-        <h2>Lookup</h2>
-    </div>
-    @if (Model.Range != null)
-    {
-        <div class="col-auto pe-0">
-            <a asp-controller="Browse" asp-action="Index" asp-route-range="@Model.Range" class="btn btn-outline-dark">Back</a>
-        </div>
-    }
+    <h2 class="col-auto pe-0">
+        @if (Model.Range != null)
+        {
+            <a asp-controller="Browse" asp-action="Index" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Back</a>
+        }
+        Lookup
+    </h2>
 </div>
 @if (!string.IsNullOrEmpty(Model.Message))
 {
@@ -42,7 +40,11 @@
                 </div>
             </div>
         </div>
-        <input type="submit" value="Lookup" class="btn btn-primary submit" />
+        <div class="row mb-3">
+            <div class="col-7 offset-5">
+                <input type="submit" value="Lookup" class="btn btn-primary submit" />
+            </div>
+        </div>
     </fieldset>
     <input type="hidden" asp-for="Range" />
 }
