@@ -1,0 +1,35 @@
+﻿@using BibleCore.Service.Data
+@using BibleWebApi.Models
+@model ExerciseModel
+@{
+    ViewData["Title"] = "Study";
+}
+<div class="row">
+    <div class="col-auto pe-0 d-print-none">
+        <a asp-controller="Exercise" asp-action="Index" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i></a>
+    </div>
+    <div class="col-auto pe-0">
+        <h2>Study - @Model.Name / @Model.WordListDescription</h2>
+    </div>
+    <div class="col-auto pe-0 d-print-none">
+        <a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Study</a>
+        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Practice</a>
+    </div>
+</div>
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Answer</th>
+    </tr>
+    @foreach (var question in Model.Questions)
+    {
+        <tr>
+            <td class="serif">
+                @question.Question
+            </td>
+            <td class="serif">
+                &nbsp;
+            </td>
+        </tr>
+    }
+</table>

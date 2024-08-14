@@ -58,6 +58,14 @@ namespace BibleWebApi.Controllers
             return View("Study", model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Worksheet(string name, string? wordListId, string? range)
+        {
+            var model = await GetExerciseModel(name, wordListId, range, true);
+
+            return View("Worksheet", model);
+        }
+
         [HttpPost]
         public IActionResult Update(ExerciseModel model, string? question, string? answer)
         {

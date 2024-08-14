@@ -104,7 +104,8 @@ namespace BibleCore.Service
             IExerciseFactory[] exerciseFactories = [
                 new PronounciationExerciseFactory(),
                 new DefinitionExerciseFactory(),
-                new PartOfSpeechExerciseFactory()];
+                new PartOfSpeechExerciseFactory(),
+                new VocabularyExerciseFactory()];
 
             var mounceChapterNumbers = m_lexicon.Lexemes.Select(l => l.MounceChapterNumber).Where(n => n != 0).Distinct().Order();
             var thirdPartyWordLists = mounceChapterNumbers.Select(m => new ThirdPartyWordList() { Name = $"Chapter {m}", WordListId = $"m-{m}" }).ToArray();
