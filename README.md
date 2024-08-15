@@ -30,6 +30,12 @@ Used under the [CC BY-SA 3.0 License](https://creativecommons.org/licenses/by-sa
 
 See the [morphgnt/sblgnt GitHub Project](https://github.com/morphgnt/sblgnt) for more information.
 
+#### Morphological Lexicon of the Greek New Testament
+
+Used under the [CC BY-SA 3.0 License](https://creativecommons.org/licenses/by-sa/3.0/).
+
+See the [morphgnt/morphological-lexicon GitHub Project](https://github.com/morphgnt/morphological-lexicon) for more information.
+
 #### Mounce _Basics of Biblical Greek Grammar_ Chapter Numbers
 
 Mounce chapter numbers refer to:

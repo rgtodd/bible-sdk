@@ -12,51 +12,55 @@
         <h2>Study - @Model.Name / @Model.WordListDescription</h2>
     </div>
     <div class="col-auto pe-0 d-print-none">
-        <a asp-controller="Exercise" asp-action="Worksheet" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Worksheet</a>
-        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Practice</a>
+        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-primary">Practice</a>
+        <a asp-controller="Exercise" asp-action="Worksheet" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-primary">Worksheet</a>
     </div>
 </div>
-<table>
-    <tr>
-        <th>Question</th>
-        <th>Answer</th>
-        <th>Details</th>
-    </tr>
-    @foreach (var question in Model.Questions)
-    {
+<table class="table">
+    <thead>
         <tr>
-            <td class="serif">
-                @question.Question
-            </td>
-            <td class="serif">
-                @foreach (var answer in question.Answers)
-                {
-                    if (answer.IsCorrect)
+            <th class="col-4">Question</th>
+            <th class="col-4">Answer</th>
+            <th class="col-4">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model.Questions)
+        {
+            <tr>
+                <td class="serif">
+                    @question.Question
+                </td>
+                <td class="serif">
+                    @foreach (var answer in question.Answers)
                     {
-                        @answer.Answer
-                    }
-                }
-            </td>
-            <td class="serif">
-                @{
-                    bool isFirst = true;
-                    foreach (var detail in question.Detail)
-                    {
-                        if (!string.IsNullOrEmpty(detail))
+                        if (answer.IsCorrect)
                         {
-                            if (isFirst)
-                            {
-                                isFirst = false;
-                            }
-                            else
-                            {
-                                <br />
-                            }
-                            @detail
+                            @answer.Answer
                         }
                     }
-                }
-            </td>
-        </tr>
-    }
+                </td>
+                <td class="serif">
+                    @{
+                        bool isFirst = true;
+                        foreach (var detail in question.Detail)
+                        {
+                            if (!string.IsNullOrEmpty(detail))
+                            {
+                                if (isFirst)
+                                {
+                                    isFirst = false;
+                                }
+                                else
+                                {
+                                    <br />
+                                }
+                                @detail
+                            }
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

@@ -2,34 +2,38 @@
 @using BibleWebApi.Models
 @model ExerciseModel
 @{
-    ViewData["Title"] = "Study";
+    ViewData["Title"] = "Worksheet";
 }
 <div class="row">
     <div class="col-auto pe-0 d-print-none">
-        <a asp-controller="Exercise" asp-action="Index" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i></a>
+        <a asp-controller="Exercise" asp-action="Index" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Back</a>
     </div>
     <div class="col-auto pe-0">
-        <h2>Study - @Model.Name / @Model.WordListDescription</h2>
+        <h2>Worksheet - @Model.Name / @Model.WordListDescription</h2>
     </div>
     <div class="col-auto pe-0 d-print-none">
-        <a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Study</a>
-        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-outline-dark">Practice</a>
+        <a asp-controller="Exercise" asp-action="Start" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-primary">Practice</a>
+        <a asp-controller="Exercise" asp-action="Study" asp-route-name="@Model.Name" asp-route-wordListId="@Model.WordListId" asp-route-range="@Model.Range" class="btn btn-primary">Study</a>
     </div>
 </div>
-<table>
-    <tr>
-        <th>Question</th>
-        <th>Answer</th>
-    </tr>
-    @foreach (var question in Model.Questions)
-    {
+<table class="table">
+    <thead>
         <tr>
-            <td class="serif">
-                @question.Question
-            </td>
-            <td class="serif">
-                &nbsp;
-            </td>
+            <th class="col-6">Question</th>
+            <th class="col-6">Answer</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var question in Model.Questions)
+        {
+            <tr>
+                <td class="serif">
+                    @question.Question
+                </td>
+                <td class="serif">
+                    &nbsp;
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

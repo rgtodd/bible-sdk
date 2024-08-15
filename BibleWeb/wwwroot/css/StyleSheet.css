@@ -10,3 +10,9 @@
 .serif {
     font-family: Greek, Georgia, Cochin, Times, Times New Roman, serif
 }
+
+@media print {
+    .container {
+        width: auto;
+    }
+}

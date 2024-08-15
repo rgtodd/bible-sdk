@@ -11,7 +11,7 @@
             var lexemes = wordList.Lexemes;
             Random.Shared.Shuffle(lexemes);
 
-            var allPartsOfSpeech = lexemes.Select(CreatePartOfSpeech).ToArray();
+            var allPartsOfSpeech = lexemes.Select(CreatePartOfSpeech).Distinct().ToArray();
 
             var questions = new List<Question>();
             foreach (var lexeme in lexemes)
