@@ -18,8 +18,8 @@
 
         public static WordList CreateForText(Text text, Range range, int maxEntries)
         {
-            var textEntries = text.Select(range, maxEntries);
-            var lexemes = textEntries.Select(te => te.Lexeme).Distinct().ToArray();
+            var textEntries = text.Select(range, 10000);
+            var lexemes = textEntries.Select(te => te.Lexeme).Distinct().Take(maxEntries).ToArray();
             return new WordList(lexemes, range.Format(), null, range.Format());
         }
     }

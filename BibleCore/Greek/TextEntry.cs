@@ -12,6 +12,8 @@
 
         public required string NormalizedWord { get; init; }
 
+        public required string TransliteratedWord { get; init; }
+
         public required Lexeme Lexeme { get; init; }
 
     }

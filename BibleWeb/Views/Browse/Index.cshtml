@@ -63,6 +63,32 @@
             </p>
         }
 
+        <hr />
+
+        foreach (var verse in Model.TextData.Verses)
+        {
+            if (currentBook == null || currentBook != verse.Bookmark.Book)
+            {
+                currentBook = verse.Bookmark.Book;
+                currentChapter = 0;
+
+                <h5>@verse.Bookmark.FormattedBook</h5>
+            }
+            if (currentChapter == 0 || currentChapter != verse.Bookmark.Chapter)
+            {
+                currentChapter = verse.Bookmark.Chapter;
+
+                <h6>Chapter @currentChapter</h6>
+            }
+            <p class="fs-5 serif">
+                <span>@verse.Bookmark.Verse</span>
+                @foreach (var word in verse.Words)
+                {
+                    <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@word.StrongsNumber" asp-route-gk="@word.GkNumber" asp-route-range="@Model.RangeExpression" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover">@word.Transliteration</a>
+                }
+            </p>
+        }
+
         <div class="row mb-2 d-print-none">
             <div class="col-auto">
                 <button type="submit" asp-controller="Browse" asp-action="MoveNext" class="btn btn-outline-dark"><i class="bi bi-arrow-down"></i> Move</button>

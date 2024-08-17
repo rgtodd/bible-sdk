@@ -130,6 +130,12 @@ namespace BibleCore.Greek
                             }
                         }
                     }
+                    else if (c == '\x0300') // Combining Grave Accent
+                    {
+                        // Append latin accent
+                        //
+                        pendingTransliteration += '\x0301';
+                    }
                     else if (c == '\x0301') // Combining Acute Accent
                     {
                         // Append latin accent

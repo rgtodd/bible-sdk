@@ -78,6 +78,7 @@ namespace BibleCore.Service.Data
                 {
                     Position = textEntry.Position,
                     Word = textEntry.Text,
+                    Transliteration = textEntry.TransliteratedWord,
                     StrongsNumber = strongsNumber,
                     GkNumber = gkNumber
                 };
