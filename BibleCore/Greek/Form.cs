@@ -6,6 +6,8 @@
 
         public required string InflectedForm { get; init; }
 
+        public required string InflectedTransliteration { get; init; }
+
         public string Prefix { get; set; } = "";
 
         public string Core { get; set; } = "";

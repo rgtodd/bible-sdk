@@ -215,6 +215,7 @@ namespace BibleCore.Service.Data
             return new FormData()
             {
                 InflectedForm = form.InflectedForm,
+                InflectedTransliteration = form.InflectedTransliteration,
                 Prefix = form.Prefix,
                 Core = form.Core,
                 Suffix = form.Suffix,

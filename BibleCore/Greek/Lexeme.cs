@@ -50,7 +50,7 @@
             return HashCode.Combine(FullCitationForm);
         }
 
-        public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, Inflection inflection)
+        public Form GetOrCreateForm(Lexeme lexeme, string inflectedForm, string inflectedTransliteration, Inflection inflection)
         {
             ArgumentNullException.ThrowIfNull(lexeme, nameof(lexeme));
             ArgumentNullException.ThrowIfNull(inflectedForm, nameof(inflectedForm));
@@ -62,6 +62,7 @@
                 {
                     Lexeme = lexeme,
                     InflectedForm = inflectedForm,
+                    InflectedTransliteration = inflectedTransliteration,
                     Inflection = inflection
                 };
 

@@ -4,6 +4,8 @@
     {
         public required string InflectedForm { get; init; }
 
+        public required string InflectedTransliteration { get; init; }
+
         public required string Prefix { get; init; }
 
         public required string Core { get; init; }

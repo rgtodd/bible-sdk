@@ -100,14 +100,15 @@ namespace BibleCore.Greek.SblGnt
                     Verse = currentVerse
                 };
 
+                var transliteratedWord = Alphabet.Transliterate(word);
+                var transliteratedNormalizedWord = Alphabet.Transliterate(normalizedWord);
+
                 var partOfSpeech = ParsePartOfSpeech(partOfSpeechCode);
                 var inflection = new InflectionBuilder().ParseInflection(parsingCode).Build();
 
                 var lexeme = lexicon.GetOrCreateLexeme(lemma, partOfSpeech);
-                var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, inflection);
+                var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, transliteratedNormalizedWord, inflection);
                 form.Bookmarks.Add(bookmark);
-
-                var transliteratedWord = Alphabet.Transliterate(word);
 
                 var textEntry = text.CreateTextEntry(bookmark, currentPosition, textValue, word, normalizedWord, transliteratedWord, lexeme);
 

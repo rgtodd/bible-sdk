@@ -82,6 +82,7 @@
             <div class="card-body row ">
                 <div class="card-text col-12 col-md-4">
                     <h5 class="serif"><span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>@form.Core<span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span></h5>
+                    <p class="my-0">@form.InflectedTransliteration</p>
                     @if (!string.IsNullOrEmpty(form.Inflection.VerbInflection))
                     {
                         <p class="my-0">@form.Inflection.VerbInflection</p>
