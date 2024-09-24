@@ -63,6 +63,8 @@ namespace BibleWebApi.Models
             {
                 Sequence = sequence,
                 Question = question.Question,
+                StrongsNumber = question.StrongsNumber,
+                GkNumber = question.GkNumber,
                 Detail = question.Detail,
                 Answers = CreateExerciseWordOptionModelArray(question.Answers)
             };

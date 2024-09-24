@@ -26,7 +26,7 @@
 
                 var detail = new string[] { lexeme.FullCitationForm + " / " + lexeme.PartOfSpeech.AsString(), lexeme.Gloss };
 
-                var question = new Question(lexeme.Lemma, detail, answers);
+                var question = new Question(lexeme.Lemma, detail, answers, First(lexeme.StrongsNumber), First(lexeme.GkNumber));
                 questions.Add(question);
             }
 
@@ -43,5 +43,6 @@
             }
             return result;
         }
+        private int? First(int[] values) => values.Length > 0 ? values[0] : null;
     }
 }
