@@ -18,6 +18,8 @@
 
         public required int[] GkNumber { get; init; }
 
+        public required string MounceMorphcat { get; init; }
+
         public required FormData[] Forms { get; init; }
     }
 }

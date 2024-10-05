@@ -53,6 +53,33 @@ namespace BibleCore.Greek.SblGnt
             }
         }
 
+        public string? MounceMorphcatAsString
+        {
+            get
+            {
+                var sb = new StringBuilder();
+
+                switch (MounceMorphcat)
+                {
+                    case null:
+                        return null;
+
+                    case string stringValue:
+                        sb.Append(stringValue);
+                        break;
+
+                    case List<object> listValue:
+                        sb.Append(string.Join(" / ", listValue));
+                        break;
+
+                    default:
+                        throw new Exception($"Unknown MounceMorphcat type {MounceMorphcat.GetType()}");
+                }
+
+                return sb.ToString();
+            }
+        }
+
         public int[] StrongsAsIntegers
         {
             get

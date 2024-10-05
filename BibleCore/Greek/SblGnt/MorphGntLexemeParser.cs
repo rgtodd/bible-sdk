@@ -22,11 +22,9 @@ namespace BibleCore.Greek.SblGnt
             {
                 if (lexemes.TryGetValue(lexeme.Lemma, out var morphGntLexeme))
                 {
-                    string? fullCitationForm = morphGntLexeme.FullCitationForm;
-                    if (fullCitationForm == null)
-                    {
-                        fullCitationForm = morphGntLexeme.BdagHeadword;
-                    }
+                    string? citationForm = morphGntLexeme.DodsonEntry;
+                    citationForm ??= morphGntLexeme.FullCitationForm;
+                    citationForm ??= morphGntLexeme.BdagHeadword;
 
                     string gloss = string.Empty;
                     if (morphGntLexeme.Gloss != null)
@@ -38,10 +36,11 @@ namespace BibleCore.Greek.SblGnt
                         logger.LogError("Gloss not specified for {morphGntLexeme}", morphGntLexeme);
                     }
 
-                    lexeme.FullCitationForm = fullCitationForm ?? string.Empty;
+                    lexeme.FullCitationForm = citationForm ?? string.Empty;
                     lexeme.Gloss = gloss;
                     lexeme.StrongsNumber = morphGntLexeme.StrongsAsIntegers;
                     lexeme.GkNumber = morphGntLexeme.GkAsIntegers;
+                    lexeme.MounceMorphcat = morphGntLexeme.MounceMorphcatAsString ?? string.Empty;
 
                     var normalizedLemma = Alphabet.RemoveAccents(lexeme.Lemma);
 

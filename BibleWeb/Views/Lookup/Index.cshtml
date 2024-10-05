@@ -62,6 +62,10 @@
                 {
                     <h5 class="card-text serif">@Model.LexemeData?.FullCitationForm</h5>
                 }
+                @if (lexemeData.MounceMorphcat != null)
+                {
+                    <p class="card-text">@lexemeData.MounceMorphcat</p>
+                }
                 <p class="card-text">@lexemeData.Gloss</p>
             </div>
             <div class="col">

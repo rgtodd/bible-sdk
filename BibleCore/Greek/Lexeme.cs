@@ -18,6 +18,8 @@
 
         public int MounceChapterNumber { get; set; } = 0;
 
+        public string MounceMorphcat { get; set; } = string.Empty;
+
         public List<Form> Forms { get; } = [];
 
         public string? NounForm
