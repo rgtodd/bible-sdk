@@ -1,5 +1,6 @@
 ﻿using BibleCore.Service.Data;
 
+
 namespace BibleWebApi.Models
 {
     public static class ModelFactory
@@ -27,6 +28,20 @@ namespace BibleWebApi.Models
                 Range = exercise.Range,
                 Questions = questions,
                 QuestionsMomento = ExerciseModel.CreateQuestionsMomento(questions)
+            };
+        }
+
+        public static LexemeListModel CreateLexemeListModel(List<LexemeData> lexemes)
+        {
+            var sortedLexemes = lexemes
+                .OrderBy(l => l.PartOfSpeechDescription)
+                .ThenBy(l => l.MounceMorphcat)
+                .ThenBy(l => l.FullCitationForm)
+                .ToList();
+
+            return new LexemeListModel()
+            {
+                Lexemes = sortedLexemes
             };
         }
 

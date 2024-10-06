@@ -1,0 +1,31 @@
+﻿@using BibleCore.Service.Data
+@using BibleWebApi.Models
+@model LexemeListModel
+@{
+    ViewData["Title"] = "Lookup";
+}
+<table>
+    <thead>
+        <tr>
+            <th>Part of Speech</th>
+            <th>Morphcat</th>
+            <th>Citation</th>
+            <th>Gloss</th>
+            <th>Strongs</th>
+            <th>Mounce Chapter</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var lexeme in Model.Lexemes)
+    {
+        <tr>
+            <td>@lexeme.PartOfSpeechDescription</td>
+            <td>@lexeme.MounceMorphcat</td>
+            <td>@lexeme.FullCitationForm</td>
+            <td>@lexeme.Gloss</td>
+            <td>@lexeme.StrongsNumber[0]</td>
+            <td>@lexeme.MounceChapterNumber</td>
+        </tr>
+    }
+    </tbody>
+</table>

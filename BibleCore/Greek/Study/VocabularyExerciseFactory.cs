@@ -16,7 +16,7 @@
             var questions = new List<Question>();
             foreach (var lexeme in lexemes)
             {
-                var correctLemma= lexeme.Lemma;
+                var correctLemma = lexeme.Lemma;
 
                 Random.Shared.Shuffle(allLemmas);
                 var possibleLemmas = allLemmas.Where(g => g != correctLemma).Take(AnswerCount - 1).Union([correctLemma]).ToArray();

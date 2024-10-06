@@ -20,5 +20,11 @@ namespace BibleWebApi.Controllers.Api
         {
             return lexemeService.GetByGkNumber(id);
         }
+
+        [HttpGet("list")]
+        public List<LexemeData> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber)
+        {
+            return lexemeService.GetLexemes(minimumMounceNumber, maximumMounceNumber);
+        }
     }
 }

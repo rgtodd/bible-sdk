@@ -17,6 +17,7 @@ namespace BibleCore.Service.Data
                 Gloss = lexeme.Gloss ?? string.Empty,
                 GkNumber = lexeme.GkNumber,
                 StrongsNumber = lexeme.StrongsNumber,
+                MounceChapterNumber = lexeme.MounceChapterNumber,
                 MounceMorphcat = lexeme.MounceMorphcat,
                 Forms = CreateFormDataArray(lexeme.Forms)
             };
