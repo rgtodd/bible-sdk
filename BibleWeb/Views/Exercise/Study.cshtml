@@ -29,7 +29,7 @@
         {
             <tr>
                 <td class="serif">
-                    <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@question.StrongsNumber" asp-route-gk="@question.GkNumber" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover" target="_blank">@question.Question</a>
+                    <a asp-controller="Lookup" asp-action="Index" asp-route-strongs="@question.StrongsNumber" asp-route-gk="@question.GkNumber" class="link-underline link-dark link-underline-opacity-0 link-underline-opacity-100-hover" target="_blank">@question.Question (@question.StrongsNumber)</a>
                 </td>
                 <td class="serif">
                     @foreach (var answer in question.Answers)

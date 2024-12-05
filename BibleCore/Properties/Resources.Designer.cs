@@ -75,7 +75,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;4 μου Treg NA28 RP ] – WH&lt;/note&gt;
         ///
         ///&lt;verse&gt;1 Corinthians 1:14&lt;/verse&gt;
-        ///&lt;note&gt;14 εὐχαριστῶ WH NIV ] + τῷ θεῷ Treg RP NA28&lt;/no [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;14 εὐχαριστῶ WH NIV ] + τῷ θεῷ Tr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _1Cor {
             get {
@@ -103,7 +103,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;1 John 1:8&lt;/verse&gt;
         ///&lt;note&gt;8 οὐκ ἔστιν ἐν ἡμῖν WH NA28 RP ] ἐν ἡμῖν οὐκ ἔστιν Treg&lt;/note&gt;
         ///
-        ///&lt;verse&gt;1 John 2:4&lt;/v [rest of string was truncated]&quot;;.
+        ///&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _1John {
             get {
@@ -127,8 +127,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;8 ἰδόντες WH Treg NA28 ] εἰδότες RP &lt;/note&gt;
         ///&lt;note&gt;• ἀγαλλιᾶσθε Treg NA28 RP ] ἀγαλλιᾶτε WH&lt;/note&gt;
         ///
-        ///&lt;verse&gt;1 Peter 1:9&lt;/verse&gt;
-        ///&lt;note&gt;9 ὑμῶν Tr [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;1 Peter 1:9&lt;/verse&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _1Pet {
             get {
@@ -153,8 +152,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;5 καὶ WH ] + ἐν Treg NA28 RP &lt;/note&gt;
         ///&lt;note&gt;• ἐν Treg NA28 RP ] – WH&lt;/note&gt;
         ///
-        ///&lt;verse&gt;1 Thessalonians 1:7&lt;/verse&gt;
-        ///&lt;note&gt;7 τύπον WH [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;1 Thessalonians 1:7&lt;/verse&gt;        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _1Thess {
             get {
@@ -180,7 +178,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;12 Χάριν WH Treg NA28 ] Καὶ χάριν RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;1 Timothy 1:13&lt;/verse&gt;
-        ///&lt;note&gt;13 τὸ WH Treg NA28 ] τὸν R [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;13 τὸ WH  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _1Tim {
             get {
@@ -203,7 +201,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;• ὡς WH Treg NA28 ] ὥσπερ RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;2 Corinthians 1:8&lt;/verse&gt;
-        ///&lt;note&gt;8 ὑπὲρ WH NA28 RP ] περὶ Treg &lt;/note [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;8 ὑπὲρ WH NA28 RP ] πε [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2Cor {
             get {
@@ -229,7 +227,7 @@ namespace BibleCore.Properties {
         ///
         ///&lt;verse&gt;2 John 1:8&lt;/verse&gt;
         ///&lt;note&gt;8 ἀπολέσητε WH Treg NA28 ] ἀπολέσωμεν RP &lt;/note&gt;
-        ///&lt;note&gt;• εἰργασάμεθα WH RP NA28 ] εἰργάσασθε Treg [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;• εἰργασάμεθα WH RP NA28  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2John {
             get {
@@ -254,8 +252,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;2 Peter 1:9&lt;/verse&gt;
         ///&lt;note&gt;9 ἁμαρτημάτων Treg ] ἁμαρτιῶν WH NA28 RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;2 Peter 1:12&lt;/verse&gt;
-        ///&lt;note&gt;12 μελλή [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;2 Peter 1:12&lt;/verse [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2Pet {
             get {
@@ -279,8 +276,7 @@ namespace BibleCore.Properties {
         ///
         ///&lt;verse&gt;2 Thessalonians 2:2&lt;/verse&gt;
         ///&lt;note&gt;2:2 μηδὲ WH Treg NA28 ] μήτε RP &lt;/note&gt;
-        ///&lt;note&gt;• κυρίου WH Treg NA28 ] Χριστοῦ RP&lt;/note&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;• κυρίου WH Treg NA28 ] Χρι [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2Thess {
             get {
@@ -307,7 +303,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;2 Timothy 1:17&lt;/verse&gt;
         ///&lt;note&gt;17 σπουδαίως WH Treg NA28 ] σπουδαιότερον RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;2 Timothy 2:3&lt;/verse&gt; [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;2 T [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2Tim {
             get {
@@ -336,7 +332,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;9 τι WH Treg NA28 ] – RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;3 John 1:12&lt;/verse&gt;
-        ///&lt;note&gt;12 οἶδας WH Treg NA28  [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;12 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _3John {
             get {
@@ -901,7 +897,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;8 μου WH Treg NA28 ] μοι RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Acts 1:10&lt;/verse&gt;
-        ///&lt;note&gt;10 ἐσθήσεσι λευκαῖς WH Treg NA28 ] ἐσθῆτι λευκῇ RP &lt;/no [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;10 ἐσθήσεσι λευκαῖς WH Treg NA28 ] ἐ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Acts {
             get {
@@ -927,7 +923,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;Colossians 1:4&lt;/verse&gt;
         ///&lt;note&gt;4 ἣν ἔχετε WH Treg NA28 ] τὴν RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;Colossians 1:6&lt;/ver [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;Co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Col {
             get {
@@ -954,8 +950,7 @@ namespace BibleCore.Properties {
         ///
         ///&lt;verse&gt;Ephesians 1:15&lt;/verse&gt;
         ///&lt;note&gt;15 ἀγάπην τὴν Treg NA28 RP ] – WH&lt;/note&gt;
-        ///
-        ///&lt;verse&gt;Ephesians 1 [rest of string was truncated]&quot;;.
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Eph {
             get {
@@ -1018,8 +1013,7 @@ namespace BibleCore.Properties {
         ///
         ///&lt;verse&gt;Galatians 1:10&lt;/verse&gt;
         ///&lt;note&gt;10 εἰ WH Treg NA28 ] + γὰρ RP&lt;/note&gt;
-        ///
-        ///&lt;verse&gt;Galatians [rest of string was truncated]&quot;;.
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Gal {
             get {
@@ -1042,7 +1036,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;8 καὶ ἡ ῥάβδος τῆς εὐθύτητος WH Treg NA28 ] ῥάβδος εὐθύτητος ἡ RP &lt;/note&gt;
         ///&lt;note&gt;• σου Treg NA28 RP ] αὐτοῦ WH&lt;/note&gt;
         ///
-        ///&lt;verse&gt;Hebrews 1:12&lt; [rest of string was truncated]&quot;;.
+        ///&lt;verse [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Heb {
             get {
@@ -1070,7 +1064,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;James 1:22&lt;/verse&gt;
         ///&lt;note&gt;22 ἀκροαταὶ μόνον WH Treg ] μόνον ἀκροαταὶ NA28 RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;James 1:25&lt;/verse [rest of string was truncated]&quot;;.
+        ///&lt;vers [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Jas {
             get {
@@ -1098,7 +1092,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;20 Ἐγὼ οὐκ εἰμὶ WH Treg NA28 ] Οὐκ εἰμὶ ἐγὼ RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;John 1:21&lt;/verse&gt;
-        ///&lt;note&gt;21 σὺ Ἠλίας εἶ WH Treg N [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;21 σὺ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string John {
             get {
@@ -1124,8 +1118,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;• πάντα WH Treg NA28 ] τοῦτο RP &lt;/note&gt;
         ///&lt;note&gt;• Ἰησοῦς NA28 ] κύριος WH Treg; ὁ κύριος NIV RP; ὁ κύριος ἅπαξ NA27&lt;/note&gt;
         ///
-        ///&lt;verse&gt;Jude 1:7&lt;/verse&gt;
-        ///&lt;no [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;Jud [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Jude {
             get {
@@ -1184,9 +1177,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;14 γενέσει WH Treg NA28 ] γεννήσει RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Luke 1:15&lt;/verse&gt;
-        ///&lt;note&gt;15 τοῦ Treg NA28 RP ] – WH&lt;/note&gt;
-        ///
-        ///&lt;vers [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;15 τοῦ Treg NA28 RP ]  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Luke {
             get {
@@ -1211,8 +1202,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;4 ὁ WH Treg NA28 ] – RP &lt;/note&gt;
         ///&lt;note&gt;• ἐρήμῳ WH ] + καὶ Treg NA28 RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;Mark 1:5&lt;/verse&gt;
-        ///&lt;note&gt; [rest of string was truncated]&quot;;.
+        ///&lt;verse&gt;Mark 1: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Mark {
             get {
@@ -1238,7 +1228,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;10 Ἀμώς Ἀμὼς WH Treg NA28 ] Ἀμών Ἀμὼν NIV RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Matthew 1:18&lt;/verse&gt;
-        ///&lt;note&gt;18 Ἰησοῦ WH NA28 RP ] –  [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;18 Ἰησο [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Matt {
             get {
@@ -1339,7 +1329,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;• Χριστοῦ Ἰησοῦ WH Treg NA28 ] Ἰησοῦ Χριστοῦ RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Philippians 1:11&lt;/verse&gt;
-        ///&lt;note&gt;11 καρπὸν δικαιοσύνης τὸν W [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;11 καρπὸν  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Phil {
             get {
@@ -1366,7 +1356,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;• πολλὴν ἔσχον WH Treg NA28 ] ἔχομεν πολλὴν RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Philemon 1:9&lt;/verse&gt;
-        ///&lt;note&gt;9 Χριστοῦ Ἰησοῦ WH Treg NA28  [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;9 Χριστοῦ Ἰ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Phlm {
             get {
@@ -1391,8 +1381,7 @@ namespace BibleCore.Properties {
         ///&lt;verse&gt;Revelation 1:9&lt;/verse&gt;
         ///&lt;note&gt;9 συγκοινωνὸς WH Treg NA28 ] κοινωνὸς RP &lt;/note&gt;
         ///&lt;note&gt;• ἐν WH Treg NA28 ] + Χριστῷ RP &lt;/note&gt;
-        ///&lt;note&gt;• καὶ WH Treg NA28 ] + διὰ RP &lt;/note&gt;
-        ///&lt;note&gt;• Ἰησ [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;• καὶ WH Treg NA28 ] + διὰ RP &lt;/n [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Rev {
             get {
@@ -1420,7 +1409,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;24 Διὸ WH Treg NA28 ] + καὶ RP &lt;/note&gt;
         ///&lt;note&gt;• αὐτοῖς WH Treg NA28 ] ἑαυτοῖς RP&lt;/note&gt;
         ///
-        ///&lt;verse&gt;Romans 1:27&lt; [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Rom {
             get {
@@ -1447,7 +1436,7 @@ namespace BibleCore.Properties {
         ///&lt;note&gt;15 πάντα WH Treg NA28 ] + μὲν RP&lt;/note&gt;
         ///
         ///&lt;verse&gt;Titus 2:3&lt;/verse&gt;
-        ///&lt;note&gt;2:3 μηδὲ WH Treg ] μὴ NA28 [rest of string was truncated]&quot;;.
+        ///&lt;note&gt;2:3 μηδὲ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Titus {
             get {
