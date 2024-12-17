@@ -22,7 +22,7 @@
         {
             get
             {
-                return $"{Tense} {Voice} {Mood}".Trim();
+                return $"{Mood} {Tense} {Voice}".Trim();
             }
         }
 

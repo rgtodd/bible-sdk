@@ -148,14 +148,18 @@
 
         public int CompareTo(Inflection other)
         {
-            int result = ((int?)Tense ?? 0).CompareTo((int?)other.Tense ?? 0);
-            if (result == 0)
-            {
-                result = ((int?)Voice ?? 0).CompareTo((int?)other.Voice ?? 0);
-            }
+            int result = 0;
             if (result == 0)
             {
                 result = ((int?)Mood ?? 0).CompareTo((int?)other.Mood ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Tense ?? 0).CompareTo((int?)other.Tense ?? 0);
+            }
+            if (result == 0)
+            {
+                result = ((int?)Voice ?? 0).CompareTo((int?)other.Voice ?? 0);
             }
             if (result == 0)
             {
