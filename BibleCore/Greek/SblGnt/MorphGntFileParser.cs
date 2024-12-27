@@ -6,6 +6,44 @@ using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
+    // Parses the MorphGnt files (e.g., 61-Mt-morphgnt.txt) and populates 
+    // the text and lexicon objects. It is assumed that both these objects
+    // are empty when MorphGntFileParser.Parse is called.
+    // 
+    // MorphGnt files are blank-delimited files containing the following values:
+    //
+    // * Scripture reference - six digit number containing the book, chapter and verse.
+    // * Part of speech
+    // * Inflection codes
+    // * Text - the word plus any punctuation that appears in the text.
+    // * Word - the word with punctuation removed. This is the form of the lexeme
+    //          as it appears in the text.
+    // * Normalized word - This is the "standard" form of the lexeme as it appears
+    //                     in the lexicon.
+    // * Lemma - This is the canonical form of the lexeme as it appears in the lexicon.
+    //
+    // For each record in the file, a "skeletal" lexeme and form is added to the lexicon if 
+    // one does not already exist. The following properties are set:
+    //
+    // Lexeme:
+    // * Lemma - based on the MorphGnt lemma field
+    // * LemmaTransliteration - based on the MorphGnt lemma field
+    // * PartOfSpeech - based on the MorphGnt part of speech field.
+    // * Form:
+    //   * InflectedForm - based on the MorphGnt normalized word field.
+    //   * InflectedTransliteration - based on the MorphGnt normalized word field.
+    //   * Inflection - based on the MorphGnt inflection codes
+    //
+    // A TextEntry is then added to the Text object. The following properties are set:
+    // 
+    // * Bookmark - a structure defining the book, chapter and verse.
+    // * Position - the ordinal position of the word within the verse.
+    // * Text - based on the MorphGnt text field.
+    // * Word - based on the MorphGnt word field.
+    // * NormalizedWord - based on the MorphGnt normalized word field.
+    // * TransliteratedWord - based on the MorphGnt word field.
+    // * Lexeme - the lexeme object created or retrieved based on the MorphGnt lemma field.
+    //
     internal class MorphGntFileParser
     {
         public static void Parse(ILogger logger, Text text, Lexicon lexicon)

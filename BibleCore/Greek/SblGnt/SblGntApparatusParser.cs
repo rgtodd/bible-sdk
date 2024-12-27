@@ -7,6 +7,17 @@ using System.Xml;
 
 namespace BibleCore.Greek.SblGnt
 {
+    // Parses the SBL apparatus files (e.g., Matt.xml) and populates
+    // the apparatus object. It is assumed this object is empty when
+    // SblGntApparatusParser.Parse is called.
+    //
+    // Apparatus files are XML documentents containing verse and note
+    // elements. These elements are arranged sequentially, not hierarchically.
+    // All note elements are associated with the preceding verse element.
+    // 
+    // For each note in the file, an ApparatusEntry is created and added
+    // to the apparatus object.
+    //
     internal class SblGntApparatusParser
     {
         public static void Parse(ILogger logger, Apparatus apparatus)

@@ -7,6 +7,26 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace BibleCore.Greek.SblGnt
 {
+    // Parses the entries in the lexemes.yaml file. When the YAML file is parsed,
+    // a dictionary is created associating the lexeme's lemma (the key of the dictionary)
+    // with details about the lexeme (as defined by the MorphGntLexeme class.)
+    //
+    // Using this information, the entries in the lexicon are enhanced
+    // with the following information:
+    //
+    // Lexeme:
+    // * FullCitationForm
+    // * Gloss
+    // * StrongsNumber
+    // * GkNumber
+    // * MounceMorphcat
+    // * Form:
+    //   * Prefix
+    //   * Core
+    //   * Suffix
+    // 
+    // Note: the associated forms.yaml file is not processed at this time.
+    //
     internal static class MorphGntLexemeParser
     {
         public static void Parse(ILogger logger, Lexicon lexicon)
