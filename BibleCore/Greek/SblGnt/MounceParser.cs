@@ -6,6 +6,18 @@ using System.Text;
 
 namespace BibleCore.Greek.SblGnt
 {
+    // Parses the mounce.txt file. This is a tab-delimited file. Each record
+    // contains a GK number and the Mounce chapter number in which the word
+    // is introduced.
+    //
+    // Using this information, the entries in the lexicon are enhanced
+    // with the following information:
+    //
+    // Lexicon:
+    // * MounceChapterWordCount
+    // * Lexeme:
+    //   * MounceChapterNumber
+    //
     internal static class MounceParser
     {
         public static void Parse(ILogger logger, Lexicon lexicon)
