@@ -7,3 +7,5 @@
 *.pubxml
 
 profile.arm.json
+
+BibleNotebook/reports/*
