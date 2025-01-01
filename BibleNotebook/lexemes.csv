@@ -240,7 +240,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἀλλαχοῦ,D,,ἀλλαχοῦ,ἀλλαχοῦ,,ἀλλαχοῦ,,250,,,adverb,Adverb
 ἀλληγορέω,V,,ἀλληγορέω,ἀλληγορέω,ἀλληγορέω,ἀλληγορέω,238,251,V,I speak allegorically,cv-1d(2,Verb
 ἁλληλουϊά,X/HEB,,ἁλληλουϊά,ἁλληλουϊά,Ἁλληλούϊα,ἁλληλουϊά,239,252,HEB,"Hallelujah, Praise the Lord",n-3g(2),Particle
-ἀλλήλων,RP/C,,ἀλλήλων,ἀλλήλων,ἀλλήλων,ἀλλήλων,240,253,C,one another,a-1a(2b),Personal Pronoun
+ἀλλήλων,RP/C,,ἀλλήλων,ἀλλήλων,ἀλλήλων,ἀλλήλων,240,253,C,one another,a-1a(2b),Pronoun - Personal
 ἀλλογενής,A,"ἀλλογενής, ές",ἀλλογενής,"ἀλλογενής, ές","ἀλλογενής, ες",ἀλλογενής,241,254,A,"of another nation, a foreigner",a-4a,Adjective
 ἅλλομαι,V,,ἅλλομαι,ἅλλομαι,ἅλλομαι,ἅλλομαι,242,256,V,"I leap, bubble up",v-2d(1),Verb
 ἄλλος,A,"ἄλλος, η, ον",ἄλλος,"ἄλλος, η, ον","ἄλλος, η, ον",ἄλλος,243,257,A,"other, another, different",a-1a(2b),Adjective
@@ -836,7 +836,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 αὐτοκατάκριτος,A,"αὐτοκατάκριτος, ον",αὐτοκατάκριτος,"αὐτοκατάκριτος, ον","αὐτοκατάκριτος, ον",αὐτοκατάκριτος,843,896,A,self-condemned,a-3a,Adjective
 αὐτόματος,A,"αὐτόματος, η, ον",αὐτόματος,"αὐτόματος, η, ον","αὐτόματος, η, ον",αὐτόματος,844,897,A,of its own accord,a-1a(2a),Adjective
 αὐτόπτης,N,"αὐτόπτης, ου, ὁ",αὐτόπτης,"αὐτόπτης, ου, ὁ","αὐτόπτης, ου, ὁ",αὐτόπτης,845,898,N:M,an eye-witness,n-1f,Noun
-αὐτός,RP,,αὐτός,"αὐτός, αὐτή, αὐτό","αὐτός, αὐτή, αὐτό",αὐτός,846,899,P,"he, she, it, they, them, same",a-1a(2b),Personal Pronoun
+αὐτός,RP,,αὐτός,"αὐτός, αὐτή, αὐτό","αὐτός, αὐτή, αὐτό",αὐτός,846,899,P,"he, she, it, they, them, same",a-1a(2b),Pronoun - Personal
 αὐτοῦ,D,,αὐτοῦ,αὐτοῦ,αὐτοῦ,,847,,ADV,"here, there",,Adverb
 αὐτόχειρ,A,"αὐτόχειρ, ρος",αὐτόχειρ,"αὐτόχειρ, ρος","αὐτόχειρ, ρος, ὁ",αὐτόχειρ,849,901,A,with one's own hand,n-3f(2a),Adjective
 αὐχέω,V,,αὐχέω,αὐχέω,,αὐχέω,,902,,,v-1d(2a),Verb
@@ -1438,7 +1438,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἔα,X/INJ,,ἔα,ἔα,ἔα,ἔα,1436,1568,INJ,"an interjection, ho!",interjecti,Particle
 ἐάν,X/COND,,ἐάν,ἐάν,ἐάν,ἐάν,1437,1569,COND,if,conj,Conjunction
 ἐάνπερ,C/COND,,ἐάνπερ,ἐάνπερ,,ἐάνπερ,,1570,,,particle,Conjunction
-ἑαυτοῦ,RP/F-2,,ἑαυτοῦ,"ἑαυτοῦ, ῆς, οῦ","ἑαυτοῦ, ῆς, οῦ",ἑαυτοῦ,1438,1571,F,"himself, herself, itself",a-1a(2b),Personal Pronoun
+ἑαυτοῦ,RP/F-2,,ἑαυτοῦ,"ἑαυτοῦ, ῆς, οῦ","ἑαυτοῦ, ῆς, οῦ",ἑαυτοῦ,1438,1571,F,"himself, herself, itself",a-1a(2b),Pronoun - Personal
 ἐάω,V,,ἐάω,ἐάω,ἐάω,ἐάω,1439,1572,V,"I allow, permit, leave",v-1d(1b),Verb
 ἑβδομήκοντα,A,"ἑβδομήκοντα, οἱ, αἱ, τά",ἑβδομήκοντα,"ἑβδομήκοντα, οἱ, αἱ, τά",ἑβδομήκοντα,ἑβδομήκοντα,1440,1573,A-NUI,seventy,n-3g(2),Adjective
 ἑβδομηκοντάκις,D,,ἑβδομηκοντάκις,ἑβδομηκοντάκις,ἑβδομηκοντάκις,ἑβδομηκοντάκις,1441,1574,ADV,seventy times,n-3g(2),Adverb
@@ -1474,7 +1474,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἐγκρύπτω,V,,ἐγκρύπτω,ἐγκρύπτω,ἐγκρύπτω,ἐγκρύπτω,1470,1606,V,"I hide in, mix with",cv-4,Verb
 ἔγκυος,A/N,"ἔγκυος, ον",ἔγκυος,"ἔγκυος, ον","ἔγκυος, ον",ἔγκυος,1471,1607,N:F,"with child, pregnant",a-3a,Adjective
 ἐγχρίω,V,,ἐγχρίω,ἐγχρίω,ἐγχρίω,ἐγχρίω,1472,1608,V,"I rub in, anoint",cv-1a(1),Verb
-ἐγώ,RP1,,ἐγώ,ἐγώ,ἐγώ,ἐγώ,1473,1609,P,I,a-5,Personal Pronoun
+ἐγώ,RP1,,ἐγώ,ἐγώ,ἐγώ,ἐγώ,1473,1609,P,I,a-5,Pronoun - Personal
 ἐδαφίζω,V,,ἐδαφίζω,ἐδαφίζω,ἐδαφίζω,ἐδαφίζω,1474,1610,V,I dash to the ground,v-2a(1),Verb
 ἔδαφος,N,"ἔδαφος, ους, τό",ἔδαφος,"ἔδαφος, ους, τό","ἔδαφος, ους, τό",ἔδαφος,1475,1611,N:N,"the base, ground",n-3d(2b),Noun
 ἑδραῖος,A,"ἑδραῖος, (α), ον",ἑδραῖος,"ἑδραῖος, (α), ον","ἑδραῖος, αία, αῖον",ἑδραῖος,1476,1612,A,"firm, steadfast",a-3b(1),Adjective
@@ -1553,7 +1553,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἐκδύω,V,,ἐκδύω,ἐκδύω,ἐκδύω,ἐκδύω,1562,1694,V,"I put off, take off, strip off",cv-3a(1),Verb
 ἐκεῖ,D,,ἐκεῖ,ἐκεῖ,ἐκεῖ,ἐκεῖ,1563,1695,ADV,"there, yonder, thither",adverb,Adverb
 ἐκεῖθεν,D,,ἐκεῖθεν,ἐκεῖθεν,ἐκεῖθεν,ἐκεῖθεν,1564,1696,ADV,"thence, from that place",adverb,Adverb
-ἐκεῖνος,RD,,ἐκεῖνος,"ἐκεῖνος, η, ον","ἐκεῖνος, η, ο",ἐκεῖνος,1565,1697,D,"that, that one there, yonder",a-1a(2b),Demonstrative Pronoun
+ἐκεῖνος,RD,,ἐκεῖνος,"ἐκεῖνος, η, ον","ἐκεῖνος, η, ο",ἐκεῖνος,1565,1697,D,"that, that one there, yonder",a-1a(2b),Pronoun - Demonstrative
 ἐκεῖσε,D,,ἐκεῖσε,ἐκεῖσε,ἐκεῖσε,ἐκεῖσε,1566,1698,ADV,"thither, there",adverb,Adverb
 ἐκζητέω,V,,ἐκζητέω,ἐκζητέω,ἐκζητέω,ἐκζητέω,1567,1699,V,"I seek out, require",cv-1d(2a),Verb
 ἐκζήτησις,N,"ἐκζήτησις, εως, ἡ",ἐκζήτησις,"ἐκζήτησις, εως, ἡ",,ἐκζήτησις,,1700,,,n-3e(5b),Noun
@@ -1674,7 +1674,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἐλπίς,N,"ἐλπίς, ίδος, ἡ",ἐλπίς,"ἐλπίς, ίδος, ἡ","ἐλπίς, ίδος, ἡ",ἐλπίς,1680,1828,N:F,"hope, expectation",n-3c(2),Noun
 Ἐλύμας,N,"Ἐλύμας, α, ὁ",Ἐλύμας,"Ἐλύμας, α, ὁ","Ἐλύμας, ᾶ, ὁ",Ἐλύμας,1681,1829,N:M,Elymas,n-1e,Noun
 ἐλωΐ,N/ARAM,ἐλωΐ,ἐλωΐ,ελωι,ἐλωΐ,ἐλωΐ,1682,1830,ARAM,Aramaic for my God,n-3g(2),Noun
-ἐμαυτοῦ,RP1/F,,ἐμαυτοῦ,"ἐμαυτοῦ, ῆς","ἐμαυτοῦ, ῆς, οῦ",ἐμαυτοῦ,1683,1831,F,of myself,a-1a(2a),Personal Pronoun
+ἐμαυτοῦ,RP1/F,,ἐμαυτοῦ,"ἐμαυτοῦ, ῆς","ἐμαυτοῦ, ῆς, οῦ",ἐμαυτοῦ,1683,1831,F,of myself,a-1a(2a),Pronoun - Personal
 ἐμβαίνω,V,,ἐμβαίνω,ἐμβαίνω,ἐμβαίνω,ἐμβαίνω,1684,1832,V,I embark,cv-2d(6),Verb
 ἐμβάλλω,V,,ἐμβάλλω,ἐμβάλλω,ἐμβάλλω,ἐμβάλλω,1685,1833,V,"I cast in, throw in",cv-2d(1),Verb
 ἐμβάπτω,V,,ἐμβάπτω,ἐμβάπτω,ἐμβάπτω,ἐμβάπτω,1686,1835,V,I dip into,cv-4,Verb
@@ -2233,7 +2233,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 Ἠλί,N,Ἠλί,Ἠλί,Ἠλί,Ἠλί,Ἠλί,2241,2459,HEB,Eli,n-3g(2),Noun
 Ἠλίας,N,"Ἠλίας, ου, ὁ",Ἠλίας,"Ἠλίας, ου, ὁ","Ἠλίας, ου, ὁ",Ἠλίας,2243,2460,N:M,Elijah,n-1d,Noun
 ἡλικία,N,"ἡλικία, ας, ἡ",ἡλικία,"ἡλικία, ας, ἡ","ἡλικία, ας, ἡ",ἡλικία,2244,2461,N:F,"age, stature",n-1a,Noun
-ἡλίκος,RI/A,,ἡλίκος,"ἡλίκος, η, ον","ἡλίκος, η, ον",ἡλίκος,2245,2462,A,"of what size, how much",a-1a(2a),Indefinite Pronoun
+ἡλίκος,RI/A,,ἡλίκος,"ἡλίκος, η, ον","ἡλίκος, η, ον",ἡλίκος,2245,2462,A,"of what size, how much",a-1a(2a),Pronoun - Indefinite
 ἥλιος,N,"ἥλιος, ου, ὁ",ἥλιος,"ἥλιος, ου, ὁ","ἥλιος, ου, ὁ",ἥλιος,2246,2463,N:M,"the sun, sunlight",n-2a,Noun
 ἧλος,N,"ἧλος, ου, ὁ",ἧλος,"ἧλος, ου, ὁ","ἧλος, ου, ὁ",ἧλος,2247,2464,N:M,a nail,n-2a,Noun
 ἡμέρα,N,"ἡμέρα, ας, ἡ",ἡμέρα,"ἡμέρα, ας, ἡ","ἡμέρα, ας, ἡ",ἡμέρα,2250,2465,N:F,a day,n-1a,Noun
@@ -2487,7 +2487,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 Ἰωσήχ,N,"Ἰωσήχ, ὁ",Ἰωσήχ,"Ἰωσήχ, ὁ",,Ἰωσήχ,,2738,,,n-3g(2),Noun
 Ἰωσίας,N,"Ἰωσίας, ου, ὁ",Ἰωσίας,"Ἰωσίας, ου, ὁ","Ἰωσίας, ου, ὁ",Ἰωσίας,2502,2739,N:M,Josiah,n-1d,Noun
 ἰῶτα,N,"ἰῶτα, τό",ἰῶτα,"ἰῶτα, τό","ἰῶτα, τό",ἰῶτα,2503,2740,N-LI,a small letter of the Greek alphabet,n-3g(2),Noun
-κἀγώ,RP1/P-K,,κἀγώ,"κἀγώ, dat. κἀμοί, acc. κἀμέ",κἀγώ,κἀγώ,2504,2743,P,"I also, I too",a-5,Personal Pronoun
+κἀγώ,RP1/P-K,,κἀγώ,"κἀγώ, dat. κἀμοί, acc. κἀμέ",κἀγώ,κἀγώ,2504,2743,P,"I also, I too",a-5,Pronoun - Personal
 καθά,C/ADV,,καθά,καθά,καθά,καθά,2505,2745,ADV,as,adverb; co,Conjunction
 καθαίρεσις,N,"καθαίρεσις, εως, ἡ",καθαίρεσις,"καθαίρεσις, εως, ἡ","καθαίρεσις, εως, ἡ",καθαίρεσις,2506,2746,N:F,"taking down, destroying",n-3e(5b),Noun
 καθαιρέω,V,,καθαιρέω,καθαιρέω,καθαιρέω,καθαιρέω,2507,2747,V,"I take down, depose, destroy",cv-1d(2a),Verb
@@ -2531,7 +2531,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 καίω,V,,καίω,καίω,καίω,καίω,2545,2794,V,"I ignite, light, burn",v-2c,Verb
 κἀκεῖ,C/ADV-K,,κἀκεῖ,κἀκεῖ,κἀκεῖ,κἀκεῖ,2546,2795,ADV-K,"and there, and yonder",adverb,Conjunction
 κἀκεῖθεν,C/ADV-K,,κἀκεῖθεν,κἀκεῖθεν,κἀκεῖθεν,κἀκεῖθεν,2547,2796,ADV-K,"and thence, and from there",adverb,Conjunction
-κἀκεῖνος,RD,,κἀκεῖνος,"κἀκεῖνος, η, ο","κἀκεῖνος, η, ο",κἀκεῖνος,2548,2797,D,"and he, she, it, and that",a-1a(2b),Demonstrative Pronoun
+κἀκεῖνος,RD,,κἀκεῖνος,"κἀκεῖνος, η, ο","κἀκεῖνος, η, ο",κἀκεῖνος,2548,2797,D,"and he, she, it, and that",a-1a(2b),Pronoun - Demonstrative
 κακία,N,"κακία, ας, ἡ",κακία,"κακία, ας, ἡ","κακία, ας, ἡ",κακία,2549,2798,N:F,"evil, wickedness, malice",n-1a,Noun
 κακοήθεια,N,"κακοήθεια, ας, ἡ",κακοήθεια,"κακοήθεια, ας, ἡ","κακοήθεια, ας, ἡ",κακοήθεια,2550,2799,N:F,evil-mindedness,n-1a,Noun
 κακολογέω,V,,κακολογέω,κακολογέω,κακολογέω,κακολογέω,2551,2800,V,"I speak evil of, curse",cv-1d(2a),Verb
@@ -3461,7 +3461,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ὀγδοήκοντα,A,ὀγδοήκοντα,ὀγδοήκοντα,ὀγδοήκοντα,ὀγδοήκοντα,ὀγδοήκοντα,3589,3837,A-NUI,eighty,n-3g(2),Adjective
 ὄγδοος,A,"ὄγδοος, η, ον",ὄγδοος,"ὄγδοος, η, ον","ὄγδοος, η, ον",ὄγδοος,3590,3838,A,eighth,a-1a(2a),Adjective
 ὄγκος,N,"ὄγκος, ου, ὁ",ὄγκος,"ὄγκος, ου, ὁ","ὄγκος, ου, ὁ",ὄγκος,3591,3839,N:M,"a weight, burden",n-2a,Noun
-ὅδε,RD,,ὅδε,"ὅδε, ἥδε, τόδε","ὅδε, ἥδε, τόδε",ὅδε,3592,3840,D,"this here, this",a-1a(2b),Demonstrative Pronoun
+ὅδε,RD,,ὅδε,"ὅδε, ἥδε, τόδε","ὅδε, ἥδε, τόδε",ὅδε,3592,3840,D,"this here, this",a-1a(2b),Pronoun - Demonstrative
 ὁδεύω,V,,ὁδεύω,ὁδεύω,ὁδεύω,ὁδεύω,3593,3841,V,"I journey, travel",v-1a(6),Verb
 ὁδηγέω,V,,ὁδηγέω,ὁδηγέω,ὁδηγέω,ὁδηγέω,3594,3842,V,"I lead, guide",v-1d(2a),Verb
 ὁδηγός,N,"ὁδηγός, οῦ, ὁ",ὁδηγός,"ὁδηγός, οῦ, ὁ","ὁδηγός, οῦ, ὁ",ὁδηγός,3595,3843,N:M,"a leader, guide",n-2a,Noun
@@ -3504,7 +3504,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 οἰνοπότης,N,"οἰνοπότης, ου, ὁ",οἰνοπότης,"οἰνοπότης, ου, ὁ","οἰνοπότης, ου, ὁ",οἰνοπότης,3630,3884,N:M,an excessive wine-drinker,n-1f,Noun
 οἶνος,N,"οἶνος, ου, ὁ",οἶνος,"οἶνος, ου, ὁ","οἶνος, ου, ὁ",οὶνος,3631,3885,N:M,wine,n-2a,Noun
 οἰνοφλυγία,N,"οἰνοφλυγία, ας, ἡ",οἰνοφλυγία,"οἰνοφλυγία, ας, ἡ","οἰνοφλυγία, ας, ἡ",οἰνοφλυγία,3632,3886,N:F,drunkenness,n-1a,Noun
-οἷος,RR/K,,οἷος,"οἷος, α, ον","οἵος, α, ον",οἷος,3634,3888,"K,R","of what kind, such as",a-1a(1),Relative Pronoun
+οἷος,RR/K,,οἷος,"οἷος, α, ον","οἵος, α, ον",οἷος,3634,3888,"K,R","of what kind, such as",a-1a(1),Pronoun - Relative
 ὀκνέω,V,,ὀκνέω,ὀκνέω,ὀκνέω,ὀκνέω,3635,3890,V,"I delay, hesitate, am slow",v-1d(2a),Verb
 ὀκνηρός,A,"ὀκνηρός, ά, όν",ὀκνηρός,"ὀκνηρός, ά, όν","ὀκνηρός, ά, όν",ὀκνηρός,3636,3891,A,"slothful, backward",a-1a(1),Adjective
 ὀκταήμερος,A,"ὀκταήμερος, ον",ὀκταήμερος,"ὀκταήμερος, ον","ὀκταήμερος, ον",ὀκταήμερος,3637,3892,A,belonging to the eighth day,a-3a,Adjective
@@ -3570,7 +3570,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ὀπίσω,P/ADV,,ὀπίσω,ὀπίσω,ὀπίσω,ὀπίσω,3694,3958,ADV,"behind, after",adverb; pr,Preposition
 ὁπλίζομαι,V,,ὁπλίζω,ὁπλίζω,ὁπλίζω,ὁπλίζω,3695,3959,V,"I arm, equip",v-2a(1),Verb
 ὅπλον,N,"ὅπλον, ου, τό",ὅπλον,"ὅπλον, ου, τό","ὅπλον, ου, τό",ὅπλον,3696,3960,N:N,"an instrument, arms, weapons",n-2c,Noun
-ὁποῖος,RI/A,,ὁποῖος,"ὁποῖος, α, ον","ὁποῖος, οία, οῖον",ὁποῖος,3697,3961,A,of what kind or manner,a-1a(1),Relative Pronoun
+ὁποῖος,RI/A,,ὁποῖος,"ὁποῖος, α, ον","ὁποῖος, οία, οῖον",ὁποῖος,3697,3961,A,of what kind or manner,a-1a(1),Pronoun - Relative
 ὁπότε,C/ADV,,ὁπότε,ὁπότε,ὁπότε,ὁπότε,3698,3962,ADV,when,particle,Conjunction
 ὅπου,C/ADV,,ὅπου,ὅπου,ὅπου,ὅπου,3699,3963,ADV,"where, whither",particle,Adverb
 ὀπτάνομαι,V,,ὀπτάνομαι,ὀπτάνομαι,ὀπτάνομαι,ὀπτάνομαι,3700,3964,V,"I appear, am seen",v-3a(2a),Verb
@@ -3611,15 +3611,15 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ὀρύσσω,V,,ὀρύσσω,ὀρύσσω,ὀρύσσω,ὀρύσσω,3736,4002,V,"I dig, dig out",v-2b,Verb
 ὀρφανός,A,"ὀρφανός, ή, όν",ὀρφανός,"ὀρφανός, ή, όν","ὀρφανός, ή, όν",ὀρφανός,3737,4003,A,"bereaved, an orphan",a-1a(2a),Adjective
 ὀρχέομαι,V,,ὀρχέομαι,ὀρχέομαι,ὀρχέομαι,ὀρχέομαι,3738,4004,V,I dance,v-1d(2a),Verb
-ὅς,RR,,ὅς,"ὅς, ἥ, ὅ","ὅς, ἥ, ὅ",ὅς,3739,4005,R,"who, which, what, that",a-1a(2b),Relative Pronoun
+ὅς,RR,,ὅς,"ὅς, ἥ, ὅ","ὅς, ἥ, ὅ",ὅς,3739,4005,R,"who, which, what, that",a-1a(2b),Pronoun - Relative
 ὁσάκις,C/ADV,,ὁσάκις,ὁσάκις,ὁσάκις,ὁσάκις,3740,4006,ADV,as often as,adverb,Conjunction
 ὅσιος,A,"ὅσιος, α, ον",ὅσιος,"ὅσιος, α, ον","ὅσιος, ία, ιον",ὅσιος,3741,4008,A,"holy, pious",a-1a(1),Adjective
 ὁσιότης,N,"ὁσιότης, ητος, ἡ",ὁσιότης,"ὁσιότης, τητος, ἡ","ὁσιότης, τητος, ἡ",ὁσιότης,3742,4009,N:F,"holiness, godliness, piety",n-3c(1),Noun
 ὁσίως,D,,ὁσίως,ὁσίως,ὁσίως,ὁσίως,3743,4010,ADV,piously,adverb,Adverb
 ὀσμή,N,"ὀσμή, ῆς, ἡ",ὀσμή,"ὀσμή, ῆς, ἡ","ὀσμή, ῆς, ἡ",ὀσμή,3744,4011,N:F,an odor,n-1b,Noun
-ὅσος,RR/K,,ὅσος,"ὅσος, η, ον","ὅσος, η, ον",ὅσος,3745,4012,K,"how much, how great, how many",a-1a(2a),Relative Pronoun
+ὅσος,RR/K,,ὅσος,"ὅσος, η, ον","ὅσος, η, ον",ὅσος,3745,4012,K,"how much, how great, how many",a-1a(2a),Pronoun - Relative
 ὀστέον,N,"ὀστέον, ου, τό, contracted ὀστοῦν",ὀστέον,"ὀστέον, ου, contracted form ὀστοῦν, οῦ, τό","ὀστέον, ου, τό",ὀστέον,3747,4014,N:N,a bone,n-2c,Noun
-ὅστις,RR,,ὅστις,"ὅστις, ἥτις, ὅτι","ὅστις, ἥτις, ὅτι",ὅστις,3748,4015,R,"whosoever, whichsoever, whatsoever",a-1a(2b),Relative Pronoun
+ὅστις,RR,,ὅστις,"ὅστις, ἥτις, ὅτι","ὅστις, ἥτις, ὅτι",ὅστις,3748,4015,R,"whosoever, whichsoever, whatsoever",a-1a(2b),Pronoun - Relative
 ὀστράκινος,A,"ὀστράκινος, η, ον",ὀστράκινος,"ὀστράκινος, η, ον","ὀστράκινος, η, ον",ὀστράκινος,3749,4017,A,made of earth,a-1a(2a),Adjective
 ὄσφρησις,N,"ὄσφρησις, εως, ἡ",ὄσφρησις,"ὄσφρησις, εως, ἡ","ὄσφρησις, εως, ἡ",ὄσφρησις,3750,4018,N:F,the sense of smell,n-3e(5b),Noun
 ὀσφύς,N,"ὀσφύς, ύος, ἡ",ὀσφῦς,"ὀσφύς, ύος, ἡ","ὀσφύς, ύος, ἡ",ὀσφῦς,3751,4019,N:F,the loins,n-3e(1),Noun
@@ -3649,7 +3649,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 οὖς,N,"οὖς, ὠτός, τό",οὖς,"οὖς, ὠτός, τό","οὖς, ὠτός, τό",οὺς,3775,4044,N:N,the ear,n-3c(6c),Noun
 οὐσία,N,"οὐσία, ας, ἡ",οὐσία,"οὐσία, ας, ἡ","οὐσία, ας, ἡ",οὐσία,3776,4045,N:F,"property, wealth",n-1a,Noun
 οὔτε,C/CONJ-N,,οὔτε,οὔτε,οὔτε,οὔτε,3777,4046,CONJ-N,"and not, neither, nor",adverb,Conjunction
-οὗτος,RD,,οὗτος,"οὗτος, αὕτη, τοῦτο","οὗτος, αὕτη, τοῦτο",οὗτος,3778,4047,D,"this, he, she, it",a-1a(2b),Demonstrative Pronoun
+οὗτος,RD,,οὗτος,"οὗτος, αὕτη, τοῦτο","οὗτος, αὕτη, τοῦτο",οὗτος,3778,4047,D,"this, he, she, it",a-1a(2b),Pronoun - Demonstrative
 οὕτω(ς),D,,οὕτω,οὕτω/οὕτως,οὕτως,οὕτω,3779,4048,ADV,"thus, so, in this manner",adverb,Adverb
 οὐχί,X/PRT-I,,οὐχί,οὐχί,οὐχί,οὐχί,3780,4049,"PRT-I,PRT-N","by no means, not at all",adverb,Particle
 ὀφειλέτης,N,"ὀφειλέτης, ου, ὁ",ὀφειλέτης,"ὀφειλέτης, ου, ὁ","ὀφειλέτης, ου, ὁ",ὀφειλέτης,3781,4050,N:M,"a debtor, sinner",n-1f,Noun
@@ -3950,7 +3950,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 πηγή,N,"πηγή, ῆς, ἡ",πηγή,"πηγή, ῆς, ἡ","πηγή, ῆς, ἡ",πηγή,4077,4380,N:F,"a fountain, spring, well",n-1b,Noun
 πήγνυμι,V,,πήγνυμι,πήγνυμι,πήγνυμι,πήγνυμι,4078,4381,V,I pitch a tent,v-3c(2),Verb
 πηδάλιον,N,"πηδάλιον, ου, τό",πηδάλιον,"πηδάλιον, ου, τό","πηδάλιον, ου, τό",πηδάλιον,4079,4382,N:N,the rudder of a ship,n-2c,Noun
-πηλίκος,RI/A,,πηλίκος,"πηλίκος, η, ον","πηλίκος, η, ον",πηλίκος,4080,4383,A,"how large, how great",a-1a(2a),Indefinite Pronoun
+πηλίκος,RI/A,,πηλίκος,"πηλίκος, η, ον","πηλίκος, η, ον",πηλίκος,4080,4383,A,"how large, how great",a-1a(2a),Pronoun - Indefinite
 πηλός,N,"πηλός, οῦ, ὁ",πηλός,"πηλός, οῦ, ὁ","πηλός, οῦ, ὁ",πηλός,4081,4384,N:M,"clay, mud",n-2a,Noun
 πήρα,N,"πήρα, ας, ἡ",πήρα,"πήρα, ας, ἡ","πήρα, ας, ἡ",πήρα,4082,4385,N:F,"a sack, wallet",n-1a,Noun
 πῆχυς,N,"πῆχυς, εως, ὁ",πῆχυς,"πῆχυς, εως, ὁ","πῆχυς, εως, ὁ",πῆχυς,4083,4388,N:M,a cubit,n-3e(1),Noun
@@ -4037,7 +4037,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ποιμήν,N,"ποιμήν, ένος, ὁ",ποιμήν,"ποιμήν, ένος, ὁ","ποιμήν, ένος, ὁ",ποιμήν,4166,4478,N:M,a shepherd,n-3f(1b),Noun
 ποίμνη,N,"ποίμνη, ης, ἡ",ποίμνη,"ποίμνη, ης, ἡ","ποίμνη, ης, ἡ",ποίμνη,4167,4479,N:F,a flock,n-1b,Noun
 ποίμνιον,N,"ποίμνιον, ου, τό",ποίμνιον,"ποίμνιον, ου, τό","ποίμνιον, ου, τό",ποίμνιον,4168,4480,N:N,a little flock,n-2c,Noun
-ποῖος,RI,,ποῖος,"ποῖος, α, ον","ποῖος, α, ον",ποῖος,4169,4481,I,of what sort,a-1a(1),Indefinite Pronoun
+ποῖος,RI,,ποῖος,"ποῖος, α, ον","ποῖος, α, ον",ποῖος,4169,4481,I,of what sort,a-1a(1),Pronoun - Indefinite
 πολεμέω,V,,πολεμέω,πολεμέω,πολεμέω,πολεμέω,4170,4482,V,"I make war, contend",v-1d(2a),Verb
 πόλεμος,N,"πόλεμος, ου, ὁ",πόλεμος,"πόλεμος, ου, ὁ","πόλεμος, ου, ὁ",πόλεμος,4171,4483,N:M,"a war, battle, strife",n-2a,Noun
 πόλις,N,"πόλις, εως, ἡ",πόλις,"πόλις, εως, ἡ","πόλις, εως, ἡ",πόλις,4172,4484,N:F,a city,n-3e(5b),Noun
@@ -4082,10 +4082,10 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 πορφυροῦς,A,"πορφυροῦς, ᾶ, οῦν",πορφυροῦς,"πορφυροῦς, ᾶ, οῦν","πορφυροῦς, ᾶ, οῦν",πορφυροῦς,4210,4528,A,purple,a-1b,Adjective
 ποσάκις,D,,ποσάκις,ποσάκις,ποσάκις,ποσάκις,4212,4529,ADV,how often,adverb,Adverb
 πόσις,N,"πόσις, εως, ἡ",πόσις,"πόσις, εως, ἡ","πόσις, εως, ἡ",πόσις,4213,4530,N:F,drink,n-3e(5b),Noun
-πόσος,RI/Q,,πόσος,"πόσος, η, ον","πόσος, η, ον",πόσος,4214,4531,Q,"how much, how great, how many",a-1a(2a),Indefinite Pronoun
+πόσος,RI/Q,,πόσος,"πόσος, η, ον","πόσος, η, ον",πόσος,4214,4531,Q,"how much, how great, how many",a-1a(2a),Pronoun - Indefinite
 ποταμός,N,"ποταμός, οῦ, ὁ",ποταμός,"ποταμός, οῦ, ὁ","ποταμός, οῦ, ὁ",ποταμός,4215,4532,N:M,"a river, torrent",n-2a,Noun
 ποταμοφόρητος,A,"ποταμοφόρητος, ον",ποταμοφόρητος,"ποταμοφόρητος, ον","ποταμοφόρητος, ον",ποταμοφόρητος,4216,4533,A,carried away by a stream,a-3a,Adjective
-ποταπός,RI/A,,ποταπός,"ποταπός, ή, όν","ποταπός, ή, όν",ποταπός,4217,4534,A,of what kind,a-1a(2a),Indefinite Pronoun
+ποταπός,RI/A,,ποταπός,"ποταπός, ή, όν","ποταπός, ή, όν",ποταπός,4217,4534,A,of what kind,a-1a(2a),Pronoun - Indefinite
 ποτέ,X,,ποτέ,ποτέ,ποτέ,ποτέ,4218,4537,PRT,at one time or other,particle,Adverb
 πότε,D/PRT-I,,πότε,πότε,πότε,πότε,4219,4536,PRT-I,"when, at what time",adverb,Adverb
 πότερον,D,,,"πότερος, α, ον",,πότερον,,4538,,,particle,Adverb
@@ -4430,7 +4430,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 σάτον,N,"σάτον, ου, τό",σάτον,"σάτον, ου, τό","σάτον, ου, τό",σάτον,4568,4929,N:N,nearly three English gallons,n-2c,Noun
 Σαῦλος,N,"Σαῦλος, ου, ὁ",Σαῦλος,"Σαῦλος, ου, ὁ","Σαῦλος, ου, ὁ",Σαῦλος,4569,4930,N:M,"Saul, the apostle",n-2a,Noun
 σβέννυμι,V,,σβέννυμι,σβέννυμι,σβέννυμι,σβέννυμι,4570,4931,V,"I extinguish, suppress",v-3c(1),Verb
-σεαυτοῦ,RP2/F,,σεαυτοῦ,σεαυτοῦ,"σεαυτοῦ, ῆς, οῦ",σεαυτοῦ,4572,4932,F,of yourself,a-1a(2b),Personal Pronoun
+σεαυτοῦ,RP2/F,,σεαυτοῦ,σεαυτοῦ,"σεαυτοῦ, ῆς, οῦ",σεαυτοῦ,4572,4932,F,of yourself,a-1a(2b),Pronoun - Personal
 σεβάζομαι,V,,σεβάζομαι,σεβάζομαι,σεβάζομαι,σεβάζομαι,4573,4933,V,I worship,v-2a(1),Verb
 σέβασμα,N,"σέβασμα, ατος, τό",σέβασμα,"σέβασμα, ατος, τό","σέβασμα, ατος, τό",σέβασμα,4574,4934,N:N,an object of worship,n-3c(4),Noun
 Σεβαστός,A,"σεβαστός, ή, όν",σεβαστός,"σεβαστός, ή, όν","Σεβαστός, ή, όν",σεβαστός,4575,4935,A,"august, venerated",a-1a(2a),Adjective
@@ -4629,7 +4629,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 στυγητός,A,"στυγητός, ή, όν",στυγητός,"στυγητός, ή, όν","στυγητός, ή, όν",στυγητός,4767,5144,A,"hateful, detestable",a-1a(2a),Adjective
 στυγνάζω,V,,στυγνάζω,στυγνάζω,στυγνάζω,στυγνάζω,4768,5145,V,I am gloomy,v-2a(1),Verb
 στῦλος,N,"στῦλος, ου, ὁ",στῦλος,"στῦλος, ου, ὁ","στῦλος, ου, ὁ",στῦλος,4769,5146,N:M,a pillar,n-2a,Noun
-σύ,RP2,,σύ,σύ,"σύ, σοῦ, σοί, σέ",σύ,4771,5148,P,you,a-5,Personal Pronoun
+σύ,RP2,,σύ,σύ,"σύ, σοῦ, σοί, σέ",σύ,4771,5148,P,you,a-5,Pronoun - Personal
 συγγένεια,N,"συγγένεια, ας, ἡ",συγγένεια,"συγγένεια, ας, ἡ","συγγένεια, ας, ἡ",συγγένεια,4772,5149,N:F,"kindred, family",n-1a,Noun
 συγγενής,A,"συγγενής, ές",συγγενής,"συγγενής, ές","συγγενής, ές",συγγενής,4773,5150,A,"akin, a relative",a-4a,Adjective
 συγγενίς,N,"συγγενίς, ίδος, ἡ",συγγενίς,"συγγενίς, ίδος, ἡ","συγγενής, ές",συγγενίς,4773,5151,A,"akin, a relative",n-3c(2),Noun
@@ -4937,7 +4937,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 τεχνίτης,N,"τεχνίτης, ου, ὁ",τεχνίτης,"τεχνίτης, ου, ὁ","τεχνίτης, ου, ὁ",τεχνίτης,5079,5493,N:M,"a craftsman, artisan",n-1f,Noun
 τήκομαι,V,,τήκω,τήκω,τήκω,τήκω,5080,5494,V,"I make liquid, melt",v-1b(2),Verb
 τηλαυγῶς,D,,τηλαυγῶς,τηλαυγῶς,τηλαυγῶς,τηλαυγῶς,5081,5495,ADV,"clearly, distinctly",adverb,Adverb
-τηλικοῦτος,RD,,τηλικοῦτος,"τηλικοῦτος, αύτη, οῦτο","τηλικοῦτος, αύτη, οῦτο",τηλικοῦτος,5082,5496,D,so great,a-1a(2b),Demonstrative Pronoun
+τηλικοῦτος,RD,,τηλικοῦτος,"τηλικοῦτος, αύτη, οῦτο","τηλικοῦτος, αύτη, οῦτο",τηλικοῦτος,5082,5496,D,so great,a-1a(2b),Pronoun - Demonstrative
 τηρέω,V,,τηρέω,τηρέω,τηρέω,τηρέω,5083,5498,V,"I keep, guard, observe",v-1d(2a),Verb
 τήρησις,N,"τήρησις, εως, ἡ",τήρησις,"τήρησις, εως, ἡ","τήρησις, εως, ἡ",τήρησις,5084,5499,N:F,"a prison, observance",n-3e(5b),Noun
 Τιβεριάς,N,"Τιβεριάς, άδος, ἡ",Τιβεριάς,"Τιβεριάς, άδος, ἡ","Τιβεριάς, άδος, ἡ",Τιβεριάς,5085,5500,N:F,Tiberias,n-3c(2),Noun
@@ -4955,15 +4955,15 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 τιμωρέω,V,,τιμωρέω,τιμωρέω,τιμωρέω,τιμωρέω,5097,5512,V,I punish,v-1d(2a),Verb
 τιμωρία,N,"τιμωρία, ας, ἡ",τιμωρία,"τιμωρία, ας, ἡ","τιμωρία, ας, ἡ",τιμωρία,5098,5513,N:F,"punishment, penalty",n-1a,Noun
 τίνω,V,,τίνω,τίνω,τίνω,τίνω,5099,5514,V,I pay,v-3a(1),Verb
-τις,RI/X,,τὶς,"τὶς, τὶ, gen. τινός","τις, τι",τὶς,5100,5516,X,"any one, some one",a-4b(2),Indefinite Pronoun
-τίς,RI/X,,τίς,"τίς, τί, gen. τίνος","τίς, τί",τίς,5101,5515,I,"who, which, what",a-4b(2),Indefinite Pronoun
+τις,RI/X,,τὶς,"τὶς, τὶ, gen. τινός","τις, τι",τὶς,5100,5516,X,"any one, some one",a-4b(2),Pronoun - Indefinite
+τίς,RI/X,,τίς,"τίς, τί, gen. τίνος","τίς, τί",τίς,5101,5515,I,"who, which, what",a-4b(2),Pronoun - Indefinite
 Τίτιος,N,"Τίτιος, ου, ὁ",Τίτιος,"Τίτιος, ου, ὁ",,Τίτιος,,5517,,,n-2a,Noun
 τίτλος,N,"τίτλος, ου, ὁ",τίτλος,"τίτλος, ου, ὁ","τίτλος, ου, ὁ",τίτλος,5102,5518,N:M,"a title, inscription",n-2a,Noun
 Τίτος,N,"Τίτος, ου, ὁ",Τίτος,"Τίτος, ου, ὁ","Τίτος, ου, ὁ",Τίτος,5103,5519,N:M,Titus,n-2a,Noun
 τοιγαροῦν,C/PRT,,τοιγαροῦν,τοιγαροῦν,τοιγαροῦν,τοιγαροῦν,5105,5521,PRT,"consequently, therefore",particle,Conjunction
 τοίνυν,C/PRT,,τοίνυν,τοίνυν,τοίνυν,τοίνυν,5106,5523,PRT,"indeed now, therefore",particle,Conjunction
-τοιόσδε,RD,,τοιόσδε,"τοιόσδε, άδε, όνδε","τοιόσδε, τοιάδε, τοιόνδε",τοιόσδε,5107,5524,D,"of this kind, such",a-1a(2b),Demonstrative Pronoun
-τοιοῦτος,RD,,τοιοῦτος,"τοιοῦτος, αύτη, οῦτον /οῦτο","τοιοῦτος, τοιαύτη, τοιοῦτο",τοιοῦτος,5108,5525,D,"of such a kind, such",a-1a(2b),Demonstrative Pronoun
+τοιόσδε,RD,,τοιόσδε,"τοιόσδε, άδε, όνδε","τοιόσδε, τοιάδε, τοιόνδε",τοιόσδε,5107,5524,D,"of this kind, such",a-1a(2b),Pronoun - Demonstrative
+τοιοῦτος,RD,,τοιοῦτος,"τοιοῦτος, αύτη, οῦτον /οῦτο","τοιοῦτος, τοιαύτη, τοιοῦτο",τοιοῦτος,5108,5525,D,"of such a kind, such",a-1a(2b),Pronoun - Demonstrative
 τοῖχος,N,"τοῖχος, ου, ὁ",τοῖχος,"τοῖχος, ου, ὁ","τοῖχος, ου, ὁ",τοῖχος,5109,5526,N:M,a wall,n-2a,Noun
 τόκος,N,"τόκος, ου, ὁ",τόκος,"τόκος, ου, ὁ","τόκος, ου, ὁ",τόκος,5110,5527,N:M,"interest, usury",n-2a,Noun
 τολμάω,V,,τολμάω,τολμάω,τολμάω,τολμάω,5111,5528,V,"I dare, endure, am bold",v-1d(1a),Verb
@@ -4973,7 +4973,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 τόξον,N,"τόξον, ου, τό",τόξον,"τόξον, ου, τό","τόξον, ου, τό",τόξον,5115,5534,N:N,a bow,n-2c,Noun
 τοπάζιον,N,"τοπάζιον, ου, τό",τοπάζιον,"τοπάζιον, ου, τό","τοπάζιον, ου, τό",τοπάζιον,5116,5535,N:N,topaz,n-2c,Noun
 τόπος,N,"τόπος, ου, ὁ",τόπος,"τόπος, ου, ὁ","τόπος, ου, ὁ",τόπος,5117,5536,N:M,a place,n-2a,Noun
-τοσοῦτος,RD,,τοσοῦτος,"τοσοῦτος, αύτη, οῦτον /οῦτο","τοσοῦτος, τοσαύτη, τοσοῦτο",τοσοῦτος,5118,5537,D,so great,a-1a(2b),Demonstrative Pronoun
+τοσοῦτος,RD,,τοσοῦτος,"τοσοῦτος, αύτη, οῦτον /οῦτο","τοσοῦτος, τοσαύτη, τοσοῦτο",τοσοῦτος,5118,5537,D,so great,a-1a(2b),Pronoun - Demonstrative
 τότε,D,,τότε,τότε,τότε,τότε,5119,5538,ADV,then,adverb,Adverb
 τοὐναντίον,N/ADV-K,,τοὐναντίον,τὸ ἐναντίον,τοὐναντίον,τοὐναντίον,5121,5539,ADV-K,on the contrary,adverb,Adverb
 τοὔνομα,N/ADV-K,,τοὔνομα,τὸ ὄνομα,τοὔνομα,τοὔνομα,5122,5540,ADV-K,by name,,Noun
