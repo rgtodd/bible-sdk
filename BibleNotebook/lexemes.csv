@@ -569,7 +569,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἁπλότης,N,"ἁπλότης, ητος, ἡ",ἁπλότης,"ἁπλότης, ητος, ἡ","ἁπλότης, τητος, ἡ",ἁπλότης,572,605,N:F,"simplicity, sincerity, purity",n-3c(1),Noun
 ἁπλοῦς,A,"ἁπλοῦς, ῆ, οῦν",ἁπλοῦς,"ἁπλοῦς, ῆ, οῦν","ἁπλοῦς, ῆ, οῦν",ἁπλοῦς,573,606,A,"single, simple, sound",a-1b,Adjective
 ἁπλῶς,D,,ἁπλῶς,ἁπλῶς,ἁπλῶς,ἁπλῶς,574,607,ADV,"simply, sincerely",adverb,Adverb
-ἀπό,P,,ἀπό,ἀπό,ἀπό,ἀπό,575,608,PREP,"from, away from",prep,Preposition
+ἀπό,P,,ἀπό,ἀπό,ἀπό,ἀπό,575,608,PREP,"from, away from (gen)",prep,Preposition
 ἀποβαίνω,V,,ἀποβαίνω,ἀποβαίνω,ἀποβαίνω,ἀποβαίνω,576,609,V,"I go or come out of, disembark, result",cv-2d(6),Verb
 ἀποβάλλω,V,,ἀποβάλλω,ἀποβάλλω,ἀποβάλλω,ἀποβάλλω,577,610,V,"I throw away from, throw overboard",cv-2d(1),Verb
 ἀποβλέπω,V,,ἀποβλέπω,ἀποβλέπω,ἀποβλέπω,ἀποβλέπω,578,611,V,"I look away from, turn my attention to",cv-1b(1),Verb
@@ -1217,7 +1217,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 δημόσιος,A,"δημόσιος, α, ον",δημόσιος,"δημόσιος, α, ον","δημόσιος, α, ον",δημόσιος,1219,1323,A,"public, publicly",a-1a(1),Adjective
 δηνάριον,N,"δηνάριον, ου, τό",δηνάριον,"δηνάριον, ου, τό","δηνάριον, ου, τό",δηνάριον,1220,1324,N:N,a denarius,n-2c,Noun
 δήπου,X/ADV,,δήπου,δήπου,δήπου,δήπου,1222,1327,ADV,"of course, indeed",adverb,Particle
-διά,P,,διά,διά,διά,διά,1223,1328,PREP,"through, on account of",prep,Preposition
+διά,P,,διά,διά,διά,διά,1223,1328,PREP,"through, by means of (gen); on account of (acc)",prep,Preposition
 διαβαίνω,V,,διαβαίνω,διαβαίνω,διαβαίνω,διαβαίνω,1224,1329,V,"I cross, pass through",cv-2d(6),Verb
 διαβάλλω,V,,διαβάλλω,διαβάλλω,διαβάλλω,διαβάλλω,1225,1330,V,"I slander, complain of, accuse",cv-2d(1),Verb
 διαβεβαιόομαι,V,,διαβεβαιόομαι,διαβεβαιόομαι,διαβεβαιόομαι,διαβεβαιόομαι,1226,1331,V,I assert emphatically,cv-1d(3),Verb
@@ -1509,7 +1509,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 εἰρηνικός,A,"εἰρηνικός, ή, όν",εἰρηνικός,"εἰρηνικός, ή, όν","εἰρηνικός, ή, όν",εἰρηνικός,1516,1646,A,"peaceable, disposed to peace",a-1a(2a),Adjective
 εἰρηνοποιέω,V,,εἰρηνοποιέω,εἰρηνοποιέω,εἰρηνοποιέω,εἰρηνοποιέω,1517,1647,V,"I make peace, reconcile",cv-1d(2a),Verb
 εἰρηνοποιός,A,"εἰρηνοποιός, όν",εἰρηνοποιός,"εἰρηνοποιός, όν","εἰρηνοποιός, όν",εἰρηνοποιός,1518,1648,A,"pacific, loving peace, a peace-maker",a-3a,Adjective
-εἰς,P,,εἰς,εἰς,εἰς,εἰς,1519,1650,PREP,"into, in, among, till, for",prep,Preposition
+εἰς,P,,εἰς,εἰς,εἰς,εἰς,1519,1650,PREP,"into, in, among, till, for (acc)",prep,Preposition
 εἷς,A,"εἷς, μία, ἕν, gen. ἑνός, μιᾶς, ἑνός",εἷς,"εἷς, μία, ἕν, gen. ἑνός, μιᾶς, ἑνός","εἷς, μία, ἕν",εἷς,1520,1651,A,one,a-4b(2),Adjective
 εἰσάγω,V,,εἰσάγω,εἰσάγω,εἰσάγω,εἰσάγω,1521,1652,V,"I lead in, bring in",cv-1b(2),Verb
 εἰσακούω,V,,εἰσακούω,εἰσακούω,εἰσακούω,εἰσακούω,1522,1653,V,"I hear, listen to",cv-1a(8),Verb
@@ -1525,7 +1525,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 εἶτα,D,,εἶτα,εἶτα,εἶτα,εὶτα,1534,1663,ADV,"then, thereafter, next",adverb,Adverb
 εἴτε,C,,εἴτε,εἴτε,εἴτε,εἴτε,1535,1664,CONJ,"and if, whether",particle,Conjunction
 εἴωθα,V,,εἴωθα,εἴωθα,εἴωθα,εἴωθα,1486,1665,V,"I am accustomed, custom, what was customary",??,Verb
-ἐκ,P,,ἐκ,"ἐκ, before vowels ἐξ, prep. w. gen., introducing various aspects of separation or derivation (opp. εἰς, which is goal- oriented) – a. relating in general to a matter of origin; resources of English encourage a variety of glosses – α. of place or thing, from, out of (the latter gloss usually preferred where focus is on movement or removal) Mt 2:6, 15; 3:9; 7:4; 8:28 (explicitly opp. εἰς); 17:5; 26:27 (of taking a drink out of a cup); in related mode 1 Cor 9:13 (ἐκ τοῦ ἱεροῦ ἐσθίειν =eat of things derived from the temple); of material source Mt 27:29 (a wreath","ἐκ, ἐξ",ἐκ,1537,1666,PREP,"from out, out from among, from",prep,Preposition
+ἐκ,P,,ἐκ,"ἐκ, before vowels ἐξ, prep. w. gen., introducing various aspects of separation or derivation (opp. εἰς, which is goal- oriented) – a. relating in general to a matter of origin; resources of English encourage a variety of glosses – α. of place or thing, from, out of (the latter gloss usually preferred where focus is on movement or removal) Mt 2:6, 15; 3:9; 7:4; 8:28 (explicitly opp. εἰς); 17:5; 26:27 (of taking a drink out of a cup); in related mode 1 Cor 9:13 (ἐκ τοῦ ἱεροῦ ἐσθίειν =eat of things derived from the temple); of material source Mt 27:29 (a wreath","ἐκ, ἐξ",ἐκ,1537,1666,PREP,"from out, out from among, from (gen)",prep,Preposition
 ἕκαστος,A,"ἕκαστος, η, ον",ἕκαστος,"ἕκαστος, η, ον","ἕκαστος, η, ον",ἕκαστος,1538,1667,A,"each, every one",a-1a(2a),Adjective
 ἑκάστοτε,D,,ἑκάστοτε,ἑκάστοτε,ἑκάστοτε,ἑκάστοτε,1539,1668,ADV,"at every time, always",adverb,Adverb
 ἑκατόν,A,ἑκατόν,ἑκατόν,ἑκατόν,ἑκατόν,ἑκατόν,1540,1669,A-NUI,one hundred,n-3g(2),Adjective
@@ -1711,7 +1711,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἔμφοβος,A,"ἔμφοβος, ον",ἔμφοβος,"ἔμφοβος, ον","ἔμφοβος, ον",ἔμφοβος,1719,1873,A,"full of fear, terrified",a-3a,Adjective
 ἐμφυσάω,V,,ἐμφυσάω,ἐμφυσάω,ἐμφυσάω,ἐμφυσάω,1720,1874,V,"I breathe into, breathe upon",cv-1d(1a),Verb
 ἔμφυτος,A,"ἔμφυτος, ον",ἔμφυτος,"ἔμφυτος, ον","ἔμφυτος, ον",ἔμφυτος,1721,1875,A,"inborn, ingrown, congenital, natural",a-3a,Adjective
-ἐν,P,,ἐν,ἐν,ἐν,ἐν,1722,1877,PREP,"in, on, among",prep,Preposition
+ἐν,P,,ἐν,ἐν,ἐν,ἐν,1722,1877,PREP,"in, on, among (dat)",prep,Preposition
 ἐναγκαλίζομαι,V,,ἐναγκαλίζομαι,ἐναγκαλίζομαι,ἐναγκαλίζομαι,ἐναγκαλίζομαι,1723,1878,V,I take in my arms,cv-2a(1),Verb
 ἐνάλιον,A,"ἐνάλιος, ον",ἐνάλιος,"ἐνάλιος, ον","ἐνάλιος, ον",ἐνάλιος,1724,1879,A,living in the sea,a-3a,Adjective
 ἔναντι,P/ADV,,ἔναντι,ἔναντι,ἔναντι,ἔναντι,1725,1882,ADV,"before, in the presence of",prep,Preposition
@@ -1900,7 +1900,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ἐπερώτημα,N,"ἐπερώτημα, ατος, τό",ἐπερώτημα,"ἐπερώτημα, ατος, τό","ἐπερώτημα, ατος, τό",ἐπερώτημα,1906,2090,N:N,"inquiry, request, appeal",n-3c(4),Noun
 ἐπέχω,V,,ἐπέχω,ἐπέχω,ἐπέχω,ἐπέχω,1907,2091,V,"I hold forth, pay attention, note, delay",cv-1b(2),Verb
 ἐπηρεάζω,V,,ἐπηρεάζω,ἐπηρεάζω,ἐπηρεάζω,ἐπηρεάζω,1908,2092,V,"I insult, treat wrongfully, molest",cv-,Verb
-ἐπί,P,,ἐπί,ἐπί,ἐπί,ἐπί,1909,2093,PREP,"on, to, against, on the basis of, at",prep,Preposition
+ἐπί,P,,ἐπί,ἐπί,ἐπί,ἐπί,1909,2093,PREP,"on, over, when (gen); on, at, in, while (dat); across, over, on, to, for, while (acc)",prep,Preposition
 ἐπιβαίνω,V,,ἐπιβαίνω,ἐπιβαίνω,ἐπιβαίνω,ἐπιβαίνω,1910,2094,V,"I step on, mount, board",cv-2d(6),Verb
 ἐπιβάλλω,V,,ἐπιβάλλω,ἐπιβάλλω,ἐπιβάλλω,ἐπιβάλλω,1911,2095,V,"I throw upon, lay, strike upon",cv-2d(1),Verb
 ἐπιβαρέω,V,,ἐπιβαρέω,ἐπιβαρέω,ἐπιβαρέω,ἐπιβαρέω,1912,2096,V,I burden,cv-1d(2a),Verb
@@ -2577,7 +2577,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 καρποφόρος,A,"καρποφόρος, ον",καρποφόρος,"καρποφόρος, ον","καρποφόρος, ον",καρποφόρος,2593,2845,A,fruitful,a-3a,Adjective
 καρτερέω,V,,καρτερέω,καρτερέω,καρτερέω,καρτερέω,2594,2846,V,"I persevere, endure",v-1d(2a),Verb
 κάρφος,N,"κάρφος, ους, τό",κάρφος,"κάρφος, ους, τό","κάρφος, ους, τό",κάρφος,2595,2847,N:N,"a dry stalk, chip of wood",n-3d(2b),Noun
-κατά,P,,κατά,κατά,κατά,κατά,2596,2848,PREP,"down from, against, according to, throughout, during",prep,Preposition
+κατά,P,,κατά,κατά,κατά,κατά,2596,2848,PREP,"down from, against, throughout (gen); according to, during (acc)",prep,Preposition
 καταβαίνω,V,,καταβαίνω,καταβαίνω,καταβαίνω,καταβαίνω,2597,2849,V,"I go down, come down",cv-2d(6),Verb
 καταβάλλω,V,,καταβάλλω,καταβάλλω,καταβάλλω,καταβάλλω,2598,2850,V,"I cast, lay down",cv-2d(1),Verb
 καταβαρέω,V,,καταβαρέω,καταβαρέω,καταβαρέω,καταβαρέω,2599,2851,V,"I burden, oppress",cv-1d(2a),Verb
@@ -3206,7 +3206,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 Μεσσίας,N,"Μεσσίας, ου, ὁ",Μεσσίας,"Μεσσίας, ου, ὁ","Μεσσίας, ου, ὁ",Μεσσίας,3323,3549,N:M,Messiah,n-1d,Noun
 μεστός,A,"μεστός, ή, όν",μεστός,"μεστός, ή, όν","μεστός, ή, όν",μεστός,3324,3550,A,full,a-1a(2a),Adjective
 μεστόω,V,,μεστόω,μεστόω,μεστόω,μεστόω,3325,3551,V,I fill,v-1d(3),Verb
-μετά,P,,μετά,μετά,μετά,μετά,3326,3552,PREP,"with, after",prep,Preposition
+μετά,P,,μετά,μετά,μετά,μετά,3326,3552,PREP,with (gen); after (acc),prep,Preposition
 μεταβαίνω,V,,μεταβαίνω,μεταβαίνω,μεταβαίνω,μεταβαίνω,3327,3553,V,"I leave, depart, remove, pass over",cv-2d(6),Verb
 μεταβάλλομαι,V,,μεταβάλλω,μεταβάλλω,μεταβάλλω,μεταβάλλω,3328,3554,V,"I change, change my mind",cv-2d(1),Verb
 μετάγω,V,,μετάγω,μετάγω,μετάγω,μετάγω,3329,3555,V,"I turn about, change the position of",cv-1b(2),Verb
@@ -3713,7 +3713,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 παντοκράτωρ,N,"παντοκράτωρ, ορος, ὁ",παντοκράτωρ,"παντοκράτωρ, ορος, ὁ","παντοκράτωρ, ορος, ὁ",παντοκράτωρ,3841,4120,N:M,ruler of the universe,n-3f(2b),Noun
 πάντοτε,D,,πάντοτε,πάντοτε,πάντοτε,πάντοτε,3842,4121,ADV,"always, at all times",adverb,Adverb
 πάντως,D,,πάντως,πάντως,πάντως,πάντως,3843,4122,ADV,"entirely, in every way, certainly",adverb,Adverb
-παρά,P,,παρά,παρά,παρά,παρά,3844,4123,PREP,"from, in the presence of",prep,Preposition
+παρά,P,,παρά,παρά,παρά,παρά,3844,4123,PREP,"from (gen); with, in the presence of (dat); beside (acc)",prep,Preposition
 παραβαίνω,V,,παραβαίνω,παραβαίνω,παραβαίνω,παραβαίνω,3845,4124,V,I transgress,cv-2d(6),Verb
 παραβάλλω,V,,παραβάλλω,παραβάλλω,παραβάλλω,παραβάλλω,3846,4125,V,"I compare, arrive",cv-2d(1),Verb
 παράβασις,N,"παράβασις, εως, ἡ",παράβασις,"παράβασις, εως, ἡ","παράβασις, εως, ἡ",παράβασις,3847,4126,N:F,a transgression,n-3e(5b),Noun
@@ -3881,7 +3881,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 πέρας,N,"πέρας, ατος, τό",πέρας,"πέρας, ατος, τό","πέρας, ατος, τό",πέρας,4009,4306,N:N,"a boundary, limit, an end",n-3c(6a),Noun
 Πέργαμος,N,"Πέργαμος, ου, ἡ",Πέργαμος,"Πέργαμος, ου, ἡ /Πέργαμον, ου, τό","Πέργαμος, ου, ἡ",Πέργαμος,4010,4307,N:F,Pergamum,n-2a,Noun
 Πέργη,N,"Πέργη, ης, ἡ",Πέργη,"Πέργη, ης, ἡ","Πέργη, ης, ἡ",Πέργη,4011,4308,N:F,Perga,n-1b,Noun
-περί,P,,περί,περί,περί,περί,4012,4309,PREP,"about, concerning, around",prep,Preposition
+περί,P,,περί,περί,περί,περί,4012,4309,PREP,"about, concerning (gen); around (acc)",prep,Preposition
 περιάγω,V,,περιάγω,περιάγω,περιάγω,περιάγω,4013,4310,V,"I lead about, go about",cv-1b(2),Verb
 περιαιρέω,V,,περιαιρέω,περιαιρέω,περιαιρέω,περιαιρέω,4014,4311,V,"I strip off, cast off",cv-1d(2a),Verb
 περιάπτω,V,,περιάπτω,περιάπτω,,περιάπτω,,4312,,,cv-4,Verb
@@ -4180,7 +4180,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 προπέμπω,V,,προπέμπω,προπέμπω,προπέμπω,προπέμπω,4311,4636,V,"I send forward, accompany",cv-1b(1),Verb
 προπετής,A,"προπετής, ές, gen. οῦς",προπετής,"προπετής, ές, gen. οῦς","προπετής, ές",προπετής,4312,4637,A,"impulsive, rash, reckless",a-4a,Adjective
 προπορεύομαι,V,,προπορεύομαι,προπορεύομαι,προπορεύομαι,προπορεύομαι,4313,4638,V,"I precede, pass on before",cv-1a(6),Verb
-πρός,P,,πρός,πρός,πρός,πρός,4314,4639,PREP,"to, towards, with",prep,Preposition
+πρός,P,,πρός,πρός,πρός,πρός,4314,4639,PREP,"to (gen); on, near (dat); towards, with (acc)",prep,Preposition
 προσάββατον,N,"προσάββατον, ου, τό",προσάββατον,"προσάββατον, ου, τό","προσάββατον, ου, τό",προσάββατον,4315,4640,N:N,the day before the Sabbath,n-2c,Noun
 προσαγορεύω,V,,προσαγορεύω,προσαγορεύω,προσαγορεύω,προσαγορεύω,4316,4641,V,"I address by name, designate",cv-1a(6),Verb
 προσάγω,V,,προσάγω,προσάγω,προσάγω,προσάγω,4317,4642,V,"I bring near, approach",cv-1b(2),Verb
@@ -5103,7 +5103,7 @@ Lemma,Part of Speech Code,Full Citation Form,BDAG Entry,Danker Entry,Dodson Entr
 ὑπηρετέω,V,,ὑπηρετέω,ὑπηρετέω,ὑπηρετέω,ὑπηρετέω,5256,5676,V,"I minister to, serve",v-1d(2a),Verb
 ὑπηρέτης,N,"ὑπηρέτης, ου, ὁ",ὑπηρέτης,"ὑπηρέτης, ου, ὁ","ὑπηρέτης, ου, ὁ",ὑπηρέτης,5257,5677,N:M,"a servant, an attendant",n-1f,Noun
 ὕπνος,N,"ὕπνος, ου, ὁ",ὕπνος,"ὕπνος, ου, ὁ","ὕπνος, ου, ὁ",ὕπνος,5258,5678,N:M,sleep,n-2a,Noun
-ὑπό,P,,ὑπό,ὑπό,ὑπό,ὑπό,5259,5679,PREP,"by, under, about",prep,Preposition
+ὑπό,P,,ὑπό,ὑπό,ὑπό,ὑπό,5259,5679,PREP,"by means of (gen); under, at time of day (acc)",prep,Preposition
 ὑποβάλλω,V,,ὑποβάλλω,ὑποβάλλω,ὑποβάλλω,ὑποβάλλω,5260,5680,V,"I suborn, instruct privately",cv-2d(1),Verb
 ὑπογραμμός,N,"ὑπογραμμός, οῦ, ὁ",ὑπογραμμός,"ὑπογραμμός, οῦ, ὁ","ὑπογραμμός, οῦ, ὁ",ὑπογραμμός,5261,5681,N:M,"a writing-copy, an example",n-2a,Noun
 ὑπόδειγμα,N,"ὑπόδειγμα, ατος, τό",ὑπόδειγμα,"ὑπόδειγμα, ατος, τό","ὑπόδειγμα, ατος, τό",ὑπόδειγμα,5262,5682,N:N,"a figure, copy, example",n-3c(4),Noun

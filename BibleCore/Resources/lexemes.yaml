@@ -6533,7 +6533,7 @@
     strongs: 575
     gk: 608
     dodson-pos: PREP
-    gloss: from, away from
+    gloss: from, away from (gen)
     mounce-morphcat: prep
 ἀποβαίνω:
     pos: V
@@ -13977,7 +13977,7 @@
     strongs: 1223
     gk: 1328
     dodson-pos: PREP
-    gloss: through, on account of
+    gloss: through, by means of (gen); on account of (acc)
     mounce-morphcat: prep
 διαβαίνω:
     pos: V
@@ -17267,7 +17267,7 @@
     strongs: 1519
     gk: 1650
     dodson-pos: PREP
-    gloss: into, in, among, till, for
+    gloss: into, in, among, till, for (acc)
     mounce-morphcat: prep
 εἷς:
     pos: A
@@ -17445,7 +17445,7 @@
     strongs: 1537
     gk: 1666
     dodson-pos: PREP
-    gloss: from out, out from among, from
+    gloss: from out, out from among, from (gen)
     mounce-morphcat: prep
 ἕκαστος:
     pos: A
@@ -19522,7 +19522,7 @@
     strongs: 1722
     gk: 1877
     dodson-pos: PREP
-    gloss: in, on, among
+    gloss: in, on, among (dat)
     mounce-morphcat: prep
 ἐναγκαλίζομαι:
     pos: V
@@ -21625,7 +21625,7 @@
     strongs: 1909
     gk: 2093
     dodson-pos: PREP
-    gloss: on, to, against, on the basis of, at
+    gloss: on, over, when (gen); on, at, in, while (dat); across, over, on, to, for, while (acc)
     mounce-morphcat: prep
 ἐπιβαίνω:
     pos: V
@@ -29341,7 +29341,7 @@
     strongs: 2596
     gk: 2848
     dodson-pos: PREP
-    gloss: down from, against, according to, throughout, during
+    gloss: down from, against, throughout (gen); according to, during (acc)
     mounce-morphcat: prep
 καταβαίνω:
     pos: V
@@ -36513,7 +36513,7 @@
     strongs: 3326
     gk: 3552
     dodson-pos: PREP
-    gloss: with, after
+    gloss: with (gen); after (acc)
     mounce-morphcat: prep
 μεταβαίνω:
     pos: V
@@ -42296,7 +42296,7 @@
     strongs: 3844
     gk: 4123
     dodson-pos: PREP
-    gloss: from, in the presence of
+    gloss: from (gen); with, in the presence of (dat); beside (acc)
     mounce-morphcat: prep
 παραβαίνω:
     pos: V
@@ -44205,7 +44205,7 @@
     strongs: 4012
     gk: 4309
     dodson-pos: PREP
-    gloss: about, concerning, around
+    gloss: about, concerning (gen); around (acc)
     mounce-morphcat: prep
 περιάγω:
     pos: V
@@ -47597,7 +47597,7 @@
     strongs: 4314
     gk: 4639
     dodson-pos: PREP
-    gloss: to, towards, with
+    gloss: to (gen); on, near (dat); towards, with (acc)
     mounce-morphcat: prep
 προσάββατον:
     pos: N
@@ -58117,7 +58117,7 @@
     strongs: 5259
     gk: 5679
     dodson-pos: PREP
-    gloss: by, under, about
+    gloss: by means of (gen); under, at time of day (acc)
     mounce-morphcat: prep
 ὑποβάλλω:
     pos: V
