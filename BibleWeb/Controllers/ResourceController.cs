@@ -16,7 +16,7 @@ namespace BibleWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await GetLexemes(null, 14);
+            var model = await GetLexemes(null, 16);
 
             return View("Vocabulary", model);
         }
