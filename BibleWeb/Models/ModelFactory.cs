@@ -35,7 +35,7 @@ namespace BibleWebApi.Models
         {
             var sortedLexemes = lexemes
                 .OrderBy(l => l.PartOfSpeechDescription)
-                .ThenBy(l => l.MounceMorphcat)
+                //.ThenBy(l => l.MounceMorphcat)
                 .ThenBy(l => l.FullCitationForm)
                 .ToList();
 
