@@ -56,29 +56,7 @@ namespace BibleWebApi.Controllers
                 }
             }
 
-            if (lexemeData != null)
-            {
-                if (lexemeData.StrongsNumber != null && lexemeData.StrongsNumber.Length > 0)
-                {
-                    strongs = lexemeData.StrongsNumber[0];
-                }
-
-                if (lexemeData.GkNumber != null && lexemeData.GkNumber.Length > 0)
-                {
-                    gk = lexemeData.GkNumber[0];
-                }
-            }
-
-            var message = (strongs != null || gk != null) && lexemeData == null ? "Not found." : null;
-
-            var model = new LookupModel()
-            {
-                Message = message,
-                LexemeData = lexemeData,
-                StrongsNumber = strongs,
-                GkNumber = gk,
-                Range = range
-            };
+            var model = ModelFactory.CreateLookupModel(lexemeData, strongs, gk, range);
 
             return model;
         }

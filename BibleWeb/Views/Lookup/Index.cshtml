@@ -107,6 +107,119 @@
             </div>
         }
     </div>
+
+    if (Model.Verb != null)
+    {
+        string? currentCategory = null;
+
+        <div class="card">
+            <h3 class="card-header text-center serif">
+                @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
+            </h3>
+            @foreach (var inflection in Model.Verb.Inflections)
+            {
+                if (inflection.Inflection.Category != currentCategory)
+                {
+                    currentCategory = inflection.Inflection.Category;
+
+                    <hr class="m-0 p-0" />
+                    <div class="card-body row">
+                        <div class="col">
+                            @currentCategory
+                        </div>
+                    </div>
+                }
+                <hr class="m-0 p-0" />
+                <div class="card-body row">
+                    <div class="col">
+                        @inflection.VerbInflection
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h5 class="serif">
+                                1P:
+                                @foreach (var form in inflection.FirstPersonSingular)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <h5 class="serif">
+                                2P:
+                                @foreach (var form in inflection.SecondPersonSingular)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <h5 class="serif">
+                                3P:
+                                @foreach (var form in inflection.ThirdPersonSingular)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h5 class="serif">
+                                1P:
+                                @foreach (var form in inflection.FirstPersonPlural)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <h5 class="serif">
+                                2P:
+                                @foreach (var form in inflection.SecondPersonPlural)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <h5 class="serif">
+                                3P:
+                                @foreach (var form in inflection.ThirdPersonPlural)
+                                {
+                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
+
+                                    @form.Core
+
+                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                }
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 }
 @section Scripts
 {

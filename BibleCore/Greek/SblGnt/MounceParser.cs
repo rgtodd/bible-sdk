@@ -40,7 +40,7 @@ namespace BibleCore.Greek.SblGnt
                 var lexeme = lexicon.GetByGkNumber(gkNumber);
                 if (lexeme == null)
                 {
-                    logger.LogInformation("Can't find GK number {gkNumber}.", gkNumber);
+                    logger.LogInformation("Can't find GK number {gkNumber} for chapter {chapter}.", gkNumber, chapter);
                 }
                 else
                 {
