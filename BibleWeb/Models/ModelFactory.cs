@@ -9,7 +9,10 @@ namespace BibleWebApi.Models
 {
     public static class ModelFactory
     {
-        private static IDictionary<VerbInflectionModel, int>? verbInflectionSortOrder;
+        private static IDictionary<VerbInflectionModel, int>? m_verbInflectionSortOrder;
+        private static IDictionary<string, string>? m_verbCategories;
+        private static IDictionary<string, string>? m_verbSubcategories;
+        private static IDictionary<string, string>? m_verbMorphology;
 
         public static LookupModel CreateLookupModel(LexemeData? lexemeData, int? strongs, int? gk, string? range)
         {
@@ -237,9 +240,18 @@ namespace BibleWebApi.Models
 
             inflections.Sort(Comparer<VerbTenseModel>.Create((lhs, rhs) => GetVerbInflectionSortOrder(lhs.Inflection).CompareTo(GetVerbInflectionSortOrder(rhs.Inflection))));
 
+            string morphology = lexemeData.MounceMorphcat;
+            string category = GetVerbCategory(morphology);
+            string subcategory = GetVerbSubcategory(morphology);
+            string description = GetDescription(morphology);
+
             var verbModel = new VerbModel()
             {
-                Tenses = inflections
+                Tenses = inflections,
+                Morphology = morphology,
+                Category = category,
+                Subcategory = subcategory,
+                Description = description
             };
 
             return verbModel;
@@ -247,8 +259,85 @@ namespace BibleWebApi.Models
 
         private static int GetVerbInflectionSortOrder(VerbInflectionModel model)
         {
-            int sortOrder = 0;
-            verbInflectionSortOrder ??= new Dictionary<VerbInflectionModel, int>
+            return VerbInflectionSortOrder.TryGetValue(model, out var result) ? result : 9999;
+        }
+
+        private static string GetVerbCategory(string morphology)
+        {
+            bool isCompound;
+            if (morphology.StartsWith('c'))
+            {
+                isCompound = true;
+                morphology = morphology.Substring(1);
+            }
+            else
+            {
+                isCompound = false;
+            }
+
+            if (morphology.Length < 3)
+            {
+                return "?";
+            }
+
+            morphology = morphology[..3];
+
+            if (VerbCategories.TryGetValue(morphology, out string? category))
+            {
+                if (isCompound)
+                {
+                    category += " (Compound)";
+                }
+                return category;
+            }
+
+            return "?";
+        }
+
+        private static string GetVerbSubcategory(string morphology)
+        {
+            if (morphology.StartsWith('c'))
+            {
+                morphology = morphology.Substring(1);
+            }
+
+            if (morphology.Length < 4)
+            {
+                return "?";
+            }
+
+            morphology = morphology[..4];
+
+            if (VerbSubcategories.TryGetValue(morphology, out string? subcategory))
+            {
+                return subcategory;
+            }
+
+            return string.Empty;
+        }
+
+        private static string GetDescription(string morphology)
+        {
+            if (morphology.StartsWith('c'))
+            {
+                morphology = morphology.Substring(1);
+            }
+
+            if (VerbMorphologies.TryGetValue(morphology, out string? description))
+            {
+                return description;
+            }
+
+            return string.Empty;
+        }
+
+        private static IDictionary<VerbInflectionModel, int> VerbInflectionSortOrder
+        {
+            get
+            {
+                int sortOrder = 0;
+
+                m_verbInflectionSortOrder ??= new Dictionary<VerbInflectionModel, int>
                 {
                     // Primary / Active Voice
 
@@ -278,7 +367,122 @@ namespace BibleWebApi.Models
                     { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder }
                 };
 
-            return verbInflectionSortOrder.TryGetValue(model, out var result) ? result : 9999;
+                return m_verbInflectionSortOrder;
+            }
         }
+
+        private static IDictionary<string, string> VerbCategories
+        {
+            get
+            {
+                m_verbCategories ??= new Dictionary<string, string>
+                {
+                    { "v-1", "Present tense stem = verbal root" },
+                    { "v-2", "Present tense stem = verbal root + ι" },
+                    { "v-3", "Present tense stem = verbal root + ν" },
+                    { "v-4", "Present tense stem = verbal root + τ" },
+                    { "v-5", "Present tense stem = verbal root + (ι)σκ" },
+                    { "v-6", "Athematic (μι) verbs" },
+                    { "v-7", "Verbal roots that undergo ablaut (ἀκούω → ἀκήκοα)" },
+                    { "v-8", "Verbs using more than one verbal root" },
+                };
+
+                return m_verbCategories;
+            }
+        }
+
+        private static IDictionary<string, string> VerbSubcategories
+        {
+            get
+            {
+                m_verbSubcategories ??= new Dictionary<string, string>
+                {
+                    { "v-1a", "Roots ending in ι̭(consonantal iota) or Ϝ(digamma)" },
+                    { "v-1b", "Roots ending in a stop" },
+                    { "v-1c", "Roots ending in a liquid/nasal" },
+                    { "v-1d", "Roots ending in a vowel" },
+                    { "v-2a", "Roots ending in δ or γ adds ι̭> ζω" },
+                    { "v-2b", "Roots ending in a velar(κγχ) adds ι̭ > σσω" },
+                    { "v-2c", "Roots ending in a Ϝ(digamma)" },
+                    { "v-2d", "Roots ending in a liquid(λ ρ) or nasal(μ ν)" },
+                };
+
+                return m_verbSubcategories;
+            }
+        }
+
+        private static IDictionary<string, string> VerbMorphologies
+        {
+            get
+            {
+                m_verbMorphology ??= new Dictionary<string, string>
+                {
+                    { "v-1a(1)", "roots ending in consonantal iota" },
+                    { "v-1a(2)", "roots ending in αι" },
+                    { "v-1a(3)", "roots ending in ει" },
+                    { "v-1a(4)", "roots ending in υ" },
+                    { "v-1a(5)", "roots ending in αυ" },
+                    { "v-1a(6)", "roots ending in ευ(retain υ in the present)" },
+                    { "v-1a(7)", "roots ending in ευ(lose υ in the present)" },
+                    { "v-1a(8)", "roots ending in ου" },
+
+                    { "v-1b(1)", "labials(π β φ)" },
+                    { "v-1b(2)", "velars(κ γ χ)" },
+                    { "v-1b(3)", "dentals(τ δ θ)" },
+                    { "v-1b(4)", "stop(adding ε to form the present tense stem)" },
+
+                    { "v-1c(1)", "ρ" },
+                    { "v-1c(2)", "μ or ν" },
+
+                    { "v-1d(1a)", "ending in α lengthens before a tense form" },
+                    { "v-1d(1b)", "ending in α does not lengthen before a tense form" },
+                    { "v-1d(2)", "ε" },
+                    { "v-1d(2a)", "ending in ε lengthens before a tense form" },
+                    { "v-1d(2b)", "ending in ε does not lengthen before a tense form" },
+                    { "v-1d(2c)", "ending in ε loses the ε in the present tense" },
+                    { "v-1d(3)", "ending in ο" },
+
+                    { "v-2a(1)", "δ" },
+                    { "v-2a(2)", "γ" },
+
+                    { "v-2b", "X" },
+
+                    { "v-2c", "X" },
+
+                    { "v-2d(1)", "λ" },
+                    { "v-2d(2)", "αρ" },
+                    { "v-2d(3)", "ερ" },
+                    { "v-2d(4)", "αν" },
+                    { "v-2d(5)", "εν" },
+
+                    { "v-3a(1)", "Roots ending in a vowel add ν" },
+                    { "v-3a(2a)", "Roots ending in a consonant add αν(without modifications)" },
+                    { "v-3a(2b)", "Roots ending in a consonant add αν(with an epenthetic ν)" },
+
+                    { "v-3b", "Roots adding νε" },
+
+                    { "v-3c(1)", "Roots ending in a vowel add(ν)νυ" },
+                    { "v-3c(2)", "Roots ending in a vowel add νυ" },
+
+                    { "v-3d", "Roots adding νι(consonantal iota)" },
+
+                    { "v-4", "X" },
+
+                    { "v-5a", "Roots ending in a vowel adding σκ" },
+                    { "v-5b", "Roots ending in a consonant adding ισκ" },
+
+                    { "v-6a", "Roots that reduplicate to form their present tense stem" },
+                    { "v-6b", "Roots that do not reduplicate to form their present tense stem" },
+
+                    { "v-7", "X" },
+
+                    { "v-8", "X" },
+                };
+
+                return m_verbMorphology;
+            }
+        }
+
+
     }
 }

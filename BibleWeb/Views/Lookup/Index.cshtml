@@ -117,6 +117,20 @@
             <h3 class="card-header text-center serif">
                 @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
             </h3>
+            <div class="card-body row">
+                <p>@Model.Verb.Morphology</p>
+                <p>
+                    @Model.Verb.Category
+                </p>
+                @if (!string.IsNullOrEmpty(Model.Verb.Subcategory))
+                {
+                    <p>@Model.Verb.Subcategory</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Verb.Description))
+                {
+                    <p>@Model.Verb.Description</p>
+                }
+            </div>
             @foreach (var tense in Model.Verb.Tenses)
             {
                 if (tense.Inflection.Category != currentCategory)
