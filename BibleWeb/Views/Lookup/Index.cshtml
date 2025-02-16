@@ -111,109 +111,142 @@
     if (Model.Verb != null)
     {
         string? currentCategory = null;
+        string? prefix = null;
 
         <div class="card">
             <h3 class="card-header text-center serif">
                 @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
             </h3>
-            @foreach (var inflection in Model.Verb.Inflections)
+            @foreach (var tense in Model.Verb.Tenses)
             {
-                if (inflection.Inflection.Category != currentCategory)
+                if (tense.Inflection.Category != currentCategory)
                 {
-                    currentCategory = inflection.Inflection.Category;
+                    currentCategory = tense.Inflection.Category;
 
                     <hr class="m-0 p-0" />
                     <div class="card-body row">
                         <div class="col">
                             @currentCategory
                         </div>
+                        <div class="col">Augment</div>
+                        <div class="col">Tense Formative</div>
+                        <div class="col">Connecting Vowel</div>
+                        <div class="col">Singular</div>
+                        <div class="col">Plural</div>
                     </div>
                 }
                 <hr class="m-0 p-0" />
                 <div class="card-body row">
                     <div class="col">
-                        @inflection.VerbInflection
+                        @tense.Inflection
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.Augment
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.TenseFormative
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.ConnectingVowel
                     </div>
                     <div class="col">
                         <div class="row">
-                            <h5 class="serif">
-                                1P:
-                                @foreach (var form in inflection.FirstPersonSingular)
+                            @{
+                                prefix = "1S: ";
+                                foreach (var form in tense.FirstPersonSingular)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                         <div class="row">
-                            <h5 class="serif">
-                                2P:
-                                @foreach (var form in inflection.SecondPersonSingular)
+                            @{
+                                prefix = "2S: ";
+                                foreach (var form in tense.SecondPersonSingular)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                         <div class="row">
-                            <h5 class="serif">
-                                3P:
-                                @foreach (var form in inflection.ThirdPersonSingular)
+                            @{
+                                prefix = "3S: ";
+                                foreach (var form in tense.ThirdPersonSingular)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                     </div>
                     <div class="col">
                         <div class="row">
-                            <h5 class="serif">
-                                1P:
-                                @foreach (var form in inflection.FirstPersonPlural)
+                            @{
+                                prefix = "1P: ";
+                                foreach (var form in tense.FirstPersonPlural)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                         <div class="row">
-                            <h5 class="serif">
-                                2P:
-                                @foreach (var form in inflection.SecondPersonPlural)
+                            @{
+                                prefix = "2P: ";
+                                foreach (var form in tense.SecondPersonPlural)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                         <div class="row">
-                            <h5 class="serif">
-                                3P:
-                                @foreach (var form in inflection.ThirdPersonPlural)
+                            @{
+                                prefix = "3P: ";
+                                foreach (var form in tense.ThirdPersonPlural)
                                 {
-                                    <span class="@(form.Prefix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Prefix</span>
-
-                                    @form.Core
-
-                                    <span class="@(form.Suffix=="*" ? "text-bg-danger" : "text-bg-info")">@form.Suffix</span>
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
                                 }
-                            </h5>
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
                         </div>
                     </div>
                 </div>

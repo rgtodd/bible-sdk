@@ -160,77 +160,78 @@ namespace BibleWebApi.Models
             var inflections = new List<VerbTenseModel>();
 
             VerbTenseModel? currentInflection = null;
-            MoodData? currentMood = null;
-            TenseData? currentTense = null;
-            VoiceData? currentVoice = null;
-            foreach (var form in lexemeData.Forms)
+            MoodData currentMood = default;
+            TenseData currentTense = default;
+            VoiceData currentVoice = default;
+            foreach (var form in lexemeData.Forms.Where(
+                    form => form.Inflection.Mood != null
+                    && form.Inflection.Tense != null
+                    && form.Inflection.Voice != null
+                    && form.Inflection.Person != null
+                    && form.Inflection.Number != null))
             {
-                if (form.Inflection.Person != null
-                    && form.Inflection.Number != null)
+                if (currentInflection == null
+                    || form.Inflection.Mood != currentMood
+                    || form.Inflection.Tense != currentTense
+                    || form.Inflection.Voice != currentVoice)
                 {
-                    if (currentInflection == null
-                        || form.Inflection.Mood != currentMood
-                        || form.Inflection.Tense != currentTense
-                        || form.Inflection.Voice != currentVoice)
-                    {
-                        currentMood = form.Inflection.Mood;
-                        currentTense = form.Inflection.Tense;
-                        currentVoice = form.Inflection.Voice;
+                    currentMood = form.Inflection.Mood.GetValueOrDefault();
+                    currentTense = form.Inflection.Tense.GetValueOrDefault();
+                    currentVoice = form.Inflection.Voice.GetValueOrDefault();
 
-                        currentInflection = new VerbTenseModel()
+                    currentInflection = new VerbTenseModel()
+                    {
+                        Inflection = new VerbInflectionModel(currentMood, currentTense, currentVoice),
+                        FirstPersonSingular = [],
+                        SecondPersonSingular = [],
+                        ThirdPersonSingular = [],
+                        FirstPersonPlural = [],
+                        SecondPersonPlural = [],
+                        ThirdPersonPlural = []
+                    };
+                    inflections.Add(currentInflection);
+                }
+
+                switch (form.Inflection.Person)
+                {
+                    case PersonData.First:
+                        switch (form.Inflection.Number)
                         {
-                            Inflection = new VerbInflectionModel(currentMood, currentTense, currentVoice),
-                            FirstPersonSingular = [],
-                            SecondPersonSingular = [],
-                            ThirdPersonSingular = [],
-                            FirstPersonPlural = [],
-                            SecondPersonPlural = [],
-                            ThirdPersonPlural = []
-                        };
-                        inflections.Add(currentInflection);
-                    }
+                            case NumberData.Singular:
+                                currentInflection.FirstPersonSingular.Add(form);
+                                break;
 
-                    switch (form.Inflection.Person)
-                    {
-                        case PersonData.First:
-                            switch (form.Inflection.Number)
-                            {
-                                case NumberData.Singular:
-                                    currentInflection.FirstPersonSingular.Add(form);
-                                    break;
+                            case NumberData.Plural:
+                                currentInflection.FirstPersonPlural.Add(form);
+                                break;
+                        }
+                        break;
 
-                                case NumberData.Plural:
-                                    currentInflection.FirstPersonPlural.Add(form);
-                                    break;
-                            }
-                            break;
+                    case PersonData.Second:
+                        switch (form.Inflection.Number)
+                        {
+                            case NumberData.Singular:
+                                currentInflection.SecondPersonSingular.Add(form);
+                                break;
 
-                        case PersonData.Second:
-                            switch (form.Inflection.Number)
-                            {
-                                case NumberData.Singular:
-                                    currentInflection.SecondPersonSingular.Add(form);
-                                    break;
+                            case NumberData.Plural:
+                                currentInflection.SecondPersonPlural.Add(form);
+                                break;
+                        }
+                        break;
 
-                                case NumberData.Plural:
-                                    currentInflection.SecondPersonPlural.Add(form);
-                                    break;
-                            }
-                            break;
+                    case PersonData.Third:
+                        switch (form.Inflection.Number)
+                        {
+                            case NumberData.Singular:
+                                currentInflection.ThirdPersonSingular.Add(form);
+                                break;
 
-                        case PersonData.Third:
-                            switch (form.Inflection.Number)
-                            {
-                                case NumberData.Singular:
-                                    currentInflection.ThirdPersonSingular.Add(form);
-                                    break;
-
-                                case NumberData.Plural:
-                                    currentInflection.ThirdPersonPlural.Add(form);
-                                    break;
-                            }
-                            break;
-                    }
+                            case NumberData.Plural:
+                                currentInflection.ThirdPersonPlural.Add(form);
+                                break;
+                        }
+                        break;
                 }
             }
 
@@ -238,7 +239,7 @@ namespace BibleWebApi.Models
 
             var verbModel = new VerbModel()
             {
-                Inflections = inflections
+                Tenses = inflections
             };
 
             return verbModel;
