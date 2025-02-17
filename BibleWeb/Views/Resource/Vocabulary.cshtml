@@ -3,13 +3,14 @@
 @model LexemeListModel
 @{
     ViewData["Title"] = "Lookup";
+    Layout = "_Excel";
 }
 <table>
     <thead>
         <tr>
+            <th>Citation</th>
             <th>Part of Speech</th>
             <th>Morphcat</th>
-            <th>Citation</th>
             <th>Gloss</th>
             <th>Strongs</th>
             <th>Mounce Chapter</th>
@@ -19,9 +20,9 @@
     @foreach (var lexeme in Model.Lexemes)
     {
         <tr>
+            <td class="serif">@lexeme.FullCitationForm</td>
             <td>@lexeme.PartOfSpeechDescription</td>
             <td>@lexeme.MounceMorphcat</td>
-            <td>@lexeme.FullCitationForm</td>
             <td>@lexeme.Gloss</td>
             <td>@lexeme.StrongsNumber[0]</td>
             <td>@lexeme.MounceChapterNumber</td>

@@ -2,11 +2,11 @@
 {
     internal readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
     {
+        public Mood? Mood { get; init; }
+
         public Tense? Tense { get; init; }
 
         public Voice? Voice { get; init; }
-
-        public Mood? Mood { get; init; }
 
         public Case? Case { get; init; }
 

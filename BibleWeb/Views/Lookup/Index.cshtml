@@ -107,6 +107,166 @@
             </div>
         }
     </div>
+
+    if (Model.Verb != null)
+    {
+        string? currentCategory = null;
+        string? prefix = null;
+
+        <div class="card">
+            <h3 class="card-header text-center serif">
+                @lexemeData.Lemma (@lexemeData.LemmaTransliteration)
+            </h3>
+            <div class="card-body row">
+                <p>@Model.Verb.Morphology</p>
+                <p>
+                    @Model.Verb.Category
+                </p>
+                @if (!string.IsNullOrEmpty(Model.Verb.Subcategory))
+                {
+                    <p>@Model.Verb.Subcategory</p>
+                }
+                @if (!string.IsNullOrEmpty(Model.Verb.Description))
+                {
+                    <p>@Model.Verb.Description</p>
+                }
+            </div>
+            @foreach (var tense in Model.Verb.Tenses)
+            {
+                if (tense.Inflection.Category != currentCategory)
+                {
+                    currentCategory = tense.Inflection.Category;
+
+                    <hr class="m-0 p-0" />
+                    <div class="card-body row">
+                        <div class="col">
+                            @currentCategory
+                        </div>
+                        <div class="col">Augment</div>
+                        <div class="col">Tense Formative</div>
+                        <div class="col">Connecting Vowel</div>
+                        <div class="col">Singular</div>
+                        <div class="col">Plural</div>
+                    </div>
+                }
+                <hr class="m-0 p-0" />
+                <div class="card-body row">
+                    <div class="col">
+                        @tense.Inflection
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.Augment
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.TenseFormative
+                    </div>
+                    <div class="col">
+                        @tense.Inflection.ConnectingVowel
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            @{
+                                prefix = "1S: ";
+                                foreach (var form in tense.FirstPersonSingular)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                        <div class="row">
+                            @{
+                                prefix = "2S: ";
+                                foreach (var form in tense.SecondPersonSingular)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                        <div class="row">
+                            @{
+                                prefix = "3S: ";
+                                foreach (var form in tense.ThirdPersonSingular)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            @{
+                                prefix = "1P: ";
+                                foreach (var form in tense.FirstPersonPlural)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                        <div class="row">
+                            @{
+                                prefix = "2P: ";
+                                foreach (var form in tense.SecondPersonPlural)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                        <div class="row">
+                            @{
+                                prefix = "3P: ";
+                                foreach (var form in tense.ThirdPersonPlural)
+                                {
+                                    <p>
+                                        @prefix<span class="fs-5 serif">@form.InflectedForm</span>
+                                    </p>
+                                    prefix = null;
+                                }
+                                if (prefix != null)
+                                {
+                                    <p>@prefix</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 }
 @section Scripts
 {

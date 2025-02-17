@@ -6989,7 +6989,7 @@
     gk: 650
     dodson-pos: V
     gloss: I put to death, kill
-    mounce-morphcat: cv-2d
+    mounce-morphcat: cv-2d(5)
 ἀποκυέω:
     pos: V
     bdag-headword: ἀποκυέω
@@ -48016,7 +48016,7 @@
     gk: 4686
     dodson-pos: V
     gloss: I worship
-    mounce-morphcat: cv-1d(2a)
+    mounce-morphcat: cv-3b
 προσκυνητής:
     pos: N
     full-citation-form: προσκυνητής, οῦ, ὁ
