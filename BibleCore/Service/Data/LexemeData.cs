@@ -22,6 +22,10 @@
 
         public required string MounceMorphcat { get; init; }
 
+        public required string Root { get; init; }
+
+        public required string Verbs { get; init; }
+
         public required FormData[] Forms { get; init; }
     }
 }

@@ -19,6 +19,8 @@ namespace BibleCore.Service.Data
                 StrongsNumber = lexeme.StrongsNumber,
                 MounceChapterNumber = lexeme.MounceChapterNumber,
                 MounceMorphcat = lexeme.MounceMorphcat,
+                Root = lexeme.Root,
+                Verbs = lexeme.Verbs,
                 Forms = CreateFormDataArray(lexeme.Forms)
             };
         }

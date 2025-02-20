@@ -61,6 +61,8 @@ namespace BibleCore.Greek.SblGnt
                     lexeme.StrongsNumber = morphGntLexeme.StrongsAsIntegers;
                     lexeme.GkNumber = morphGntLexeme.GkAsIntegers;
                     lexeme.MounceMorphcat = morphGntLexeme.MounceMorphcatAsString ?? string.Empty;
+                    lexeme.Root = morphGntLexeme.Root ?? string.Empty;
+                    lexeme.Verbs = morphGntLexeme.Verbs ?? string.Empty;
 
                     var normalizedLemma = Alphabet.RemoveAccents(lexeme.Lemma);
 

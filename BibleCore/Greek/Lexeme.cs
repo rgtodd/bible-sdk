@@ -20,6 +20,10 @@
 
         public string MounceMorphcat { get; set; } = string.Empty;
 
+        public string Root { get; set; } = string.Empty;
+
+        public string Verbs { get; set; } = string.Empty;
+
         public List<Form> Forms { get; } = [];
 
         public string? NounForm

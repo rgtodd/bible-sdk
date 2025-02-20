@@ -26,6 +26,10 @@ namespace BibleCore.Greek.SblGnt
 
         public object? MounceMorphcat { get; set; }
 
+        public string? Root { get; set; }
+
+        public string? Verbs { get; set; }
+
         public string GlossAsString
         {
             get
@@ -112,7 +116,7 @@ namespace BibleCore.Greek.SblGnt
 
         public override string? ToString()
         {
-            return $"{Pos}-{FullCitationForm}-{BdagHeadword}-{DankerEntry}-{DodsonEntry}-{MounceHeadword}-{Strongs}-{Gk}-{DodsonPos}-{Gloss}-{MounceMorphcat}";
+            return $"{Pos}-{FullCitationForm}-{BdagHeadword}-{DankerEntry}-{DodsonEntry}-{MounceHeadword}-{Strongs}-{Gk}-{DodsonPos}-{Gloss}-{MounceMorphcat}-{Root}-{Verbs}";
         }
     }
 }

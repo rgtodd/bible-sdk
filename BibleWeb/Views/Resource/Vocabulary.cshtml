@@ -14,19 +14,23 @@
             <th>Gloss</th>
             <th>Strongs</th>
             <th>Mounce Chapter</th>
+            <th>Root</th>
+            <th>Verbs</th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var lexeme in Model.Lexemes)
-    {
-        <tr>
-            <td class="serif">@lexeme.FullCitationForm</td>
-            <td>@lexeme.PartOfSpeechDescription</td>
-            <td>@lexeme.MounceMorphcat</td>
-            <td>@lexeme.Gloss</td>
-            <td>@lexeme.StrongsNumber[0]</td>
-            <td>@lexeme.MounceChapterNumber</td>
-        </tr>
-    }
+        @foreach (var lexeme in Model.Lexemes)
+        {
+            <tr>
+                <td class="serif">@lexeme.FullCitationForm</td>
+                <td>@lexeme.PartOfSpeechDescription</td>
+                <td>@lexeme.MounceMorphcat</td>
+                <td>@lexeme.Gloss</td>
+                <td>@string.Join(", ", lexeme.StrongsNumber.Select(s => s.ToString()).ToArray())</td>
+                <td>@lexeme.MounceChapterNumber</td>
+                <td>@lexeme.Root</td>
+                <td>@lexeme.Verbs</td>
+            </tr>
+        }
     </tbody>
 </table>

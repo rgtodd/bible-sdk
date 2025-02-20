@@ -292,6 +292,8 @@
     dodson-pos: V
     gloss: I love
     mounce-morphcat: v-1d(1a)
+    root: "*αγαπα"
+    verbs: ἀγαπήσω, ἠγάπησα, ἠγάπηκα, ἠγάπημαι ἠγαπήθην
 ἀγάπη:
     pos: N
     full-citation-form: ἀγάπη, ης, ἡ
@@ -824,11 +826,13 @@
     danker-entry: ἄγω
     dodson-entry: ἄγω
     mounce-headword: ἄγω
-    strongs: 71
+    strongs: 33
     gk: 72
     dodson-pos: V
     gloss: I lead
     mounce-morphcat: v-1b(2)
+    root: "*αγ"
+    verbs: ἄξω, ἤγαγον, -, ἤγμαι, ἤχθην
 ἀγωγή:
     pos: N
     full-citation-form: ἀγωγή, ῆς, ἡ
@@ -1795,6 +1799,8 @@
     dodson-pos: V
     gloss: I ask, request, beg, petition
     mounce-morphcat: v-1d(2a)
+    root: "*αιτε"
+    verbs: αἰτήσω, ᾔτησα, ῃ[τηκα, ᾔτημαι, -
 αἴτημα:
     pos: N
     full-citation-form: αἴτημα, ατος, τό
@@ -2194,6 +2200,8 @@
     dodson-pos: V
     gloss: I accompany, attend, follow
     mounce-morphcat: v-1d(2a)
+    root: "*ακολουθε"
+    verbs: ἀκολουθήσω, ἠκολούθησα, ἠκολούθηκα, -, -
 ἀκούω:
     pos: V
     bdag-headword: ἀκούω
@@ -2205,6 +2213,8 @@
     dodson-pos: V
     gloss: I hear, listen
     mounce-morphcat: v-1a(8)
+    root: "*ἀκού"
+    verbs: ἀκούσω, ἤκουσα, ἀκήκοα, -, ἠκούσθην
 ἀκρασία:
     pos: N
     full-citation-form: ἀκρασία, ας, ἡ
@@ -6443,6 +6453,8 @@
     dodson-pos: V
     gloss: I come or go away from, depart, return
     mounce-morphcat: cv-1b(2)
+    root: "απο + *ερχ / *ελευθ"
+    verbs: ἀπελύσομαι, ἀπῆλθον, ἀπελήλυθα, -, -
 ἀπέχω:
     pos: V
     bdag-headword: ἀπέχω
@@ -6944,6 +6956,8 @@
     dodson-pos: V
     gloss: I answer, reply
     mounce-morphcat: cv-1c(2)
+    root: "απο + *κριν"
+    verbs: -, ἀπεκρινάμην, -, -, ἀπεκρίθην
 ἀπόκρισις:
     pos: N
     full-citation-form: ἀπόκρισις, εως, ἡ
@@ -8573,11 +8587,13 @@
     danker-entry: ἄρχω
     dodson-entry: ἄρχω
     mounce-headword: ἄρχω
-    strongs: 757
+    strongs: 756
     gk: 806
     dodson-pos: V
     gloss: I reign, rule
     mounce-morphcat: v-1b(2)
+    root: "*αρχ"
+    verbs: ἄρξω, ἤρξα, -, -, -
 ἄρχων:
     pos: N
     full-citation-form: ἄρχων, οντος, ὁ
@@ -11284,6 +11300,8 @@
     dodson-pos: V
     gloss: I look, see
     mounce-morphcat: v-1b(1)
+    root: "*βλέπ"
+    verbs: βλέψω, ἔβλεψα, -, -, -
 βλητέος:
     pos: A
     full-citation-form: βλητέος, α, ον
@@ -12348,6 +12366,8 @@
     dodson-pos: V
     gloss: I beget, bring forth, give birth to
     mounce-morphcat: v-1d(1a)
+    root: "*γεννα"
+    verbs: γεννήσω, ἐγέννησα, γεγέννηκα, γεγέννημαι, ἐγεννήθην
 γέννημα:
     pos: N
     full-citation-form: γέννημα, ατος, τό
@@ -12524,6 +12544,8 @@
     dodson-pos: V
     gloss: I come into being, am born
     mounce-morphcat: v-1c(2)
+    root: "*γεν"
+    verbs: (ἐγινόμην), γενήσομαι, ἐγενόμην, γέγονα, γεγένημαι, ἐγενήθην
 γινώσκω:
     pos: V
     bdag-headword: γινώσκω
@@ -12866,6 +12888,8 @@
     dodson-pos: V
     gloss: I write
     mounce-morphcat: v-1b(1)
+    root: "*γραφ"
+    verbs: (ἔγραφον), γράψω, ἔγραψα, γέγραφα, γέγραμμαι, ἐγράφην
 γραώδης:
     pos: A
     full-citation-form: γραώδης, ες
@@ -13309,6 +13333,8 @@
     dodson-pos: V
     gloss: it is necessary, inevitable
     mounce-morphcat: v-1d(2c)
+    root: "*δει"
+    verbs: (ἔδει), -, -, -, -, -
 δεῖγμα:
     pos: N
     full-citation-form: δεῖγμα, ατος, τό
@@ -17336,6 +17362,8 @@
     dodson-pos: V
     gloss: I go in, come in, enter
     mounce-morphcat: cv-1b(2)
+    root: "εις + *ερχ / *ελευθ"
+    verbs: εἰσελεύσομαι, εἰσῆλθον, εἰσελήλυθα, -, -
 εἰσκαλέομαι:
     pos: V
     bdag-headword: εἰσκαλέομαι
@@ -20748,6 +20776,8 @@
     dodson-pos: V
     gloss: I go out, come out
     mounce-morphcat: cv-1b(2)
+    root: "εκ + *ερχ / *ελευθ"
+    verbs: ἐξελεύσομαι, ἐξῆλθον, ἐξελήλυθα, -, -
 ἔξεστι(ν):
     pos: V
     bdag-headword: ἔξεστιν
@@ -21582,6 +21612,8 @@
     dodson-pos: V
     gloss: I interrogate, question, demand of
     mounce-morphcat: cv-1d(1a)
+    root: "επι + *ερωτα"
+    verbs: (ἐπηρώτων), ἐπερωτήσω, ἐπηρώτησα, -, -, ἐπηρωτήθην
 ἐπερώτημα:
     pos: N
     full-citation-form: ἐπερώτημα, ατος, τό
@@ -23365,6 +23397,8 @@
     dodson-pos: V
     gloss: I come, go
     mounce-morphcat: v-1b(2)
+    root: "*ερχ / *ελευθ"
+    verbs: (ἠρχόμην), ἐλεύσομαι, ἦλθον / ἦλθα, ἐλήλυθα, -, -
 ἐρωτάω:
     pos: V
     bdag-headword: ἐρωτάω
@@ -23376,6 +23410,8 @@
     dodson-pos: V
     gloss: I ask, question, request
     mounce-morphcat: v-1d(1a)
+    root: "*ερωτα"
+    verbs: ἐρωτήσω, ἠρώτησα, -, -, ἠρωτήθην
 ἐσθής:
     pos: N
     full-citation-form: ἐσθής, ῆτος, ἡ
@@ -24788,6 +24824,8 @@
     dodson-pos: V
     gloss: I have, hold, possess
     mounce-morphcat: v-1b(2)
+    root: "*σεχ"
+    verbs: (εἶχον), ἕξω, ἔσχον, ἔσχηκα, -, -
 ἕως:
     pos: C/ADV
     bdag-headword: ἕως
@@ -24858,6 +24896,8 @@
     dodson-pos: V
     gloss: I live
     mounce-morphcat: v-1d(1a)
+    root: "*ζα"
+    verbs: ζήσω / ζήσομαι, ἔζησα, -, -, -
 Ζεβεδαῖος:
     pos: N
     full-citation-form: Ζεβεδαῖος, ου, ὁ
@@ -25024,6 +25064,8 @@
     dodson-pos: V
     gloss: I seek, search for, desire
     mounce-morphcat: v-1d(2a)
+    root: "*ζητε"
+    verbs: (ἐζήτουν), ζητήσω, ἐζήτησα, -, -, ἐζητήθην
 ζήτημα:
     pos: N
     full-citation-form: ζήτημα, ατος, τό
@@ -26073,6 +26115,8 @@
     dodson-pos: V
     gloss: I will, wish, desire
     mounce-morphcat: v-1d(2c)
+    root: "*εθελε"
+    verbs: θελήσω, ἠθέλησα, -, -, ἐθελήθην
 θεμέλιον:
     pos: N
     full-citation-form: θεμέλιον, ου, τό
@@ -28999,6 +29043,8 @@
     dodson-pos: V
     gloss: I call, invite, name
     mounce-morphcat: v-1d(2b)
+    root: "*καλεϜ"
+    verbs: (ἐκάλουν), καλέσω, ἐκάλεσα, κέκληκα, κέκλημαι, ἐκλήθην
 καλλιέλαιος:
     pos: N
     full-citation-form: καλλιέλαιος, ου, ἡ
@@ -33032,6 +33078,8 @@
     dodson-pos: V
     gloss: I judge, decide, think good
     mounce-morphcat: v-1c(2)
+    root: "*κριν"
+    verbs: (ἔκρινον), κρινῶ, ἔκρινα, κέκρικα, κέκριμαι, ἐκρίθην
 κρίσις:
     pos: N
     full-citation-form: κρίσις, εως, ἡ
@@ -33758,6 +33806,8 @@
     dodson-pos: V
     gloss: I speak, say
     mounce-morphcat: v-1d(2a)
+    root: "*λαλε"
+    verbs: (ἐλάλουν), λαλήσω, ἐλάλησα, λελάληκα, λελάλημαι, ἐλαλήθην
 λαλιά:
     pos: N
     full-citation-form: λαλιά, ᾶς, ἡ
@@ -33998,11 +34048,13 @@
     danker-entry: λέγω
     dodson-entry: λέγω
     mounce-headword: λέγω
-    strongs: 3004
+    strongs: 2036
     gk: 3306
     dodson-pos: V
     gloss: I say, speak
     mounce-morphcat: v-1b(2)
+    root: "*λεγ, *Ϝερ, *Ϝιπ"
+    verbs: (ἔλεγον), ἐρῶ, εἶπον / εἶπα, εἴρηκα, εἴρημαι, ἐρρέθην / ἐρρήθην
 λεῖμμα:
     pos: N
     full-citation-form: λεῖμμα, ατος, τό
@@ -34992,6 +35044,8 @@
     dodson-pos: V
     gloss: I loose, untie, release, destroy
     mounce-morphcat: v-1a(4)
+    root: "*λυ"
+    verbs: (ἔλυον), λύσω, ἔλυσα, -, λέλυμαι, ἐλύθην
 Λωΐς:
     pos: N
     full-citation-form: Λωΐς, ΐδος, ἡ
@@ -35597,6 +35651,8 @@
     dodson-pos: V
     gloss: I witness, testify
     mounce-morphcat: v-1d(2a)
+    root: "*μαρτυρε"
+    verbs: (ἐμαρτύρουν), μαρτυρήσω, ἐμαρτύρησα, μεμαρτύρηκα, μεμαρτύρημαι, ἐμαρτυρήθην
 μαρτυρία:
     pos: N
     full-citation-form: μαρτυρία, ας, ἡ
@@ -36281,6 +36337,8 @@
     dodson-pos: V
     gloss: I remain, abide
     mounce-morphcat: v-1c(2)
+    root: "*μεν"
+    verbs: (ἔμενον), μενῶ, ἔμεινα, μεμένηκα, -, -
 μερίζω:
     pos: V
     bdag-headword: μερίζω
@@ -39603,6 +39661,8 @@
     dodson-pos: V
     gloss: I know, remember
     mounce-morphcat: v-1b(3)
+    root: "*οιδ / *Ϝιδ"
+    verbs: εἰδήσω / εἴσομαι, ᾔδειν, -, -, -
 οἰκεῖος:
     pos: A
     full-citation-form: οἰκεῖος, (α), ον
@@ -40791,6 +40851,8 @@
     dodson-pos: V
     gloss: I see, look upon, experience
     mounce-morphcat: v-1d(1a)
+    root: "*ορα / *οπ / *Ϝιδ"
+    verbs: (ἐώρων), ὄψομαι, ὠψάμην, ἑώρακα / ἑόρακα, -, ὤφθην
 ὀργή:
     pos: N
     full-citation-form: ὀργή, ῆς, ἡ
@@ -44565,6 +44627,8 @@
     dodson-pos: V
     gloss: I walk, conduct my life
     mounce-morphcat: cv-1d(2a)
+    root: "περι + *πατε"
+    verbs: (περιεπάτουν), περιπατήσω, περιεπάτησα, -, -, -
 περιπείρω:
     pos: V
     bdag-headword: περιπείρω
@@ -45214,6 +45278,8 @@
     dodson-pos: V
     gloss: I believe, have faith in
     mounce-morphcat: v-1a(6)
+    root: "*πιστευ"
+    verbs: (ἐπίστευον), πιστεύσω, ἐπίστευσα, πεπίστευκα, πεπίστευμαι, ἐπιστεύθην
 πιστικός:
     pos: A
     full-citation-form: πιστικός, ή, όν
@@ -45610,6 +45676,8 @@
     dodson-pos: V
     gloss: I fill, fulfill, complete
     mounce-morphcat: v-1d(3)
+    root: "*πληρο"
+    verbs: (ἐπλήρουν), πληρώσω, ἐπλήρωσα, πεπλήρωκα, πεπλήρωμαι, ἐπληρώθην
 πλήρωμα:
     pos: N
     full-citation-form: πλήρωμα, ατος, τό
@@ -45875,6 +45943,8 @@
     dodson-pos: V
     gloss: I do, make
     mounce-morphcat: v-1d(2a)
+    root: "*ποιε"
+    verbs: (ἐποίουν), ποιήσω, ἐποίησα, πεποίηκα, πεποίημαι, ἐποιήθην
 ποίημα:
     pos: N
     full-citation-form: ποίημα, ατος, τό
@@ -46318,6 +46388,8 @@
     dodson-pos: V
     gloss: I travel, journey, go
     mounce-morphcat: v-1a(6)
+    root: "*πορεύ"
+    verbs: (ἐπορευόμην), πορεύσομαι, -, -, πεπόρευμαι, ἐπορεύθην
 πορθέω:
     pos: V
     bdag-headword: πορθέω
@@ -47808,6 +47880,8 @@
     dodson-pos: V
     gloss: I come near, consent to
     mounce-morphcat: cv-1b(2)
+    root: "προς + *ερχ / *ελευθ"
+    verbs: (προσηρχόμην), προσελεύσομαι, προσῆλθον, προσελήλυθα, -, -
 προσευχή:
     pos: N
     full-citation-form: προσευχή, ῆς, ἡ
@@ -47831,6 +47905,8 @@
     dodson-pos: V
     gloss: I pray, pray for
     mounce-morphcat: cv-1b(2)
+    root: "προς + *ευχ"
+    verbs: (προσηυχόμην), προσεύξομαι, προσηυξάμην, -, -, -
 προσέχω:
     pos: V
     bdag-headword: προσέχω
@@ -53797,6 +53873,8 @@
     dodson-pos: V
     gloss: I gather together
     mounce-morphcat: cv-1b(2)
+    root: "συν + *αγ"
+    verbs: συνάξω, συνήγαγον, -, συνῆγμαι, συνήχθην
 συναγωγή:
     pos: N
     full-citation-form: συναγωγή, ῆς, ἡ
@@ -56251,6 +56329,8 @@
     dodson-pos: V
     gloss: I keep, guard, observe
     mounce-morphcat: v-1d(2a)
+    root: "*τηρε"
+    verbs: (ἐτήρουν), τηρήσω, ἐτήρησα, τετήρηκα, τετήρημαι, ἐτηρήθην
 τήρησις:
     pos: N
     full-citation-form: τήρησις, εως, ἡ
@@ -57650,6 +57730,8 @@
     dodson-pos: V
     gloss: I go away, depart
     mounce-morphcat: cv-1b(2)
+    root: "υπο + *αγ"
+    verbs: (ὑπῆγον), -, -, -, -, -
 ὑπακοή:
     pos: N
     full-citation-form: ὑπακοή, ῆς, ἡ
@@ -59713,6 +59795,9 @@
     gk: [5828, 5830]
     dodson-pos: V
     gloss: I fear, am terrified
+    mounce-morphcat: v-1d(2a)
+    root: "*φοβε"
+    verbs: (ἐφοβούμην), -, -, -, -, ἐφοβήθην
 φοβερός:
     pos: A
     full-citation-form: φοβερός, ά, όν

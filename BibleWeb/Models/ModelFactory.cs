@@ -244,6 +244,8 @@ namespace BibleWebApi.Models
             string category = GetVerbCategory(morphology);
             string subcategory = GetVerbSubcategory(morphology);
             string description = GetDescription(morphology);
+            string root = lexemeData.Root;
+            string verbs = lexemeData.Verbs;
 
             var verbModel = new VerbModel()
             {
@@ -251,7 +253,9 @@ namespace BibleWebApi.Models
                 Morphology = morphology,
                 Category = category,
                 Subcategory = subcategory,
-                Description = description
+                Description = description,
+                Root = root,
+                Verbs = verbs
             };
 
             return verbModel;
@@ -397,14 +401,14 @@ namespace BibleWebApi.Models
             {
                 m_verbSubcategories ??= new Dictionary<string, string>
                 {
-                    { "v-1a", "Roots ending in ι̭(consonantal iota) or Ϝ(digamma)" },
+                    { "v-1a", "Roots ending in ι̭ (consonantal iota) or Ϝ (digamma)" },
                     { "v-1b", "Roots ending in a stop" },
                     { "v-1c", "Roots ending in a liquid/nasal" },
                     { "v-1d", "Roots ending in a vowel" },
-                    { "v-2a", "Roots ending in δ or γ adds ι̭> ζω" },
-                    { "v-2b", "Roots ending in a velar(κγχ) adds ι̭ > σσω" },
-                    { "v-2c", "Roots ending in a Ϝ(digamma)" },
-                    { "v-2d", "Roots ending in a liquid(λ ρ) or nasal(μ ν)" },
+                    { "v-2a", "Roots ending in δ or γ adds ι̭ > ζω" },
+                    { "v-2b", "Roots ending in a velar (κγχ) adds ι̭ > σσω" },
+                    { "v-2c", "Roots ending in a Ϝ (digamma)" },
+                    { "v-2d", "Roots ending in a liquid (λ ρ) or nasal(μ ν)" },
                 };
 
                 return m_verbSubcategories;
