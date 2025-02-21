@@ -443,6 +443,8 @@
     dodson-pos: "V"
     gloss: "I make holy, sanctify"
     mounce-morphcat: "v-2a(1)"
+    root: "*αγιοδ"
+    verbs: "-, ἡγίασα, -, ἡγίασμαι, ἡγιάσθην"
 ἁγιασμός:
     pos: N
     full-citation-form: "ἁγιασμός, οῦ, ὁ"
@@ -3074,6 +3076,8 @@
     dodson-pos: "V"
     gloss: "I sin"
     mounce-morphcat: "v-3a(2a)"
+    root: "*ἁμαρτ"
+    verbs: "ἁμαρτήσω, ἥμαρτον ορ ἡμάρτησα, ἡμάρτηκα, -, -"
 ἁμάρτημα:
     pos: N
     full-citation-form: "ἁμάρτημα, ατος, τό"
@@ -3564,6 +3568,8 @@
     dodson-pos: "V"
     gloss: "I go up, mount, ascend"
     mounce-morphcat: "cv-2d(6)"
+    root: "*ἀνά + *βα"
+    verbs: "ἀναβήσομαι, ἀνέβην, ἀναβέβηκα, -, -"
 ἀναβάλλομαι:
     pos: V
     bdag-headword: "ἀναβάλλω"
@@ -5188,6 +5194,8 @@
     dodson-pos: "V"
     gloss: "I raise up, set up, rise from"
     mounce-morphcat: "cv-6a"
+    root: "ανα + *στα"
+    verbs: "ἀναστήσω, ἀνέστησα / ἀνέστην, -, -, -"
 Ἅννα:
     pos: N
     full-citation-form: "Ἅννα, ας, ἡ"
@@ -5247,6 +5255,8 @@
     dodson-pos: "V"
     gloss: "I open"
     mounce-morphcat: "cv-1b(2)"
+    root: "ανα + *οιγ"
+    verbs: "ἀνοίξω, ἀνέῳξα / ἠνέω/ξα / ἤνοιξα, ἀνέω/γα, ἀνέω/γμαι, ἀνεῴχθην / ἠνοίχθην"
 ἀνοικοδομέω:
     pos: V
     bdag-headword: "ἀνοικοδομέω"
@@ -5952,6 +5962,8 @@
     dodson-pos: "V"
     gloss: "I report, bring a report, announce"
     mounce-morphcat: "cv-2d(1)"
+    root: "απο + αγγελ"
+    verbs: "ἀπαγγελῶ, ἀπήγγειλα, -, -, ἀπηγγέλην"
 ἀπάγχομαι:
     pos: V
     bdag-headword: "ἀπάγχω"
@@ -7076,6 +7088,8 @@
     dodson-pos: "V"
     gloss: "I destroy, lose, am perishing"
     mounce-morphcat: "cv-3c(2)"
+    root: "ἀπό + *ὀλ"
+    verbs: "(ἀπώλλυον), ἀπολέσω / ἀπολῶ, ἀπώλεσα, ἀπολώλεκα / ἀπόλωλα, -, -"
 Ἀπολλύων:
     pos: N
     full-citation-form: "Ἀπολλύων, ονος, ὁ"
@@ -7169,6 +7183,8 @@
     dodson-pos: "V"
     gloss: "I release, let go, send away, divorce"
     mounce-morphcat: "cv-1a(4)"
+    root: "ἀπό + *λυ"
+    verbs: "(ἀπέλυον), ἀπολύσω, ἀπέλυσα, -, ἀπολέλυμαι, ἀπελύθην"
 ἀπομάσσομαι:
     pos: V
     bdag-headword: "ἀπομάσσω"
@@ -8893,6 +8909,8 @@
     dodson-pos: "V"
     gloss: "I greet, salute, pay my respects to"
     mounce-morphcat: "v-2a(1)"
+    root: "*ἀσπαδ"
+    verbs: "-, ἠσπασάμην, -, -, -"
 ἀσπασμός:
     pos: N
     full-citation-form: "ἀσπασμός, οῦ, ὁ"
@@ -9835,6 +9853,8 @@
     dodson-pos: "V"
     gloss: "I send away, release, remit, forgive, permit"
     mounce-morphcat: "cv-6a"
+    root: "απο + *σε"
+    verbs: "(ἤφιον), ἀφήσω, ἀφῆκα, -, ἀφέωμαι, ἀφέθην"
 ἀφικνέομαι:
     pos: V
     bdag-headword: "ἀφικνέομαι"
@@ -13383,6 +13403,8 @@
     dodson-pos: "V"
     gloss: "I point out, show"
     mounce-morphcat: "v-3c(2)"
+    root: "*δεικνυ"
+    verbs: "δείξω, ἔδειξα, δέδειχα, δέδειγμαι, ἐδείχθην"
 δειλία:
     pos: N
     full-citation-form: "δειλία, ας, ἡ"
@@ -13869,6 +13891,8 @@
     dodson-pos: "V"
     gloss: "I take, receive, accept, welcome"
     mounce-morphcat: "v-1b(2)"
+    root: "*δεχ"
+    verbs: "δέξομαι, ἐδεξάμην, -, δέδεγμαι, ἐδέχθην"
 δέω:
     pos: V
     bdag-headword: "δέω"
@@ -14297,6 +14321,8 @@
     dodson-pos: "V"
     gloss: "I wait at table, serve"
     mounce-morphcat: "v-1d(2a)"
+    root: "*διακονε"
+    verbs: "(διηκόνουν), διακονήσω, διηκόνησα, -, -, διηκονήθην"
 διακονία:
     pos: N
     full-citation-form: "διακονία, ας, ἡ"
@@ -15171,6 +15197,8 @@
     dodson-pos: "V"
     gloss: "I offer, give"
     mounce-morphcat: "v-6a"
+    root: "*δο"
+    verbs: "(ἐδίδων), δώσω, ἔδωκα, δέδωκα, δέδομαι, ἐδόθην"
 διεγείρω:
     pos: V
     bdag-headword: "διεγείρω"
@@ -15397,6 +15425,8 @@
     dodson-pos: "V"
     gloss: "I make righteous, defend the cause of, justify"
     mounce-morphcat: "v-1d(3)"
+    root: "*δικαιο"
+    verbs: "δικαιώσω, ἐδικαίωσα, -, δεδικαίωμαι, ἐδικαιώθην"
 δικαίωμα:
     pos: N
     full-citation-form: "δικαίωμα, ατος, τό"
@@ -15829,6 +15859,8 @@
     dodson-pos: "V"
     gloss: "I think, seem, appear, it seems"
     mounce-morphcat: "v-1b(4)"
+    root: "*δοκ / *δοκε (pre)"
+    verbs: "(ἐδόκουν), δόξω, ἔδοξα, -, -, -"
 δοκιμάζω:
     pos: V
     bdag-headword: "δοκιμάζω"
@@ -17230,6 +17262,8 @@
     dodson-pos: "V"
     gloss: "I am, exist"
     mounce-morphcat: "v-6b"
+    root: "*ἐς"
+    verbs: "(ἤμην), ἔσομαι, -, -, -, -"
 εἵνεκεν:
     pos: P
     bdag-headword: "εἵνεκεν"
@@ -23459,6 +23493,8 @@
     dodson-pos: "V"
     gloss: "I eat"
     mounce-morphcat: "v-1b(3)"
+    root: "*ἐσθι, *φαγ"
+    verbs: "(ἤσθιον), φάγομαι, ἔφαγον, -, -, -"
 ἔσθω:
     pos: V
     bdag-headword: "ἔσθω"
@@ -23738,6 +23774,8 @@
     dodson-pos: "V"
     gloss: "I bring good news, preach good tidings"
     mounce-morphcat: "v-2a(1)"
+    root: "*εὐαγγελιδ"
+    verbs: "(εὐηγγέλιζον), -, εὐηγγέλισα, -, εὐηγγέλισμαι, εὐηγγελίσθην"
 εὐαγγέλιον:
     pos: N
     full-citation-form: "εὐαγγέλιον, ου, τό"
@@ -26437,6 +26475,8 @@
     dodson-pos: "V"
     gloss: "I behold, look at, experience"
     mounce-morphcat: "v-1d(2a)"
+    root: "*θεωρε"
+    verbs: "(ἐθεώρουν), θεώρησω, ἐθεώρησα, -, -, -"
 θεωρία:
     pos: N
     full-citation-form: "θεωρία, ας, ἡ"
@@ -28043,6 +28083,8 @@
     dodson-pos: "V"
     gloss: "I cause to stand, stand"
     mounce-morphcat: "v-6a"
+    root: "*στα"
+    verbs: "στήσω, ἔστησα / ἔστην, ἕστηκα, -, ἐστάθην"
 ἱστορέω:
     pos: V
     bdag-headword: "ἱστορέω"
@@ -28583,6 +28625,8 @@
     dodson-pos: "V"
     gloss: "I sit, am seated"
     mounce-morphcat: "v-6b"
+    root: "*καθη"
+    verbs: "(ἐκαθήμην), καθήσομαι, -, -, -, -"
 καθημερινός:
     pos: A
     full-citation-form: "καθημερινός, ή, όν"
@@ -29426,6 +29470,8 @@
     dodson-pos: "V"
     gloss: "I go down, come down"
     mounce-morphcat: "cv-2d(6)"
+    root: "κατά + *βα"
+    verbs: "(κατέβαινον), καταβήσομαι, κατέβην, καταβέβηκα, -, -"
 καταβάλλω:
     pos: V
     bdag-headword: "καταβάλλω"
@@ -32847,6 +32893,8 @@
     dodson-pos: "V"
     gloss: "I cry aloud, shriek"
     mounce-morphcat: "v-2a(2)"
+    root: "*κραγ"
+    verbs: "(ἔκραζον), κράξω / κεκράξω, ἔκραξα / ἐκέκραξα, κέκραγα, -, -"
 κραιπάλη:
     pos: N
     full-citation-form: "κραιπάλη, ης, ἡ"
@@ -36241,6 +36289,8 @@
     dodson-pos: "V"
     gloss: "I am about to"
     mounce-morphcat: "v-1d(2c)"
+    root: "*μελλε"
+    verbs: "(ἔμελλον / ἤμελλον), μελλήσω, -, -, -, -"
 μέλος:
     pos: N
     full-citation-form: "μέλος, ους, τό"
@@ -42560,6 +42610,8 @@
     dodson-pos: "V"
     gloss: "I hand over, deliver, betray"
     mounce-morphcat: "cv-6a"
+    root: "παρά + *δο"
+    verbs: "(παρεδίδων), παραδώσω, παρέδωκα, παραδέδωκα, παραδέδομαι, παρεδόθην"
 παράδοξος:
     pos: A
     full-citation-form: "παράδοξος, ον"
@@ -42670,6 +42722,8 @@
     dodson-pos: "V"
     gloss: "I summon, entreat, admonish, comfort"
     mounce-morphcat: "cv-1d(2b)"
+    root: "παρά + *καλε"
+    verbs: "(παρεκάλουν), -, παρεκάλεσα, -, παρακέκλημαι, παρεκλήθην"
 παρακαλύπτομαι:
     pos: V
     bdag-headword: "παρακαλύπτω"
@@ -43957,6 +44011,8 @@
     dodson-pos: "V"
     gloss: "I persuade, urge"
     mounce-morphcat: "v-1b(3)"
+    root: "*πειθ"
+    verbs: "(ἔπειθον), πείσω, ἔπεισα, πέποιθα, πέπεισμαι, ἐπείσθην"
 πεινάω:
     pos: V
     bdag-headword: "πεινάω"
@@ -44072,6 +44128,8 @@
     dodson-pos: "V"
     gloss: "I send"
     mounce-morphcat: "v-1b(1)"
+    root: "*πεμπ"
+    verbs: "πέμψω, ἔπεμψα, πέπομφα, -, ἐπέμφθην"
 πένης:
     pos: A/N
     full-citation-form: "πένης, ητος, ὁ"
@@ -45291,6 +45349,8 @@
     dodson-pos: "V"
     gloss: "I fall, fall under"
     mounce-morphcat: "v-1b(3)"
+    root: "*πετ"
+    verbs: "(ἔπιπτον), πεσοῦμαι, ἔπεσον (1st) / ἔπεσα (2nd), πέπτωκα, -, -"
 Πισιδία:
     pos: A
     full-citation-form: "Πισιδία, ας, ἡ"
@@ -51914,6 +51974,8 @@
     dodson-pos: "V"
     gloss: "I sow, spread, scatter"
     mounce-morphcat: "v-2d(3)"
+    root: "*σπερ"
+    verbs: "-, ἔσπειρα, -, ἔσπαρμαι, ἐσπάρην"
 σπεκουλάτωρ:
     pos: N
     full-citation-form: "σπεκουλάτωρ, ορος, ὁ"
@@ -52242,6 +52304,8 @@
     dodson-pos: "V"
     gloss: "I crucify"
     mounce-morphcat: "v-1d(3)"
+    root: "*σταυρο"
+    verbs: "σταυρώσω, ἐσταύρωσα, -, ἐσταύρωμαι, ἐσταυρώθην"
 σταφυλή:
     pos: N
     full-citation-form: "σταφυλή, ῆς, ἡ"
@@ -56418,6 +56482,8 @@
     dodson-pos: "V"
     gloss: "I put, place"
     mounce-morphcat: "v-6a"
+    root: "*θε"
+    verbs: "(ἐτίθην), θήσω, ἔθηκα, τέθεικα, τέθειμαι, ἐτέθην"
 τίκτω:
     pos: V
     bdag-headword: "τίκτω"
@@ -57853,6 +57919,8 @@
     dodson-pos: "V"
     gloss: "I am, exist, am in possession"
     mounce-morphcat: "cv-1b(2)"
+    root: "ὑπό + *ἀρχ"
+    verbs: "(ὑπῆρχον), -, -, -, -, -"
 ὑπείκω:
     pos: V
     bdag-headword: "ὑπείκω"
@@ -58937,6 +59005,8 @@
     dodson-pos: "V"
     gloss: "I make clear, visible, or manifest"
     mounce-morphcat: "v-1d(3)"
+    root: "*φανερο"
+    verbs: "φανερώσω, ἐφανέρωσα, πεφανέρωκα, πεφανέρωμαι, ἐφανερώθην"
 φανερῶς:
     pos: D
     bdag-headword: "φανερῶς"
@@ -59191,6 +59261,8 @@
     dodson-pos: "V"
     gloss: "I carry, bear, bring, lead"
     mounce-morphcat: "v-1c(1)"
+    root: "*φερ, *οι, *ἐνεχ"
+    verbs: "(ἔφερον), οἴσω, ἤνεγκα, ἐνήνοχα, ἐνήνεκμαι, ἠνέχθην"
 φεύγω:
     pos: V
     bdag-headword: "φεύγω"
@@ -59237,6 +59309,8 @@
     dodson-pos: "V"
     gloss: "I say"
     mounce-morphcat: "v-6b"
+    root: "*φε"
+    verbs: "(ἔφη), -, ἔφη, -, -, -"
 Φῆστος:
     pos: N
     full-citation-form: "Φῆστος, ου, ὁ"
@@ -60582,7 +60656,7 @@
     gloss: "I rejoice, am glad"
     mounce-morphcat: "v-2d(2)"
     root: "*χαρ"
-    verbs: "?"
+    verbs: "(ἔχαιρον), -, -, -, -, ἐχάρην"
 χάλαζα:
     pos: N
     full-citation-form: "χάλαζα, ης, ἡ"
