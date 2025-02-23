@@ -4,6 +4,7 @@
     {
         Masculine, // M
         Feminine, // F
-        Neuter // N
+        Neuter, // N
+        Unknown
     }
 }

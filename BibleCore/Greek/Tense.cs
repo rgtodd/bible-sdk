@@ -7,6 +7,7 @@
         Future, // F
         Aorist, // A
         Perfect, // X
-        Pluperfect // Y
+        Pluperfect, // Y
+        Unknown
     }
 }

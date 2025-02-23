@@ -2,21 +2,21 @@
 {
     internal readonly struct Inflection : IEquatable<Inflection>, IComparable<Inflection>
     {
-        public Mood? Mood { get; init; }
+        public Mood Mood { get; init; }
 
-        public Tense? Tense { get; init; }
+        public Tense Tense { get; init; }
 
-        public Voice? Voice { get; init; }
+        public Voice Voice { get; init; }
 
-        public Case? Case { get; init; }
+        public Case Case { get; init; }
 
-        public Person? Person { get; init; }
+        public Person Person { get; init; }
 
-        public Number? Number { get; init; }
+        public Number Number { get; init; }
 
-        public Gender? Gender { get; init; }
+        public Gender Gender { get; init; }
 
-        public Degree? Degree { get; init; }
+        public Degree Degree { get; init; }
 
         private static string ToCode(Person? persons)
         {

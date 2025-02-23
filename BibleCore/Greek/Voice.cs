@@ -4,6 +4,7 @@
     {
         Active, // A
         Middle, // M
-        Passive // P
+        Passive, // P
+        Unknown
     }
 }

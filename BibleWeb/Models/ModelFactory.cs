@@ -1,9 +1,5 @@
 ﻿using BibleCore.Service.Data;
 
-using Microsoft.AspNetCore.Mvc.Localization;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.VisualStudio.TextTemplating;
-
 
 namespace BibleWebApi.Models
 {

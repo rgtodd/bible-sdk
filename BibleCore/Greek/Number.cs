@@ -3,6 +3,7 @@
     internal enum Number
     {
         Singular, // S
-        Plural // P
+        Plural, // P
+        Unknown
     }
 }

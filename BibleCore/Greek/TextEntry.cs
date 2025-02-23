@@ -14,6 +14,10 @@
 
         public required string TransliteratedWord { get; init; }
 
+        public required PartOfSpeech PartOfSpeech { get; init; }
+
+        public required Inflection Inflection { get; init; }
+
         public required Lexeme Lexeme { get; init; }
 
     }

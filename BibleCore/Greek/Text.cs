@@ -6,7 +6,7 @@
 
         private Dictionary<Book, Dictionary<byte, Dictionary<byte, int>>> Counts { get; } = [];
 
-        public TextEntry CreateTextEntry(Bookmark bookmark, byte position, string text, string word, string normalizedWord, string transliteratedWord, Lexeme lexeme)
+        public TextEntry CreateTextEntry(Bookmark bookmark, byte position, string text, string word, string normalizedWord, string transliteratedWord, PartOfSpeech partOfSpeech, Inflection inflection, Lexeme lexeme)
         {
             var textEntry = new TextEntry()
             {
@@ -16,6 +16,8 @@
                 Word = word,
                 NormalizedWord = normalizedWord,
                 TransliteratedWord = transliteratedWord,
+                PartOfSpeech = partOfSpeech,
+                Inflection = inflection,
                 Lexeme = lexeme
             };
 

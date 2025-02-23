@@ -3,6 +3,7 @@
     internal enum Degree
     {
         Comparative, // C
-        Superlative // S
+        Superlative, // S
+        Unknown
     }
 }

@@ -7,6 +7,7 @@
         Optative, // O
         Imperative, // D 
         Infinitive, // N
-        Participle // P
+        Participle, // P
+        Unknown
     }
 }

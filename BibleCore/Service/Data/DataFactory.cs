@@ -238,16 +238,16 @@ namespace BibleCore.Service.Data
             return sortedForms.Select(CreateFormData).ToArray();
         }
 
-        private static CaseData? CreateCaseData(Case? _case)
+        private static CaseData? CreateCaseData(Case _case)
         {
             return _case switch
             {
-                null => null,
                 Case.Accusative => CaseData.Accusative,
                 Case.Dative => CaseData.Dative,
                 Case.Genitive => CaseData.Genitive,
                 Case.Nominative => CaseData.Nominative,
                 Case.Vocative => CaseData.Vocative,
+                Case.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
@@ -287,51 +287,51 @@ namespace BibleCore.Service.Data
             };
         }
 
-        private static DegreeData? CreateDegreeData(Degree? degree)
+        private static DegreeData? CreateDegreeData(Degree degree)
         {
             return degree switch
             {
-                null => null,
                 Degree.Comparative => DegreeData.Comparative,
                 Degree.Superlative => DegreeData.Superlative,
+                Degree.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static GenderData? CreateGenderData(Gender? gender)
+        private static GenderData? CreateGenderData(Gender gender)
         {
             return gender switch
             {
-                null => null,
                 Gender.Feminine => GenderData.Feminine,
                 Gender.Masculine => GenderData.Masculine,
                 Gender.Neuter => GenderData.Neuter,
+                Gender.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static MoodData? CreateMoodData(Mood? mood)
+        private static MoodData? CreateMoodData(Mood mood)
         {
             return mood switch
             {
-                null => null,
                 Mood.Imperative => MoodData.Imperative,
                 Mood.Indicative => MoodData.Indicative,
                 Mood.Infinitive => MoodData.Infinitive,
                 Mood.Optative => MoodData.Optative,
                 Mood.Participle => MoodData.Participle,
                 Mood.Subjunctive => MoodData.Subjunctive,
+                Mood.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static NumberData? CreateNumberData(Number? number)
+        private static NumberData? CreateNumberData(Number number)
         {
             return number switch
             {
-                null => null,
                 Number.Plural => NumberData.Plural,
                 Number.Singular => NumberData.Singular,
+                Number.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
@@ -357,41 +357,41 @@ namespace BibleCore.Service.Data
             };
         }
 
-        private static PersonData? CreatePersonData(Person? person)
+        private static PersonData? CreatePersonData(Person person)
         {
             return person switch
             {
-                null => null,
                 Person.First => PersonData.First,
                 Person.Second => PersonData.Second,
                 Person.Third => PersonData.Third,
+                Person.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static TenseData? CreateTenseData(Tense? tense)
+        private static TenseData? CreateTenseData(Tense tense)
         {
             return tense switch
             {
-                null => null,
                 Tense.Aorist => TenseData.Aorist,
                 Tense.Future => TenseData.Future,
                 Tense.Imperfect => TenseData.Imperfect,
                 Tense.Perfect => TenseData.Perfect,
                 Tense.Pluperfect => TenseData.Pluperfect,
                 Tense.Present => TenseData.Present,
+                Tense.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }
 
-        private static VoiceData? CreateVoiceData(Voice? voice)
+        private static VoiceData? CreateVoiceData(Voice voice)
         {
             return voice switch
             {
-                null => null,
                 Voice.Active => VoiceData.Active,
                 Voice.Middle => VoiceData.Middle,
                 Voice.Passive => VoiceData.Passive,
+                Voice.Unknown => null,
                 _ => throw new NotImplementedException()
             };
         }

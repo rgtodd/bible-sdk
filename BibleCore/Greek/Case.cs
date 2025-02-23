@@ -6,6 +6,7 @@
         Genitive, // G
         Dative, // D
         Accusative, // A
-        Vocative
+        Vocative,
+        Unknown
     }
 }

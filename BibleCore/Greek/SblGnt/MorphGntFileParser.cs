@@ -143,8 +143,7 @@ namespace BibleCore.Greek.SblGnt
                 var form = lexeme.GetOrCreateForm(lexeme, normalizedWord, transliteratedNormalizedWord, inflection);
                 form.Bookmarks.Add(bookmark);
 
-                var textEntry = text.CreateTextEntry(bookmark, currentPosition, textValue, word, normalizedWord, transliteratedWord, lexeme);
-
+                _ = text.CreateTextEntry(bookmark, currentPosition, textValue, word, normalizedWord, transliteratedWord, partOfSpeech, inflection, lexeme);
             }
         }
 
