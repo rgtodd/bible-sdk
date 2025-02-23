@@ -65,12 +65,7 @@
                 verse = VerseCount(book, chapter);
             }
 
-            return new Bookmark()
-            {
-                Book = book,
-                Chapter = chapter,
-                Verse = verse
-            };
+            return Bookmark.Create(book, chapter, verse);
         }
 
         public Bookmark? GetNext(Bookmark bookmark)
@@ -95,12 +90,7 @@
                 }
             }
 
-            return new Bookmark()
-            {
-                Book = book,
-                Chapter = chapter,
-                Verse = verse
-            };
+            return Bookmark.Create(book, chapter, verse);
         }
 
         public Range? MovePrevious(Range range)
@@ -114,12 +104,7 @@
             }
             if (from == null)
             {
-                from = new Bookmark()
-                {
-                    Book = Book.Matthew,
-                    Chapter = 1,
-                    Verse = 1
-                };
+                from = Bookmark.Create(Book.Matthew, 1, 1);
             }
 
             return new Range()
@@ -143,12 +128,7 @@
                 var chapter = ChapterCount(Book.Revelation);
                 var verse = VerseCount(Book.Revelation, chapter);
 
-                to = new Bookmark()
-                {
-                    Book = Book.Revelation,
-                    Chapter = chapter,
-                    Verse = verse
-                };
+                to = Bookmark.Create(Book.Revelation, chapter, verse);
             }
 
             return new Range()
@@ -164,12 +144,7 @@
 
             if (from == null)
             {
-                from = new Bookmark()
-                {
-                    Book = Book.Matthew,
-                    Chapter = 1,
-                    Verse = 1
-                };
+                from = Bookmark.Create(Book.Matthew, 1, 1);
             }
 
             return new Range()
@@ -188,12 +163,7 @@
                 var chapter = ChapterCount(Book.Revelation);
                 var verse = VerseCount(Book.Revelation, chapter);
 
-                to = new Bookmark()
-                {
-                    Book = Book.Revelation,
-                    Chapter = chapter,
-                    Verse = verse
-                };
+                to = Bookmark.Create(Book.Revelation, chapter, verse);
             }
 
             return new Range()

@@ -131,12 +131,7 @@ namespace BibleCore.Greek.SblGnt
                     ++currentPosition;
                 }
 
-                var bookmark = new Bookmark()
-                {
-                    Book = currentBook,
-                    Chapter = currentChapter,
-                    Verse = currentVerse
-                };
+                var bookmark = Bookmark.Create(currentBook, currentChapter, currentVerse);
 
                 var transliteratedWord = Alphabet.Transliterate(word);
                 var transliteratedNormalizedWord = Alphabet.Transliterate(normalizedWord);

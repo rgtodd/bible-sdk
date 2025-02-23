@@ -80,11 +80,11 @@ namespace BibleCore.Greek
 
         private readonly static Regex s_referenceRegex = new(s_referenceRegexExpression);
 
-        public readonly Book Book { get; init; }
+        public required readonly Book Book { get; init; }
 
-        public readonly byte Chapter { get; init; }
+        public required readonly byte Chapter { get; init; }
 
-        public readonly byte Verse { get; init; }
+        public required readonly byte Verse { get; init; }
 
         public static Bookmark Create(Book book, byte chapter, byte verse)
         {
@@ -119,12 +119,7 @@ namespace BibleCore.Greek
 
             var verseValue = string.IsNullOrEmpty(verse) ? (byte)0 : byte.Parse(verse);
 
-            return new Bookmark()
-            {
-                Book = book,
-                Chapter = chapterValue,
-                Verse = verseValue
-            };
+            return Create(book, chapterValue, verseValue);
         }
 
         public static string FormatBook(Book book)
@@ -171,12 +166,7 @@ namespace BibleCore.Greek
 
         public Bookmark ToUpperBound()
         {
-            return new Bookmark()
-            {
-                Book = Book,
-                Chapter = Chapter == 0 ? byte.MaxValue : Chapter,
-                Verse = Verse == 0 ? byte.MaxValue : Verse
-            };
+            return Create(Book, Chapter == 0 ? byte.MaxValue : Chapter, Verse == 0 ? byte.MaxValue : Verse);
         }
 
         public override string ToString()
