@@ -40,8 +40,8 @@
                     <th scope="col">Part of Speech</th>
                     <th scope="col">Inflection</th>
                     <th scope="col">Word</th>
-                    <th scope="col">Gloss</th>
                     <th scope="col">Diagram</th>
+                    <th scope="col">Gloss</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +68,6 @@
                             <td>
                                 @word.Word
                             </td>
-                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;">
-                                @word.Gloss
-                            </td>
                             @if (isFirstRow)
                             {
                                 <td rowspan="@wordCount">
@@ -78,6 +75,9 @@
                                 </td>
                                 isFirstRow = false;
                             }
+                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;">
+                                @word.Gloss
+                            </td>
                         </tr>
                     }
                 }

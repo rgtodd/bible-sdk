@@ -1,4 +1,6 @@
-﻿namespace BibleCore.Greek.Study
+﻿using System.Text;
+
+namespace BibleCore.Greek.Study
 {
     internal class DefinitionExerciseFactory() : IExerciseFactory
     {
@@ -24,16 +26,45 @@
 
                 var answers = possibleGlosses.Select(g => new Answer(g, g == correctGloss)).ToArray();
 
+                var fullCitationForm = lexeme.FullCitationForm;
+                if (!string.IsNullOrEmpty(lexeme.Verbs))
+                {
+                    fullCitationForm += ", " + lexeme.Verbs;
+                }
+                else
+                {
+                    fullCitationForm = lexeme.PartOfSpeech.ToString() + ": " + fullCitationForm;
+                }
+
                 var detail = new string[] {
-                    lexeme.FullCitationForm + " / " + lexeme.PartOfSpeech.AsString(),
+                    fullCitationForm,
                     lexeme.Root,
-                    lexeme.MounceMorphcat + " - " + GetMorphcatDescription(lexeme.MounceMorphcat) };
+                    Concatenate(lexeme.MounceMorphcat, GetMorphcatDescription(lexeme.MounceMorphcat)) };
 
                 var question = new Question(lexeme.Lemma, detail, answers, First(lexeme.StrongsNumber), First(lexeme.GkNumber));
                 questions.Add(question);
             }
 
             return new Exercise(Name, wordList.Description, wordList.WordListId, wordList.Range, [.. questions]);
+        }
+
+        private static string Concatenate(params string[] values)
+        {
+            var result = new StringBuilder();
+
+            var prefix = string.Empty;
+            foreach (var value in values)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    result.Append(prefix);
+                    prefix = " - ";
+
+                    result.Append(value);
+                }
+            }
+
+            return result.ToString();
         }
 
         private string GetMorphcatDescription(string morphcat)
