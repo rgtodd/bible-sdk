@@ -84,7 +84,10 @@ namespace BibleCore.Service.Data
                     Word = textEntry.Text,
                     Transliteration = textEntry.TransliteratedWord,
                     StrongsNumber = strongsNumber,
-                    GkNumber = gkNumber
+                    GkNumber = gkNumber,
+                    PartOfSpeech = CreatePartOfSpeechData(textEntry.PartOfSpeech),
+                    Inflection = CreateInflectionData(textEntry.Inflection),
+                    Gloss = textEntry.Lexeme.Gloss
                 };
                 currentWords.Add(word);
             }

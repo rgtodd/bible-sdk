@@ -1,0 +1,95 @@
+﻿@using BibleWebApi.Models
+@model BrowseModel
+@{
+    ViewData["Title"] = "Browse";
+}
+<h2>Read</h2>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-primary" role="alert">
+        @Model.Message
+    </div>
+}
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="row mb-3">
+        <label asp-for="RangeExpression" class="col-auto col-form-label">Scripture passage:</label>
+        <div class="col-auto">
+            <input type="submit" asp-controller="Browse" asp-action="Update" hidden />
+            <input asp-for="RangeExpression" class="form-control ctrl-range" style="width: 12em" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">Lookup</button>
+            <button type="submit" asp-controller="Browse" asp-action="Worksheet" class="btn btn-primary">Worksheet</button>
+            <button type="submit" asp-controller="Browse" asp-action="Practice" class="btn btn-primary">Practice</button>
+        </div>
+    </div>
+
+    if (Model.TextData != null)
+    {
+        int wordCount = 0;
+        foreach (var verse in Model.TextData.Verses)
+        {
+            wordCount += verse.Words.Length;
+        }
+        bool isFirstRow = true;
+
+        <table class="table table-sm ">
+            <thead>
+                <tr>
+                    <th scope="col">Part of Speech</th>
+                    <th scope="col">Inflection</th>
+                    <th scope="col">Word</th>
+                    <th scope="col">Gloss</th>
+                    <th scope="col">Diagram</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var verse in Model.TextData.Verses)
+                {
+                    foreach (var word in verse.Words)
+                    {
+                        <tr>
+                            @if (word.PartOfSpeech == BibleCore.Service.Data.PartOfSpeechData.Verb)
+                            {
+                                <td colspan="2">
+                                    <span style="white-space: nowrap">@Format.PartOfSpeech(word.PartOfSpeech) - @Format.Inflection(word.Inflection)</span>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @Format.PartOfSpeech(word.PartOfSpeech)
+                                </td>
+                                <td>
+                                    @Format.Inflection(word.Inflection)
+                                </td>
+                            }
+                            <td>
+                                @word.Word
+                            </td>
+                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;">
+                                @word.Gloss
+                            </td>
+                            @if (isFirstRow)
+                            {
+                                <td rowspan="@wordCount">
+                                    <div style="width:25em;">&nbsp;</div>
+                                </td>
+                                isFirstRow = false;
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+@section Scripts
+{
+    <script type="text/javascript" language="javascript">
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
+}

@@ -11,5 +11,11 @@
         public required int? StrongsNumber { get; init; }
 
         public required int? GkNumber { get; init; }
+
+        public required PartOfSpeechData PartOfSpeech { get; init; }
+
+        public required InflectionData Inflection { get; init; }
+
+        public required string Gloss { get; init; }
     }
 }
