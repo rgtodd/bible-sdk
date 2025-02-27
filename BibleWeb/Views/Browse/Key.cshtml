@@ -20,7 +20,7 @@
         </div>
         <div class="col-auto">
             <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">Lookup</button>
-            <button type="submit" asp-controller="Browse" asp-action="Key" class="btn btn-primary">Key</button>
+            <button type="submit" asp-controller="Browse" asp-action="Worksheet" class="btn btn-primary">Worksheet</button>
             <button type="submit" asp-controller="Browse" asp-action="Practice" class="btn btn-primary">Practice</button>
         </div>
     </div>
@@ -51,13 +51,13 @@
                     {
                         <tr>
                             <td>
-                                &nbsp;
+                                @Format.PartOfSpeech(word.PartOfSpeech)
                             </td>
                             <td>
-                                <div style="width:12em;">&nbsp;</div>
+                                @Format.Inflection(word.Inflection)
                             </td>
                             <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden;">
-                                 <div style="width:12em;">&nbsp;</div>
+                                @word.Gloss
                             </td>
                             <td class="fs-5 serif">
                                 @word.Word

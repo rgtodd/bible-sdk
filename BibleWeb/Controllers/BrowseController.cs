@@ -53,6 +53,19 @@ namespace BibleWeb.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Key(BrowseModel model)
+        {
+            ModelState.Clear();
+
+            var request = HttpContext.Request;
+            var url = $"{request.Scheme}://{request.Host}/api/TextApi?range={model.RangeExpression}";
+
+            model = await GetBrowseModel(model.RangeExpression, url);
+
+            return View("Key", model);
+        }
+
+        [HttpPost]
         public IActionResult Practice(BrowseModel model)
         {
             return RedirectToAction("Index", "Exercise", new { range = model.RangeExpression });
