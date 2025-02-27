@@ -2,7 +2,7 @@
 
 using System.Text.Json;
 
-namespace BibleWebApi.Models
+namespace BibleWeb.Models
 {
     public class ExerciseModel
     {

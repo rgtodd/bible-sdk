@@ -1,6 +1,6 @@
 ﻿using BibleCore.Service.Data;
 
-namespace BibleWebApi.Models
+namespace BibleWeb.Models
 {
     public readonly record struct VerbInflectionModel(MoodData Mood, TenseData Tense, VoiceData Voice)
     {

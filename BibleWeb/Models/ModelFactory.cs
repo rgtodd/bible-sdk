@@ -1,7 +1,6 @@
 ﻿using BibleCore.Service.Data;
 
-
-namespace BibleWebApi.Models
+namespace BibleWeb.Models
 {
     public static class ModelFactory
     {

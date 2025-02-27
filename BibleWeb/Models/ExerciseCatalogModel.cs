@@ -1,4 +1,4 @@
-﻿namespace BibleWebApi.Models
+﻿namespace BibleWeb.Models
 {
     public class ExerciseCatalogModel
     {

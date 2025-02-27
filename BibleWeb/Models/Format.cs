@@ -2,7 +2,7 @@
 
 using System.Text;
 
-namespace BibleWebApi.Models
+namespace BibleWeb.Models
 {
     public static class Format
     {

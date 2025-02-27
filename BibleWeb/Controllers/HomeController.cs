@@ -1,8 +1,8 @@
-﻿using BibleWebApi.Models;
+﻿using BibleWeb.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace BibleWebApi.Controllers
+namespace BibleWeb.Controllers
 {
     public class HomeController() : Controller
     {

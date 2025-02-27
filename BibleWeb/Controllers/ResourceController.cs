@@ -1,8 +1,7 @@
 ﻿using BibleCore.Service.Data;
 using BibleCore.Utility;
 
-
-using BibleWebApi.Models;
+using BibleWeb.Models;
 
 using Microsoft.AspNetCore.Mvc;
 

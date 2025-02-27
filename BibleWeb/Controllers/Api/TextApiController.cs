@@ -3,7 +3,7 @@ using BibleCore.Service.Data;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace BibleWebApi.Controllers.Api
+namespace BibleWeb.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]

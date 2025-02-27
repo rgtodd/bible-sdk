@@ -1,13 +1,13 @@
 ﻿using BibleCore.Service.Data;
 using BibleCore.Utility;
 
-using BibleWebApi.Models;
+using BibleWeb.Models;
 
 using Microsoft.AspNetCore.Mvc;
 
 using System.Text.Json;
 
-namespace BibleWebApi.Controllers
+namespace BibleWeb.Controllers
 {
     public class ExerciseController(ILogger<ExerciseController> logger, IHttpClientFactory httpClientFactory) : Controller
     {

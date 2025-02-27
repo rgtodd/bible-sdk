@@ -26,20 +26,24 @@ namespace BibleCore.Greek.Study
 
                 var answers = possibleGlosses.Select(g => new Answer(g, g == correctGloss)).ToArray();
 
-                var fullCitationForm = lexeme.FullCitationForm;
-                if (!string.IsNullOrEmpty(lexeme.Verbs))
+                string[] detail;
+                if (lexeme.PartOfSpeech == PartOfSpeech.Verb)
                 {
-                    fullCitationForm += ", " + lexeme.Verbs;
+                    detail =
+                    [
+                        lexeme.PartOfSpeech.ToString() + ": " + lexeme.Root,
+                        Concatenate(lexeme.FullCitationForm, lexeme.Verbs),
+                        Concatenate(lexeme.MounceMorphcat, GetMorphcatDescription(lexeme.MounceMorphcat))
+                    ];
                 }
                 else
                 {
-                    fullCitationForm = lexeme.PartOfSpeech.ToString() + ": " + fullCitationForm;
+                    detail =
+                    [
+                        lexeme.PartOfSpeech.ToString() + ": " + lexeme.FullCitationForm,
+                        lexeme.MounceMorphcat
+                    ];
                 }
-
-                var detail = new string[] {
-                    fullCitationForm,
-                    lexeme.Root,
-                    Concatenate(lexeme.MounceMorphcat, GetMorphcatDescription(lexeme.MounceMorphcat)) };
 
                 var question = new Question(lexeme.Lemma, detail, answers, First(lexeme.StrongsNumber), First(lexeme.GkNumber));
                 questions.Add(question);
@@ -67,7 +71,7 @@ namespace BibleCore.Greek.Study
             return result.ToString();
         }
 
-        private string GetMorphcatDescription(string morphcat)
+        private static string GetMorphcatDescription(string morphcat)
         {
             bool isCompound = false;
             if (morphcat.StartsWith('c'))
@@ -116,12 +120,12 @@ namespace BibleCore.Greek.Study
 
             if (isCompound)
             {
-                description = description + " (Compound)";
+                description += " (Compound)";
             }
 
             return description;
         }
 
-        private int? First(int[] values) => values.Length > 0 ? values[0] : null;
+        private static int? First(int[] values) => values.Length > 0 ? values[0] : null;
     }
 }
