@@ -8,28 +8,28 @@
 <table>
     <thead>
         <tr>
-            <th>Citation</th>
             <th>Part of Speech</th>
+            <th>Citation</th>
+            <th>Root</th>
+            <th>Verbs</th>
             <th>Morphcat</th>
             <th>Gloss</th>
             <th>Strongs</th>
-            <th>Mounce Chapter</th>
-            <th>Root</th>
-            <th>Verbs</th>
+            <th>Mounce</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var lexeme in Model.Lexemes)
         {
             <tr>
-                <td class="serif">@lexeme.FullCitationForm</td>
                 <td>@lexeme.PartOfSpeechDescription</td>
+                <td class="serif">@lexeme.FullCitationForm</td>
+                <td class="serif">@lexeme.Root</td>
+                <td class="serif">@lexeme.Verbs</td>
                 <td>@lexeme.MounceMorphcat</td>
                 <td>@lexeme.Gloss</td>
                 <td>@string.Join(", ", lexeme.StrongsNumber.Select(s => s.ToString()).ToArray())</td>
                 <td>@lexeme.MounceChapterNumber</td>
-                <td>@lexeme.Root</td>
-                <td>@lexeme.Verbs</td>
             </tr>
         }
     </tbody>

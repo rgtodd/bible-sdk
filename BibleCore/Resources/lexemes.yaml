@@ -443,7 +443,7 @@
     dodson-pos: "V"
     gloss: "I make holy, sanctify"
     mounce-morphcat: "v-2a(1)"
-    root: "*ἁγιοδ"
+    root: "*ἁγιάζ/*ἁγιοδ"
     verbs: "-, ἡγίασα, -, ἡγίασμαι, ἡγιάσθην"
 ἁγιασμός:
     pos: N
@@ -1673,7 +1673,7 @@
     dodson-pos: "V"
     gloss: "I raise, lift up"
     mounce-morphcat: "v-2d(2)"
-    root: "*ἀρ Liq P3"
+    root: "*αἴρ/*ἀρ Liq P3"
     verbs: "ἀρῶ, ἦρα, ἦρκα, ἦρμαι, ἤρθην"
 αἰσθάνομαι:
     pos: V
@@ -3076,7 +3076,7 @@
     dodson-pos: "V"
     gloss: "I sin"
     mounce-morphcat: "v-3a(2a)"
-    root: "*ἁμαρτ"
+    root: "*ἁμαρτάν/*ἁμαρτ"
     verbs: "ἁμαρτήσω, ἥμαρτον ορ ἡμάρτησα, ἡμάρτηκα, -, -"
 ἁμάρτημα:
     pos: N
@@ -3568,7 +3568,7 @@
     dodson-pos: "V"
     gloss: "I go up, mount, ascend"
     mounce-morphcat: "cv-2d(7)"
-    root: "*ἀνά + *βα 2Aor"
+    root: "ἀνά + *βαίν/*βα 2Aor"
     verbs: "ἀναβήσομαι, ἀνέβην (2nd), ἀναβέβηκα, -, -"
 ἀναβάλλομαι:
     pos: V
@@ -5962,7 +5962,7 @@
     dodson-pos: "V"
     gloss: "I report, bring a report, announce"
     mounce-morphcat: "cv-2d(1)"
-    root: "ἀπό + *ἀγγελ"
+    root: "ἀπό + *ἀγγέλλ/*ἀγγελ"
     verbs: "ἀπαγγελῶ, ἀπήγγειλα, -, -, ἀπηγγέλην"
 ἀπάγχομαι:
     pos: V
@@ -6834,7 +6834,7 @@
     dodson-pos: "V"
     gloss: "I am dying, am about to die"
     mounce-morphcat: "cv-5a"
-    root: "ἀπὀ + *θαν Liq 2Aor P4"
+    root: "ἀπὀ + *θνῄσκ/*θαν Liq 2Aor P4"
     verbs: "(ἀπέθνῃσκον), ἀποθανοῦμαι, ἀπέθανον (2nd), -, -, -"
 ἀποκαθίστημι:
     pos: V
@@ -7020,7 +7020,7 @@
     dodson-pos: "V"
     gloss: "I put to death, kill"
     mounce-morphcat: "cv-2d(5)"
-    root: "ἀπό + *κτεν Liq P3"
+    root: "ἀπό + *κτείν/*κτεν Liq P3"
     verbs: "ἀποκτενῶ (liq), ἀπέκτεινα (liq), -, -, ἀπεκτάνθην (ablaut)"
 ἀποκυέω:
     pos: V
@@ -7088,7 +7088,7 @@
     dodson-pos: "V"
     gloss: "I destroy, lose, am perishing"
     mounce-morphcat: "cv-3c(2)"
-    root: "ἀπό + *ὀλ"
+    root: "ἀπό + *ὀλλυμι/*ὀλ"
     verbs: "(ἀπώλλυον), ἀπολέσω, ἀπώλεσα, ἀπόλωλα (2nd), -, -"
 Ἀπολλύων:
     pos: N
@@ -7376,7 +7376,7 @@
     dodson-pos: "V"
     gloss: "I send forth, send, send away, dismiss"
     mounce-morphcat: "cv-2d(1)"
-    root: "ἀπό + *στελ Liq 2Aor P3"
+    root: "ἀπό + *στέλλ/*στελ Liq 2Aor P3"
     verbs: "ἀποστελῶ (liq), ἀπέστειλα (liq), ἀπέσταλκα (ablut), ἀπέσταλμαι (ablaut), ἀπεστάλην (2nd, ablaut)"
 ἀποστερέω:
     pos: V
@@ -8909,7 +8909,7 @@
     dodson-pos: "V"
     gloss: "I greet, salute, pay my respects to"
     mounce-morphcat: "v-2a(1)"
-    root: "*ἀσπαδ"
+    root: "*ἀσπάζ/*ἀσπαδ"
     verbs: "-, ἠσπασάμην, -, -, -"
 ἀσπασμός:
     pos: N
@@ -10371,7 +10371,7 @@
     dodson-pos: "V"
     gloss: "I cast, throw, rush, put, place, drop"
     mounce-morphcat: "v-2d(1)"
-    root: "*βαλ Liq 2Aor P3"
+    root: "*βάλλ/*βαλ Liq 2Aor P3"
     verbs: "βαλῶ (liq), ἔβαλον (2nd), βέβληκα (ablaut, η ins), βέβλημαι, ἐβλήθην"
 βαπτίζω:
     pos: V
@@ -10384,7 +10384,7 @@
     dodson-pos: "V"
     gloss: "I dip, submerge, baptize"
     mounce-morphcat: "v-2a(1)"
-    root: "*βαπτιδ P4"
+    root: "*βαπτίζ/*βαπτιδ P4"
     verbs: (ἐβαπτιζόμην), βαπτίσω, ἐβάπτισα, -, βεβάπτισμαι (dental+μ -> σμ), ἐβαπτίσθην
 βάπτισμα:
     pos: N
@@ -12576,7 +12576,7 @@
     dodson-pos: "V"
     gloss: "I come into being, am born"
     mounce-morphcat: "v-1c(2)"
-    root: "*γεν 2Aor P4"
+    root: "*γιν/*γεν 2Aor P4"
     verbs: (ἐγινόμην), γενήσομαι, ἐγενόμην (2nd), γέγονα (2nd, ablaut), γεγένημαι (η ins), ἐγενήθην (η ins)
 γινώσκω:
     pos: V
@@ -12589,7 +12589,7 @@
     dodson-pos: "V"
     gloss: "I come to know, learn, realize"
     mounce-morphcat: "v-5a"
-    root: "*γνω 2Aor P4"
+    root: "*γινώσκ/*γνω 2Aor P4"
     verbs: "γνώσομαι, ἔγνων (2nd), ἔγνωκα, ἔγνωσμαι (σ ins), ἐγνώσθην (σ ins)"
 γλεῦκος:
     pos: N
@@ -13403,7 +13403,7 @@
     dodson-pos: "V"
     gloss: "I point out, show"
     mounce-morphcat: "v-3c(2)"
-    root: "*δεικνυ"
+    root: "*δεικνυ-μι/*δεικ"
     verbs: "δείξω, ἔδειξα, δέδειχα, δέδειγμαι, ἐδείχθην"
 δειλία:
     pos: N
@@ -15148,7 +15148,7 @@
     dodson-pos: "V"
     gloss: "I teach"
     mounce-morphcat: "v-5a"
-    root: "*διδακ P1c"
+    root: "*διδάσκ/*διδακ P1c"
     verbs: "(ἐδίδασκον), διδάξω, ἐδίδαξα, -, -, ἐδιδάχθην (κθ->χθ, σ dropped)"
 διδαχή:
     pos: N
@@ -15859,7 +15859,7 @@
     dodson-pos: "V"
     gloss: "I think, seem, appear, it seems"
     mounce-morphcat: "v-1b(4)"
-    root: "*δοκ / *δοκε (pre)"
+    root: "*δοκε/*δοκ"
     verbs: "(ἐδόκουν), δόξω, ἔδοξα, -, -, -"
 δοκιμάζω:
     pos: V
@@ -16009,7 +16009,7 @@
     dodson-pos: "V"
     gloss: "I glorify, honor, bestow glory on"
     mounce-morphcat: "v-2a(1)"
-    root: "*δοξαδ P4"
+    root: "*δοξάζ/*δοξαδ P4"
     verbs: (ἐδόξαζον), δοξάσω, ἐδόξασα, -, δεδόξασμαι (δμ->σμ), ἐδοξάσθην (δθ->σθ)
 Δορκάς:
     pos: N
@@ -16704,7 +16704,7 @@
     dodson-pos: "V"
     gloss: "I wake, arouse, raise up"
     mounce-morphcat: "v-2d(3)"
-    root: "*ἐγερ Liq P3"
+    root: "*ἐγείρ/*ἐγερ Liq P3"
     verbs: "ἐγερῶ, ἤγειρα (ablaut), -, ἐγήγερμαι (voc rec), ἠγέρθην"
 ἔγερσις:
     pos: N
@@ -17628,7 +17628,7 @@
     dodson-pos: "V"
     gloss: "I throw, cast, put out, banish, bring forth, produce"
     mounce-morphcat: "cv-2d(1)"
-    root: "ἐκ + *βαλ Liq 2Aor P3"
+    root: "ἐκ + *βάλλ/*βαλ Liq 2Aor P3"
     verbs: "ἐκβαλῶ, ἐξέβαλον, ἐκβέβληκα, -, ἐξεβλήθην"
 ἔκβασις:
     pos: N
@@ -23455,8 +23455,8 @@
     dodson-pos: "V"
     gloss: "I come, go"
     mounce-morphcat: "v-1b(2)"
-    root: "*ερχ, *ἐλευθ 2Aor P2"
-    verbs: (ἠρχόμην), ἐλεύσομαι (*ελευθ), ἦλθον (*ελευθ, 2nd, ablaut), ἐλήλυθα (*ελευθ, 2nd, voc red, ε dropped), -, -
+    root: "*ερχ/*ἐλευθ 2Aor P2"
+    verbs: (ἠρχόμην), ἐλεύσομαι, ἦλθον (2nd, ablaut), ἐλήλυθα (2nd, voc red, ε dropped), -, -
 ἐρωτάω:
     pos: V
     bdag-headword: "ἐρωτάω"
@@ -23493,7 +23493,7 @@
     dodson-pos: "V"
     gloss: "I eat"
     mounce-morphcat: "v-1b(3)"
-    root: "*ἐσθι (pre), *φαγ (fut/aor) 2Aor"
+    root: "*ἐσθι/*φαγ 2Aor"
     verbs: "(ἤσθιον), φάγομαι, ἔφαγον (2nd), -, -, -"
 ἔσθω:
     pos: V
@@ -23774,7 +23774,7 @@
     dodson-pos: "V"
     gloss: "I bring good news, preach good tidings"
     mounce-morphcat: "v-2a(1)"
-    root: "*εὐαγγελιδ"
+    root: "*εὐαγγελίζ/*εὐαγγελιδ"
     verbs: "(εὐηγγέλιζον), -, εὐηγγέλισα, -, εὐηγγέλισμαι (δμ->σμ), εὐηγγελίσθην (δθ->σθ)"
 εὐαγγέλιον:
     pos: N
@@ -24373,7 +24373,7 @@
     dodson-pos: "V"
     gloss: "I find"
     mounce-morphcat: "v-5b"
-    root: "*εὑρ 2Aor P4"
+    root: "*εὑρίσκ/*εὑρ 2Aor P4"
     verbs: "(εὕρισκον), εὑρήσω (η add), εὗρον (2nd), εὕρηκα (η add), -, εὑρέθην (ε add)"
 εὐρύχωρος:
     pos: A
@@ -26179,7 +26179,7 @@
     dodson-pos: "V"
     gloss: "I will, wish, desire"
     mounce-morphcat: "v-1d(2c)"
-    root: "*ἐθελε, *θελ pre, *ἐθελ imp P1a"
+    root: "*θελ(*ἐθελ)/*ἐθελε P1a"
     verbs: (ἤθελον), θελήσω, ἠθέλησα, -, -, ἐθελήθην
 θεμέλιον:
     pos: N
@@ -29470,7 +29470,7 @@
     dodson-pos: "V"
     gloss: "I go down, come down"
     mounce-morphcat: "cv-2d(6)"
-    root: "κατά + *βα 2Aor"
+    root: "κατά + *βαίν/*βα 2Aor"
     verbs: "(κατέβαινον), καταβήσομαι, κατέβην, καταβέβηκα, -, -"
 καταβάλλω:
     pos: V
@@ -31584,7 +31584,7 @@
     dodson-pos: "V"
     gloss: "I proclaim, herald, preach"
     mounce-morphcat: "v-2b"
-    root: "*κηρυγ P4"
+    root: "*κηρύσσ/*κηρυγ P4"
     verbs: (ἐκήρυσσον), κηρύξω, ἐκήρυξα, -, κεκήρυγμαι, ἐκηρύχθην (γθ->χθ)
 κῆτος:
     pos: N
@@ -32893,7 +32893,7 @@
     dodson-pos: "V"
     gloss: "I cry aloud, shriek"
     mounce-morphcat: "v-2a(2)"
-    root: "*κραγ"
+    root: "*κράζ/*κραγ"
     verbs: "(ἔκραζον), κράξω, ἔκραξα, κέκραγα (2nd), -, -"
 κραιπάλη:
     pos: N
@@ -33909,7 +33909,7 @@
     dodson-pos: "V"
     gloss: "I receive, take"
     mounce-morphcat: "v-3a(2b)"
-    root: "*λαβ 2Aor P4"
+    root: "*λαμβάν/*λαβ 2Aor P4"
     verbs: "(ἐλάμβανον), λήμψομαι (*λημβ), ἔλαβον (2nd), εἴληφα (*ειληφ, 2nd), εἴλημμαι (β->μ), ἐλήμφθην (β->μ)"
 Λάμεχ:
     pos: N
@@ -34133,7 +34133,7 @@
     dodson-pos: "V"
     gloss: "I say, speak"
     mounce-morphcat: "v-1b(2)"
-    root: "*λεγ (pre), *«υ»ερ (fut, per, aor pas), *«υ»ιπ (aor act) Liq 2Aor P2"
+    root: "*λεγ/*«υ»ερ/*«υ»ιπ/*«υ»ερ/*«υ»ερ/*«υ»ερ Liq 2Aor P2"
     verbs: (ἔλεγον), ἐρῶ (liq), εἶπον (2nd), εἴρηκα, εἴρημαι, ἐρρέθην (ρ ins)
 λεῖμμα:
     pos: N
@@ -39743,7 +39743,7 @@
     dodson-pos: "V"
     gloss: "I know, remember"
     mounce-morphcat: "v-1b(3)"
-    root: "*οἰδ, *«υ»ἰδ P2"
+    root: "*οἰδ/*«υ»ἰδ P2 Irr"
     verbs: εἰδήσω, ᾔδειν, -, -, -
 οἰκεῖος:
     pos: A
@@ -40933,7 +40933,7 @@
     dodson-pos: "V"
     gloss: "I see, look upon, experience"
     mounce-morphcat: "v-1d(1a)"
-    root: "*ὁρα (pre, per act) / *ὀπ (aor pas) / *«υ»~ἰδ (aor) 2Aor P2 P1b"
+    root: "*ὁρα/*ὀπ/*«υ»ἰδ/*ὁρα/-/*ὀπ 2Aor P2 P1b"
     verbs: (ἐώρων), ὄψομαι, ὠψάμην (2nd) / εἶδον, ἑώρακα, -, ὤφθην
 ὀργή:
     pos: N
@@ -45313,7 +45313,7 @@
     dodson-pos: "V"
     gloss: "I drink, imbibe"
     mounce-morphcat: "v-3a(1)"
-    root: "*πι Liq 2Aor P1a"
+    root: "*πίν/*πι Liq 2Aor P1a"
     verbs: "(ἔπινον), πίομαι, ἔπιον (2nd), πέπωκα, -, ἐπόθην"
 πιότης:
     pos: N
@@ -51974,7 +51974,7 @@
     dodson-pos: "V"
     gloss: "I sow, spread, scatter"
     mounce-morphcat: "v-2d(3)"
-    root: "*σπερ"
+    root: "*σπείρ/*σπερ"
     verbs: "-, ἔσπειρα, -, ἔσπαρμαι, ἐσπάρην"
 σπεκουλάτωρ:
     pos: N
@@ -55315,7 +55315,7 @@
     dodson-pos: "V"
     gloss: "I save, heal"
     mounce-morphcat: "v-2a(1)"
-    root: "*σωδ P4"
+    root: "*σῴζ/*σωδ P4"
     verbs: (ἔσῳζον), σώσω, ἔσωσα, σέσωκα, σέσῳσμαι, ἐσώθην (σ drop)
 σῶμα:
     pos: N
@@ -57837,7 +57837,7 @@
     gloss: "I go away, depart"
     mounce-morphcat: "cv-1b(2)"
     root: "ὑπό + *ἀγ P1b"
-    verbs: (ὑπῆγον), "ὑπάξω", "ὑπήγαγον", -, "ὑπῆγμαι", "ὑπήχθην"
+    verbs: "(ὑπῆγον), ὑπάξω, ὑπήγαγον, -, ὑπῆγμαι, ὑπήχθην"
 ὑπακοή:
     pos: N
     full-citation-form: "ὑπακοή, ῆς, ἡ"
@@ -59261,7 +59261,7 @@
     dodson-pos: "V"
     gloss: "I carry, bear, bring, lead"
     mounce-morphcat: "v-1c(1)"
-    root: "*φερ, *οι, *ἐνεχ (irr) Liq"
+    root: "*φερ/*οι/*ἐνεχ/*ἐνεχ/*ἐνεχ/*ἐνεχ  (irr) Liq"
     verbs: "(ἔφερον), οἴσω, ἤνεγκα, ἐνήνοχα, ἐνήνεκμαι, ἠνέχθην"
 φεύγω:
     pos: V
@@ -60655,7 +60655,7 @@
     dodson-pos: "V"
     gloss: "I rejoice, am glad"
     mounce-morphcat: "v-2d(2)"
-    root: "*χαρ Liq 2Aor P3"
+    root: "*χαίρ/*χαρ Liq 2Aor P3"
     verbs: "(ἔχαιρον), -, -, -, -, ἐχάρην (2nd)"
 χάλαζα:
     pos: N
