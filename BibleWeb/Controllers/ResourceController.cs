@@ -20,7 +20,47 @@ namespace BibleWeb.Controllers
             return View("Vocabulary", model);
         }
 
+        public async Task<IActionResult> Verb()
+        {
+            var model = await GetVerbs(1, 99);
+
+            return View("Verb", model);
+        }
+
         private async Task<LexemeListModel> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber)
+        {
+            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
+
+            var sortedLexemes = lexemeData
+            .OrderBy(l => l.PartOfSpeechDescription)
+            //.ThenBy(l => l.MounceMorphcat)
+            .ThenBy(l => l.FullCitationForm)
+            .ToList();
+
+            var model = ModelFactory.CreateLexemeListModel(sortedLexemes);
+
+            return model;
+        }
+
+        private async Task<VerbListModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber)
+        {
+            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
+
+            var sortedLexemes = lexemeData
+.OrderBy(l => l.MounceMorphcat)
+.ThenBy(l => l.FullCitationForm)
+.ToList();
+
+            var model = ModelFactory.CreateVerbListModel(
+                 MoodData.Indicative,
+                 TenseData.Aorist,
+                 VoiceData.Active,
+                sortedLexemes);
+
+            return model;
+        }
+
+        private async Task<List<LexemeData>> GetLexemeData(int? minimumMounceNumber, int? maximumMounceNumber)
         {
             List<LexemeData>? lexemeData = null;
 
@@ -42,10 +82,7 @@ namespace BibleWeb.Controllers
 
             lexemeData ??= [];
 
-            var model = ModelFactory.CreateLexemeListModel(lexemeData);
-
-            return model;
+            return lexemeData;
         }
-
     }
 }

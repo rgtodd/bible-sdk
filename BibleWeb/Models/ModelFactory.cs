@@ -74,15 +74,22 @@ namespace BibleWeb.Models
 
         public static LexemeListModel CreateLexemeListModel(List<LexemeData> lexemes)
         {
-            var sortedLexemes = lexemes
-                .OrderBy(l => l.PartOfSpeechDescription)
-                //.ThenBy(l => l.MounceMorphcat)
-                .ThenBy(l => l.FullCitationForm)
-                .ToList();
-
             return new LexemeListModel()
             {
-                Lexemes = sortedLexemes
+                Lexemes = lexemes
+            };
+        }
+
+        public static VerbListModel CreateVerbListModel(MoodData mood, TenseData tense, VoiceData voice, List<LexemeData> lexemes)
+        {
+            var verbModels = lexemes.Select(CreateVerbModel).ToList();
+
+            return new VerbListModel()
+            {
+                Mood = mood,
+                Tense = tense,
+                Voice = voice,
+                Verbs = verbModels
             };
         }
 
@@ -242,16 +249,22 @@ namespace BibleWeb.Models
             string root = lexemeData.Root;
             string verbs = lexemeData.Verbs;
 
+            string strongs = lexemeData.StrongsNumber != null && lexemeData.StrongsNumber.Length > 0
+                ? lexemeData.StrongsNumber[0].ToString() 
+                : string.Empty;
+
             var verbModel = new VerbModel()
-            {
-                Tenses = inflections,
-                Morphology = morphology,
-                Category = category,
-                Subcategory = subcategory,
-                Description = description,
-                Root = root,
-                Verbs = verbs
-            };
+                {
+                    Citation = lexemeData.FullCitationForm,
+                    Tenses = inflections,
+                    Morphology = morphology,
+                    Category = category,
+                    Subcategory = subcategory,
+                    Description = description,
+                    Strongs = strongs,
+                    Root = root,
+                    Verbs = verbs
+                };
 
             return verbModel;
         }
