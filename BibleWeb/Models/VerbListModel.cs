@@ -2,15 +2,44 @@
 
 namespace BibleWeb.Models
 {
-    public class VerbListModel
+    public class VerbClassificationModel
+    {
+        public required IList<VerbClassificationCategoryModel> Categories { get; init; }
+    }
+
+    public class VerbClassificationCategoryModel
     {
         public required MoodData Mood { get; init; }
-        
+
         public required TenseData Tense { get; init; }
-        
+
         public required VoiceData Voice { get; init; }
 
-        public required IList<VerbModel> Verbs { get; init; }
+        public required Dictionary<string, VerbClassificationEntryModel> Entries { get; init; }
+
+    }
+
+    public class VerbClassificationEntryModel
+    {
+        public required string Citation { get; init; }
+
+        public required string Root { get; init; }
+
+        public required string Morphology { get; init; }
+
+        public required int Strongs { get; init; }
+
+        public required List<string> FirstPersonSingular { get; init; }
+
+        public required List<string> SecondPersonSingular { get; init; }
+
+        public required List<string> ThirdPersonSingular { get; init; }
+
+        public required List<string> FirstPersonPlural { get; init; }
+
+        public required List<string> SecondPersonPlural { get; init; }
+
+        public required List<string> ThirdPersonPlural { get; init; }
     }
 
 }

@@ -1,130 +1,51 @@
 ﻿@using BibleCore.Service.Data
 @using BibleWeb.Models
-@model VerbListModel
+@model VerbClassificationModel
 @{
     ViewData["Title"] = "Lookup";
     Layout = "_Excel";
+    Span<MoodData> moods = Enum.GetValues<MoodData>();
+    Span<TenseData> tenses = Enum.GetValues<TenseData>();
+    Span<VoiceData> voices = Enum.GetValues<VoiceData>();
 }
-<h1>@Model.Mood.ToString() - @Model.Tense.ToString() - @Model.Voice.ToString()</h1>
-<table class="table table-sm table-bordered">
-    <thead>
-        <tr>
-            <th>Citation</th>
-            <th>Roots</th>
-            <th>Morphology</th>
-            <th>Strongs</th>
-            <th>1st Singular</th>
-            <th>2nd Singular</th>
-            <th>3rd Singular</th>
-            <th>1st Plural</th>
-            <th>2nd Plural</th>
-            <th>3rd Plural</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var verb in Model.Verbs)
-        {
-            foreach (var tense in verb.Tenses)
+@foreach (var category in Model.Categories)
+{
+    var citations = category.Entries.Keys.Order().ToList();
+
+    <h1>@category.Mood - @category.Tense - @category.Voice</h1>
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Citation</th>
+                <th>Root</th>
+                <th>Morphology</th>
+                <th>Strongs</th>
+                <th>1st Singular</th>
+                <th>2nd Singular</th>
+                <th>3rd Singular</th>
+                <th>1st Plural</th>
+                <th>2nd Plural</th>
+                <th>3rd Plural</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var citation in citations)
             {
-                if (tense.Inflection.Mood == Model.Mood
-                && tense.Inflection.Tense == Model.Tense
-                && tense.Inflection.Voice == Model.Voice)
-                {
-                    bool needBreak = false;
+                var entry = category.Entries[citation];
+                <tr>
+                    <td>@entry.Citation</td>
+                    <td>@entry.Root</td>
+                    <td>@entry.Morphology</td>
+                    <td>@entry.Strongs</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.FirstPersonSingular))</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.SecondPersonSingular))</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.ThirdPersonSingular))</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.FirstPersonPlural))</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.SecondPersonPlural))</td>
+                    <td>@Html.Raw(Format.Concatenate(entry.ThirdPersonPlural))</td>
+                </tr>
 
-                    <tr>
-                        <td>@verb.Citation</td>
-                        <td>@verb.Root</td>
-                        <td>@verb.Morphology</td>
-                        <td>@verb.Strongs</td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                foreach (var form in tense.FirstPersonSingular)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                foreach (var form in tense.SecondPersonSingular)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                foreach (var form in tense.ThirdPersonSingular)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                @foreach (var form in tense.FirstPersonPlural)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                foreach (var form in tense.SecondPersonPlural)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-                                }
-                            }
-                        </td>
-                        <td>
-                            @{
-                                needBreak = false;
-                                foreach (var form in tense.ThirdPersonPlural)
-                                {
-                                    if (needBreak)
-                                    {
-                                        <br />
-                                    }
-                                    needBreak = true;
-                                    <span class="fs-5 serif">@form.InflectedForm</span>
-                                }
-                            }
-                        </td>
-                    </tr>
-                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+}

@@ -32,30 +32,26 @@ namespace BibleWeb.Controllers
             List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
 
             var sortedLexemes = lexemeData
-            .OrderBy(l => l.PartOfSpeechDescription)
-            //.ThenBy(l => l.MounceMorphcat)
-            .ThenBy(l => l.FullCitationForm)
-            .ToList();
+                .OrderBy(l => l.PartOfSpeechDescription)
+                //.ThenBy(l => l.MounceMorphcat)
+                .ThenBy(l => l.FullCitationForm)
+                .ToList();
 
             var model = ModelFactory.CreateLexemeListModel(sortedLexemes);
 
             return model;
         }
 
-        private async Task<VerbListModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber)
+        private async Task<VerbClassificationModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber)
         {
             List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
 
             var sortedLexemes = lexemeData
-.OrderBy(l => l.MounceMorphcat)
-.ThenBy(l => l.FullCitationForm)
-.ToList();
+                .OrderBy(l => l.MounceMorphcat)
+                .ThenBy(l => l.FullCitationForm)
+                .ToList();
 
-            var model = ModelFactory.CreateVerbListModel(
-                 MoodData.Indicative,
-                 TenseData.Aorist,
-                 VoiceData.Active,
-                sortedLexemes);
+            var model = ModelFactory.CreateVerbClassificationModel(sortedLexemes);
 
             return model;
         }

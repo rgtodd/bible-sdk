@@ -80,18 +80,120 @@ namespace BibleWeb.Models
             };
         }
 
-        public static VerbListModel CreateVerbListModel(MoodData mood, TenseData tense, VoiceData voice, List<LexemeData> lexemes)
+        public static VerbClassificationModel CreateVerbClassificationModel(List<LexemeData> lexemes)
         {
-            var verbModels = lexemes.Select(CreateVerbModel).ToList();
-
-            return new VerbListModel()
+            var categories = new Dictionary<Tuple<MoodData, TenseData, VoiceData>, VerbClassificationCategoryModel>();
+            foreach (var lexeme in lexemes)
             {
-                Mood = mood,
-                Tense = tense,
-                Voice = voice,
-                Verbs = verbModels
+                foreach (var form in lexeme.Forms)
+                {
+                    var inflection = form.Inflection;
+                    if (inflection.Mood != null
+                        && inflection.Tense != null
+                        && inflection.Voice != null
+                        && inflection.Person != null
+                        && inflection.Number != null)
+                    {
+                        var key = new Tuple<MoodData, TenseData, VoiceData>(inflection.Mood.Value, inflection.Tense.Value, inflection.Voice.Value);
+                        var category = categories.GetValueOrDefault(key);
+                        if (category == null)
+                        {
+                            category = new VerbClassificationCategoryModel()
+                            {
+                                Mood = inflection.Mood.Value,
+                                Tense = inflection.Tense.Value,
+                                Voice = inflection.Voice.Value,
+                                Entries = []
+                            };
+
+                            categories.Add(key, category);
+                        }
+
+                        var entry = category.Entries.GetValueOrDefault(lexeme.FullCitationForm);
+                        if (entry == null)
+                        {
+                            int strongs = 0;
+                            if (lexeme.StrongsNumber != null && lexeme.StrongsNumber.Length > 0)
+                            {
+                                strongs = lexeme.StrongsNumber[0];
+                            }
+
+                            entry = new VerbClassificationEntryModel()
+                            {
+                                Citation = lexeme.FullCitationForm,
+                                Morphology = lexeme.MounceMorphcat,
+                                Root = lexeme.Root,
+                                Strongs = strongs,
+                                FirstPersonSingular = [],
+                                FirstPersonPlural = [],
+                                SecondPersonSingular = [],
+                                SecondPersonPlural = [],
+                                ThirdPersonSingular = [],
+                                ThirdPersonPlural = []
+                            };
+
+                            category.Entries.Add(lexeme.FullCitationForm, entry);
+                        }
+
+                        switch (inflection.Person.Value)
+                        {
+                            case PersonData.First:
+                                if (inflection.Number.Value == NumberData.Singular)
+                                {
+                                    entry.FirstPersonSingular.Add(form.InflectedForm);
+                                }
+                                else
+                                {
+                                    entry.FirstPersonPlural.Add(form.InflectedForm);
+                                }
+                                break;
+
+                            case PersonData.Second:
+                                if (inflection.Number.Value == NumberData.Singular)
+                                {
+                                    entry.SecondPersonSingular.Add(form.InflectedForm);
+                                }
+                                else
+                                {
+                                    entry.SecondPersonPlural.Add(form.InflectedForm);
+                                }
+                                break;
+
+                            case PersonData.Third:
+                                if (inflection.Number.Value == NumberData.Singular)
+                                {
+                                    entry.ThirdPersonSingular.Add(form.InflectedForm);
+                                }
+                                else
+                                {
+                                    entry.ThirdPersonPlural.Add(form.InflectedForm);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+
+            var model = new VerbClassificationModel()
+            {
+                Categories = [.. categories.Values]
             };
+
+            return model;
         }
+
+        //public static VerbListModel CreateVerbListModel(MoodData mood, TenseData tense, VoiceData voice, List<LexemeData> lexemes)
+        //{
+        //    var verbModels = lexemes.Select(CreateVerbModel).ToList();
+
+        //    return new VerbListModel()
+        //    {
+        //        Mood = mood,
+        //        Tense = tense,
+        //        Voice = voice,
+        //        Verbs = verbModels
+        //    };
+        //}
 
         private static ExerciseFactoryModel CreateExerciseFactoryModel(ExerciseFactoryData exerciseFactory)
         {
@@ -171,9 +273,7 @@ namespace BibleWeb.Models
             foreach (var form in lexemeData.Forms.Where(
                     form => form.Inflection.Mood != null
                     && form.Inflection.Tense != null
-                    && form.Inflection.Voice != null
-                    && form.Inflection.Person != null
-                    && form.Inflection.Number != null))
+                    && form.Inflection.Voice != null))
             {
                 if (currentInflection == null
                     || form.Inflection.Mood != currentMood
@@ -192,7 +292,8 @@ namespace BibleWeb.Models
                         ThirdPersonSingular = [],
                         FirstPersonPlural = [],
                         SecondPersonPlural = [],
-                        ThirdPersonPlural = []
+                        ThirdPersonPlural = [],
+                        Other = []
                     };
                     inflections.Add(currentInflection);
                 }
@@ -237,6 +338,10 @@ namespace BibleWeb.Models
                                 break;
                         }
                         break;
+
+                    default:
+                        currentInflection.Other.Add(form);
+                        break;
                 }
             }
 
@@ -250,21 +355,21 @@ namespace BibleWeb.Models
             string verbs = lexemeData.Verbs;
 
             string strongs = lexemeData.StrongsNumber != null && lexemeData.StrongsNumber.Length > 0
-                ? lexemeData.StrongsNumber[0].ToString() 
+                ? lexemeData.StrongsNumber[0].ToString()
                 : string.Empty;
 
             var verbModel = new VerbModel()
-                {
-                    Citation = lexemeData.FullCitationForm,
-                    Tenses = inflections,
-                    Morphology = morphology,
-                    Category = category,
-                    Subcategory = subcategory,
-                    Description = description,
-                    Strongs = strongs,
-                    Root = root,
-                    Verbs = verbs
-                };
+            {
+                Citation = lexemeData.FullCitationForm,
+                Tenses = inflections,
+                Morphology = morphology,
+                Category = category,
+                Subcategory = subcategory,
+                Description = description,
+                Strongs = strongs,
+                Root = root,
+                Verbs = verbs
+            };
 
             return verbModel;
         }

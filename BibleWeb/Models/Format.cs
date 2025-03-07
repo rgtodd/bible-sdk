@@ -204,5 +204,21 @@ namespace BibleWeb.Models
             };
         }
 
+        public static string Concatenate(IEnumerable<string> values)
+        {
+            var sb = new StringBuilder();
+
+            string prefix = "";
+            foreach (var value in values)
+            {
+                sb.Append(prefix);
+                prefix = "<br />";
+
+                sb.Append(value);
+
+            }
+
+            return sb.ToString();
+        }
     }
 }

@@ -17,6 +17,8 @@ namespace BibleWeb.Models
         public required IList<FormData> SecondPersonPlural { get; init; }
 
         public required IList<FormData> ThirdPersonPlural { get; init; }
+
+        public required IList<FormData> Other { get; init; }
     }
 
 }
