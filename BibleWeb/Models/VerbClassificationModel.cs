@@ -9,11 +9,7 @@ namespace BibleWeb.Models
 
     public class VerbClassificationCategoryModel
     {
-        public required MoodData Mood { get; init; }
-
-        public required TenseData Tense { get; init; }
-
-        public required VoiceData Voice { get; init; }
+        public required VerbInflectionModel Inflection { get; init; }
 
         public required Dictionary<string, VerbClassificationEntryModel> Entries { get; init; }
 

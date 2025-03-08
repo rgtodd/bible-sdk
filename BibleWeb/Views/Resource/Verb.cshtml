@@ -8,44 +8,75 @@
     Span<TenseData> tenses = Enum.GetValues<TenseData>();
     Span<VoiceData> voices = Enum.GetValues<VoiceData>();
 }
+<section id="toc">
+    <h1>Categories</h1>
+    <ul>
+        @foreach (var category in Model.Categories)
+        {
+            <li><a href="#@category.Inflection.Anchor">@category.Inflection.Description</a></li>
+        }
+    </ul>
+</section>
 @foreach (var category in Model.Categories)
 {
     var citations = category.Entries.Keys.Order().ToList();
 
-    <h1>@category.Mood - @category.Tense - @category.Voice</h1>
-    <table class="table table-sm table-bordered">
-        <thead>
-            <tr>
-                <th>Citation</th>
-                <th>Root</th>
-                <th>Morphology</th>
-                <th>Strongs</th>
-                <th>1st Singular</th>
-                <th>2nd Singular</th>
-                <th>3rd Singular</th>
-                <th>1st Plural</th>
-                <th>2nd Plural</th>
-                <th>3rd Plural</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var citation in citations)
-            {
-                var entry = category.Entries[citation];
+    <section id="@category.Inflection.Anchor">
+        <h1 class="fs-4">@category.Inflection.Description <a href="#toc"><i class="bi bi-house fs-4"></i></a></h1>
+        <table class="table table-sm table-bordered w-auto">
+            <thead>
                 <tr>
-                    <td>@entry.Citation</td>
-                    <td>@entry.Root</td>
-                    <td>@entry.Morphology</td>
-                    <td>@entry.Strongs</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.FirstPersonSingular))</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.SecondPersonSingular))</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.ThirdPersonSingular))</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.FirstPersonPlural))</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.SecondPersonPlural))</td>
-                    <td>@Html.Raw(Format.Concatenate(entry.ThirdPersonPlural))</td>
+                    <th>Aug/Redup</th>
+                    <th>Tense Stem</th>
+                    <th>Tense Formative</th>
+                    <th>Connecting Vowel</th>
+                    <th>Personal Endings</th>
                 </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>@category.Inflection.Augment</th>
+                    <td>@category.Inflection.TenseStem</td>
+                    <td>@category.Inflection.TenseFormative</td>
+                    <td>@category.Inflection.ConnectingVowel</td>
+                    <td>@category.Inflection.PersonalEndings</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Citation</th>
+                    <th>Root</th>
+                    <th>Morphology</th>
+                    <th>Strongs</th>
+                    <th>1st Singular</th>
+                    <th>2nd Singular</th>
+                    <th>3rd Singular</th>
+                    <th>1st Plural</th>
+                    <th>2nd Plural</th>
+                    <th>3rd Plural</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var citation in citations)
+                {
+                    var entry = category.Entries[citation];
+                    <tr>
+                        <td class="serif">@entry.Citation</td>
+                        <td class="serif">@entry.Root</td>
+                        <td>@entry.Morphology</td>
+                        <td>@entry.Strongs</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.FirstPersonSingular))</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.SecondPersonSingular))</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.ThirdPersonSingular))</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.FirstPersonPlural))</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.SecondPersonPlural))</td>
+                        <td class="serif">@Html.Raw(Format.Concatenate(entry.ThirdPersonPlural))</td>
+                    </tr>
 
-            }
-        </tbody>
-    </table>
+                }
+            </tbody>
+        </table>
+    </section>
 }

@@ -10,6 +10,10 @@ namespace BibleWeb.Models
         private const string SECONDARY_PASSIVE = "Secondary / Middle/Passive";
         private const string OTHER = "Other";
 
+        public string Description => $"{Mood} - {Tense} - {Voice}";
+
+        public string Anchor => $"{Mood}_{Tense}_{Voice}";
+
         public string Augment
         {
             get
@@ -103,7 +107,7 @@ namespace BibleWeb.Models
             }
         }
 
-        public string Category
+        public string PersonalEndings
         {
             get
             {
@@ -130,6 +134,14 @@ namespace BibleWeb.Models
                     default:
                         return OTHER;
                 }
+            }
+        }
+
+        public TenseStemData TenseStem
+        {
+            get
+            {
+                return Verbs.GetTenseStem(Tense, Voice);
             }
         }
 
