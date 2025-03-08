@@ -2,6 +2,7 @@
 
 using System.Reflection;
 using System;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace BibleWeb.Models
 {
@@ -85,6 +86,8 @@ namespace BibleWeb.Models
         public static VerbClassificationModel CreateVerbClassificationModel(List<LexemeData> lexemes)
         {
             var categories = new Dictionary<VerbInflectionModel, VerbClassificationCategoryModel>();
+            var entries = new Dictionary<VerbClassificationCategoryModel, Dictionary<string, VerbClassificationEntryModel>>();
+
             foreach (var lexeme in lexemes)
             {
                 foreach (var form in lexeme.Forms)
@@ -109,7 +112,14 @@ namespace BibleWeb.Models
                             categories.Add(key, category);
                         }
 
-                        var entry = category.Entries.GetValueOrDefault(lexeme.FullCitationForm);
+                        var entryDictionary = entries.GetValueOrDefault(category);
+                        if (entryDictionary == null)
+                        {
+                            entryDictionary = [];
+                            entries.Add(category, entryDictionary);
+                        }
+
+                        var entry = entryDictionary.GetValueOrDefault(lexeme.FullCitationForm);
                         if (entry == null)
                         {
                             int strongs = 0;
@@ -118,13 +128,13 @@ namespace BibleWeb.Models
                                 strongs = lexeme.StrongsNumber[0];
                             }
 
-                            var root = Verbs.GetRoot(lexeme.Root, key.TenseStem);
+                            var roots = Verbs.GetRoot(lexeme.Root, key.TenseStem);
 
                             entry = new VerbClassificationEntryModel()
                             {
                                 Citation = lexeme.FullCitationForm,
-                                Morphology = lexeme.MounceMorphcat,
-                                Root = root,
+                                Morphology = lexeme.MounceMorphcat + roots[1],
+                                Root = roots[0],
                                 Strongs = strongs,
                                 FirstPersonSingular = [],
                                 FirstPersonPlural = [],
@@ -134,7 +144,7 @@ namespace BibleWeb.Models
                                 ThirdPersonPlural = []
                             };
 
-                            category.Entries.Add(lexeme.FullCitationForm, entry);
+                            entryDictionary.Add(lexeme.FullCitationForm, entry);
                         }
 
                         switch (inflection.Person.Value)
@@ -174,6 +184,11 @@ namespace BibleWeb.Models
                         }
                     }
                 }
+            }
+
+            foreach (var category in categories.Values)
+            {
+                category.Entries = [.. entries[category].Values.OrderBy(v => v.MorphologySort).ThenBy(v => v.Citation)];
             }
 
             var model = new VerbClassificationModel()

@@ -4,6 +4,7 @@
     {
         public static TenseStemData GetTenseStem(TenseData tense, VoiceData voice)
         {
+#pragma warning disable IDE0066 // Convert switch statement to expression
             switch (tense)
             {
                 case TenseData.Present:
@@ -18,9 +19,10 @@
 
                 default: throw new Exception($"Unknown tense {tense}.");
             }
+#pragma warning restore IDE0066 // Convert switch statement to expression
         }
 
-        public static string GetRoot(string allRoots, TenseStemData tenseStem)
+        public static string[] GetRoot(string allRoots, TenseStemData tenseStem)
         {
             var parsedRoot = allRoots.Trim();
 
@@ -38,40 +40,42 @@
             var idxSpace = parsedRoot.IndexOf(' ');
             if (idxSpace >= 0)
             {
-                suffix = parsedRoot[(idxSpace + 1)..];
+                suffix = parsedRoot[idxSpace..];
                 parsedRoot = parsedRoot[..idxSpace];
             }
 
+#pragma warning disable IDE0066 // Convert switch statement to expression
             var parts = parsedRoot.Split('/');
             if (parts.Length == 1)
             {
-                return prefix + parts[0];
+                return [prefix + parts[0], suffix];
             }
             else if (parts.Length == 2)
             {
-                if (tenseStem == TenseStemData.Present)
+                switch (tenseStem)
                 {
-                    return prefix + parts[0];
-                }
-                else
-                {
-                    return prefix + parts[1];
+                    case TenseStemData.Present: return [prefix + parts[0], suffix];
+                    default: return [prefix + parts[1], suffix];
                 }
             }
             else if (parts.Length == 6)
             {
                 switch (tenseStem)
                 {
-                    case TenseStemData.Present: return prefix + parts[0];
-                    case TenseStemData.FutureActive: return prefix + parts[1];
-                    case TenseStemData.AoristActive: return prefix + parts[2];
-                    case TenseStemData.PerfectActive: return prefix + parts[3];
-                    case TenseStemData.PerfectPassive: return prefix + parts[4];
-                    case TenseStemData.AoristPassive: return prefix + parts[5];
+                    case TenseStemData.Present: return [prefix + parts[0], suffix];
+                    case TenseStemData.FutureActive: return [prefix + parts[1], suffix];
+                    case TenseStemData.AoristActive: return [prefix + parts[2], suffix];
+                    case TenseStemData.PerfectActive: return [prefix + parts[3], suffix];
+                    case TenseStemData.PerfectPassive: return [prefix + parts[4], suffix];
+                    case TenseStemData.AoristPassive: return [prefix + parts[5], suffix];
+                    default: return [allRoots, string.Empty];
                 }
             }
-
-            return allRoots;
+            else
+            {
+                return [allRoots, string.Empty];
+            }
+#pragma warning restore IDE0066 // Convert switch statement to expression
         }
     }
 }

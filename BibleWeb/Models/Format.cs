@@ -91,16 +91,27 @@ namespace BibleWeb.Models
             if (inflection.Degree != null)
             {
                 sb.Append(prefix);
+#pragma warning disable IDE0059 // Unnecessary assignment of a value
                 prefix = "-";
+#pragma warning restore IDE0059 // Unnecessary assignment of a value
                 sb.Append(ToCode(inflection.Degree));
             }
 
-            if (prefix == "-")
-            {
-                prefix = " ";
-            }
-
             return sb.ToString();
+        }
+
+        public static string TenseStem(TenseStemData tenseStem)
+        {
+            return tenseStem switch
+            {
+                TenseStemData.Present => "Present",
+                TenseStemData.FutureActive => "Future Active",
+                TenseStemData.AoristActive => "Aorist Active",
+                TenseStemData.AoristPassive => "Aorist Passive",
+                TenseStemData.PerfectActive => "Perfect Active",
+                TenseStemData.PerfectPassive => "Perfect Passive",
+                _ => "?",
+            };
         }
 
         public static string PersonalEnding(PersonalEndingData personalEnding)
@@ -113,6 +124,19 @@ namespace BibleWeb.Models
                 PersonalEndingData.SecondaryPassive => "Secondary / Middle/Passive",
                 PersonalEndingData.None => "None",
                 _ => "?",
+            };
+        }
+
+        public static string[] PersonalEndings(PersonalEndingData personalEnding)
+        {
+            return personalEnding switch
+            {
+                PersonalEndingData.PrimaryActive => ["-", "ς", "ι", "μεν", "τε", "νσι"],
+                PersonalEndingData.PrimaryPassive => ["μαι", "σαι", "ται", "μεθα", "σθε", "νται"],
+                PersonalEndingData.SecondaryActive => ["ν", "ς", "-", "μεν", "τε", "ν"],
+                PersonalEndingData.SecondaryPassive => ["μην", "σο", "το", "μεθα", "σθε", "ντο"],
+                PersonalEndingData.None => [],
+                _ => [],
             };
         }
 

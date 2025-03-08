@@ -11,7 +11,7 @@ namespace BibleWeb.Models
     {
         public required VerbInflectionModel Inflection { get; init; }
 
-        public required Dictionary<string, VerbClassificationEntryModel> Entries { get; init; }
+        public required IList<VerbClassificationEntryModel> Entries { get; set; }
 
     }
 
@@ -36,6 +36,14 @@ namespace BibleWeb.Models
         public required List<string> SecondPersonPlural { get; init; }
 
         public required List<string> ThirdPersonPlural { get; init; }
+
+        public string MorphologySort
+        {
+            get
+            {
+                return Morphology.StartsWith('c') ? Morphology[1..] : Morphology;
+            }
+        }
     }
 
 }

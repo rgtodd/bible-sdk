@@ -19,8 +19,6 @@
 </section>
 @foreach (var category in Model.Categories)
 {
-    var citations = category.Entries.Keys.Order().ToList();
-
     <section id="@category.Inflection.Anchor">
         <h1 class="fs-4">@category.Inflection.Description <a href="#toc"><i class="bi bi-house fs-4"></i></a></h1>
         <table class="table table-sm table-bordered w-auto">
@@ -31,15 +29,34 @@
                     <th>Tense Formative</th>
                     <th>Connecting Vowel</th>
                     <th>Personal Endings</th>
+                    @if (category.Inflection.PersonalEnding != PersonalEndingData.None)
+                    {
+                        <th>1P-S</th>
+                        <th>2P-S</th>
+                        <th>3P-S</th>
+                        <th>1P-P</th>
+                        <th>2P-P</th>
+                        <th>3P-P</th>
+                    }
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>@category.Inflection.Augment</th>
-                    <td>@category.Inflection.TenseStem</td>
+                    <td>@Format.TenseStem(category.Inflection.TenseStem)</td>
                     <td>@category.Inflection.TenseFormative</td>
                     <td>@category.Inflection.ConnectingVowel</td>
                     <td>@Format.PersonalEnding(category.Inflection.PersonalEnding)</td>
+                    @if (category.Inflection.PersonalEnding != PersonalEndingData.None)
+                    {
+                        var endings = Format.PersonalEndings(category.Inflection.PersonalEnding);
+                        <td>@endings[0]</td>
+                        <td>@endings[1]</td>
+                        <td>@endings[2]</td>
+                        <td>@endings[3]</td>
+                        <td>@endings[4]</td>
+                        <td>@endings[5]</td>
+                    }
                 </tr>
             </tbody>
         </table>
@@ -59,9 +76,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var citation in citations)
+                @foreach (var entry in category.Entries)
                 {
-                    var entry = category.Entries[citation];
                     <tr>
                         <td class="serif">@entry.Citation</td>
                         <td class="serif">@entry.Root</td>
