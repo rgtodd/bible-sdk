@@ -4,11 +4,8 @@ namespace BibleWeb.Models
 {
     public readonly record struct VerbInflectionModel(MoodData Mood, TenseData Tense, VoiceData Voice)
     {
-        private const string PRIMARY_ACTIVE = "Primary / Active";
-        private const string PRIMARY_PASSIVE = "Primary / Middle/Passive";
-        private const string SECONDARY_ACTIVE = "Secondary / Active";
-        private const string SECONDARY_PASSIVE = "Secondary / Middle/Passive";
-        private const string OTHER = "Other";
+        private static IDictionary<VerbInflectionModel, int>? m_tenseSortOrders;
+        private static IDictionary<VerbInflectionModel, int>? m_endingSortOrders;
 
         public string Description => $"{Mood} - {Tense} - {Voice}";
 
@@ -18,6 +15,7 @@ namespace BibleWeb.Models
         {
             get
             {
+#pragma warning disable IDE0066 // Convert switch statement to expression
                 switch (Mood)
                 {
                     case MoodData.Indicative:
@@ -32,6 +30,7 @@ namespace BibleWeb.Models
                         };
                     default: return "-";
                 }
+#pragma warning restore IDE0066 // Convert switch statement to expression
             }
         }
 
@@ -39,6 +38,7 @@ namespace BibleWeb.Models
         {
             get
             {
+#pragma warning disable IDE0066 // Convert switch statement to expression
                 switch (Mood)
                 {
                     case MoodData.Indicative:
@@ -74,6 +74,7 @@ namespace BibleWeb.Models
                         }
                     default: return "-";
                 }
+#pragma warning restore IDE0066 // Convert switch statement to expression
             }
         }
 
@@ -81,6 +82,7 @@ namespace BibleWeb.Models
         {
             get
             {
+#pragma warning disable IDE0066 // Convert switch statement to expression
                 switch (Mood)
                 {
                     case MoodData.Indicative:
@@ -104,13 +106,15 @@ namespace BibleWeb.Models
                         }
                     default: return "-";
                 }
+#pragma warning restore IDE0066 // Convert switch statement to expression
             }
         }
 
-        public string PersonalEndings
+        public PersonalEndingData PersonalEnding
         {
             get
             {
+#pragma warning disable IDE0066 // Convert switch statement to expression
                 switch (Mood)
                 {
                     case MoodData.Indicative:
@@ -119,21 +123,22 @@ namespace BibleWeb.Models
                             case TenseData.Present:
                             case TenseData.Future:
                             case TenseData.Perfect:
-                                return Voice == VoiceData.Active ? PRIMARY_ACTIVE : PRIMARY_PASSIVE;
+                                return Voice == VoiceData.Active ? PersonalEndingData.PrimaryActive : PersonalEndingData.PrimaryPassive;
 
                             case TenseData.Imperfect:
-                                return Voice == VoiceData.Active ? SECONDARY_ACTIVE : SECONDARY_PASSIVE;
+                                return Voice == VoiceData.Active ? PersonalEndingData.SecondaryActive: PersonalEndingData.SecondaryPassive;
 
                             case TenseData.Aorist:
-                                return Voice == VoiceData.Active || Voice == VoiceData.Passive ? SECONDARY_ACTIVE : SECONDARY_PASSIVE;
+                                return Voice == VoiceData.Active || Voice == VoiceData.Passive ? PersonalEndingData.SecondaryActive : PersonalEndingData.SecondaryPassive;
 
                             default:
-                                return OTHER;
+                                return PersonalEndingData.None;
                         }
 
                     default:
-                        return OTHER;
+                        return PersonalEndingData.None;
                 }
+#pragma warning restore IDE0066 // Convert switch statement to expression
             }
         }
 
@@ -149,6 +154,125 @@ namespace BibleWeb.Models
         {
             return $"{Mood} {Tense} {Voice}".Trim();
         }
-    }
 
+        public int TenseSortOrder
+        {
+            get
+            {
+                return TenseSortOrders.ContainsKey(this) ? TenseSortOrders[this] : 9999;
+            }
+        }
+
+        public int EndingSortOrder
+        {
+            get
+            {
+                return EndingSortOrders.ContainsKey(this) ? EndingSortOrders[this] : 9999;
+            }
+        }
+
+        private static IDictionary<VerbInflectionModel, int> TenseSortOrders
+        {
+            get
+            {
+                int sortOrder = 0;
+
+                m_tenseSortOrders ??= new Dictionary<VerbInflectionModel, int>
+                {
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Passive), ++ sortOrder },
+
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+                };
+
+                return m_tenseSortOrders;
+            }
+        }
+
+        private static IDictionary<VerbInflectionModel, int> EndingSortOrders
+        {
+            get
+            {
+                int sortOrder = 0;
+
+                m_endingSortOrders ??= new Dictionary<VerbInflectionModel, int>
+                {
+                    // Primary / Active Voice
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+
+                    // Primary / Middle Passive Voice
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
+
+                    // Secondary / Active Voice
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
+
+                    // Secondary / Middle Passive Voice
+
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder }
+                };
+
+                return m_endingSortOrders;
+            }
+        }
+    }
 }

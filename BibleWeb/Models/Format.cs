@@ -103,6 +103,19 @@ namespace BibleWeb.Models
             return sb.ToString();
         }
 
+        public static string PersonalEnding(PersonalEndingData personalEnding)
+        {
+            return personalEnding switch
+            {
+                PersonalEndingData.PrimaryActive => "Primary / Active",
+                PersonalEndingData.PrimaryPassive => "Primary / Middle/Passive",
+                PersonalEndingData.SecondaryActive => "Secondary / Active",
+                PersonalEndingData.SecondaryPassive => "Secondary / Middle/Passive",
+                PersonalEndingData.None => "None",
+                _ => "?",
+            };
+        }
+
         private static string ToCode(PersonData? persons)
         {
             return persons switch

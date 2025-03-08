@@ -7,7 +7,6 @@ namespace BibleWeb.Models
 {
     public static class ModelFactory
     {
-        private static IDictionary<VerbInflectionModel, int>? m_verbInflectionSortOrder;
         private static IDictionary<string, string>? m_verbCategories;
         private static IDictionary<string, string>? m_verbSubcategories;
         private static IDictionary<string, string>? m_verbMorphology;
@@ -177,14 +176,9 @@ namespace BibleWeb.Models
                 }
             }
 
-            List<VerbClassificationCategoryModel> sortedCategories = [.. categories.Values];
-            sortedCategories.Sort(
-                Comparer<VerbClassificationCategoryModel>.Create((lhs, rhs) =>
-                    GetVerbInflectionSortOrder(lhs.Inflection).CompareTo(GetVerbInflectionSortOrder(rhs.Inflection))));
-
             var model = new VerbClassificationModel()
             {
-                Categories = sortedCategories
+                Categories = [.. categories.Values.OrderBy(v => v.Inflection.TenseSortOrder)]
             };
 
             return model;
@@ -200,7 +194,7 @@ namespace BibleWeb.Models
 
         private static ExerciseFactoryModel[] CreateExerciseFactoryModelArray(IEnumerable<ExerciseFactoryData> exerciseFactories)
         {
-            return exerciseFactories.Select(CreateExerciseFactoryModel).ToArray();
+            return [.. exerciseFactories.Select(CreateExerciseFactoryModel)];
         }
 
         private static ThirdPartyWordListModel CreateThirdPartyWordListModel(ThirdPartyWordListData thirdPartyWordList)
@@ -214,7 +208,7 @@ namespace BibleWeb.Models
 
         private static ThirdPartyWordListModel[] CreateThirdPartyWordListModelArray(IEnumerable<ThirdPartyWordListData> thirdPartyWordLists)
         {
-            return thirdPartyWordLists.Select(CreateThirdPartyWordListModel).ToArray();
+            return [.. thirdPartyWordLists.Select(CreateThirdPartyWordListModel)];
         }
 
         private static ExerciseQuestionModel CreateExerciseQuestionModel(ExerciseQuestionData question, int sequence)
@@ -239,7 +233,7 @@ namespace BibleWeb.Models
                 questions = questions.OrderBy(q => q.Question);
             }
 
-            return questions.Select(w => CreateExerciseQuestionModel(w, ++sequence)).ToArray();
+            return [.. questions.Select(w => CreateExerciseQuestionModel(w, ++sequence))];
         }
 
         private static ExerciseAnswerModel CreateExerciseAnswerModel(ExerciseAnswerData answer)
@@ -254,7 +248,7 @@ namespace BibleWeb.Models
 
         private static ExerciseAnswerModel[] CreateExerciseAnswerModelArray(IEnumerable<ExerciseAnswerData> answers)
         {
-            return answers.Select(CreateExerciseAnswerModel).ToArray();
+            return [.. answers.Select(CreateExerciseAnswerModel)];
         }
 
         private static VerbModel CreateVerbModel(LexemeData lexemeData)
@@ -340,8 +334,6 @@ namespace BibleWeb.Models
                 }
             }
 
-            inflections.Sort(Comparer<VerbTenseModel>.Create((lhs, rhs) => GetVerbInflectionSortOrder(lhs.Inflection).CompareTo(GetVerbInflectionSortOrder(rhs.Inflection))));
-
             string morphology = lexemeData.MounceMorphcat;
             string category = GetVerbCategory(morphology);
             string subcategory = GetVerbSubcategory(morphology);
@@ -356,7 +348,7 @@ namespace BibleWeb.Models
             var verbModel = new VerbModel()
             {
                 Citation = lexemeData.FullCitationForm,
-                Tenses = inflections,
+                Tenses = [.. inflections.OrderBy(i => i.Inflection.EndingSortOrder)],
                 Morphology = morphology,
                 Category = category,
                 Subcategory = subcategory,
@@ -369,18 +361,13 @@ namespace BibleWeb.Models
             return verbModel;
         }
 
-        private static int GetVerbInflectionSortOrder(VerbInflectionModel model)
-        {
-            return VerbInflectionSortOrder.TryGetValue(model, out var result) ? result : 9999;
-        }
-
         private static string GetVerbCategory(string morphology)
         {
             bool isCompound;
             if (morphology.StartsWith('c'))
             {
                 isCompound = true;
-                morphology = morphology.Substring(1);
+                morphology = morphology[1..];
             }
             else
             {
@@ -410,7 +397,7 @@ namespace BibleWeb.Models
         {
             if (morphology.StartsWith('c'))
             {
-                morphology = morphology.Substring(1);
+                morphology = morphology[1..];
             }
 
             if (morphology.Length < 4)
@@ -420,118 +407,17 @@ namespace BibleWeb.Models
 
             morphology = morphology[..4];
 
-            if (VerbSubcategories.TryGetValue(morphology, out string? subcategory))
-            {
-                return subcategory;
-            }
-
-            return string.Empty;
+            return VerbSubcategories.TryGetValue(morphology, out string? subcategory) ? subcategory : string.Empty;
         }
 
         private static string GetDescription(string morphology)
         {
             if (morphology.StartsWith('c'))
             {
-                morphology = morphology.Substring(1);
+                morphology = morphology[1..];
             }
 
-            if (VerbMorphologies.TryGetValue(morphology, out string? description))
-            {
-                return description;
-            }
-
-            return string.Empty;
-        }
-
-        private static IDictionary<VerbInflectionModel, int> VerbInflectionSortOrder
-        {
-            get
-            {
-                int sortOrder = 0;
-
-                m_verbInflectionSortOrder ??= new Dictionary<VerbInflectionModel, int>
-                {
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
-
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
-
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
-
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
-
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Passive), ++ sortOrder },
-
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
-
-                    //// Primary / Active Voice
-
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
-
-                    //// Primary / Middle Passive Voice
-
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
-
-                    //// Secondary / Active Voice
-
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
-
-                    //// Secondary / Middle Passive Voice
-
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
-                    //{ new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder }
-                };
-
-                return m_verbInflectionSortOrder;
-            }
+            return VerbMorphologies.TryGetValue(morphology, out string? description) ? description : string.Empty;
         }
 
         private static IDictionary<string, string> VerbCategories
@@ -645,7 +531,5 @@ namespace BibleWeb.Models
                 return m_verbMorphology;
             }
         }
-
-
     }
 }

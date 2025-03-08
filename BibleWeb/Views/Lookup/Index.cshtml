@@ -144,7 +144,7 @@
 
     if (Model.Verb != null)
     {
-        string? currentCategory = null;
+        PersonalEndingData? currentPersonalEnding = null;
         string? prefix = null;
 
         <div class="card mt-2">
@@ -156,14 +156,14 @@
             <div class="card-body">
                 @foreach (var tense in Model.Verb.Tenses)
                 {
-                    if (tense.Inflection.PersonalEndings != currentCategory)
+                    if (tense.Inflection.PersonalEnding != currentPersonalEnding)
                     {
-                        currentCategory = tense.Inflection.PersonalEndings;
+                        currentPersonalEnding = tense.Inflection.PersonalEnding;
                         rowcount = 0;
 
                         <div class="row bg-primary-subtle">
                             <div class="col-md-2">
-                                @currentCategory
+                                @Format.PersonalEnding(currentPersonalEnding.Value)
                             </div>
                             <div class="col-md-1">A.</div>
                             <div class="col-md-2">Tense Formative</div>
