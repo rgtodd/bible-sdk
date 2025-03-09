@@ -77,9 +77,39 @@ namespace BibleWeb.Models
 
         public static LexemeListModel CreateLexemeListModel(List<LexemeData> lexemes)
         {
+            var categories = new Dictionary<PartOfSpeechData, IList<LexemeData>>();
+
+            foreach (var lexeme in lexemes)
+            {
+                IList<LexemeData> categoryLexemes;
+                if (categories.TryGetValue(lexeme.PartOfSpeech, out IList<LexemeData>? value))
+                {
+                    categoryLexemes = value;
+                }
+                else
+                {
+                    categoryLexemes = [];
+                    categories[lexeme.PartOfSpeech] = categoryLexemes;
+                }
+
+                categoryLexemes.Add(lexeme);
+            }
+
+            var categoryModels = new List<LexemeCatagoryModel>();
+            foreach (var partOfSpeech in categories.Keys)
+            {
+                var categoryModel = new LexemeCatagoryModel()
+                {
+                    PartOfSpeech = partOfSpeech,
+                    Lexemes = [.. categories[partOfSpeech].OrderBy(l => l.FullCitationForm)]
+                };
+
+                categoryModels.Add(categoryModel);
+            }
+
             return new LexemeListModel()
             {
-                Lexemes = lexemes
+                Categories = [.. categoryModels.OrderBy(m => m.PartOfSpeech)]
             };
         }
 

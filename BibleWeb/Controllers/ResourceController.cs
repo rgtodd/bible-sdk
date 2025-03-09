@@ -13,7 +13,12 @@ namespace BibleWeb.Controllers
     {
         private IHttpClientFactory HttpClientFactory { get; init; } = httpClientFactory;
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return View("Index");
+        }
+
+        public async Task<IActionResult> Vocabulary()
         {
             var model = await GetLexemes(1, 99);
 

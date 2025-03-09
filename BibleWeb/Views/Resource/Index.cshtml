@@ -1,0 +1,14 @@
+﻿@using BibleCore.Service.Data
+@using BibleWeb.Models
+@{
+    ViewData["Title"] = "Resources";
+}
+<h2>Resources</h2>
+<div class="row align-items-center mb-2">
+    <div class="col-auto"><a asp-controller="Resource" asp-action="Vocabulary" class="btn btn-primary">View</a></div>
+    <div class="col-auto">Vocabulary</div>
+</div>
+<div class="row align-items-center mb-2">
+    <div class="col-auto"><a asp-controller="Resource" asp-action="Verb" class="btn btn-primary">View</a></div>
+    <div class="col-auto">Verb Paradigms</div>
+</div>

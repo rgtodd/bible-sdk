@@ -2,35 +2,48 @@
 @using BibleWeb.Models
 @model LexemeListModel
 @{
-    ViewData["Title"] = "Lookup";
-    Layout = "_Excel";
+    ViewData["Title"] = "Vocabulary";
 }
-<table>
-    <thead>
-        <tr>
-            <th>Part of Speech</th>
-            <th>Citation</th>
-            <th>Root</th>
-            <th>Verbs</th>
-            <th>Morphcat</th>
-            <th>Gloss</th>
-            <th>Strongs</th>
-            <th>Mounce</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var lexeme in Model.Lexemes)
-        {
-            <tr>
-                <td>@lexeme.PartOfSpeechDescription</td>
-                <td class="serif">@lexeme.FullCitationForm</td>
-                <td class="serif">@lexeme.Root</td>
-                <td class="serif">@lexeme.Verbs</td>
-                <td>@lexeme.MounceMorphcat</td>
-                <td>@lexeme.Gloss</td>
-                <td>@string.Join(", ", lexeme.StrongsNumber.Select(s => s.ToString()).ToArray())</td>
-                <td>@lexeme.MounceChapterNumber</td>
+<div class="row">
+    <div class="col-auto pe-0 d-print-none">
+        <a asp-controller="Resource" asp-action="Index" class="btn btn-outline-dark"><i class="bi bi-arrow-left"></i> Back</a>
+    </div>
+    <div class="col-auto"><h2>Vocabulary</h2></div>
+</div>
+@foreach (var category in Model.Categories)
+{
+    <h3 class="fs-4">@Format.PartOfSpeech(category.PartOfSpeech)</h3>
+    <table class="table table-sm table-bordered w-auto">
+        <thead>
+            <tr class="table-primary">
+                <th>Citation</th>
+                @if (category.PartOfSpeech == PartOfSpeechData.Verb)
+                {
+                    <th>Tense Stems</th>
+                    <th>Lexical Entry</th>
+                }
+                <th>Gloss</th>
+                <th>Morphcat</th>
+                <th>Strongs</th>
+                <th>Mounce</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var lexeme in category.Lexemes)
+            {
+                <tr>
+                    <td class="serif">@lexeme.FullCitationForm</td>
+                    @if (category.PartOfSpeech == PartOfSpeechData.Verb)
+                    {
+                        <td class="serif">@lexeme.Root</td>
+                        <td class="serif">@lexeme.Verbs</td>
+                    }
+                    <td>@lexeme.Gloss</td>
+                    <td>@lexeme.MounceMorphcat</td>
+                    <td>@string.Join(", ", lexeme.StrongsNumber.Select(s => s.ToString()).ToArray())</td>
+                    <td>@lexeme.MounceChapterNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
