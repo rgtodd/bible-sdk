@@ -1,6 +1,4 @@
-﻿using BibleCore.Service.Data;
-
-namespace BibleWeb.Models
+﻿namespace BibleWeb.Models
 {
     public class VerbClassificationModel
     {

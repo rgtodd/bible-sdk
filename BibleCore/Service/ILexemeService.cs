@@ -8,6 +8,6 @@ namespace BibleCore.Service
 
         LexemeData? GetByGkNumber(int gkNumber);
 
-        List<LexemeData> GetLexemes(int? minimumMounceChapter, int? maximumMounceChapter);
+        List<LexemeData> GetLexemes(int? minimumMounceChapter, int? maximumMounceChapter, string? rangeExpression);
     }
 }

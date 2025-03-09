@@ -72,6 +72,12 @@ namespace BibleWeb.Controllers
         }
 
         [HttpPost]
+        public IActionResult Vocabulary(BrowseModel model)
+        {
+            return RedirectToAction("Vocabulary", "Resource", new { range = model.RangeExpression });
+        }
+
+        [HttpPost]
         public async Task<IActionResult> MovePrevious(BrowseModel model)
         {
             ModelState.Clear();

@@ -1,9 +1,5 @@
 ﻿using BibleCore.Service.Data;
 
-using System.Reflection;
-using System;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
 namespace BibleWeb.Models
 {
     public static class ModelFactory
@@ -75,7 +71,7 @@ namespace BibleWeb.Models
             };
         }
 
-        public static LexemeListModel CreateLexemeListModel(List<LexemeData> lexemes)
+        public static LexemeListModel CreateLexemeListModel(List<LexemeData> lexemes, string? rangeExpression)
         {
             var categories = new Dictionary<PartOfSpeechData, IList<LexemeData>>();
 
@@ -109,6 +105,7 @@ namespace BibleWeb.Models
 
             return new LexemeListModel()
             {
+                RangeExpression = rangeExpression,
                 Categories = [.. categoryModels.OrderBy(m => m.PartOfSpeech)]
             };
         }

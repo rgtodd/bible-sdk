@@ -4,6 +4,8 @@ namespace BibleWeb.Models
 {
     public class LexemeListModel
     {
+        public required string? RangeExpression { get; init; }
+
         public required IList<LexemeCatagoryModel> Categories { get; init; }
     }
 

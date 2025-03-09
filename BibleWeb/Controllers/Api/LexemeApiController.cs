@@ -22,9 +22,9 @@ namespace BibleWeb.Controllers.Api
         }
 
         [HttpGet("list")]
-        public List<LexemeData> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber)
+        public List<LexemeData> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
         {
-            return lexemeService.GetLexemes(minimumMounceNumber, maximumMounceNumber);
+            return lexemeService.GetLexemes(minimumMounceNumber, maximumMounceNumber, rangeExpression);
         }
     }
 }

@@ -2,7 +2,7 @@ using BibleCore.Service;
 
 using System.Text.Json.Serialization;
 
-namespace BibleWebApi
+namespace BibleWeb
 {
     public class Program
     {

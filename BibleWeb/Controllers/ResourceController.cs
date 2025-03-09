@@ -18,23 +18,27 @@ namespace BibleWeb.Controllers
             return View("Index");
         }
 
-        public async Task<IActionResult> Vocabulary()
+        public async Task<IActionResult> Vocabulary(string? range)
         {
-            var model = await GetLexemes(1, 99);
+            LexemeListModel model = range != null
+                ? await GetLexemes(null, null, range)
+                : await GetLexemes(1, 99, null);
 
             return View("Vocabulary", model);
         }
 
-        public async Task<IActionResult> Verb()
+        public async Task<IActionResult> Verb(string? range)
         {
-            var model = await GetVerbs(1, 99);
+            VerbClassificationModel model = range != null
+                ? await GetVerbs(null, null, range)
+                : await GetVerbs(1, 99, null);
 
             return View("Verb", model);
         }
 
-        private async Task<LexemeListModel> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber)
+        private async Task<LexemeListModel> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
         {
-            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
+            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber, rangeExpression);
 
             var sortedLexemes = lexemeData
                 .OrderBy(l => l.PartOfSpeechDescription)
@@ -42,14 +46,14 @@ namespace BibleWeb.Controllers
                 .ThenBy(l => l.FullCitationForm)
                 .ToList();
 
-            var model = ModelFactory.CreateLexemeListModel(sortedLexemes);
+            var model = ModelFactory.CreateLexemeListModel(sortedLexemes, rangeExpression);
 
             return model;
         }
 
-        private async Task<VerbClassificationModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber)
+        private async Task<VerbClassificationModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
         {
-            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber);
+            List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber, rangeExpression);
 
             var sortedLexemes = lexemeData
                 .OrderBy(l => l.MounceMorphcat)
@@ -61,12 +65,12 @@ namespace BibleWeb.Controllers
             return model;
         }
 
-        private async Task<List<LexemeData>> GetLexemeData(int? minimumMounceNumber, int? maximumMounceNumber)
+        private async Task<List<LexemeData>> GetLexemeData(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
         {
             List<LexemeData>? lexemeData = null;
 
             var request = HttpContext.Request;
-            var url = $"{request.Scheme}://{request.Host}/api/LexemeApi/list?minimumMounceNumber={minimumMounceNumber}&maximumMounceNumber={maximumMounceNumber}";
+            var url = $"{request.Scheme}://{request.Host}/api/LexemeApi/list?minimumMounceNumber={minimumMounceNumber}&maximumMounceNumber={maximumMounceNumber}&rangeExpression={rangeExpression}";
 
             var c = HttpClientFactory.CreateClient();
             var response = await c.GetAsync(url);

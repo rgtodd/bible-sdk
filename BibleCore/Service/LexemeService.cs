@@ -1,4 +1,5 @@
-﻿using BibleCore.Service.Data;
+﻿using BibleCore.Greek;
+using BibleCore.Service.Data;
 
 namespace BibleCore.Service
 {
@@ -28,11 +29,25 @@ namespace BibleCore.Service
             return lexemeData;
         }
 
-        public List<LexemeData> GetLexemes(int? minimumMounceChapter, int? maximumMounceChapter)
+        public List<LexemeData> GetLexemes(int? minimumMounceChapter, int? maximumMounceChapter, string? rangeExpression)
         {
             List<LexemeData> result = [];
 
-            foreach (var lexeme in globalGreek.Lexicon.Lexemes)
+            List<Lexeme> lexemes;
+
+            if (rangeExpression != null)
+            {
+                var range = Greek.Range.Parse(rangeExpression);
+
+                var textEntries = globalGreek.Text.Select(range, 10000);
+                lexemes = [.. textEntries.Select(te => te.Lexeme).Distinct()];
+            }
+            else
+            {
+                lexemes = globalGreek.Lexicon.Lexemes;
+            }
+
+            foreach (var lexeme in lexemes)
             {
                 bool includeLexeme = true; // assume success
 

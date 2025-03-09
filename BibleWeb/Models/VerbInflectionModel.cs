@@ -126,7 +126,7 @@ namespace BibleWeb.Models
                                 return Voice == VoiceData.Active ? PersonalEndingData.PrimaryActive : PersonalEndingData.PrimaryPassive;
 
                             case TenseData.Imperfect:
-                                return Voice == VoiceData.Active ? PersonalEndingData.SecondaryActive: PersonalEndingData.SecondaryPassive;
+                                return Voice == VoiceData.Active ? PersonalEndingData.SecondaryActive : PersonalEndingData.SecondaryPassive;
 
                             case TenseData.Aorist:
                                 return Voice == VoiceData.Active || Voice == VoiceData.Passive ? PersonalEndingData.SecondaryActive : PersonalEndingData.SecondaryPassive;

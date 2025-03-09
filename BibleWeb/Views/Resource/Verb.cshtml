@@ -25,7 +25,7 @@
 @foreach (var category in Model.Categories)
 {
     <section id="@category.Inflection.Anchor" style="break-after: page;">
-        <h3 class="fs-4">@category.Inflection.Description <a href="#toc"><i class="bi bi-house fs-4"></i></a></h3>
+        <h3 class="fs-4">@category.Inflection.Description <a href="#toc"><i class="bi bi-arrow-up-short fs-4"></i></a></h3>
         <table class="table table-sm table-bordered w-auto">
             <thead>
                 <tr class="table-primary">
@@ -47,7 +47,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>@category.Inflection.Augment</th>
+                    <td>@category.Inflection.Augment</td>
                     <td>@Format.TenseStem(category.Inflection.TenseStem)</td>
                     <td>@category.Inflection.TenseFormative</td>
                     <td>@category.Inflection.ConnectingVowel</td>
@@ -69,7 +69,7 @@
             <thead>
                 <tr class="table-primary">
                     <th>Citation</th>
-                    <th>Root</th>
+                    <th>Tense Stem</th>
                     <th>Morphology</th>
                     <th>Strongs</th>
                     <th>1st Singular</th>
