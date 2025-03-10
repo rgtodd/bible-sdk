@@ -73,4 +73,9 @@
     .table {
         border-collapse: collapse !important;
     }
+
+    .worksheet td, .worksheet th {
+        border-width: 1px !important;
+        border-color: black !important;
+    }
 }

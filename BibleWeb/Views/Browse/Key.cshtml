@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Browse";
 }
-<h2>Read</h2>
+<h2>Read - Worksheet Key</h2>
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <div class="alert alert-primary" role="alert">
@@ -15,13 +15,11 @@
     <div class="row mb-3">
         <label asp-for="RangeExpression" class="col-auto col-form-label">Scripture passage:</label>
         <div class="col-auto">
-            <input type="submit" asp-controller="Browse" asp-action="Update" hidden />
             <input asp-for="RangeExpression" class="form-control ctrl-range" style="width: 12em" />
         </div>
         <div class="col-auto">
-            <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">Lookup</button>
-            <button type="submit" asp-controller="Browse" asp-action="Worksheet" class="btn btn-primary">Worksheet</button>
-            <button type="submit" asp-controller="Browse" asp-action="Practice" class="btn btn-primary">Practice</button>
+            <button type="submit" asp-controller="Browse" asp-action="Key" class="btn btn-primary">Update</button>
+            <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">Read</button>
         </div>
     </div>
 
@@ -34,14 +32,14 @@
         }
         bool isFirstRow = true;
 
-        <table class="table table-sm ">
+        <table class="table table-sm table-bordered worksheet">
             <thead>
-                <tr>
-                    <th scope="col">Part of Speech</th>
-                    <th scope="col">Inflection</th>
-                    <th scope="col">Gloss</th>
-                    <th scope="col">Word</th>
-                    <th scope="col">Diagram</th>
+                <tr class="table-primary">
+                    <th scope="col" class="col-1">Part of Speech</th>
+                    <th scope="col" class="col-3">Inflection</th>
+                    <th scope="col" class="col-3">Gloss</th>
+                    <th scope="col" class="col-1">Word</th>
+                    <th scope="col" class="col-4">Diagram</th>
                 </tr>
             </thead>
             <tbody>
