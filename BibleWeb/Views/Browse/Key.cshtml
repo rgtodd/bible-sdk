@@ -19,6 +19,7 @@
         </div>
         <div class="col-auto">
             <button type="submit" asp-controller="Browse" asp-action="Key" class="btn btn-primary">Update</button>
+            <button type="submit" asp-controller="Browse" asp-action="Worksheet" class="btn btn-primary">Worksheet</button>
             <button type="submit" asp-controller="Browse" asp-action="Update" class="btn btn-primary">Read</button>
         </div>
     </div>
@@ -39,7 +40,8 @@
                     <th scope="col" class="col-3">Inflection</th>
                     <th scope="col" class="col-3">Gloss</th>
                     <th scope="col" class="col-1">Word</th>
-                    <th scope="col" class="col-4">Diagram</th>
+                    <th scope="col" class="col-1">Strongs</th>
+                    <th scope="col" class="col-3">Diagram</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +61,9 @@
                             </td>
                             <td class="fs-5 serif">
                                 @word.Word
+                            </td>
+                            <td>
+                                @word.StrongsNumber
                             </td>
                             @if (isFirstRow)
                             {

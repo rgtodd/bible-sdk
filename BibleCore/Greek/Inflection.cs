@@ -23,9 +23,9 @@
             return persons switch
             {
                 null => "---",
-                Greek.Person.First => "1ST",
-                Greek.Person.Second => "2ND",
-                Greek.Person.Third => "3RD",
+                Greek.Person.First => "1P",
+                Greek.Person.Second => "2P",
+                Greek.Person.Third => "3P",
                 _ => "???"
             };
         }

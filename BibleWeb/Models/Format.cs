@@ -33,13 +33,6 @@ namespace BibleWeb.Models
             var sb = new StringBuilder();
 
             var prefix = string.Empty;
-            if (inflection.Mood != null)
-            {
-                sb.Append(prefix);
-                prefix = "-";
-
-                sb.Append(ToCode(inflection.Mood));
-            }
             if (inflection.Tense != null)
             {
                 sb.Append(prefix);
@@ -53,6 +46,13 @@ namespace BibleWeb.Models
                 prefix = "-";
 
                 sb.Append(ToCode(inflection.Voice));
+            }
+            if (inflection.Mood != null)
+            {
+                sb.Append(prefix);
+                prefix = "-";
+
+                sb.Append(ToCode(inflection.Mood));
             }
 
             if (prefix == "-")
@@ -199,10 +199,10 @@ namespace BibleWeb.Models
             return _case switch
             {
                 null => "---",
-                CaseData.Nominative => "N",
-                CaseData.Genitive => "G",
-                CaseData.Dative => "D",
-                CaseData.Accusative => "A",
+                CaseData.Nominative => "NOM",
+                CaseData.Genitive => "GEN",
+                CaseData.Dative => "DAT",
+                CaseData.Accusative => "ACC",
                 _ => "???"
             };
         }
