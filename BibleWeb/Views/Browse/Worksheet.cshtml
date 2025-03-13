@@ -1,9 +1,9 @@
 ﻿@using BibleWeb.Models
 @model BrowseModel
 @{
-    ViewData["Title"] = "Browse";
+    ViewData["Title"] = $"Read - {Model.RangeExpression} - Worksheet";
 }
-<h2>Read - Worksheet</h2>
+<h2>Worksheet</h2>
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <div class="alert alert-primary" role="alert">

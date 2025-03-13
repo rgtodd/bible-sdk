@@ -23,9 +23,9 @@
             return persons switch
             {
                 null => "---",
-                Greek.Person.First => "1P",
-                Greek.Person.Second => "2P",
-                Greek.Person.Third => "3P",
+                Person.First => "1P",
+                Person.Second => "2P",
+                Person.Third => "3P",
                 _ => "???"
             };
         }
@@ -35,12 +35,12 @@
             return tense switch
             {
                 null => "---",
-                Greek.Tense.Present => "PRE",
-                Greek.Tense.Imperfect => "IMP",
-                Greek.Tense.Future => "FUT",
-                Greek.Tense.Aorist => "AOR",
-                Greek.Tense.Perfect => "PER",
-                Greek.Tense.Pluperfect => "PLU",
+                Tense.Present => "PRE",
+                Tense.Imperfect => "IMP",
+                Tense.Future => "FUT",
+                Tense.Aorist => "AOR",
+                Tense.Perfect => "PER",
+                Tense.Pluperfect => "PLU",
                 _ => "???"
             };
         }
@@ -50,9 +50,9 @@
             return voice switch
             {
                 null => "---",
-                Greek.Voice.Active => "ACT",
-                Greek.Voice.Middle => "MID",
-                Greek.Voice.Passive => "PAS",
+                Voice.Active => "ACT",
+                Voice.Middle => "MID",
+                Voice.Passive => "PAS",
                 _ => "???"
             };
         }
@@ -62,12 +62,12 @@
             return mood switch
             {
                 null => "---",
-                Greek.Mood.Indicative => "IND",
-                Greek.Mood.Imperative => "IMP",
-                Greek.Mood.Subjunctive => "SUB",
-                Greek.Mood.Optative => "OPT",
-                Greek.Mood.Infinitive => "INF",
-                Greek.Mood.Participle => "PAR",
+                Mood.Indicative => "IND",
+                Mood.Imperative => "IMP",
+                Mood.Subjunctive => "SUB",
+                Mood.Optative => "OPT",
+                Mood.Infinitive => "INF",
+                Mood.Participle => "PAR",
                 _ => "???"
             };
         }
@@ -77,10 +77,10 @@
             return _case switch
             {
                 null => "---",
-                Greek.Case.Nominative => "NOM",
-                Greek.Case.Genitive => "GEN",
-                Greek.Case.Dative => "DAT",
-                Greek.Case.Accusative => "ACC",
+                Case.Nominative => "NOM",
+                Case.Genitive => "GEN",
+                Case.Dative => "DAT",
+                Case.Accusative => "ACC",
                 _ => "???"
             };
         }
@@ -90,8 +90,8 @@
             return number switch
             {
                 null => "---",
-                Greek.Number.Singular => "SIN",
-                Greek.Number.Plural => "PLU",
+                Number.Singular => "SIN",
+                Number.Plural => "PLU",
                 _ => "???"
             };
         }
@@ -101,9 +101,9 @@
             return gender switch
             {
                 null => "---",
-                Greek.Gender.Masculine => "MAS",
-                Greek.Gender.Feminine => "FEM",
-                Greek.Gender.Neuter => "NEU",
+                Gender.Masculine => "MAS",
+                Gender.Feminine => "FEM",
+                Gender.Neuter => "NEU",
                 _ => "???"
             };
         }
@@ -113,8 +113,8 @@
             return degree switch
             {
                 null => "---",
-                Greek.Degree.Comparative => "COM",
-                Greek.Degree.Superlative => "SUP",
+                Degree.Comparative => "COM",
+                Degree.Superlative => "SUP",
                 _ => "???"
             };
         }

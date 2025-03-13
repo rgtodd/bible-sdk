@@ -2,7 +2,7 @@
 @using BibleWeb.Models
 @model BrowseModel
 @{
-    ViewData["Title"] = "Browse";
+    ViewData["Title"] = $"Read - {Model.RangeExpression}";
 }
 <h2>Read</h2>
 @if (!string.IsNullOrEmpty(Model.Message))

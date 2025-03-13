@@ -4,7 +4,7 @@
     {
         public static void DumpInflections(Lexicon lexicon)
         {
-            foreach (var inflection in LexiconReporter.GetAllInflections(lexicon))
+            foreach (var inflection in GetAllInflections(lexicon))
             {
                 Console.WriteLine(inflection);
             }

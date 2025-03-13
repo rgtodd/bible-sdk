@@ -145,9 +145,9 @@ namespace BibleWeb.Models
             return persons switch
             {
                 null => "---",
-                PersonData.First => "1ST",
-                PersonData.Second => "2ND",
-                PersonData.Third => "3RD",
+                PersonData.First => "1P",
+                PersonData.Second => "2P",
+                PersonData.Third => "3P",
                 _ => "???"
             };
         }
