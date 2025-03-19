@@ -64,6 +64,10 @@
                             </td>
                             <td>
                                 @word.StrongsNumber
+                                @if (word.MounceChapter != null)
+                                {
+                                    @: / @word.MounceChapter
+                                }
                             </td>
                             @if (isFirstRow)
                             {

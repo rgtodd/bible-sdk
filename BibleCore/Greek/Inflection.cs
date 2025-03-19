@@ -81,6 +81,7 @@
                 Case.Genitive => "GEN",
                 Case.Dative => "DAT",
                 Case.Accusative => "ACC",
+                Case.Vocative => "VOC",
                 _ => "???"
             };
         }

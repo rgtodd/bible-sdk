@@ -12,6 +12,8 @@
 
         public required int? GkNumber { get; init; }
 
+        public required int? MounceChapter { get; init; }
+
         public required PartOfSpeechData PartOfSpeech { get; init; }
 
         public required InflectionData Inflection { get; init; }

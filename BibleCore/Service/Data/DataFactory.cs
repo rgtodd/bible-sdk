@@ -78,6 +78,12 @@ namespace BibleCore.Service.Data
                     gkNumber = textEntry.Lexeme.GkNumber[0];
                 }
 
+                int? mounceChapter = null;
+                if (textEntry.Lexeme.MounceChapterNumber != 0)
+                {
+                    mounceChapter = textEntry.Lexeme.MounceChapterNumber;
+                }
+
                 var word = new TextWordData()
                 {
                     Position = textEntry.Position,
@@ -85,6 +91,7 @@ namespace BibleCore.Service.Data
                     Transliteration = textEntry.TransliteratedWord,
                     StrongsNumber = strongsNumber,
                     GkNumber = gkNumber,
+                    MounceChapter = mounceChapter,
                     PartOfSpeech = CreatePartOfSpeechData(textEntry.PartOfSpeech),
                     Inflection = CreateInflectionData(textEntry.Inflection),
                     Gloss = textEntry.Lexeme.Gloss

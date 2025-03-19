@@ -203,6 +203,7 @@ namespace BibleWeb.Models
                 CaseData.Genitive => "GEN",
                 CaseData.Dative => "DAT",
                 CaseData.Accusative => "ACC",
+                CaseData.Vocative => "VOC",
                 _ => "???"
             };
         }
