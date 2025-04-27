@@ -5,6 +5,7 @@
 
 *.user
 *.pubxml
+*.pyc
 
 profile.arm.json
 
