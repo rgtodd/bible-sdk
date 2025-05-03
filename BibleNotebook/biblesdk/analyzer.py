@@ -1,75 +1,8 @@
 import pandas as pd
 import biblesdk.constants as bc
+from report import Report
 from pprint import pprint
 
-class Report:
-
-    def __init__(self, df, properties, word_count):
-
-        self.df = df
-        self.properties = dict(properties)
-        self.word_count = word_count
-
-    def get_styler(self, highlight_nt_rank=True):
-
-        df_report = self.df
-
-        report_styler = (
-            df_report.style.hide(axis="index")
-            .format(
-                # {WORD_PERCENTAGE: "{:.2%}", WORD_PERCENTAGE_CUMULATIVE: "{:.2%}"},
-                {
-                    bc.STRONGS: _format_lexical_number,
-                    bc.GK: _format_lexical_number,
-                    bc.MOUNCE_CHAPTER: _format_mounce,
-                    bc.WORD_COUNT: "{:,}",
-                },
-                precision=2,
-                na_rep="",
-            )
-            .set_properties(
-                subset=[
-                    bc.GLOSS,
-                    bc.LEXICAL_ENTRY,
-                    bc.PART_OF_SPEECH,
-                ],
-                **{"text-align": "left"},
-            )
-            .set_properties(
-                subset=[
-                    bc.WORD_COUNT,
-                    bc.STRONGS,
-                    bc.GK,
-                    bc.MOUNCE_CHAPTER,
-                ],  # , WORD_PERCENTAGE, WORD_PERCENTAGE_CUMULATIVE],
-                **{"text-align": "right"},
-            )
-            .set_table_styles([{"selector": "th", "props": [("text-align", "left")]}])
-            # .bar(subset=[WORD_PERCENTAGE_CUMULATIVE], color="LightBlue", vmax=1)
-        )
-
-        if highlight_nt_rank & (bc.NEW_TESTAMENT_WORD_INDEX in df_report):
-            report_styler = report_styler.apply(lambda df: _select_col(df, self.word_count), axis=None)
-
-        return report_styler
-
-def _format_lexical_number(value):
-    try:
-        int_value = int(value)
-        return f"{int_value:04d}"
-    except ValueError:
-        return value
-
-def _format_mounce(value):
-    return ",".join(value)
-
-def _select_col(df, word_count):
-    c1 = "background-color: LightGreen"
-    c2 = ""
-    mask = df[bc.NEW_TESTAMENT_WORD_INDEX] > word_count
-    df1 = pd.DataFrame(c2, index=df.index, columns=df.columns)
-    df1.loc[mask, bc.WORD_INDEX] = c1
-    return df1
 
 class Analyzer:
 
@@ -114,14 +47,16 @@ class Analyzer:
                 "Vocabulary Word Count": len(report_df),
                 "Vocabulary Percentage": f"{percentage:.2%}",
             },
-            self.word_count
+            self.word_count,
         )
 
     def get_book_report(self, book, chapter=None, add_nt_word_index=None):
 
         df_morphgnt_book = self.DF_MORPHGNT[(self.DF_MORPHGNT[bc.BOOK] == book)]
         if chapter:
-            df_morphgnt_book = df_morphgnt_book[(df_morphgnt_book[bc.CHAPTER] == chapter)]
+            df_morphgnt_book = df_morphgnt_book[
+                (df_morphgnt_book[bc.CHAPTER] == chapter)
+            ]
         self._dump(df_morphgnt_book, "df_morphgnt_book")
 
         report_df = self._create_report_df(df_morphgnt_book)
@@ -130,7 +65,9 @@ class Analyzer:
             new_testament_report_df = self._create_report_df(self.DF_MORPHGNT)
             new_testament_word_index = new_testament_report_df[bc.WORD_INDEX]
             report_df.insert(
-                loc=1, column=bc.NEW_TESTAMENT_WORD_INDEX, value=new_testament_word_index
+                loc=1,
+                column=bc.NEW_TESTAMENT_WORD_INDEX,
+                value=new_testament_word_index,
             )
 
         book_top_words = report_df[
@@ -147,7 +84,9 @@ class Analyzer:
             & (book_top_words[bc.NEW_TESTAMENT_WORD_INDEX] > self.word_count)
         ]
 
-        df = book_top_words.drop(columns=[bc.WORD_PERCENTAGE, bc.WORD_PERCENTAGE_CUMULATIVE])
+        df = book_top_words.drop(
+            columns=[bc.WORD_PERCENTAGE, bc.WORD_PERCENTAGE_CUMULATIVE]
+        )
 
         return Report(
             df,
@@ -157,7 +96,7 @@ class Analyzer:
                 "New Vocabulary Word Count": len(new_words),
                 "Total Vocabulary Percentage": f"{book_top_words[bc.WORD_PERCENTAGE_CUMULATIVE].max():.2%}",
             },
-            self.word_count
+            self.word_count,
         )
 
     def _create_report_df(self, df_morphgnt):
@@ -172,14 +111,18 @@ class Analyzer:
         df_analysis[bc.WORD_PERCENTAGE] = df_analysis[bc.WORD_COUNT] / total_word_count
         self._dump(df_analysis, "DF_ANALYSIS")
 
-        df_analysis_sorted = df_analysis.sort_values(bc.WORD_PERCENTAGE, ascending=False)
+        df_analysis_sorted = df_analysis.sort_values(
+            bc.WORD_PERCENTAGE, ascending=False
+        )
         df_analysis_sorted[bc.WORD_INDEX] = range(1, len(df_analysis_sorted) + 1)
         df_analysis_sorted[bc.WORD_PERCENTAGE_CUMULATIVE] = df_analysis_sorted[
             bc.WORD_PERCENTAGE
         ].cumsum()
         self._dump(df_analysis_sorted, "DF_ANALYSIS_SORTED")
 
-        df_merged = df_analysis_sorted.join(self.DF_LEXEMES).join(self.DF_MOUNCE, on=bc.GK)
+        df_merged = df_analysis_sorted.join(self.DF_LEXEMES).join(
+            self.DF_MOUNCE, on=bc.GK
+        )
         self._dump(df_merged, "DF_MERGED")
 
         df_merged[bc.LEXICAL_ENTRY] = df_merged[bc.DODSON_ENTRY].combine_first(
