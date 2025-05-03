@@ -1,21 +1,46 @@
-import pandas as pd
-import biblesdk.constants as bc
-from report import Report
+from pandas import DataFrame, read_csv
 from pprint import pprint
+
+import biblesdk.columns as bc
+from biblesdk.report import Report
 
 
 class Analyzer:
+    """Produces reports for the New Testament listing the most commonly used words. The word_count property
+    specifies the number words in the report.
 
-    def __init__(self, word_count):
-        self.enable_dump = False
-        self.word_count = word_count
+    There are two types of reports:
 
-    def load_data(self, morphgnt_csv, lexemes_csv, MOUNCE_TXT):
-        self.DF_MORPHGNT = pd.read_csv(morphgnt_csv, index_col=bc.INDEX)
-        self.DF_LEXEMES = pd.read_csv(lexemes_csv, index_col=bc.LEMMA)
-        self.DF_MOUNCE = (
-            pd.read_csv(
-                MOUNCE_TXT,
+    1. A report of the most frequently used words across the entire New Testament.
+
+    2. Reports for every book in the New Testatment.  The report lists the most frequently used words in the book, plus any additional words 
+    that also appear in the New Testament report regardless of usage.  Words unique to the book (i.e., that do not appear in the New Testament report)
+    are highlighted.
+    """
+
+    def __init__(self, word_count: int):
+        """Initializes a new Analyzer object.
+
+        Args:
+            word_count (int): The number of words to be included in each report.
+        """
+        self.enable_dump: bool = False
+        self.word_count: int = word_count
+
+    def load_data(self, morphgnt_csv: str, lexemes_csv: str, mounce_txt: str):
+        """Loads data into the analyzer.
+
+        Args:
+            morphgnt_csv (str): The name and location of the morphgnt.csv file.
+            lexemes_csv (str): The name and location of the lexemes.csv file.
+            mounce_txt (str): The name and location of the mounce.txt file.
+        """
+
+        self.DF_MORPHGNT: DataFrame = read_csv(morphgnt_csv, index_col=bc.INDEX)
+        self.DF_LEXEMES: DataFrame = read_csv(lexemes_csv, index_col=bc.LEMMA)
+        self.DF_MOUNCE: DataFrame = (
+            read_csv(
+                mounce_txt,
                 sep="\t",
                 names=[bc.GK, bc.MOUNCE_CHAPTER],
                 index_col=bc.GK,
@@ -28,10 +53,15 @@ class Analyzer:
         self._dump(self.DF_MORPHGNT, "DF_MORPHGNT")
         self._dump(self.DF_LEXEMES, "DF_LEXEMES")
 
-        self.TOTAL_WORD_COUNT = len(self.DF_MORPHGNT)
-        self.TOTAL_LEXEME_COUNT = len(self.DF_LEXEMES)
+        self.TOTAL_WORD_COUNT: int = len(self.DF_MORPHGNT)
+        self.TOTAL_LEXEME_COUNT: int = len(self.DF_LEXEMES)
 
-    def get_new_testament_report(self):
+    def get_new_testament_report(self) -> Report:
+        """Produces the New Testament word report.
+
+        Returns:
+            Report: The Report object.
+        """
 
         report_df = self._create_report_df(self.DF_MORPHGNT).head(self.word_count)
 
@@ -50,7 +80,19 @@ class Analyzer:
             self.word_count,
         )
 
-    def get_book_report(self, book, chapter=None, add_nt_word_index=None):
+    def get_book_report(
+        self, book: int, chapter: int = None, add_nt_word_index: bool = False
+    ) -> Report:
+        """Produces a word report for the specified New Testament book.
+
+        Args:
+            book (int): Index of the book.
+            chapter (int, optional): Chapter number. Defaults to None.
+            add_nt_word_index (bool, optional): If True, the index of the word in the New Testament report is included in the report. Defaults to False.
+
+        Returns:
+            Report: The Report object.
+        """
 
         df_morphgnt_book = self.DF_MORPHGNT[(self.DF_MORPHGNT[bc.BOOK] == book)]
         if chapter:
@@ -99,7 +141,7 @@ class Analyzer:
             self.word_count,
         )
 
-    def _create_report_df(self, df_morphgnt):
+    def _create_report_df(self, df_morphgnt: DataFrame) -> DataFrame:
 
         total_word_count = len(df_morphgnt)
 
@@ -147,7 +189,7 @@ class Analyzer:
 
         return df_report
 
-    def _dump(self, object, name):
+    def _dump(self, object: any, name: str):
 
         if self.enable_dump:
             print(f"===== {name}")

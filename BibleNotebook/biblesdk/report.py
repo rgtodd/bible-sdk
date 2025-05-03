@@ -1,31 +1,20 @@
-import pandas as pd
-import biblesdk.constants as bc
-from pprint import pprint
+from pandas import DataFrame
+from pandas.io.formats.style import Styler
+
+import biblesdk.columns as bc
 
 
 class Report:
-    """
-    Defines a report for the specified DataFrame.
-    """
 
-    def __init__(self, df, properties, word_index_highlight_threshold):
-        """
-        Creates a new
+    def __init__(
+        self, df: DataFrame, properties: any, word_index_highlight_threshold: int
+    ):
 
-        Keyword arguments:
-        df -- the DataFrame associated with this report.
-        word_index_highlight_threshold -- word index beyond which words are highlighted in the report. 
-                                          Used to highlight words that are not part of standard word lists.
-        """
+        self.df: DataFrame = df
+        self.properties: dict = dict(properties)
+        self.word_index_highlight_threshold: int = word_index_highlight_threshold
 
-        self.df = df
-        self.properties = dict(properties)
-        self.word_index_highlight_threshold = word_index_highlight_threshold
-
-    def get_styler(self, highlight_nt_rank=True):
-        """
-        Create a styler for the DataFrame associated with this report.
-        """
+    def get_styler(self, highlight_nt_rank: bool = True) -> Styler:
 
         df_report = self.df
 
@@ -72,7 +61,7 @@ class Report:
         return report_styler
 
 
-def _format_lexical_number(value):
+def _format_lexical_number(value: str) -> str:
     try:
         int_value = int(value)
         return f"{int_value:04d}"
@@ -80,14 +69,14 @@ def _format_lexical_number(value):
         return value
 
 
-def _format_mounce(value):
+def _format_mounce(value: list[str]) -> str:
     return ",".join(value)
 
 
-def _select_col(df, word_index_highlight_threshold):
+def _select_col(df: DataFrame, word_index_highlight_threshold: int) -> DataFrame:
     c1 = "background-color: LightGreen"
     c2 = ""
     mask = df[bc.NEW_TESTAMENT_WORD_INDEX] > word_index_highlight_threshold
-    df1 = pd.DataFrame(c2, index=df.index, columns=df.columns)
+    df1 = DataFrame(c2, index=df.index, columns=df.columns)
     df1.loc[mask, bc.WORD_INDEX] = c1
     return df1
