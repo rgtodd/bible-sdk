@@ -110,7 +110,7 @@ namespace BibleWeb.Models
             };
         }
 
-        public static VerbClassificationModel CreateVerbClassificationModel(List<LexemeData> lexemes)
+        public static VerbClassificationModel CreateVerbClassificationModel(List<LexemeData> lexemes, string? anchor)
         {
             var categories = new Dictionary<VerbInflectionModel, VerbClassificationCategoryModel>();
             var entries = new Dictionary<VerbClassificationCategoryModel, Dictionary<string, VerbClassificationEntryModel>>();
@@ -119,103 +119,13 @@ namespace BibleWeb.Models
             {
                 foreach (var form in lexeme.Forms)
                 {
-                    var inflection = form.Inflection;
-                    if (inflection.Mood != null
-                        && inflection.Tense != null
-                        && inflection.Voice != null
-                        && inflection.Person != null
-                        && inflection.Number != null)
-                    {
-                        var key = new VerbInflectionModel(inflection.Mood.Value, inflection.Tense.Value, inflection.Voice.Value);
-                        var category = categories.GetValueOrDefault(key);
-                        if (category == null)
-                        {
-                            category = new VerbClassificationCategoryModel()
-                            {
-                                Inflection = key,
-                                Entries = []
-                            };
-
-                            categories.Add(key, category);
-                        }
-
-                        var entryDictionary = entries.GetValueOrDefault(category);
-                        if (entryDictionary == null)
-                        {
-                            entryDictionary = [];
-                            entries.Add(category, entryDictionary);
-                        }
-
-                        var entry = entryDictionary.GetValueOrDefault(lexeme.FullCitationForm);
-                        if (entry == null)
-                        {
-                            int strongs = 0;
-                            if (lexeme.StrongsNumber != null && lexeme.StrongsNumber.Length > 0)
-                            {
-                                strongs = lexeme.StrongsNumber[0];
-                            }
-
-                            var roots = Verbs.GetRoot(lexeme.Root, key.TenseStem);
-
-                            entry = new VerbClassificationEntryModel()
-                            {
-                                Citation = lexeme.FullCitationForm,
-                                Morphology = lexeme.MounceMorphcat + roots[1],
-                                Root = roots[0],
-                                Strongs = strongs,
-                                FirstPersonSingular = [],
-                                FirstPersonPlural = [],
-                                SecondPersonSingular = [],
-                                SecondPersonPlural = [],
-                                ThirdPersonSingular = [],
-                                ThirdPersonPlural = []
-                            };
-
-                            entryDictionary.Add(lexeme.FullCitationForm, entry);
-                        }
-
-                        switch (inflection.Person.Value)
-                        {
-                            case PersonData.First:
-                                if (inflection.Number.Value == NumberData.Singular)
-                                {
-                                    entry.FirstPersonSingular.Add(form.InflectedForm);
-                                }
-                                else
-                                {
-                                    entry.FirstPersonPlural.Add(form.InflectedForm);
-                                }
-                                break;
-
-                            case PersonData.Second:
-                                if (inflection.Number.Value == NumberData.Singular)
-                                {
-                                    entry.SecondPersonSingular.Add(form.InflectedForm);
-                                }
-                                else
-                                {
-                                    entry.SecondPersonPlural.Add(form.InflectedForm);
-                                }
-                                break;
-
-                            case PersonData.Third:
-                                if (inflection.Number.Value == NumberData.Singular)
-                                {
-                                    entry.ThirdPersonSingular.Add(form.InflectedForm);
-                                }
-                                else
-                                {
-                                    entry.ThirdPersonPlural.Add(form.InflectedForm);
-                                }
-                                break;
-                        }
-                    }
+                    AddLexemeForm(categories, entries, lexeme, form, anchor);
                 }
             }
 
             foreach (var category in categories.Values)
             {
-                category.Entries = [.. entries[category].Values.OrderBy(v => v.MorphologySort).ThenBy(v => v.Citation)];
+                category.Entries = [.. entries[category].Values.OrderBy(v => v.MorphologyCategory).ThenBy(v => v.Citation)];
             }
 
             var model = new VerbClassificationModel()
@@ -224,6 +134,121 @@ namespace BibleWeb.Models
             };
 
             return model;
+        }
+
+        private static void AddLexemeForm(Dictionary<VerbInflectionModel, VerbClassificationCategoryModel> categories, Dictionary<VerbClassificationCategoryModel, Dictionary<string, VerbClassificationEntryModel>> entries, LexemeData lexeme, FormData form, string? anchor)
+        {
+            var inflection = form.Inflection;
+            if (inflection.Mood == null
+                || inflection.Tense == null
+                || inflection.Voice == null
+                || inflection.Person == null
+                || inflection.Number == null)
+            {
+                return;
+            }
+
+            var key = new VerbInflectionModel(inflection.Mood.Value, inflection.Tense.Value, inflection.Voice.Value);
+            if (anchor != null && key.Anchor != anchor)
+            {
+                return;
+            }
+
+            var category = categories.GetValueOrDefault(key);
+            if (category == null)
+            {
+                category = new VerbClassificationCategoryModel()
+                {
+                    Inflection = key,
+                    Entries = []
+                };
+
+                categories.Add(key, category);
+            }
+
+            var entryDictionary = entries.GetValueOrDefault(category);
+            if (entryDictionary == null)
+            {
+                entryDictionary = [];
+                entries.Add(category, entryDictionary);
+            }
+
+            var entry = entryDictionary.GetValueOrDefault(lexeme.FullCitationForm);
+            if (entry == null)
+            {
+                int strongs = 0;
+                if (lexeme.StrongsNumber != null && lexeme.StrongsNumber.Length > 0)
+                {
+                    strongs = lexeme.StrongsNumber[0];
+                }
+
+                var roots = Verbs.GetRoot(lexeme.Root, key.TenseStem);
+
+                var morphologyCategory = lexeme.MounceMorphcat.StartsWith('c') ? lexeme.MounceMorphcat[1..] : lexeme.MounceMorphcat;
+                var idx = morphologyCategory.IndexOf('(');
+                if (idx != -1)
+                {
+                    morphologyCategory = morphologyCategory[..idx];
+                }
+                idx = morphologyCategory.IndexOf(' ');
+                if (idx != -1)
+                {
+                    morphologyCategory = morphologyCategory[..idx];
+                }
+
+                entry = new VerbClassificationEntryModel()
+                {
+                    Citation = lexeme.FullCitationForm,
+                    MorphologyCategory = morphologyCategory,
+                    Morphology = lexeme.MounceMorphcat + roots[1],
+                    Root = roots[0],
+                    Strongs = strongs,
+                    FirstPersonSingular = [],
+                    FirstPersonPlural = [],
+                    SecondPersonSingular = [],
+                    SecondPersonPlural = [],
+                    ThirdPersonSingular = [],
+                    ThirdPersonPlural = []
+                };
+
+                entryDictionary.Add(lexeme.FullCitationForm, entry);
+            }
+
+            switch (inflection.Person.Value)
+            {
+                case PersonData.First:
+                    if (inflection.Number.Value == NumberData.Singular)
+                    {
+                        entry.FirstPersonSingular.Add(form.InflectedForm);
+                    }
+                    else
+                    {
+                        entry.FirstPersonPlural.Add(form.InflectedForm);
+                    }
+                    break;
+
+                case PersonData.Second:
+                    if (inflection.Number.Value == NumberData.Singular)
+                    {
+                        entry.SecondPersonSingular.Add(form.InflectedForm);
+                    }
+                    else
+                    {
+                        entry.SecondPersonPlural.Add(form.InflectedForm);
+                    }
+                    break;
+
+                case PersonData.Third:
+                    if (inflection.Number.Value == NumberData.Singular)
+                    {
+                        entry.ThirdPersonSingular.Add(form.InflectedForm);
+                    }
+                    else
+                    {
+                        entry.ThirdPersonPlural.Add(form.InflectedForm);
+                    }
+                    break;
+            }
         }
 
         private static ExerciseFactoryModel CreateExerciseFactoryModel(ExerciseFactoryData exerciseFactory)

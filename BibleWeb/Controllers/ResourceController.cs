@@ -27,13 +27,22 @@ namespace BibleWeb.Controllers
             return View("Vocabulary", model);
         }
 
-        public async Task<IActionResult> Verb(string? range)
+        public async Task<IActionResult> Verb(string? range, string? anchor)
         {
             VerbClassificationModel model = range != null
-                ? await GetVerbs(null, null, range)
-                : await GetVerbs(1, 99, null);
+                ? await GetVerbs(null, null, range, anchor)
+                : await GetVerbs(1, 99, null, anchor);
 
             return View("Verb", model);
+        }
+
+        public async Task<IActionResult> PrintVerb(string? range, string? anchor)
+        {
+            VerbClassificationModel model = range != null
+                ? await GetVerbs(null, null, range, anchor)
+                : await GetVerbs(1, 99, null, anchor);
+
+            return View("PrintVerb", model);
         }
 
         private async Task<LexemeListModel> GetLexemes(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
@@ -51,7 +60,7 @@ namespace BibleWeb.Controllers
             return model;
         }
 
-        private async Task<VerbClassificationModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression)
+        private async Task<VerbClassificationModel> GetVerbs(int? minimumMounceNumber, int? maximumMounceNumber, string? rangeExpression, string? anchor)
         {
             List<LexemeData> lexemeData = await GetLexemeData(minimumMounceNumber, maximumMounceNumber, rangeExpression);
 
@@ -60,7 +69,7 @@ namespace BibleWeb.Controllers
                 .ThenBy(l => l.FullCitationForm)
                 .ToList();
 
-            var model = ModelFactory.CreateVerbClassificationModel(sortedLexemes);
+            var model = ModelFactory.CreateVerbClassificationModel(sortedLexemes, anchor);
 
             return model;
         }

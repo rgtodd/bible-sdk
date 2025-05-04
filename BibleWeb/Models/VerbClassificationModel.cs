@@ -10,7 +10,6 @@
         public required VerbInflectionModel Inflection { get; init; }
 
         public required IList<VerbClassificationEntryModel> Entries { get; set; }
-
     }
 
     public class VerbClassificationEntryModel
@@ -20,6 +19,8 @@
         public required string Root { get; init; }
 
         public required string Morphology { get; init; }
+
+        public required string MorphologyCategory { get; init; }
 
         public required int Strongs { get; init; }
 
@@ -34,14 +35,6 @@
         public required List<string> SecondPersonPlural { get; init; }
 
         public required List<string> ThirdPersonPlural { get; init; }
-
-        public string MorphologySort
-        {
-            get
-            {
-                return Morphology.StartsWith('c') ? Morphology[1..] : Morphology;
-            }
-        }
     }
 
 }
