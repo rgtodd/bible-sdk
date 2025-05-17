@@ -1,40 +1,57 @@
-BDAG_ENTRY = "BDAG Entry"
+# MorphGNT columns
+#
 BOOK = "Book"
 CASE = "Case"
 CHAPTER = "Chapter"
-COUNT = "Count"
-DANKER_ENTRY = "Danker Entry"
 DEGREE = "Degree"
-DODSON_ENTRY = "Dodson Entry"
-DODSON_PART_OF_SPEECH_CODE = "Dodson Part of Speech Code"
-FULL_CITATION_FORM = "Full Citation Form"
 GENDER = "Gender"
-GK = "GK"
-GLOSS = "Gloss"
-INDEX = "Index"
 INFLECTION_CODES = "Inflection Codes"
 LEMMA = "Lemma"
-LEXICAL_ENTRY = "Lexical Entry"
 MOOD = "Mood"
-MOUNCE_CHAPTER = "Mounce"
-MOUNCE_ENTRY = "Mounce Entry"
-MOUNCE_MORPHCAT = "Mounce MorphCat"
-NEW_TESTAMENT_WORD_INDEX = "NT Rank"
 NORMALIZED_WORD = "Normalized Word"
 NUMBER = "Number"
 PART_OF_SPEECH = "Part of Speech"
 PART_OF_SPEECH_CODE = "Part of Speech Code"
 PERSON = "Person"
-ROOT = "Root"
 SCRIPTURE_REFERENCE = "Scripture Reference"
-STRONGS = "Strongs"
 TENSE = "Tense"
 TEXT = "Text"
-VERBS = "Verbs"
 VERSE = "Verse"
 VOICE = "Voice"
 WORD = "Word"
+
+# Lexemes Columns
+#
+BDAG_ENTRY = "BDAG Entry"
+DANKER_ENTRY = "Danker Entry"
+DODSON_ENTRY = "Dodson Entry"
+DODSON_PART_OF_SPEECH_CODE = "Dodson Part of Speech Code"
+FULL_CITATION_FORM = "Full Citation Form"
+GK = "GK"
+GLOSS = "Gloss"
+MOUNCE_ENTRY = "Mounce Entry"
+MOUNCE_MORPHCAT = "Mounce MorphCat"
+# PART_OF_SPEECH
+# PART_OF_SPEECH_CODE
+ROOT = "Root"
+STRONGS = "Strongs"
+VERBS = "Verbs"
+
+# Mounce Chapter Columns
+#
+# GK
+MOUNCE_CHAPTER = "Mounce"
+
+# Analyzer DataFrame
+#
+LEXICAL_ENTRY = "Lexical Entry"
+NEW_TESTAMENT_WORD_INDEX = "NT Rank"
 WORD_COUNT = "Word Count"
 WORD_INDEX = "Rank"
 WORD_PERCENTAGE = "Word Percentage"
 WORD_PERCENTAGE_CUMULATIVE = "Word Percentage Cumulative"
+
+# Misc
+#
+COUNT = "Count"
+INDEX = "Index"
