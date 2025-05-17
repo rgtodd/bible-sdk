@@ -7,11 +7,14 @@ import biblesdk.columns as bc
 class Report:
 
     def __init__(
-        self, df: DataFrame, properties: any, word_index_highlight_threshold: int
+        self,
+        df: DataFrame,
+        properties: dict[str, str],
+        word_index_highlight_threshold: int,
     ):
 
         self.df: DataFrame = df
-        self.properties: dict = dict(properties)
+        self.properties: dict[str, str] = dict(properties)
         self.word_index_highlight_threshold: int = word_index_highlight_threshold
 
     def get_styler(self, highlight_nt_rank: bool = True) -> Styler:
@@ -19,7 +22,7 @@ class Report:
         df_report = self.df
 
         report_styler = (
-            df_report.style.hide(axis="index")
+            df_report.style.hide(axis="index")  # type: ignore
             .format(
                 # {WORD_PERCENTAGE: "{:.2%}", WORD_PERCENTAGE_CUMULATIVE: "{:.2%}"},
                 {
@@ -27,7 +30,7 @@ class Report:
                     bc.GK: _format_lexical_number,
                     bc.MOUNCE_CHAPTER: _format_mounce,
                     bc.WORD_COUNT: "{:,}",
-                },
+                },  # type: ignore
                 precision=2,
                 na_rep="",
             )
@@ -53,7 +56,7 @@ class Report:
         )
 
         if highlight_nt_rank & (bc.NEW_TESTAMENT_WORD_INDEX in df_report):
-            report_styler = report_styler.apply(
+            report_styler = report_styler.apply( # type: ignore
                 lambda df: _select_col(df, self.word_index_highlight_threshold),
                 axis=None,
             )

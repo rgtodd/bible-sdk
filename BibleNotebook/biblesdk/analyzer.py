@@ -1,4 +1,4 @@
-from pandas import DataFrame, read_csv
+from pandas import DataFrame, read_csv # type: ignore
 from pprint import pprint
 
 import biblesdk.columns as bc
@@ -46,10 +46,10 @@ class Analyzer:
                 index_col=bc.GK,
                 dtype={bc.GK: "object", bc.MOUNCE_CHAPTER: "object"},
             )
-            .groupby(bc.GK)[bc.MOUNCE_CHAPTER]
+            .groupby(bc.GK)[bc.MOUNCE_CHAPTER] # type: ignore
             .apply(list)
             .to_frame(bc.MOUNCE_CHAPTER)
-        )
+        ) 
         self._dump(self.DF_MORPHGNT, "DF_MORPHGNT")
         self._dump(self.DF_LEXEMES, "DF_LEXEMES")
 
@@ -65,23 +65,23 @@ class Analyzer:
 
         report_df = self._create_report_df(self.DF_MORPHGNT).head(self.word_count)
 
-        percentage = report_df[bc.WORD_PERCENTAGE_CUMULATIVE].max()
+        percentage = report_df[bc.WORD_PERCENTAGE_CUMULATIVE].max() # type: ignore
 
         df = report_df.drop(columns=[bc.WORD_PERCENTAGE, bc.WORD_PERCENTAGE_CUMULATIVE])
 
         return Report(
             df,
             {
-                "Total Word Count": len(self.DF_MORPHGNT),
-                "Unique Word Count": len(report_df),
-                "Vocabulary Word Count": len(report_df),
+                "Total Word Count": str(len(self.DF_MORPHGNT)),
+                "Unique Word Count": str(len(report_df)),
+                "Vocabulary Word Count": str(len(report_df)),
                 "Vocabulary Percentage": f"{percentage:.2%}",
             },
             self.word_count,
         )
 
     def get_book_report(
-        self, book: int, chapter: int = None, add_nt_word_index: bool = False
+        self, book: int, chapter: int | None = None, add_nt_word_index: bool = False
     ) -> Report:
         """Produces a word report for the specified New Testament book.
 
@@ -105,8 +105,8 @@ class Analyzer:
 
         if add_nt_word_index:
             new_testament_report_df = self._create_report_df(self.DF_MORPHGNT)
-            new_testament_word_index = new_testament_report_df[bc.WORD_INDEX]
-            report_df.insert(
+            new_testament_word_index = new_testament_report_df[bc.WORD_INDEX] # type: ignore
+            report_df.insert( # type: ignore
                 loc=1,
                 column=bc.NEW_TESTAMENT_WORD_INDEX,
                 value=new_testament_word_index,
@@ -133,9 +133,9 @@ class Analyzer:
         return Report(
             df,
             {
-                "Total Word Count": len(df_morphgnt_book),
-                "Unique Word Count": len(report_df),
-                "New Vocabulary Word Count": len(new_words),
+                "Total Word Count": str(len(df_morphgnt_book)),
+                "Unique Word Count": str(len(report_df)),
+                "New Vocabulary Word Count": str(len(new_words)),
                 "Total Vocabulary Percentage": f"{book_top_words[bc.WORD_PERCENTAGE_CUMULATIVE].max():.2%}",
             },
             self.word_count,
@@ -145,7 +145,7 @@ class Analyzer:
 
         total_word_count = len(df_morphgnt)
 
-        s_lemma_word_counts = df_morphgnt.groupby(bc.LEMMA).size()
+        s_lemma_word_counts = df_morphgnt.groupby(bc.LEMMA).size() # type: ignore
         self._dump(s_lemma_word_counts, "S_LEMMA_WORD_COUNTS")
 
         df_analysis = s_lemma_word_counts.to_frame(name=bc.WORD_COUNT)
@@ -153,7 +153,7 @@ class Analyzer:
         df_analysis[bc.WORD_PERCENTAGE] = df_analysis[bc.WORD_COUNT] / total_word_count
         self._dump(df_analysis, "DF_ANALYSIS")
 
-        df_analysis_sorted = df_analysis.sort_values(
+        df_analysis_sorted = df_analysis.sort_values( # type: ignore
             bc.WORD_PERCENTAGE, ascending=False
         )
         df_analysis_sorted[bc.WORD_INDEX] = range(1, len(df_analysis_sorted) + 1)
@@ -162,16 +162,16 @@ class Analyzer:
         ].cumsum()
         self._dump(df_analysis_sorted, "DF_ANALYSIS_SORTED")
 
-        df_merged = df_analysis_sorted.join(self.DF_LEXEMES).join(
+        df_merged = df_analysis_sorted.join(self.DF_LEXEMES).join( # type: ignore
             self.DF_MOUNCE, on=bc.GK
         )
         self._dump(df_merged, "DF_MERGED")
 
-        df_merged[bc.LEXICAL_ENTRY] = df_merged[bc.DODSON_ENTRY].combine_first(
+        df_merged[bc.LEXICAL_ENTRY] = df_merged[bc.DODSON_ENTRY].combine_first( # type: ignore
             df_merged[bc.BDAG_ENTRY]
         )
 
-        df_report = df_merged.reindex(
+        df_report = df_merged.reindex( # type: ignore
             columns=[
                 bc.WORD_INDEX,
                 bc.PART_OF_SPEECH,
@@ -189,12 +189,12 @@ class Analyzer:
 
         return df_report
 
-    def _dump(self, object: any, name: str):
+    def _dump(self, o: object, name: str):
 
         if self.enable_dump:
             print(f"===== {name}")
-            print(object.__class__.__name__)
+            print(o.__class__.__name__)
             print("-----")
-            pprint(vars(object))
+            pprint(vars(o))
             print("-----")
-            pprint(object)
+            pprint(o)
