@@ -2,14 +2,14 @@
 
 namespace BibleWeb.Models
 {
-    public readonly record struct VerbInflectionModel(MoodData Mood, TenseData Tense, VoiceData Voice)
+    public readonly record struct VerbInflectionModel(TenseData Tense, VoiceData Voice, MoodData Mood)
     {
         private static IDictionary<VerbInflectionModel, int>? m_tenseSortOrders;
         private static IDictionary<VerbInflectionModel, int>? m_endingSortOrders;
 
-        public string Description => $"{Mood} - {Tense} - {Voice}";
+        public string Description => $"{Tense} - {Voice} - {Mood}";
 
-        public string Anchor => $"{Mood}_{Tense}_{Voice}";
+        public string Anchor => $"{Tense}_{Voice}_{Mood}";
 
         public string Augment
         {
@@ -152,7 +152,7 @@ namespace BibleWeb.Models
 
         public override string ToString()
         {
-            return $"{Mood} {Tense} {Voice}".Trim();
+            return $"{Tense} {Voice} {Mood}".Trim();
         }
 
         public int TenseSortOrder
@@ -179,56 +179,56 @@ namespace BibleWeb.Models
 
                 m_tenseSortOrders ??= new Dictionary<VerbInflectionModel, int>
                 {
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Middle, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Passive, MoodData.Indicative), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Active, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Active, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Pluperfect, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Pluperfect, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Pluperfect, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Active, MoodData.Imperative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Middle, MoodData.Imperative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Passive, MoodData.Imperative), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Active, MoodData.Imperative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Middle, MoodData.Imperative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Passive, MoodData.Imperative), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Imperative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Active, MoodData.Imperative), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Active, MoodData.Subjunctive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Middle, MoodData.Subjunctive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Passive, MoodData.Subjunctive), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Active, MoodData.Subjunctive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Middle, MoodData.Subjunctive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Passive, MoodData.Subjunctive), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Subjunctive, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Active, MoodData.Subjunctive), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Active, MoodData.Optative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Middle, MoodData.Optative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Passive, MoodData.Optative), ++sortOrder  },
 
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Optative, TenseData.Aorist, VoiceData.Passive), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Active, MoodData.Optative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Middle, MoodData.Optative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Passive, MoodData.Optative), ++sortOrder  },
                 };
 
                 return m_tenseSortOrders;
@@ -245,30 +245,30 @@ namespace BibleWeb.Models
                 {
                     // Primary / Active Voice
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Active), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Active), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Active, MoodData.Indicative), ++sortOrder  },
 
                     // Primary / Middle Passive Voice
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Middle), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Present, VoiceData.Passive), ++sortOrder  },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Future, VoiceData.Passive), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Perfect, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Middle, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Present, VoiceData.Passive, MoodData.Indicative), ++sortOrder  },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Future, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Perfect, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
                     // Secondary / Active Voice
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Active), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Passive), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Active, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Active, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
 
                     // Secondary / Middle Passive Voice
 
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Middle), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Imperfect, VoiceData.Passive), ++ sortOrder },
-                    { new VerbInflectionModel(MoodData.Indicative, TenseData.Aorist, VoiceData.Middle), ++ sortOrder }
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Middle, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Imperfect, VoiceData.Passive, MoodData.Indicative), ++ sortOrder },
+                    { new VerbInflectionModel(TenseData.Aorist, VoiceData.Middle, MoodData.Indicative), ++ sortOrder }
                 };
 
                 return m_endingSortOrders;

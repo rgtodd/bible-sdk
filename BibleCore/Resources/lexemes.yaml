@@ -1804,7 +1804,7 @@
     gloss: "I ask, request, beg, petition"
     mounce-morphcat: "v-1d(2a)"
     root: "*αἰτε"
-    verbs: αἰτήσω, ᾔτησα, ῃ[τηκα, ᾔτημαι, -
+    verbs: αἰτήσω, ᾔτησα, ᾔτηκα, ᾔτημαι, -
 αἴτημα:
     pos: N
     full-citation-form: "αἴτημα, ατος, τό"
@@ -7020,7 +7020,7 @@
     dodson-pos: "V"
     gloss: "I put to death, kill"
     mounce-morphcat: "cv-2d(5)"
-    root: "ἀπό + *κτείν/*κτεν Liq P3"
+    root: "ἀπό + *κτενν/*κτεν/*κτείν/-/-/*κτεν Liq P3"
     verbs: "ἀποκτενῶ (liq), ἀπέκτεινα (liq), -, -, ἀπεκτάνθην (ablaut)"
 ἀποκυέω:
     pos: V
@@ -13403,7 +13403,7 @@
     dodson-pos: "V"
     gloss: "I point out, show"
     mounce-morphcat: "v-3c(2)"
-    root: "*δεικνυ-μι/*δεικ"
+    root: "*δεικνυ/*δεικ"
     verbs: "δείξω, ἔδειξα, δέδειχα, δέδειγμαι, ἐδείχθην"
 δειλία:
     pos: N
@@ -36289,7 +36289,7 @@
     dodson-pos: "V"
     gloss: "I am about to"
     mounce-morphcat: "v-1d(2c)"
-    root: "*μελλε Liq"
+    root: "*μελλ/*μελλε Liq"
     verbs: "(ἔμελλον / ἤμελλον), μελλήσω, -, -, -, -"
 μέλος:
     pos: N

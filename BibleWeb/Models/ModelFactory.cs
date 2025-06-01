@@ -148,7 +148,7 @@ namespace BibleWeb.Models
                 return;
             }
 
-            var key = new VerbInflectionModel(inflection.Mood.Value, inflection.Tense.Value, inflection.Voice.Value);
+            var key = new VerbInflectionModel(inflection.Tense.Value, inflection.Voice.Value, inflection.Mood.Value);
             if (anchor != null && key.Anchor != anchor)
             {
                 return;
@@ -342,7 +342,7 @@ namespace BibleWeb.Models
 
                     currentInflection = new VerbTenseModel()
                     {
-                        Inflection = new VerbInflectionModel(currentMood, currentTense, currentVoice),
+                        Inflection = new VerbInflectionModel(currentTense, currentVoice, currentMood),
                         FirstPersonSingular = [],
                         SecondPersonSingular = [],
                         ThirdPersonSingular = [],
